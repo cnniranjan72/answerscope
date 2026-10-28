@@ -1,0 +1,15 @@
+{
+ "response_id": "57210f17-4436-4356-9f0f-3f6434ef0a6d",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "654713d643e8f24a9a78c7a8fffa48cd52f15f4861caac7de8d172f7fed9fbbc",
+ "recorded_at": "2026-10-28T17:13:15+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 68493,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro —and similar specialized Perplexity SEO or AI Search Optimization strategies—can help an enterprise software brand increase its visibility, citations, and authority within Perplexity answers.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro —and similar specialized Perplexity SEO or AI Search Optimization strategies—can help an enterprise software brand increase its visibility, citations, and authority within Perplexity answers.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly confirms that Kasparro can help with the user's specific use case of increasing visibility in Perplexity answers, presenting it as a suitable solution.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

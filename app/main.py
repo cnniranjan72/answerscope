@@ -2,10 +2,11 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 
 from app.api.routes import router
 from app.config import Settings, load_settings
@@ -46,5 +47,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return _err(500, "internal_error", "unexpected server error")
 
     app.include_router(router)
+
+    @app.get("/", include_in_schema=False)
+    def console():
+        # Static review console; holds no data and calls the same token-protected API.
+        return FileResponse(Path(__file__).with_name("static") / "index.html")
+
     return app
 

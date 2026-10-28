@@ -1,0 +1,21 @@
+{
+ "response_id": "b40168e8-acf4-4430-b22d-8c484fab846f",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "03e73432a001d59ab1c0729aab19d2a24a63f6292fc775b404bb684eb806ed00",
+ "recorded_at": "2026-10-28T17:12:07+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Brand24'; competitor name not found in answer: 'Mention'",
+   "latency_ms": 97301,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro (Kasparro AI) positions itself as an AI visibility and optimization platform\",\n    \"guided by insights from tracking tools like Kasparro\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If a B2B SaaS company treats AI visibility as a holistic strategy involving third-party authority and structured data—guided by insights from tracking tools like Kasparro—they typically see measurable improvements in AI citations and high-converting referral traffic within 30 to 90 days.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"represented, recommended, or omitted by AI engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"represented, recommended, or omitted by AI engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"represented, recommended, or omitted by AI engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.\"\n    },\n    {\n      \"name\": \"Brand24\",\n      \"evidence\": \"mentions using tools like Brand24 or Mention.\"\n    },\n    {\n      \"name\": \"Mention\",\n      \"evidence\": \"mentions using tools like Brand24 or Mention.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and recommends it as a tool to provide insights for a holistic AI visibility strategy for B2B SaaS companies.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55605,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro (Kasparro AI) positions itself as an AI visibility and optimization platform\",\n    \"guided by insights from tracking tools like Kasparro\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If a B2B SaaS company treats AI visibility as a holistic strategy involving third-party authority and structured data—guided by insights from tracking tools like Kasparro—they typically see measurable improvements in AI citations and high-converting referral traffic within 30 to 90 days.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"represented, recommended, or omitted by AI engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"represented, recommended, or omitted by AI engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"represented, recommended, or omitted by AI engines like ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and recommends it as a tool to provide insights for a holistic AI visibility strategy for B2B SaaS companies.\"\n}"
+  }
+ ]
+}

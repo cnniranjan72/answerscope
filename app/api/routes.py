@@ -77,6 +77,14 @@ def create_analysis(body: AnalysisCreate, request: Request, actor: Identity = De
     return analysis.get_run(conn, analysis_id)
 
 
+@router.get("/analyses", tags=["analyses"])
+def list_analyses(_: Identity = Depends(current_identity), conn=Depends(db)):
+    rows = conn.execute("SELECT analysis_id, status, execution_mode, model, prompt_version, score_version, "
+                        "started_at, finished_at, counts_json FROM analysis_runs ORDER BY started_at DESC")
+    return {"analyses": [{**{k: r[k] for k in r.keys() if k != "counts_json"},
+                          "counts": json.loads(r["counts_json"] or "{}")} for r in rows]}
+
+
 @router.get("/analyses/{analysis_id}", tags=["analyses"], summary="Status, counts and aggregate scores")
 def get_analysis(analysis_id: str, _: Identity = Depends(current_identity), conn=Depends(db)):
     run = analysis.get_run(conn, analysis_id)
