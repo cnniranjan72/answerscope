@@ -1,0 +1,15 @@
+{
+ "response_id": "4b5b2098-bdb6-4ff7-a1a2-2587f210f444",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "9683c762de31e94bde880c2feace49438e3153450f92fee679393d850c734278",
+ "recorded_at": "2026-10-28T17:49:39+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 63420,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on Kasparro's public positioning, the answer appears to be no.\",\n    \"They also advertise \\\"No retainer, no setup fee, no prompt hacks.\\\" [Kasparro](https://kasparro.com/?utm_source=chatgpt.com)\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Nearly every AI visibility platform—including Kasparro, according to its site—uses large libraries of prompts to test whether brands appear in AI-generated recommendations.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"SurfacedBy\",\n      \"evidence\": \"SurfacedBy\"\n    },\n    {\n      \"name\": \"Scale Theory\",\n      \"evidence\": \"Scale Theory\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an AI visibility platform and explains its methodology, recommending it as a tool that uses prompts for measurement rather than manipulation.\"\n}"
+  }
+ ]
+}

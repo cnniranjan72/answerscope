@@ -1,0 +1,21 @@
+{
+ "response_id": "71ec5309-af52-4071-af21-bd282ce41cce",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "67a9080863f4d7972cd4ef6dc8428c759780fadae7226c972c94ad3acdd846a7",
+ "recorded_at": "2026-10-28T17:47:04+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "recommended: quote not found in answer: 'Choose Kasparro if you primarily want: An executive-level assessment of AI readi'",
+   "latency_ms": 70133,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro emphasizes a diagnostic audit that scores your brand's readiness for AI search and agentic commerce, then provides a prioritized playbook.\",\n    \"Kasparro organizes its audit around four scoring modules:\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose Kasparro if you primarily want: An executive-level assessment of AI readiness\",\n    \"If the immediate goal is to diagnose AI discoverability and prioritize improvements, Kasparro's audit-first approach is more narrowly focused.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI is a broader monitoring and optimization platform designed for continuous tracking, reporting, and ongoing GEO (Generative Engine Optimization).\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a suitable choice for users seeking a diagnostic audit and readiness scoring, while contrasting it with Otterly AI's continuous monitoring capabilities.\",\n  \"kasparro_list_position\": null\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 52430,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro emphasizes a diagnostic audit that scores your brand's readiness for AI search and agentic commerce, then provides a prioritized playbook.\",\n    \"Kasparro organizes its audit around four scoring modules:\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose Kasparro if you primarily want:\",\n    \"If the immediate goal is to diagnose AI discoverability and prioritize improvements, Kasparro's audit-first approach is more narrowly focused.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI is a broader monitoring and optimization platform designed for continuous tracking, reporting, and ongoing GEO (Generative Engine Optimization).\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a suitable choice for users seeking a diagnostic audit and readiness scoring, while contrasting it with Otterly AI's continuous monitoring capabilities.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "6b68f8f8-5ecd-466c-9664-801227a9167c",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "628aa2ed344eff87b62889c6c18ed7e95264143080cf84de40440f2ff1326ae5",
+ "recorded_at": "2026-10-28T17:47:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 44748,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's audit system\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The AI engine explicitly states it cannot provide information or comparisons regarding Kasparro, resulting in no recommendation or characterization.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

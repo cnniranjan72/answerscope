@@ -119,3 +119,7 @@ To freeze after your decisions: edit `AUDIT` in `evaluation/audit_labels.py`, re
 | D-MISATTR (H06) | **Pending:** candidate is checking revenuepulseai.com; the finding will be recorded as a separate, dated observation | labels stay `labels-v2-proposed` until resolved |
 
 The labels are **not frozen** yet. The final holdout evaluation runs only after H06 is resolved and `labels_v2.jsonl` is written.
+
+## 9. Exposure log (after the audit)
+
+* 28 Oct 2026 23:16: a live-run health check printed failure reasons and exposed one holdout prediction. **H11** (`90b3eb79…`) failed validation after 3 attempts. The model claimed `recommended` with a quote that crosses a markdown list bullet ("I can: Detail…" vs source "I can:\n\n- Detail…"). The H11 labels were already set in v1/v2 and are not changed because of this. The matcher defect it reveals (candidate F5) is pending candidate decision, because fixing it would change a holdout outcome after it was seen.

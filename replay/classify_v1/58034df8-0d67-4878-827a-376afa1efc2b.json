@@ -1,0 +1,15 @@
+{
+ "response_id": "58034df8-0d67-4878-827a-376afa1efc2b",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "011105a4d7ecb1ad8a9a7734822ac0465737d4737c38bf6a8efca197464c64d4",
+ "recorded_at": "2026-10-28T17:48:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 47589,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there is no direct evidence indicating that \\\"Kasparro \\\" (a specific entity) relies on prompt hacks or tricks to boost visibility.\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but states there is no direct evidence regarding its specific methods, and it does not recommend the service or list competitors.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}
