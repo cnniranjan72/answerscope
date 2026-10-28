@@ -1,0 +1,15 @@
+{
+ "response_id": "95a7db89-bcd6-49fa-bd03-ab098605fcc1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "57e829b07a2cb468fd541da82024c318219bbc4bf1a15b67ffa3c6b0fb373ff5",
+ "recorded_at": "2026-10-28T17:54:13+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 65338,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"No, Kasparro (an AI visibility and brand intelligence platform) is not missing major AI search engines like Gemini or Claude.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro actively monitors, audits, and measures brand representation across both Gemini and Claude\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"alongside other major AI engines like ChatGPT\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"alongside other major AI engines like ChatGPT, Perplexity\"\n    },\n    {\n      \"name\": \"Google AI Mode\",\n      \"evidence\": \"alongside other major AI engines like ChatGPT, Perplexity, and Google AI Mode.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and confirms it covers Gemini and Claude, presenting it as a functional platform for monitoring these engines.\"\n}"
+  }
+ ]
+}

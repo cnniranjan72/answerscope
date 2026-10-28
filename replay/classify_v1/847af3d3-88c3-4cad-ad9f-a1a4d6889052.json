@@ -1,0 +1,15 @@
+{
+ "response_id": "847af3d3-88c3-4cad-ad9f-a1a4d6889052",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "04afa533348aa501d0ce6fd911f8a25edc4873a2e0df4ad77fb1b90c595f672c",
+ "recorded_at": "2026-10-28T17:56:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 62821,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro appears to be a legitimate early-stage startup\",\n    \"I wouldn't label Kasparro as illegitimate based on the available information\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"it's also very new, so there isn't yet a long track record or large body of independent customer reviews.\",\n    \"I would also treat it as an emerging startup rather than an established market leader until it builds a stronger public track record.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a legitimate but very new startup, providing a balanced view that includes both reasons for legitimacy and reasons for caution due to its lack of track record.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

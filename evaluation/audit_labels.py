@@ -5,7 +5,7 @@ expected scores with the production code, and writes:
   evaluation/cases/labels_v2_proposed.jsonl   proposed revision (NOT used by default)
   evaluation/results/label_audit_table.md     generated per-case review table
 
-  python -m evaluation.audit_labels
+  python -m evaluation.audit_labels [--freeze]   # --freeze writes labels_v2.jsonl once nothing is pending
 
 Exits non-zero if any evidence excerpt does not map to the source or any expected score
 disagrees with vis-v1. All judgments below were drafted by the AI coding assistant and
@@ -28,6 +28,10 @@ from app.services.text import answer_body, brand_mention_offsets, locate  # noqa
 
 V1 = ROOT / "evaluation" / "cases" / "labels_v1.jsonl"
 V2 = ROOT / "evaluation" / "cases" / "labels_v2_proposed.jsonl"
+FROZEN = ROOT / "evaluation" / "cases" / "labels_v2.jsonl"
+# Cases whose outcome was affected by a validator change made after one of their model
+# outputs was seen; final metrics are also reported without them.
+SENSITIVITY_EXCLUDE = {"H11": "F5 matcher fix made after H11's failure reason (and claimed label) was seen"}
 TABLE = ROOT / "evaluation" / "results" / "label_audit_table.md"
 LABELS = ["mentioned", "recommended", "negative", "entity_confusion"]
 
@@ -106,7 +110,8 @@ ADJUDICATION = {
     "D-CONF-NEG": {"decision": "accepted: misidentified-entity statements are not negative (R-I2)", "date": "2026-10-28"},
     "D-NEG": {"decision": "accepted: keep evidence/visibility doubts framed as caution as negative, marked ambiguous",
               "date": "2026-10-28"},
-    "D-MISATTR": None,  # pending: candidate is checking revenuepulseai.com as a separate dated observation
+    "D-MISATTR": {"decision": "accepted: H06 entity_confusion = true (product misattribution, rubric C3)",
+                  "date": "2026-10-28", "basis": "manual check MC-01, evaluation/observations/2026-10-28_revenuepulseai.md"},
     "VIS-V2": {"decision": "keep vis-v1; note confused-mention score (20 > absent 0) as a limitation", "date": "2026-10-28"},
 }
 
@@ -134,6 +139,7 @@ def load_pack():
 
 
 def main() -> int:
+    freeze = "--freeze" in sys.argv
     responses, prompts, cites = load_pack()
     v1 = [json.loads(l) for l in V1.read_text(encoding="utf-8").splitlines() if l.strip()]
     errors, rows, out = [], [], []
@@ -191,7 +197,8 @@ def main() -> int:
                          "design_exposure": DESIGN_EXPOSURE.get(c["case_id"])
                          or (BRANDED_FIRST_SENTENCE_SEEN if c["split"] == "holdout" and c["prompt_id"].split(":")[-1] <= "025"
                              and new["expected"]["mentioned"] else None),
-                         "labeller": "AI coding assistant (Claude Code); candidate adjudication pending"}
+                         "labeller": "AI coding assistant (Claude Code); candidate adjudication pending",
+                         "sensitivity_exclude": SENSITIVITY_EXCLUDE.get(c["case_id"])}
         out.append(new)
 
         fmt = lambda e: "".join(k[0].upper() if e[k] else "·" for k in LABELS)  # noqa: E731
@@ -214,6 +221,19 @@ def main() -> int:
         "| Case | Split | Prompt | Labels | Score | Refers to intended Kasparro? | Recommendation evidence | Negative vs evidence gap | "
         "Competitors | 1st-party cited | Position | Evidence spans [start:end] | Confidence | Status |\n"
         "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n" + "\n".join(rows) + "\n", encoding="utf-8")
+    if freeze:
+        pending = [x["case_id"] for x in out if x["review"]["status"] == "needs_adjudication"]
+        if pending:
+            print(f"cannot freeze: adjudication pending for {pending}")
+            return 1
+        frozen = copy.deepcopy(out)
+        for x in frozen:
+            x["label_version"] = "labels-v2"
+            x["review"]["labeller"] = ("drafted by AI coding assistant (Claude Code); disputed cases adjudicated by "
+                                      "the candidate on 2026-10-28; not independently double-annotated")
+            x["review"]["frozen_at"] = "2026-10-28"
+        FROZEN.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in frozen), encoding="utf-8")
+        print(f"froze {len(frozen)} cases to {FROZEN}")
     changed = sum(1 for a, b in zip(v1, out) if a["expected"] != b["expected"])
     print(f"audit OK: {len(out)} cases, {changed} with proposed label changes, "
           f"{sum(1 for x in out if x['review']['status'] == 'needs_adjudication')} need adjudication")

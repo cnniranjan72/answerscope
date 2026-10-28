@@ -1,0 +1,15 @@
+{
+ "response_id": "f3b89676-4b0a-4343-a080-2fea2a3508cf",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "97101c2ca52b5d3576ff765f4ec06ccfe297fc12f57034909120fc468f93e238",
+ "recorded_at": "2026-10-28T18:13:09+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 76662,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is an AI-native brand intelligence and SEO platform\",\n    \"When considering whether using platforms or tools like Kasparro poses a risk\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro is an AI-native brand intelligence and SEO platform that audits and measures how brands are represented across major generative AI engines\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Platforms built around AI brand intelligence occupy a gray area depending on their technical architecture\",\n    \"If an analytics or SEO tool relies on unauthorized headless browsers or unauthenticated automated scripts to bombard LLM chat interfaces en masse, it frequently triggers anti-abuse protections and can risk ToS violations\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"ChatGPT\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"Claude\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"Gemini\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"Perplexity\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as a brand intelligence and SEO platform and recommends it as a tool for auditing AI visibility. However, it includes a negative characterization by stating that such tools occupy a 'gray area' regarding Terms of Service compliance depending on their technical architecture.\"\n}"
+  }
+ ]
+}

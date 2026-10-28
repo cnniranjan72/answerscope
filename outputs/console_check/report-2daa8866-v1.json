@@ -1,0 +1,1868 @@
+{
+ "export_format": "answerscope-report-export-v1",
+ "report_id": "2daa8866-a04a-4126-bd73-576f1ee6af8d",
+ "version": 1,
+ "content_sha256": "261053162ded5f6703c354f098957286b12b8707b6fbfcca31e7abdba1080e59",
+ "is_latest_version": true,
+ "superseded_by_version": null,
+ "approval": {
+  "decision": "approved",
+  "reviewer": "reviewer",
+  "comment": "Test-comment",
+  "decided_at": "2026-10-28T18:03:55+00:00"
+ },
+ "exported_at": "2026-10-28T18:04:12+00:00",
+ "content": {
+  "analyst_notes": "",
+  "diagnostics": [
+   {
+    "evidence": [
+     {
+      "quote": "- **[Scrunch AI](https://www.leadwalnut.com/blog/chatgpt-seo) & Semrush's AI Toolkit:** Used for automating share-of-voice tracking in AI tools.",
+      "response_id": "50ea9a06-36e5-4c74-a6b6-25d981eec70a",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:026",
+      "question": "how do B2B SaaS brands track if chatgpt is recommending their software?",
+      "location": {
+       "field": "answer_text",
+       "start": 3057,
+       "end": 3201
+      }
+     },
+     {
+      "quote": "- **Peec AI:** Focuses on tracking how AI assistants mention brands and which sources they cite across ChatGPT, Google AI Mode, and Perplexity.",
+      "response_id": "4334ee7a-6315-4312-b0ca-0a58bcd6270c",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:027",
+      "question": "what software tools measure brand appearance across AI search engines?",
+      "location": {
+       "field": "answer_text",
+       "start": 1171,
+       "end": 1314
+      }
+     },
+     {
+      "quote": "| [Profound](https://www.tryprofound.com/) | Enterprise brands | AI share of voice, prompt monitoring, citations, competitor analysis |",
+      "response_id": "ee8878c5-69b1-41c4-82a0-13a83c237f2f",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:027",
+      "question": "what software tools measure brand appearance across AI search engines?",
+      "location": {
+       "field": "answer_text",
+       "start": 548,
+       "end": 683
+      }
+     },
+     {
+      "quote": "Semrush & Ahrefs:** Traditional SEO giants that have rolled out dedicated AI visibility toolkits and brand radar add-ons to measure how brands appear in AI search summaries alongside traditional keyword rankings.",
+      "response_id": "874f97b5-f122-4ac0-b53c-c35ddc82291d",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:027",
+      "question": "what software tools measure brand appearance across AI search engines?",
+      "location": {
+       "field": "answer_text",
+       "start": 3609,
+       "end": 3821
+      }
+     },
+     {
+      "quote": "To avoid manually querying ChatGPT every day, SaaS marketing teams use specialized tools (such as **HubSpot’s AEO features**, **Metricus**, **Brand24**, and emerging LLM tracking software) to automate the process.[metricusapp.com](https://metricusapp.com/blog/b2b-saas-invisible-chatgpt/#:~:text=AI%20visibility%20for%20B2B%20SaaS%20is%20the,article.%20The%20B2B%20buyer%20shift%20to%20AI%3B) These platforms:",
+      "response_id": "a6e9c6c4-1ac1-4f7f-bdc9-35ccca16ca7d",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:026",
+      "question": "how do B2B SaaS brands track if chatgpt is recommending their software?",
+      "location": {
+       "field": "answer_text",
+       "start": 633,
+       "end": 1042
+      }
+     },
+     {
+      "quote": "Monitor Brand Mentions:** Use tools like Otterly AI, Peec AI , or ZipTie to check if AI engines are correctly recommending your brand.",
+      "response_id": "af2462e6-b4a0-47b2-a540-a374b22e0d5f",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:030",
+      "question": "is tracking AI engine recommendations worth it for small software companies?",
+      "location": {
+       "field": "answer_text",
+       "start": 3416,
+       "end": 3550
+      }
+     }
+    ],
+    "how_to_test": "Check whether the hosts most cited in unbranded answers mention Kasparro at all (most cited, number of answers: reddit.com (20), linkedin.com (20), youtube.com (19), medium.com (13), arxiv.org (11), semrush.com (9)). If none do, the absence is consistent with the hypothesis; if several do and Kasparro is still omitted, look for another cause.",
+    "hypothesis": "Engines build category answers from third-party lists, reviews and comparison content; Kasparro may be absent from the sources engines retrieve for these questions. Recency may also matter: the archived homepage schema gives a 2026 foundingDate. This is a hypothesis, not established by the snapshot.",
+    "id": "D1",
+    "kind": "loss",
+    "metrics": {
+     "branded_mentioned": "72/75",
+     "pattern": "unbranded_gap",
+     "priority_score": 75,
+     "top_cited_hosts_unbranded": {
+      "arxiv.org": 11,
+      "instagram.com": 7,
+      "linkedin.com": 20,
+      "medium.com": 13,
+      "reddit.com": 20,
+      "semrush.com": 9,
+      "techradar.com": 7,
+      "youtube.com": 19
+     },
+     "top_competitors_unbranded": {
+      "ahrefs": 13,
+      "hubspot": 10,
+      "otterly": 8,
+      "otterly.ai": 7,
+      "peec ai": 18,
+      "profound": 17,
+      "se ranking": 6,
+      "semrush": 19
+     },
+     "unbranded_mentioned": "0/75"
+    },
+    "observation": "In unbranded questions (the asker does not name Kasparro), Kasparro was named in 0/75 successfully analysed answers (by engine: {'aimode': '0/25', 'chatgpt': '0/25', 'gemini': '0/25'}), versus 72/75 branded answers. Competitors named most often in unbranded answers (number of answers): Semrush (19), Peec AI (18), Profound (17), Ahrefs (13), HubSpot (10), Otterly (8).",
+    "priority": 1,
+    "title": "Kasparro is absent from unbranded discovery answers"
+   },
+   {
+    "evidence": [
+     {
+      "quote": "Based on my research, Kasparro is not a widely recognized, top-tier agency or tool in the AI visibility space (AISO - AI Search Optimization) for B2B SaaS according to public search results as of July 2026.",
+      "response_id": "a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:001",
+      "question": "does kasparro actually work for B2B SaaS companies trying to get recommended by chatgpt?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 206
+      }
+     },
+     {
+      "quote": "However, I couldn't find independent evidence showing that Kasparro consistently delivers measurable improvements for B2B SaaS companies specifically.",
+      "response_id": "ac5bdf24-6a6e-49a0-abf5-2755ff3b42bc",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:001",
+      "question": "does kasparro actually work for B2B SaaS companies trying to get recommended by chatgpt?",
+      "location": {
+       "field": "answer_text",
+       "start": 579,
+       "end": 729
+      }
+     },
+     {
+      "quote": "No, **Kasparro** (an AI visibility and brand intelligence platform) is **not missing** major AI search engines like Gemini or Claude.[v0.app",
+      "response_id": "95a7db89-bcd6-49fa-bd03-ab098605fcc1",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:010",
+      "question": "is kasparro missing any major ai search engines like Gemini or Claude?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 140
+      }
+     },
+     {
+      "quote": "Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot for tracking how Claude recommends B2B software, particularly for enterprises needing deep, data-driven insights.",
+      "response_id": "449f8530-b47a-411c-9bec-1b5b6e0552cb",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:003",
+      "question": "is kasparro better than profound for tracking how Claude recommends B2B software?",
+      "location": {
+       "field": "answer_text",
+       "start": 2,
+       "end": 210
+      }
+     },
+     {
+      "quote": "If your primary goal is **tracking how Claude recommends B2B software brands**, I would lean toward **Profound** over Kasparro.",
+      "response_id": "0f217f49-ee02-44ea-853d-61fbcc7a9895",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:003",
+      "question": "is kasparro better than profound for tracking how Claude recommends B2B software?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 127
+      }
+     },
+     {
+      "quote": "Based on the search results provided, there is no direct evidence indicating that \"Kasparro \" (a specific entity) relies on prompt hacks or tricks to boost visibility.",
+      "response_id": "58034df8-0d67-4878-827a-376afa1efc2b",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:009",
+      "question": "does kasparro rely on prompt hacks or prompt engineering tricks to boost visibility?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 167
+      }
+     }
+    ],
+    "how_to_test": "List the citations attached to the negative answers and classify each source as first-party, job listing, independent review, or unrelated. A low share of independent sources supports the hypothesis.",
+    "hypothesis": "Engines find few independent, verifiable sources about Kasparro (reviews, case studies, third-party coverage), so they hedge. Citations were not opened, so their support for these claims is unverified.",
+    "id": "D2",
+    "kind": "loss",
+    "metrics": {
+     "by_engine": {
+      "aimode": "8/25",
+      "chatgpt": "14/25",
+      "gemini": "1/25"
+     },
+     "negative": "23/75",
+     "pattern": "credibility_gap",
+     "priority_score": 18.4
+    },
+    "observation": "23/75 branded answers characterise Kasparro unfavourably (by engine: {'aimode': '8/25', 'chatgpt': '14/25', 'gemini': '1/25'}), typically citing no independent evidence, reviews or recognition, or comparing it unfavourably with a named competitor.",
+    "priority": 2,
+    "title": "Branded answers question Kasparro's track record and recognition"
+   },
+   {
+    "evidence": [
+     {
+      "quote": "However, the provided search results show a detailed cancellation guide for **Kaspr** (a similarly named sales tool) which may be helpful for context.",
+      "response_id": "7a570f6f-eea5-4aba-b499-711f7cd1a1ba",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:022",
+      "question": "how hard is it to cancel kasparro if we don't see results?",
+      "location": {
+       "field": "answer_text",
+       "start": 533,
+       "end": 683
+      }
+     },
+     {
+      "quote": "Assuming you mean **Kasparro** (the AI visibility/GEO platform, not Kaspr for sales prospecting), my answer is:",
+      "response_id": "c3b978b0-d181-4941-8d88-241cab857499",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:017",
+      "question": "is kasparro worth the money compared to peec ai?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 111
+      }
+     },
+     {
+      "quote": "Kasparro** (often searched or spelled similarly to *Kaspr*, a well-known LinkedIn contact-data finder) is a legitimate, early-stage B2B SaaS startup operating in the emerging **AI Visibility and Brand Intelligence** space (sometimes referred to as Generative Engine Optimization or GEO).[useoutly.com",
+      "response_id": "1fda2a12-a2df-4ab1-abd5-17b7746bc833",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:011",
+      "question": "is kasparro a legit platform for tracking ai recommendations?",
+      "location": {
+       "field": "answer_text",
+       "start": 2,
+       "end": 302
+      }
+     },
+     {
+      "quote": "If you mean **Kasparro** (the B2B SaaS growth/outbound agency, not Kaspr), I couldn't find reliable public pricing or enough verified information to judge whether it's objectively overpriced.",
+      "response_id": "1d2dc007-0757-480d-a086-6b6e2e13c463",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:018",
+      "question": "is kasparro overpriced for B2B SaaS startups?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 191
+      }
+     },
+     {
+      "quote": "Whether **Kaspr** delivers actual results or is just marketing hype depends heavily on **where you are prospecting** and **what you expect the tool to do**.",
+      "response_id": "5beb2a32-6c6c-42d8-861c-9fc9680b9930",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:014",
+      "question": "has anyone actually gotten results from kasparro or is it all hype?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 156
+      }
+     },
+     {
+      "quote": "If you're referring to **Kasparro** (rather than Kaspr), I couldn't verify that it has a standard pricing model or a policy that locks customers into expensive monthly retainers.",
+      "response_id": "953e6675-8bec-4fe1-b53a-2fbcc9df00de",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:019",
+      "question": "does kasparro lock you into expensive monthly retainers?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 178
+      }
+     }
+    ],
+    "how_to_test": "Re-run the branded prompts with the fuller name and domain ('Kasparro (kasparro.com)'). If confusion disappears, the problem is name ambiguity. Separately audit which pages engines cite when they confuse the name.",
+    "hypothesis": "The name is close to an established product (Kaspr), and the entity signals engines can retrieve for Kasparro may be weak. The archived homepage Organization schema (BRAND-SNAPSHOT-20260731) has no sameAs links to other profiles. Unverified as a cause.",
+    "id": "D3",
+    "kind": "risk",
+    "metrics": {
+     "by_engine": {
+      "aimode": "1/25",
+      "chatgpt": "5/25",
+      "gemini": "5/25"
+     },
+     "confused": "11/75",
+     "pattern": "entity_confusion",
+     "priority_score": 11
+    },
+    "observation": "11/75 branded answers confuse or misidentify Kasparro (by engine: {'aimode': '1/25', 'chatgpt': '5/25', 'gemini': '5/25'}). Some answers describe a different product instead of Kasparro.",
+    "priority": 3,
+    "title": "Engines confuse Kasparro with other entities (notably Kaspr)"
+   }
+  ],
+  "executive_summary": "150/150 archived answers were analysed successfully (0 failed, 0 skipped). Kasparro was named in 72/75 branded and 0/75 unbranded answers. This is one historical snapshot (India, English, one answer per prompt and engine), not a current ranking.",
+  "limitations": [
+   "One captured answer per prompt and engine: a snapshot, not a stable ranking.",
+   "Citation support is unverified: no cited page was opened.",
+   "Prompt categories are rule-based (cat-v1) and inferred from question wording.",
+   "Labels depend on one model run; see the evaluation report for measured agreement."
+  ],
+  "provenance": {
+   "analysis_id": "8e37e5eb-3c63-4ee0-82fe-2cf0bc362e3c",
+   "category_version": "cat-v1",
+   "citation_policy": "citation-v1",
+   "execution_mode": "stub",
+   "generated_at": "2026-10-28T18:02:39+00:00",
+   "historical_capture_date": "2026-07-31",
+   "model": "stub-baseline-v1",
+   "model_quality_note": "STUB: deterministic baseline output for engineering tests. Not evidence of model quality.",
+   "prompt_version": "classify-v1",
+   "report_generator": "report-v1",
+   "score_version": "vis-v1"
+  },
+  "remedies": [
+   {
+    "action": "Investigation first: for each of the most-cited hosts in unbranded answers, record whether Kasparro is listed, and whether a factual listing or comparison inclusion is possible through legitimate editorial routes. Do not create spam or undisclosed promotional content.",
+    "diagnostic_id": "D1",
+    "effort": "medium",
+    "effort_detail": "About 1-2 analyst days for the source audit; outreach effort unknown.",
+    "evidence": [
+     {
+      "quote": "- **[Scrunch AI](https://www.leadwalnut.com/blog/chatgpt-seo) & Semrush's AI Toolkit:** Used for automating share-of-voice tracking in AI tools.",
+      "response_id": "50ea9a06-36e5-4c74-a6b6-25d981eec70a",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:026",
+      "question": "how do B2B SaaS brands track if chatgpt is recommending their software?",
+      "location": {
+       "field": "answer_text",
+       "start": 3057,
+       "end": 3201
+      }
+     },
+     {
+      "quote": "- **Peec AI:** Focuses on tracking how AI assistants mention brands and which sources they cite across ChatGPT, Google AI Mode, and Perplexity.",
+      "response_id": "4334ee7a-6315-4312-b0ca-0a58bcd6270c",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:027",
+      "question": "what software tools measure brand appearance across AI search engines?",
+      "location": {
+       "field": "answer_text",
+       "start": 1171,
+       "end": 1314
+      }
+     },
+     {
+      "quote": "| [Profound](https://www.tryprofound.com/) | Enterprise brands | AI share of voice, prompt monitoring, citations, competitor analysis |",
+      "response_id": "ee8878c5-69b1-41c4-82a0-13a83c237f2f",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:027",
+      "question": "what software tools measure brand appearance across AI search engines?",
+      "location": {
+       "field": "answer_text",
+       "start": 548,
+       "end": 683
+      }
+     }
+    ],
+    "expected_benefit": "Identifies whether the discovery gap has an addressable source-coverage cause before any spend. Inclusion is not guaranteed even if coverage improves.",
+    "id": "R1",
+    "priority": 1,
+    "problem": "Kasparro is absent from unbranded discovery answers. In unbranded questions (the asker does not name Kasparro), Kasparro was named in 0/75 successfully analysed answers (by engine: {'aimode': '0/25', 'chatgpt': '0/25', 'gemini': '0/25'}), versus 72/75 branded answers.",
+    "uncertainty": "High. One snapshot per prompt and engine; no causal evidence links source coverage to inclusion, and engines differ in retrieval.",
+    "validation": "Re-run the same unbranded prompts on the same three engines with the same settings (India, en). Primary metric: unbranded mention rate (baseline 0/75). Secondary: number of top-cited hosts that mention Kasparro. Use at least 3 repeated runs before claiming change."
+   },
+   {
+    "action": "Inventory which verifiable proof exists (methodology documentation, pricing pages, case studies with customer permission, independent reviews) and which is missing. Publish only claims that can be substantiated; do not invent outcomes.",
+    "diagnostic_id": "D2",
+    "effort": "high",
+    "effort_detail": "Weeks: depends on customer permissions and third-party coverage.",
+    "evidence": [
+     {
+      "quote": "Based on my research, Kasparro is not a widely recognized, top-tier agency or tool in the AI visibility space (AISO - AI Search Optimization) for B2B SaaS according to public search results as of July 2026.",
+      "response_id": "a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:001",
+      "question": "does kasparro actually work for B2B SaaS companies trying to get recommended by chatgpt?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 206
+      }
+     },
+     {
+      "quote": "However, I couldn't find independent evidence showing that Kasparro consistently delivers measurable improvements for B2B SaaS companies specifically.",
+      "response_id": "ac5bdf24-6a6e-49a0-abf5-2755ff3b42bc",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:001",
+      "question": "does kasparro actually work for B2B SaaS companies trying to get recommended by chatgpt?",
+      "location": {
+       "field": "answer_text",
+       "start": 579,
+       "end": 729
+      }
+     },
+     {
+      "quote": "No, **Kasparro** (an AI visibility and brand intelligence platform) is **not missing** major AI search engines like Gemini or Claude.[v0.app",
+      "response_id": "95a7db89-bcd6-49fa-bd03-ab098605fcc1",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:010",
+      "question": "is kasparro missing any major ai search engines like Gemini or Claude?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 140
+      }
+     }
+    ],
+    "expected_benefit": "Gives engines and buyers checkable sources, which may reduce 'no independent evidence' hedging. Recognition cannot be manufactured quickly.",
+    "id": "R2",
+    "priority": 2,
+    "problem": "Branded answers question Kasparro's track record and recognition. 23/75 branded answers characterise Kasparro unfavourably (by engine: {'aimode': '8/25', 'chatgpt': '14/25', 'gemini': '1/25'}), typically citing no independent evidence, reviews or recognition, or comparing it unfavourably with a named competitor..",
+    "uncertainty": "High. Negative framing may persist until independent coverage exists; citation support was not verified in this analysis.",
+    "validation": "Re-run the branded prompts; measure the negative-characterisation rate (baseline 23/75) and the share of answers citing independent sources, over at least 3 runs."
+   },
+   {
+    "action": "Audit entity signals: confirm that the brand name, one-line description and domain are consistent across owned pages and profiles, and evaluate adding schema.org sameAs links to official profiles in the Organization markup. Separately test the prompt-wording hypothesis described in the diagnostic.",
+    "diagnostic_id": "D3",
+    "effort": "low",
+    "effort_detail": "Hours for the audit and markup review; deployment is out of scope here.",
+    "evidence": [
+     {
+      "quote": "However, the provided search results show a detailed cancellation guide for **Kaspr** (a similarly named sales tool) which may be helpful for context.",
+      "response_id": "7a570f6f-eea5-4aba-b499-711f7cd1a1ba",
+      "engine": "aimode",
+      "prompt_id": "kasparro:ai_shortlisting:022",
+      "question": "how hard is it to cancel kasparro if we don't see results?",
+      "location": {
+       "field": "answer_text",
+       "start": 533,
+       "end": 683
+      }
+     },
+     {
+      "quote": "Assuming you mean **Kasparro** (the AI visibility/GEO platform, not Kaspr for sales prospecting), my answer is:",
+      "response_id": "c3b978b0-d181-4941-8d88-241cab857499",
+      "engine": "chatgpt",
+      "prompt_id": "kasparro:ai_shortlisting:017",
+      "question": "is kasparro worth the money compared to peec ai?",
+      "location": {
+       "field": "answer_text",
+       "start": 0,
+       "end": 111
+      }
+     },
+     {
+      "quote": "Kasparro** (often searched or spelled similarly to *Kaspr*, a well-known LinkedIn contact-data finder) is a legitimate, early-stage B2B SaaS startup operating in the emerging **AI Visibility and Brand Intelligence** space (sometimes referred to as Generative Engine Optimization or GEO).[useoutly.com",
+      "response_id": "1fda2a12-a2df-4ab1-abd5-17b7746bc833",
+      "engine": "gemini",
+      "prompt_id": "kasparro:ai_shortlisting:011",
+      "question": "is kasparro a legit platform for tracking ai recommendations?",
+      "location": {
+       "field": "answer_text",
+       "start": 2,
+       "end": 302
+      }
+     }
+    ],
+    "expected_benefit": "Less risk that buyers asking about Kasparro receive information about a different company (pricing, cancellation and self-serve answers were about Kaspr).",
+    "id": "R3",
+    "priority": 3,
+    "problem": "Engines confuse Kasparro with other entities (notably Kaspr). 11/75 branded answers confuse or misidentify Kasparro (by engine: {'aimode': '1/25', 'chatgpt': '5/25', 'gemini': '5/25'}).",
+    "uncertainty": "Medium-high. Google states no special schema is required for AI features, and markup alone does not guarantee disambiguation.",
+    "validation": "Re-run the branded prompts and measure the entity-confusion rate (baseline 11/75) per engine, over at least 3 runs."
+   }
+  ],
+  "schema_version": "report-v1",
+  "score_definition": {
+   "failed_or_skipped": "excluded from rates and means; reported as coverage",
+   "scale": "0-100, clamped",
+   "version": "vis-v1",
+   "weights": {
+    "entity_confusion": -20,
+    "first_party_citation": 20,
+    "inclusion": 40,
+    "negative": -30,
+    "recommendation": 40
+   }
+  },
+  "scorecard": {
+   "by_engine": {
+    "aimode": {
+     "coverage": {
+      "ci95": [
+       0.929,
+       1
+      ],
+      "count": 50,
+      "denominator": 50,
+      "rate": 1
+     },
+     "eligible": 50,
+     "entity_confusion": {
+      "ci95": [
+       0.004,
+       0.105
+      ],
+      "count": 1,
+      "denominator": 50,
+      "rate": 0.02
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.083,
+       0.285
+      ],
+      "count": 8,
+      "denominator": 50,
+      "rate": 0.16
+     },
+     "mean_score": 22.2,
+     "mentioned": {
+      "ci95": [
+       0.366,
+       0.634
+      ],
+      "count": 25,
+      "denominator": 50,
+      "rate": 0.5
+     },
+     "negative": {
+      "ci95": [
+       0.083,
+       0.285
+      ],
+      "count": 8,
+      "denominator": 50,
+      "rate": 0.16
+     },
+     "recommended": {
+      "ci95": [
+       0.043,
+       0.214
+      ],
+      "count": 5,
+      "denominator": 50,
+      "rate": 0.1
+     },
+     "skipped": 0,
+     "succeeded": 50
+    },
+    "chatgpt": {
+     "coverage": {
+      "ci95": [
+       0.929,
+       1
+      ],
+      "count": 50,
+      "denominator": 50,
+      "rate": 1
+     },
+     "eligible": 50,
+     "entity_confusion": {
+      "ci95": [
+       0.043,
+       0.214
+      ],
+      "count": 5,
+      "denominator": 50,
+      "rate": 0.1
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.056,
+       0.238
+      ],
+      "count": 6,
+      "denominator": 50,
+      "rate": 0.12
+     },
+     "mean_score": 15.8,
+     "mentioned": {
+      "ci95": [
+       0.366,
+       0.634
+      ],
+      "count": 25,
+      "denominator": 50,
+      "rate": 0.5
+     },
+     "negative": {
+      "ci95": [
+       0.175,
+       0.417
+      ],
+      "count": 14,
+      "denominator": 50,
+      "rate": 0.28
+     },
+     "recommended": {
+      "ci95": [
+       0.032,
+       0.188
+      ],
+      "count": 4,
+      "denominator": 50,
+      "rate": 0.08
+     },
+     "skipped": 0,
+     "succeeded": 50
+    },
+    "gemini": {
+     "coverage": {
+      "ci95": [
+       0.929,
+       1
+      ],
+      "count": 50,
+      "denominator": 50,
+      "rate": 1
+     },
+     "eligible": 50,
+     "entity_confusion": {
+      "ci95": [
+       0.043,
+       0.214
+      ],
+      "count": 5,
+      "denominator": 50,
+      "rate": 0.1
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.071
+      ],
+      "count": 0,
+      "denominator": 50,
+      "rate": 0
+     },
+     "mean_score": 23.4,
+     "mentioned": {
+      "ci95": [
+       0.312,
+       0.577
+      ],
+      "count": 22,
+      "denominator": 50,
+      "rate": 0.44
+     },
+     "negative": {
+      "ci95": [
+       0.004,
+       0.105
+      ],
+      "count": 1,
+      "denominator": 50,
+      "rate": 0.02
+     },
+     "recommended": {
+      "ci95": [
+       0.098,
+       0.308
+      ],
+      "count": 9,
+      "denominator": 50,
+      "rate": 0.18
+     },
+     "skipped": 0,
+     "succeeded": 50
+    }
+   },
+   "by_engine_segment": {
+    "aimode|branded": {
+     "coverage": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "eligible": 25,
+     "entity_confusion": {
+      "ci95": [
+       0.007,
+       0.195
+      ],
+      "count": 1,
+      "denominator": 25,
+      "rate": 0.04
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.172,
+       0.516
+      ],
+      "count": 8,
+      "denominator": 25,
+      "rate": 0.32
+     },
+     "mean_score": 44.4,
+     "mentioned": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "negative": {
+      "ci95": [
+       0.172,
+       0.516
+      ],
+      "count": 8,
+      "denominator": 25,
+      "rate": 0.32
+     },
+     "recommended": {
+      "ci95": [
+       0.089,
+       0.391
+      ],
+      "count": 5,
+      "denominator": 25,
+      "rate": 0.2
+     },
+     "skipped": 0,
+     "succeeded": 25
+    },
+    "aimode|unbranded": {
+     "coverage": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "eligible": 25,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 25
+    },
+    "chatgpt|branded": {
+     "coverage": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "eligible": 25,
+     "entity_confusion": {
+      "ci95": [
+       0.089,
+       0.391
+      ],
+      "count": 5,
+      "denominator": 25,
+      "rate": 0.2
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.115,
+       0.434
+      ],
+      "count": 6,
+      "denominator": 25,
+      "rate": 0.24
+     },
+     "mean_score": 31.6,
+     "mentioned": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "negative": {
+      "ci95": [
+       0.371,
+       0.733
+      ],
+      "count": 14,
+      "denominator": 25,
+      "rate": 0.56
+     },
+     "recommended": {
+      "ci95": [
+       0.064,
+       0.347
+      ],
+      "count": 4,
+      "denominator": 25,
+      "rate": 0.16
+     },
+     "skipped": 0,
+     "succeeded": 25
+    },
+    "chatgpt|unbranded": {
+     "coverage": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "eligible": 25,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 25
+    },
+    "gemini|branded": {
+     "coverage": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "eligible": 25,
+     "entity_confusion": {
+      "ci95": [
+       0.089,
+       0.391
+      ],
+      "count": 5,
+      "denominator": 25,
+      "rate": 0.2
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "mean_score": 46.8,
+     "mentioned": {
+      "ci95": [
+       0.7,
+       0.958
+      ],
+      "count": 22,
+      "denominator": 25,
+      "rate": 0.88
+     },
+     "negative": {
+      "ci95": [
+       0.007,
+       0.195
+      ],
+      "count": 1,
+      "denominator": 25,
+      "rate": 0.04
+     },
+     "recommended": {
+      "ci95": [
+       0.202,
+       0.555
+      ],
+      "count": 9,
+      "denominator": 25,
+      "rate": 0.36
+     },
+     "skipped": 0,
+     "succeeded": 25
+    },
+    "gemini|unbranded": {
+     "coverage": {
+      "ci95": [
+       0.867,
+       1
+      ],
+      "count": 25,
+      "denominator": 25,
+      "rate": 1
+     },
+     "eligible": 25,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.133
+      ],
+      "count": 0,
+      "denominator": 25,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 25
+    }
+   },
+   "by_segment": {
+    "branded": {
+     "coverage": {
+      "ci95": [
+       0.951,
+       1
+      ],
+      "count": 75,
+      "denominator": 75,
+      "rate": 1
+     },
+     "eligible": 75,
+     "entity_confusion": {
+      "ci95": [
+       0.084,
+       0.244
+      ],
+      "count": 11,
+      "denominator": 75,
+      "rate": 0.147
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.115,
+       0.289
+      ],
+      "count": 14,
+      "denominator": 75,
+      "rate": 0.187
+     },
+     "mean_score": 40.9,
+     "mentioned": {
+      "ci95": [
+       0.889,
+       0.986
+      ],
+      "count": 72,
+      "denominator": 75,
+      "rate": 0.96
+     },
+     "negative": {
+      "ci95": [
+       0.214,
+       0.418
+      ],
+      "count": 23,
+      "denominator": 75,
+      "rate": 0.307
+     },
+     "recommended": {
+      "ci95": [
+       0.158,
+       0.348
+      ],
+      "count": 18,
+      "denominator": 75,
+      "rate": 0.24
+     },
+     "skipped": 0,
+     "succeeded": 75
+    },
+    "unbranded": {
+     "coverage": {
+      "ci95": [
+       0.951,
+       1
+      ],
+      "count": 75,
+      "denominator": 75,
+      "rate": 1
+     },
+     "eligible": 75,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.049
+      ],
+      "count": 0,
+      "denominator": 75,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.049
+      ],
+      "count": 0,
+      "denominator": 75,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.049
+      ],
+      "count": 0,
+      "denominator": 75,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.049
+      ],
+      "count": 0,
+      "denominator": 75,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.049
+      ],
+      "count": 0,
+      "denominator": 75,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 75
+    }
+   },
+   "by_segment_topic": {
+    "branded|capability_fit": {
+     "coverage": {
+      "ci95": [
+       0.757,
+       1
+      ],
+      "count": 12,
+      "denominator": 12,
+      "rate": 1
+     },
+     "eligible": 12,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.243
+      ],
+      "count": 0,
+      "denominator": 12,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.047,
+       0.448
+      ],
+      "count": 2,
+      "denominator": 12,
+      "rate": 0.167
+     },
+     "mean_score": 53.3,
+     "mentioned": {
+      "ci95": [
+       0.757,
+       1
+      ],
+      "count": 12,
+      "denominator": 12,
+      "rate": 1
+     },
+     "negative": {
+      "ci95": [
+       0.138,
+       0.609
+      ],
+      "count": 4,
+      "denominator": 12,
+      "rate": 0.333
+     },
+     "recommended": {
+      "ci95": [
+       0.254,
+       0.746
+      ],
+      "count": 6,
+      "denominator": 12,
+      "rate": 0.5
+     },
+     "skipped": 0,
+     "succeeded": 12
+    },
+    "branded|comparison": {
+     "coverage": {
+      "ci95": [
+       0.824,
+       1
+      ],
+      "count": 18,
+      "denominator": 18,
+      "rate": 1
+     },
+     "eligible": 18,
+     "entity_confusion": {
+      "ci95": [
+       0.031,
+       0.328
+      ],
+      "count": 2,
+      "denominator": 18,
+      "rate": 0.111
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.09,
+       0.452
+      ],
+      "count": 4,
+      "denominator": 18,
+      "rate": 0.222
+     },
+     "mean_score": 46.7,
+     "mentioned": {
+      "ci95": [
+       0.824,
+       1
+      ],
+      "count": 18,
+      "denominator": 18,
+      "rate": 1
+     },
+     "negative": {
+      "ci95": [
+       0.09,
+       0.452
+      ],
+      "count": 4,
+      "denominator": 18,
+      "rate": 0.222
+     },
+     "recommended": {
+      "ci95": [
+       0.125,
+       0.509
+      ],
+      "count": 5,
+      "denominator": 18,
+      "rate": 0.278
+     },
+     "skipped": 0,
+     "succeeded": 18
+    },
+    "branded|onboarding_access": {
+     "coverage": {
+      "ci95": [
+       0.701,
+       1
+      ],
+      "count": 9,
+      "denominator": 9,
+      "rate": 1
+     },
+     "eligible": 9,
+     "entity_confusion": {
+      "ci95": [
+       0.063,
+       0.547
+      ],
+      "count": 2,
+      "denominator": 9,
+      "rate": 0.222
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.063,
+       0.547
+      ],
+      "count": 2,
+      "denominator": 9,
+      "rate": 0.222
+     },
+     "mean_score": 45.6,
+     "mentioned": {
+      "ci95": [
+       0.565,
+       0.98
+      ],
+      "count": 8,
+      "denominator": 9,
+      "rate": 0.889
+     },
+     "negative": {
+      "ci95": [
+       0.063,
+       0.547
+      ],
+      "count": 2,
+      "denominator": 9,
+      "rate": 0.222
+     },
+     "recommended": {
+      "ci95": [
+       0.121,
+       0.646
+      ],
+      "count": 3,
+      "denominator": 9,
+      "rate": 0.333
+     },
+     "skipped": 0,
+     "succeeded": 9
+    },
+    "branded|pricing_terms": {
+     "coverage": {
+      "ci95": [
+       0.757,
+       1
+      ],
+      "count": 12,
+      "denominator": 12,
+      "rate": 1
+     },
+     "eligible": 12,
+     "entity_confusion": {
+      "ci95": [
+       0.193,
+       0.68
+      ],
+      "count": 5,
+      "denominator": 12,
+      "rate": 0.417
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.015,
+       0.354
+      ],
+      "count": 1,
+      "denominator": 12,
+      "rate": 0.083
+     },
+     "mean_score": 27.5,
+     "mentioned": {
+      "ci95": [
+       0.646,
+       0.985
+      ],
+      "count": 11,
+      "denominator": 12,
+      "rate": 0.917
+     },
+     "negative": {
+      "ci95": [
+       0.138,
+       0.609
+      ],
+      "count": 4,
+      "denominator": 12,
+      "rate": 0.333
+     },
+     "recommended": {
+      "ci95": [
+       0.015,
+       0.354
+      ],
+      "count": 1,
+      "denominator": 12,
+      "rate": 0.083
+     },
+     "skipped": 0,
+     "succeeded": 12
+    },
+    "branded|trust_efficacy": {
+     "coverage": {
+      "ci95": [
+       0.862,
+       1
+      ],
+      "count": 24,
+      "denominator": 24,
+      "rate": 1
+     },
+     "eligible": 24,
+     "entity_confusion": {
+      "ci95": [
+       0.023,
+       0.258
+      ],
+      "count": 2,
+      "denominator": 24,
+      "rate": 0.083
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0.092,
+       0.405
+      ],
+      "count": 5,
+      "denominator": 24,
+      "rate": 0.208
+     },
+     "mean_score": 35.4,
+     "mentioned": {
+      "ci95": [
+       0.798,
+       0.993
+      ],
+      "count": 23,
+      "denominator": 24,
+      "rate": 0.958
+     },
+     "negative": {
+      "ci95": [
+       0.212,
+       0.573
+      ],
+      "count": 9,
+      "denominator": 24,
+      "rate": 0.375
+     },
+     "recommended": {
+      "ci95": [
+       0.043,
+       0.31
+      ],
+      "count": 3,
+      "denominator": 24,
+      "rate": 0.125
+     },
+     "skipped": 0,
+     "succeeded": 24
+    },
+    "unbranded|capability_fit": {
+     "coverage": {
+      "ci95": [
+       0.886,
+       1
+      ],
+      "count": 30,
+      "denominator": 30,
+      "rate": 1
+     },
+     "eligible": 30,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.114
+      ],
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.114
+      ],
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.114
+      ],
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.114
+      ],
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.114
+      ],
+      "count": 0,
+      "denominator": 30,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 30
+    },
+    "unbranded|comparison": {
+     "coverage": {
+      "ci95": [
+       0.61,
+       1
+      ],
+      "count": 6,
+      "denominator": 6,
+      "rate": 1
+     },
+     "eligible": 6,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.39
+      ],
+      "count": 0,
+      "denominator": 6,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.39
+      ],
+      "count": 0,
+      "denominator": 6,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.39
+      ],
+      "count": 0,
+      "denominator": 6,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.39
+      ],
+      "count": 0,
+      "denominator": 6,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.39
+      ],
+      "count": 0,
+      "denominator": 6,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 6
+    },
+    "unbranded|onboarding_access": {
+     "coverage": {
+      "ci95": [
+       0.701,
+       1
+      ],
+      "count": 9,
+      "denominator": 9,
+      "rate": 1
+     },
+     "eligible": 9,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.299
+      ],
+      "count": 0,
+      "denominator": 9,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.299
+      ],
+      "count": 0,
+      "denominator": 9,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.299
+      ],
+      "count": 0,
+      "denominator": 9,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.299
+      ],
+      "count": 0,
+      "denominator": 9,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.299
+      ],
+      "count": 0,
+      "denominator": 9,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 9
+    },
+    "unbranded|pricing_terms": {
+     "coverage": {
+      "ci95": [
+       0.796,
+       1
+      ],
+      "count": 15,
+      "denominator": 15,
+      "rate": 1
+     },
+     "eligible": 15,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 15
+    },
+    "unbranded|trust_efficacy": {
+     "coverage": {
+      "ci95": [
+       0.796,
+       1
+      ],
+      "count": 15,
+      "denominator": 15,
+      "rate": 1
+     },
+     "eligible": 15,
+     "entity_confusion": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "failed": 0,
+     "first_party_cited": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "mean_score": 0,
+     "mentioned": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "negative": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "recommended": {
+      "ci95": [
+       0,
+       0.204
+      ],
+      "count": 0,
+      "denominator": 15,
+      "rate": 0
+     },
+     "skipped": 0,
+     "succeeded": 15
+    }
+   },
+   "overall": {
+    "coverage": {
+     "ci95": [
+      0.975,
+      1
+     ],
+     "count": 150,
+     "denominator": 150,
+     "rate": 1
+    },
+    "eligible": 150,
+    "entity_confusion": {
+     "ci95": [
+      0.041,
+      0.127
+     ],
+     "count": 11,
+     "denominator": 150,
+     "rate": 0.073
+    },
+    "failed": 0,
+    "first_party_cited": {
+     "ci95": [
+      0.056,
+      0.151
+     ],
+     "count": 14,
+     "denominator": 150,
+     "rate": 0.093
+    },
+    "mean_score": 20.5,
+    "mentioned": {
+     "ci95": [
+      0.402,
+      0.559
+     ],
+     "count": 72,
+     "denominator": 150,
+     "rate": 0.48
+    },
+    "negative": {
+     "ci95": [
+      0.104,
+      0.22
+     ],
+     "count": 23,
+     "denominator": 150,
+     "rate": 0.153
+    },
+    "recommended": {
+     "ci95": [
+      0.077,
+      0.182
+     ],
+     "count": 18,
+     "denominator": 150,
+     "rate": 0.12
+    },
+    "skipped": 0,
+    "succeeded": 150
+   },
+   "paired_prompts": {
+    "engines": [
+     "aimode",
+     "chatgpt",
+     "gemini"
+    ],
+    "mention_patterns": {
+     "aimode+chatgpt": 3,
+     "aimode+chatgpt+gemini": 22,
+     "none": 25
+    },
+    "note": "Each prompt counted once by which engines mentioned Kasparro; prompts with any failed/skipped engine are excluded.",
+    "prompts_all_engines_succeeded": 50,
+    "prompts_total": 50
+   }
+  },
+  "title": "Kasparro AI visibility snapshot (captured 31 July 2026)"
+ }
+}

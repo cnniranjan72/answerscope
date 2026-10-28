@@ -1,0 +1,15 @@
+{
+ "response_id": "65d83d99-a531-4149-bdc6-5dff9284e6f4",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a0ff575ff427e557cb39df5459f4a0e27db8ec902e779a203e3c402985435342",
+ "recorded_at": "2026-10-28T18:04:15+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 95438,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro\",\n    \"Kasparro has an interesting positioning around \\\"AI inclusion\\\" and commerce-oriented optimization\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Very new (launched publicly in 2026)\",\n    \"Limited publicly available information\",\n    \"Very little independent discussion so far\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"I'd currently lean toward AthenaHQ\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"I can also compare AthenaHQ and Kasparro against other leading tools like Profound\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"I can also compare AthenaHQ and Kasparro against other leading tools like Profound, Peec AI\"\n    },\n    {\n      \"name\": \"Scrunch AI\",\n      \"evidence\": \"I can also compare AthenaHQ and Kasparro against other leading tools like Profound, Peec AI, Scrunch AI\"\n    },\n    {\n      \"name\": \"Goodie AI\",\n      \"evidence\": \"I can also compare AthenaHQ and Kasparro against other leading tools like Profound, Peec AI, Scrunch AI, Goodie AI\"\n    },\n    {\n      \"name\": \"Otterly\",\n      \"evidence\": \"I can also compare AthenaHQ and Kasparro against other leading tools like Profound, Peec AI, Scrunch AI, Goodie AI, and Otterly\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but characterizes it negatively as being 'very new' with 'limited' information and 'very little' independent discussion, ultimately recommending AthenaHQ as the more mature option for enterprise use.\"\n}"
+  }
+ ]
+}

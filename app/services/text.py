@@ -41,24 +41,29 @@ def brand_mention_offsets(body: str) -> list[int]:
 # '](url)' tail of a link. Both patterns also match when truncated at the end of an
 # excerpt, and '[' / ']' are dropped as characters, so a span cut anywhere from the
 # source still matches the source (regressions: F3 rendered link text, F4 partial links).
+# Line-start list markers ('- ', '* ', '+ ', '1. ', '2) ') are structure too: a quote that
+# runs across list items without them is the same visible text (regression: F5).
 _HIDDEN_RE = re.compile(r"\[(?:\[\d+\]|)\]\([^)\s]*\)?|\]\(https?://[^)\s]*\)?|\[\[\d*\]?\]?$")
+_LIST_MARKER_RE = re.compile(r"(?m)^[ \t]*(?:[-*+]|\d{1,2}[.)])[ \t]+")
 
 
-def _markdown_skip_mask(text: str) -> list[bool]:
+def _markdown_skip_mask(text: str, hide_list_markers: bool = False) -> list[bool]:
     skip = [False] * len(text)
-    for m in _HIDDEN_RE.finditer(text):
-        skip[m.start():m.end()] = [True] * (m.end() - m.start())
+    patterns = (_HIDDEN_RE, _LIST_MARKER_RE) if hide_list_markers else (_HIDDEN_RE,)
+    for pattern in patterns:
+        for m in pattern.finditer(text):
+            skip[m.start():m.end()] = [True] * (m.end() - m.start())
     return skip
 
 
-def _normalise_with_map(text: str) -> tuple[str, list[int]]:
+def _normalise_with_map(text: str, hide_list_markers: bool = False) -> tuple[str, list[int]]:
     """Lower-case, unify quotes/dashes, drop markdown emphasis characters and link syntax,
     and collapse whitespace, keeping a map from each normalised character to its source
     offset."""
     out: list[str] = []
     idx: list[int] = []
     prev_space = True
-    skip = _markdown_skip_mask(text)
+    skip = _markdown_skip_mask(text, hide_list_markers)
     for i, ch in enumerate(text):
         if skip[i]:
             continue
@@ -86,14 +91,17 @@ def normalise(text: str) -> str:
 def locate(excerpt: str, body: str) -> tuple[int, int] | None:
     """Return (start, end) source offsets of excerpt in body, tolerant only of markdown
     emphasis, quote/dash style and whitespace. Anything else must match exactly."""
-    needle = normalise(excerpt)
-    if len(needle) < 3:
-        return None
-    hay, idx = _normalise_with_map(body)
-    pos = hay.find(needle)
-    if pos == -1:
-        return None
-    return idx[pos], idx[pos + len(needle) - 1] + 1
+    # Two passes, so the F5 change only widens matching: first with list markers kept
+    # (all behaviour before F5), then with line-start list markers hidden on both sides.
+    for hide in (False, True):
+        needle = _normalise_with_map(excerpt, hide)[0].strip()
+        if len(needle) < 3:
+            return None
+        hay, idx = _normalise_with_map(body, hide)
+        pos = hay.find(needle)
+        if pos != -1:
+            return idx[pos], idx[pos + len(needle) - 1] + 1
+    return None
 
 
 def contains_name(name: str, body: str) -> bool:

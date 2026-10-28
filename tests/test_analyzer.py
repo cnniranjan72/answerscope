@@ -192,3 +192,13 @@ def test_regression_f4_any_visible_span_round_trips():
             quote = body[idx[i]:idx[j] + 1]
             if len(quote.strip()) >= 4:
                 assert locate(quote, body) is not None, quote
+
+
+def test_regression_f5_quote_across_list_items_matches():
+    """F5 (seen on holdout H11 in the live run): the model quoted 'I can: Detail the ...'
+    across a markdown bullet ('I can:\n\n- Detail'); the matcher rejected a faithful quote."""
+    body = "If you are considering this audit, I can:\n\n- Detail the **specific actions** you can take.\n1. Next step"
+    span = locate("If you are considering this audit, I can: Detail the specific actions", body)
+    assert span is not None and body[span[0]:span[1]].endswith("specific actions")
+    assert locate("you can take. Next step", body) is not None
+    assert locate("I can: - Detail", body) is not None  # quoting the bullet itself still matches

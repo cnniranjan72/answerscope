@@ -1,0 +1,15 @@
+{
+ "response_id": "ead5da6c-cd59-4bad-827e-49ae12f4e232",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "b49a6c7fc10f6ae19f6cff27dc7423a88a23d55a67d4290cf812c22be1b6e8c6",
+ "recorded_at": "2026-10-28T17:50:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56995,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"No, Kasparro does not rely on short-term \\\"prompt hacks\\\"\",\n    \"Kasparro operates as an AI-native SEO and Brand Intelligence platform\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro operates as an AI-native SEO and Brand Intelligence platform focused on Generative Engine Optimization (GEO) and systemic brand eligibility.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and recommends it as an AI-native SEO and Brand Intelligence platform for GEO, while clarifying that it avoids 'prompt hacks'.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

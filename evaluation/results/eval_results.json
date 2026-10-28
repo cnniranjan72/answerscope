@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-28T17:41:22+00:00",
- "label_version": "labels-v2-proposed",
+ "generated_at": "2026-10-28T18:13:10+00:00",
+ "label_version": "labels-v2",
  "prompt_version": "classify-v1",
  "score_version": "vis-v1",
  "baseline_version": "baseline-v1",
@@ -495,6 +495,252 @@
      "exact": 5,
      "mae": 0.0,
      "position_cases": 0,
+     "position_exact": 0
+    }
+   }
+  },
+  "final_sensitivity": {
+   "n_cases": 13,
+   "case_ids": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "H10",
+    "H12",
+    "S01",
+    "S02"
+   ],
+   "baseline": {
+    "counts": {
+     "eligible": 13,
+     "succeeded": 13,
+     "failed": 0,
+     "skipped": 0
+    },
+    "labels_strict": {
+     "mentioned": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 10,
+      "n": 13,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.923
+     },
+     "negative": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "tn": 9,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "agreement": 0.769
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "tn": 10,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.846
+     }
+    },
+    "labels_unambiguous": {
+     "mentioned": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 7,
+      "n": 10,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.9
+     },
+     "negative": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "tn": 8,
+      "n": 10,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "agreement": 0.8
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "tn": 10,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.846
+     }
+    },
+    "competitors": {
+     "tp": 14,
+     "fp": 0,
+     "fn": 2,
+     "precision": 1.0,
+     "recall": 0.875
+    },
+    "score": {
+     "n": 13,
+     "exact": 8,
+     "mae": 13.077,
+     "position_cases": 1,
+     "position_exact": 0
+    }
+   },
+   "model": {
+    "counts": {
+     "eligible": 13,
+     "succeeded": 13,
+     "failed": 0,
+     "skipped": 0
+    },
+    "labels_strict": {
+     "mentioned": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 10,
+      "n": 13,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.923
+     },
+     "negative": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "tn": 9,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "agreement": 0.769
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "tn": 10,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.846
+     }
+    },
+    "labels_unambiguous": {
+     "mentioned": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 7,
+      "n": 10,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.9
+     },
+     "negative": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "tn": 8,
+      "n": 10,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "agreement": 0.8
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 2,
+      "tn": 10,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.846
+     }
+    },
+    "competitors": {
+     "tp": 14,
+     "fp": 0,
+     "fn": 2,
+     "precision": 1.0,
+     "recall": 0.875
+    },
+    "score": {
+     "n": 13,
+     "exact": 8,
+     "mae": 13.077,
+     "position_cases": 1,
      "position_exact": 0
     }
    }

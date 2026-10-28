@@ -1,0 +1,27 @@
+{
+ "response_id": "861a9955-69ab-46ed-927c-fd336bc37893",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "2ac91570e11ff536f04d9f42a500620d1df3eceabaf8f52a672eb910552877a4",
+ "recorded_at": "2026-10-28T18:01:33+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "mentioned: quote not found in answer: 'Kasparro builds an AI Visibility platform'",
+   "latency_ms": 42801,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro specializes in AI visibility platforms\",\n    \"Kasparro builds an AI Visibility platform\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Publicly available enterprise user feedback specifically detailing an \\\"AI revenue diagnostic\\\" from Kasparro is currently limited\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro and describes its services, but it notes a lack of public enterprise feedback for the specific 'AI revenue diagnostic' tool, which serves as a negative characterization regarding its established public footprint.\",\n  \"kasparro_list_position\": null\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "mentioned: quote not found in answer: 'Kasparro builds an AI Visibility platform'",
+   "latency_ms": 38195,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro specializes in AI visibility platforms\",\n    \"Kasparro builds an AI Visibility platform\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Publicly available enterprise user feedback specifically detailing an \\\"AI revenue diagnostic\\\" from Kasparro is currently limited\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro and describes its services, but it notes a lack of public enterprise feedback for the specific 'AI revenue diagnostic' tool, which serves as a negative characterization regarding its established public footprint.\",\n  \"kasparro_list_position\": null\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "mentioned: quote not found in answer: 'Kasparro builds an AI Visibility platform'",
+   "latency_ms": 32766,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro specializes in AI visibility platforms\",\n    \"Kasparro builds an AI Visibility platform\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Publicly available enterprise user feedback specifically detailing an \\\"AI revenue diagnostic\\\" from Kasparro is currently limited\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro and describes its services, but it notes a lack of public enterprise feedback for the specific 'AI revenue diagnostic' tool, which serves as a negative characterization regarding its established public footprint.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

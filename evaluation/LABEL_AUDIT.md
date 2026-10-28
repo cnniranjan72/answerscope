@@ -116,9 +116,10 @@ To freeze after your decisions: edit `AUDIT` in `evaluation/audit_labels.py`, re
 | D-CONF-NEG (H01) | Accepted R-I2: statements about a misidentified entity are not negative toward Kasparro | H01 negative = false, score 20 |
 | D-NEG (H02, H03) | Accepted: evidence/visibility doubts framed as caution stay negative, marked ambiguous | metrics reported with and without |
 | Scoring | Keep vis-v1; confused mention (20) > absent (0) noted as a limitation for vis-v2 | no formula change |
-| D-MISATTR (H06) | **Pending:** candidate is checking revenuepulseai.com; the finding will be recorded as a separate, dated observation | labels stay `labels-v2-proposed` until resolved |
+| D-MISATTR (H06) | Accepted after manual check MC-01 ([observations/2026-10-28_revenuepulseai.md](observations/2026-10-28_revenuepulseai.md)): the cited site is Revenue Pulse / AKS Consulting, Ahmedabad, with no Kasparro mention (live site and the only Wayback capture, 4 Oct 2026) | H06 entity_confusion = true, score 20 |
+| F5 (H11) | Fix the matcher and report final metrics with and without H11 | `final_sensitivity` split in eval report |
 
-The labels are **not frozen** yet. The final holdout evaluation runs only after H06 is resolved and `labels_v2.jsonl` is written.
+**Frozen 28 Oct 2026** as `labels_v2.jsonl` (`python -m evaluation.audit_labels --freeze`). This is now the default for `run_eval`. `labels_v1.jsonl` is kept unchanged for history.
 
 ## 9. Exposure log (after the audit)
 

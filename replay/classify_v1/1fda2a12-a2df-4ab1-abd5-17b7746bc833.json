@@ -1,0 +1,15 @@
+{
+ "response_id": "1fda2a12-a2df-4ab1-abd5-17b7746bc833",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6ea64edf2632ca257ffb192a3224f782bf73d195f1bdf87511ef866d877669eb",
+ "recorded_at": "2026-10-28T17:57:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55596,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro (often searched or spelled similarly to Kaspr, a well-known LinkedIn contact-data finder) is a legitimate, early-stage B2B SaaS startup\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro focuses on how brands are represented, recommended, or omitted by conversational AI engines like ChatGPT, Claude, Gemini, and Perplexity.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a legitimate startup in the AI Visibility space and describes its core functionality as a solution for tracking brand representation in AI engines.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

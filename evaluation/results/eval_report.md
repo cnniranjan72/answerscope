@@ -1,6 +1,6 @@
 # Evaluation report
 
-Generated 2026-10-28T17:41:22+00:00 | labels `labels-v2-proposed` | prompt `classify-v1` | score `vis-v1` | baseline `baseline-v1`
+Generated 2026-10-28T18:13:10+00:00 | labels `labels-v2` | prompt `classify-v1` | score `vis-v1` | baseline `baseline-v1`
 
 **Model system:** provider `stub`, execution mode `stub`, model `stub-baseline-v1`.
 
@@ -45,6 +45,44 @@ Final check = holdout + synthetic cases (never used for prompt tuning). Tuning c
 |---|---|---|---|---|---|
 | baseline | 1.00 (tp 14, fp 0) | 0.88 (fn 2) | 9/14 | 12.14 | 0/1 |
 | model | 1.00 (tp 14, fp 0) | 0.88 (fn 2) | 9/14 | 12.14 | 0/1 |
+
+## Final_Sensitivity split (13 cases: H01, H02, H03, H04, H05, H06, H07, H08, H09, H10, H12, S01, S02)
+
+| System | Eligible | Succeeded | Failed | Skipped |
+|---|---|---|---|---|
+| baseline | 13 | 13 | 0 | 0 |
+| model | 13 | 13 | 0 | 0 |
+
+**Per-label metrics (all labels)**
+
+| Label | System | Positives | TP | FP | FN | TN | Precision | Recall | F1 | Agreement |
+|---|---|---|---|---|---|---|---|---|---|---|
+| mentioned | baseline | 10 | 10 | 0 | 0 | 3 | 1.00 | 1.00 | 1.00 | 1.00 |
+| mentioned | model | 10 | 10 | 0 | 0 | 3 | 1.00 | 1.00 | 1.00 | 1.00 |
+| recommended | baseline | 2 | 2 | 1 | 0 | 10 | 0.67 | 1.00 | 0.80 | 0.92 |
+| recommended | model | 2 | 2 | 1 | 0 | 10 | 0.67 | 1.00 | 0.80 | 0.92 |
+| negative | baseline | 4 | 1 | 0 | 3 | 9 | 1.00 | 0.25 | 0.40 | 0.77 |
+| negative | model | 4 | 1 | 0 | 3 | 9 | 1.00 | 0.25 | 0.40 | 0.77 |
+| entity_confusion | baseline | 3 | 1 | 0 | 2 | 10 | 1.00 | 0.33 | 0.50 | 0.85 |
+| entity_confusion | model | 3 | 1 | 0 | 2 | 10 | 1.00 | 0.33 | 0.50 | 0.85 |
+
+**Per-label metrics (ambiguous labels excluded)**
+
+| Label | System | Positives | TP | FP | FN | TN | Precision | Recall | F1 | Agreement |
+|---|---|---|---|---|---|---|---|---|---|---|
+| mentioned | baseline | 10 | 10 | 0 | 0 | 3 | 1.00 | 1.00 | 1.00 | 1.00 |
+| mentioned | model | 10 | 10 | 0 | 0 | 3 | 1.00 | 1.00 | 1.00 | 1.00 |
+| recommended | baseline | 2 | 2 | 1 | 0 | 7 | 0.67 | 1.00 | 0.80 | 0.90 |
+| recommended | model | 2 | 2 | 1 | 0 | 7 | 0.67 | 1.00 | 0.80 | 0.90 |
+| negative | baseline | 2 | 0 | 0 | 2 | 8 | n/a | 0.00 | 0.00 | 0.80 |
+| negative | model | 2 | 0 | 0 | 2 | 8 | n/a | 0.00 | 0.00 | 0.80 |
+| entity_confusion | baseline | 3 | 1 | 0 | 2 | 10 | 1.00 | 0.33 | 0.50 | 0.85 |
+| entity_confusion | model | 3 | 1 | 0 | 2 | 10 | 1.00 | 0.33 | 0.50 | 0.85 |
+
+| System | Competitor precision | Competitor recall | Score exact | Score MAE | Position exact |
+|---|---|---|---|---|---|
+| baseline | 1.00 (tp 14, fp 0) | 0.88 (fn 2) | 8/13 | 13.08 | 0/1 |
+| model | 1.00 (tp 14, fp 0) | 0.88 (fn 2) | 8/13 | 13.08 | 0/1 |
 
 ## Tuning split (5 cases: T01, T02, T03, T04, T05)
 

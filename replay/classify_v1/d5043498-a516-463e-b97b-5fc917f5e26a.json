@@ -1,0 +1,15 @@
+{
+ "response_id": "d5043498-a516-463e-b97b-5fc917f5e26a",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "31a033c82f6b8247e6a3e9adc33616074db2bf78d00b5042d90dcf9d3f2bc9a9",
+ "recorded_at": "2026-10-28T17:59:39+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 49059,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro has an online presence describing its AI visibility and brand engineering services\",\n    \"I couldn't find evidence of a substantial body of independent enterprise user reviews specifically about Kasparro's AI Revenue Diagnostic.\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"there doesn't appear to be enough independent feedback to establish a reliable consensus.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but explicitly states there is a lack of independent evidence or reviews to establish a consensus, which constitutes a negative characterization regarding its established track record.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "5492b420-7fa5-4de4-ab2c-6c4412e5b18d",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a7b3a9d6288e444a6e3feeaca8184a5de26121ef94969b23b8bcdd98290735a8",
+ "recorded_at": "2026-10-28T18:07:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 74739,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you mean Kasparro (the AI Revenue Engine for D2C brands)\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"there isn't much independent evidence yet that it's producing consistent, measurable results across a broad customer base.\",\n    \"The product appears to be relatively new, and there are very few independent case studies, reviews, or third-party analyses discussing outcomes.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"I can also compare Kasparro with alternatives (such as Profound, Goodie AI, AthenaHQ, or doing the work in-house)\"\n    },\n    {\n      \"name\": \"Goodie AI\",\n      \"evidence\": \"I can also compare Kasparro with alternatives (such as Profound, Goodie AI, AthenaHQ, or doing the work in-house)\"\n    },\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"I can also compare Kasparro with alternatives (such as Profound, Goodie AI, AthenaHQ, or doing the work in-house)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but characterizes it negatively by stating there is a lack of independent evidence or measurable results. It does not recommend it, but instead suggests asking for references and metrics before committing.\"\n}"
+  }
+ ]
+}

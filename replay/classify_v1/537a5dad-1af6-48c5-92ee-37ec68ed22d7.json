@@ -1,0 +1,15 @@
+{
+ "response_id": "537a5dad-1af6-48c5-92ee-37ec68ed22d7",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "f317d22e71b6fc3e0e6578a99b84f62c109b8c1abaf9188c1a6ffdbad4ce3e2d",
+ "recorded_at": "2026-10-28T18:06:26+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57478,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro appears to be a specialized AI-driven platform\",\n    \"According to a Kasparro Q1 2026 report\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro specifically targets the technical infrastructure (structured schema) that enables AI to find products, targeting measurable improvements in visibility rather than just automated content generation.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a specialized platform for D2C e-commerce optimization and highlights its specific technical focus on structured data for AI visibility, presenting it as a solution for measurable improvements.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

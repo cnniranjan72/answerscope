@@ -21,7 +21,10 @@ header h1 { font-size: 16px; margin: 0; letter-spacing: .2px; }
 header .sub { color: var(--muted); font-size: 12px; }
 header .spacer { flex: 1; }
 main { display: grid; grid-template-columns: 320px 1fr; gap: 16px; padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
-@media (max-width: 900px) { main { grid-template-columns: 1fr; padding: 12px 16px; } }
+main > * { min-width: 0; }
+@media (max-width: 900px) { main { grid-template-columns: minmax(0, 1fr); padding: 12px 16px; } }
+.mono, blockquote, dd, td, p, li, .chip { overflow-wrap: anywhere; }
+@media (max-width: 600px) { header { flex-wrap: wrap; padding: 10px 16px; } .chip { white-space: normal; } }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
 .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin: 0 0 10px; }
 .card h3 { font-size: 15px; margin: 0 0 6px; }
@@ -256,11 +259,15 @@ function scorecard(C) {
     el("td", { class: "num" }, rate(s.entity_confusion)), el("td", { class: "num" }, rate(s.first_party_cited)), el("td", { class: "num" }, s.mean_score ?? "–"), el("td", { class: "num" }, s.failed)));
   const o = sc.overall;
   return el("div", { class: "card" }, el("h2", {}, `Scorecard (${C.score_definition.version})`),
-    el("p", { class: "small muted" }, `Rates are count/succeeded. Coverage is succeeded/eligible. Overall: ${o.succeeded}/${o.eligible} succeeded, ${o.failed} failed, ${o.skipped} skipped. Weights: ${JSON.stringify(C.score_definition.weights)}.`),
+    el("p", { class: "small muted" }, `Rates are count/succeeded. Coverage is succeeded/eligible. Overall: ${o.succeeded}/${o.eligible} succeeded, ${o.failed} failed, ${o.skipped} skipped. Weights: ${Object.entries(C.score_definition.weights).map(([k, v]) => `${k} ${v > 0 ? "+" : ""}${v}`).join(", ")}.`),
     el("div", { class: "table-wrap" }, el("table", {}, el("tr", {}, ...head.map((h) => el("th", {}, h))), ...rows)));
 }
+// Display only: show the rendered text of a quote; the exact raw span stays in the
+// tooltip and in the export, which is what the server verifies.
+const rendered = (q) => q.replace(/\[(?:\[\d+\])?\]\([^)\s]*\)/g, "").replace(/\[([^\]]*)\]\([^)\s]*\)/g, "$1").replace(/\*\*|__/g, "");
 function evidenceList(ev) {
-  return el("div", {}, ...ev.map((e) => el("blockquote", {}, e.quote, el("div", { class: "small muted mono" }, `response ${e.response_id}`))));
+  return el("div", {}, ...ev.map((e) => el("blockquote", { title: "Exact source text: " + e.quote }, rendered(e.quote),
+    el("div", { class: "small muted mono" }, `response ${e.response_id}`))));
 }
 function diagCard(d) {
   return el("div", { style: "padding:10px 0;border-top:1px solid var(--line)" },

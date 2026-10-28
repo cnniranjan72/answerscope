@@ -1,0 +1,15 @@
+{
+ "response_id": "721ceff5-a4e3-439b-9b56-a8df34f6551b",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "59af6076d1f1c3e12948056983d22be77851724e013f67e4f989cb1250846718",
+ "recorded_at": "2026-10-28T17:55:50+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 97036,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro AI appears to be a legitimate, specialized startup\",\n    \"Kasparro helps brands manage their presence in AI-driven search/recommendation\",\n    \"Kasparro is a real, operational B2B startup in the AI-commerce space\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro AI appears to be a legitimate, specialized startup focused on \\\"AI Visibility\\\" and \\\"AI-mediated commerce\\\".\",\n    \"Kasparro is a real, operational B2B startup in the AI-commerce space, not a typical \\\"wrapper\\\" tool scam\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"It is a specialized, fast-moving, early-stage company rather than a massive, long-established SaaS platform.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"help brands measure and improve how often they are recommended within AI engines like ChatGPT\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"help brands measure and improve how often they are recommended within AI engines like ChatGPT, Claude\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"help brands measure and improve how often they are recommended within AI engines like ChatGPT, Claude, Gemini\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"help brands measure and improve how often they are recommended within AI engines like ChatGPT, Claude, Gemini, and Perplexity.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a legitimate startup for tracking AI recommendations and explicitly recommends it as a real operational tool rather than a scam, while noting its status as an early-stage company.\"\n}"
+  }
+ ]
+}

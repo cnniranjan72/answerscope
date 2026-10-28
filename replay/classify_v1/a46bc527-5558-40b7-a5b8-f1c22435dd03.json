@@ -1,0 +1,15 @@
+{
+ "response_id": "a46bc527-5558-40b7-a5b8-f1c22435dd03",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6a1e1b060abffd44af067a1c0765f6b74a7e7fdc24a9e3c9b760633bf9073cab",
+ "recorded_at": "2026-10-28T18:11:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60146,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're referring to the AI tool called Kasparro, I couldn't find a well-established service by that exact name\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't find a well-established service by that exact name, so I can't make a definitive statement about its practices.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but states it cannot find a well-established service by that name, effectively characterizing it as potentially non-existent or niche rather than recommending it.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

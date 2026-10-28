@@ -1,0 +1,15 @@
+{
+ "response_id": "05bdabb0-f779-42bd-9a31-f33b53274e32",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a455c6cb524f02c15a3613cace713ade6d95a0b81a9fbad61839930c9ce0104b",
+ "recorded_at": "2026-10-28T17:58:50+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 61462,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there are no specific, publicly available testimonials or reviews from enterprise users regarding Kasparro's AI revenue diagnostic tool.\",\n    \"However, based on the product description provided by Kasparro as of July 2026\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"there are no specific, publicly available testimonials or reviews from enterprise users regarding Kasparro's AI revenue diagnostic tool.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Clari\",\n      \"evidence\": \"General AI revenue tools mentioned in the search results (like Clari)?\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but explicitly states that there are no publicly available testimonials or reviews, which serves as a negative characterization regarding its established track record. It does not recommend the tool but describes its value proposition.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

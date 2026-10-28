@@ -36,7 +36,7 @@ from app.services.llm import OllamaProvider  # noqa: E402
 from app.services.reporting import build_draft, verify_content  # noqa: E402
 from app.services.text import answer_body  # noqa: E402
 
-CASES = ROOT / "evaluation" / "cases" / "labels_v1.jsonl"
+CASES = ROOT / "evaluation" / "cases" / "labels_v2.jsonl"  # frozen 2026-10-28; v1 kept for history
 OUT = ROOT / "evaluation" / "results"
 LABELS = ["mentioned", "recommended", "negative", "entity_confusion"]
 PATTERN_LABEL = {"entity_confusion": "entity_confusion", "credibility_gap": "negative", "branded_win": "recommended"}
@@ -233,7 +233,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m evaluation.run_eval")
     ap.add_argument("--provider", default="replay", choices=["replay", "ollama", "stub"])
     ap.add_argument("--record", action="store_true")
-    ap.add_argument("--labels", default=str(CASES), help="label file (default: labels_v1.jsonl)")
+    ap.add_argument("--labels", default=str(CASES), help="label file (default: frozen labels_v2.jsonl)")
     ap.add_argument("--report-provider", default="replay", choices=["replay", "stub", "skip"],
                     help="provider for the full-pack diagnostics check")
     args = ap.parse_args(argv)
@@ -248,6 +248,9 @@ def main(argv=None) -> int:
                "model": run_system("model", cases, pack, provider, record_dir, settings.model_max_attempts)}
     splits = {"final": [c for c in cases if c["split"] in ("holdout", "synthetic")],
               "tuning": [c for c in cases if c["split"] == "tuning"]}
+    excluded = [c["case_id"] for c in splits["final"] if (c.get("review") or {}).get("sensitivity_exclude")]
+    if excluded:  # sensitivity view: final split without cases affected by post-hoc validator changes
+        splits["final_sensitivity"] = [c for c in splits["final"] if c["case_id"] not in excluded]
     results = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "label_version": cases[0]["label_version"], "prompt_version": PROMPT_VERSION,
@@ -297,7 +300,7 @@ def render(res: dict, cases: list[dict]) -> str:
                   "code. This reproduces that run; it does not measure run-to-run variance."]
     lines += ["", "Final check = holdout + synthetic cases (never used for prompt tuning). Tuning cases are reported "
               "separately and should not be read as generalisation.", ""]
-    for split in ("final", "tuning"):
+    for split in [k for k in ("final", "final_sensitivity", "tuning") if k in res["splits"]]:
         s = res["splits"][split]
         lines += [f"## {split.title()} split ({s['n_cases']} cases: {', '.join(s['case_ids'])})", "",
                   "| System | Eligible | Succeeded | Failed | Skipped |", "|---|---|---|---|---|"]

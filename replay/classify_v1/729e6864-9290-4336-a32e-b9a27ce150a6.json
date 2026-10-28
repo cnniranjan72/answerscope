@@ -1,0 +1,15 @@
+{
+ "response_id": "729e6864-9290-4336-a32e-b9a27ce150a6",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "f4b7ee40b20c579daf8ce14e7bf0ed9fdd6a4f295d13198b0b383bc6618c0fbd",
+ "recorded_at": "2026-10-28T18:05:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 73644,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"When comparing Kasparro and AthenaHQ for AI brand tracking\",\n    \"Kasparro positions itself less as a passive enterprise dashboard and more as an active partner.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose Kasparro if you prefer a hands-on, boutique approach where tracking is directly tied to active implementation and human engineering support rather than purely self-serve software dashboards.\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"As a smaller, high-velocity boutique player, it lacks the massive Silicon Valley institutional backing (like YC) that AthenaHQ boasts, meaning public reviews and third-party validation are scarcer.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"When comparing Kasparro and AthenaHQ for AI brand tracking\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro and recommends it as a suitable choice for users seeking a hands-on, boutique approach. It also includes a negative characterization regarding its lack of institutional backing and scarcer third-party validation compared to its competitor.\"\n}"
+  }
+ ]
+}

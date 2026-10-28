@@ -12,13 +12,18 @@
 ## In progress
 * Live local-model run with recording (`var/live_run.log`): 22/150 at 23:16, about 75 s per call, ETA ≈ 02:30–03:00. If interrupted: `DATABASE_PATH=var/live.db python -m app.cli analyse --provider ollama --record --only-unrecorded`.
 
+## Done since last update (28 Oct, ~23:45)
+* H06 adjudicated after candidate manual check MC-01 → entity_confusion = true; labels frozen as `labels_v2.jsonl` (now the eval default).
+* F5 matcher fix (second-pass list-marker hiding) + regression test; H11 reported with and without (`final_sensitivity`).
+* Console verified: headless Chrome (Playwright) analyst/reviewer flows, plus the candidate's manual walkthrough on :8000. The export is filed in `outputs/console_check/` (stub; not the submission report).
+* 77 tests pass.
+
 ## Waiting on the candidate
-1. **H06 adjudication** (revenuepulseai.com check; record URL, date and finding as a separate observation).
-2. **F5 decision:** fix the matcher for quotes that skip markdown list bullets? It was seen on holdout H11 (LABEL_AUDIT.md §9).
-3. Review of `labels_v2_proposed.jsonl`, then freeze to `labels_v2.jsonl`.
-4. Personally review and approve or reject the final report in the console as the reviewer.
-5. Visual check of the console in a browser.
-6. Add own active time to TIME_LOG.md.
+1. Personally review and approve or reject the final (replay-based) report in the console as the reviewer.
+2. Add own active time to TIME_LOG.md.
+
+## Known console nit
+* At 390 px width the scorecard caption (score weights rendered as one JSON string) still forces horizontal page scroll (554 px). It is cosmetic; the fix was deferred by the candidate.
 
 ## Remaining (after the run and the freeze)
 1. Final analysis: `python -m app.cli analyse --provider replay` (main DB), then `python -m app.cli write-output <id>`.
