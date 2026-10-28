@@ -2,7 +2,7 @@
 
   python -m app.cli init-db
   python -m app.cli import-pack
-  python -m app.cli analyse [--provider replay|ollama|stub] [--record] [--ids id1,id2]
+  python -m app.cli analyse [--provider replay|ollama|stub] [--record] [--ids id1,id2] [--only-unrecorded]
   python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json]
 """
 from __future__ import annotations
@@ -34,6 +34,8 @@ def main(argv: list[str] | None = None) -> int:
     a.add_argument("--provider", choices=["replay", "ollama", "stub"])
     a.add_argument("--record", action="store_true", help="with --provider ollama: write replay recordings")
     a.add_argument("--ids", help="comma-separated response IDs (default: all)")
+    a.add_argument("--only-unrecorded", action="store_true",
+                   help="resume: analyse only responses without a replay recording (use with --record)")
     w = sub.add_parser("write-output")
     w.add_argument("analysis_id")
     w.add_argument("--out", default=str(ROOT / "outputs" / "analysis_output.json"))
@@ -52,6 +54,13 @@ def main(argv: list[str] | None = None) -> int:
         provider = analysis.build_provider(args.provider or s.provider, s)
         record_dir = s.replay_dir / PROMPT_VERSION.replace("-", "_") if args.record else None
         ids = args.ids.split(",") if args.ids else None
+        if args.only_unrecorded:
+            rec_dir = s.replay_dir / PROMPT_VERSION.replace("-", "_")
+            all_ids = ids or [r["response_id"] for r in conn.execute("SELECT response_id FROM responses")]
+            ids = [i for i in all_ids if not (rec_dir / f"{i}.json").exists()]
+            print(f"resume: {len(all_ids) - len(ids)} already recorded, {len(ids)} to analyse", file=sys.stderr)
+            if not ids:
+                return 0
 
         def progress(i, n, rid):
             print(f"[{i}/{n}] {rid}", file=sys.stderr, flush=True)
