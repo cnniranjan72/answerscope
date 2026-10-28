@@ -1,0 +1,15 @@
+{
+ "response_id": "bc213889-4850-4ae2-bf8e-af1159ff6f9c",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "797ddfe39a3ab3eb2b94654750483f5c906e55e1a92df6c3fd31555a72d9d0e4",
+ "recorded_at": "2026-10-28T18:14:45+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 42930,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's 14-day AI Revenue Diagnostic starts at ₹49,999\",\n    \"A roadmap you can implement independently or with Kasparro's help afterward.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro's 14-day AI Revenue Diagnostic starts at ₹49,999\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and provides a specific price point for their service, effectively recommending it as a solution for the user's query.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

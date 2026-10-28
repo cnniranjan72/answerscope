@@ -1,0 +1,15 @@
+{
+ "response_id": "b064461f-7855-477d-bded-95dbb6e9562c",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "41209ac1c0c46a0f8511d75fd9992d6467cd0852593dd06b19c8cdb8139fb4be",
+ "recorded_at": "2026-10-28T18:19:57+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 104512,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\",\n    \"Buy Kasparro if: Your main goal is outbound sales, cold emailing, or cold calling.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Buy Kasparro if: Your main goal is outbound sales, cold emailing, or cold calling.\",\n    \"Verdict: It is worth the money if you have a sales motion that requires direct contact data and you need a cost-effective alternative to heavyweights like ZoomInfo.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\",\n    \"Kasparro / Kaspr: A sales intelligence and B2B prospecting tool used to find phone numbers, emails, and LinkedIn contact data.\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\"\n    },\n    {\n      \"name\": \"ZoomInfo\",\n      \"evidence\": \"It is worth the money if you have a sales motion that requires direct contact data and you need a cost-effective alternative to heavyweights like ZoomInfo.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro but incorrectly identifies it as a sales prospecting tool (confusing it with 'Kaspr'). It recommends Kasparro specifically for users interested in outbound sales prospecting.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

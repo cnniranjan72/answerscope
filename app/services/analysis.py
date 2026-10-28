@@ -166,7 +166,28 @@ def get_run(conn: sqlite3.Connection, analysis_id: str) -> dict:
     d["config"] = json.loads(d.pop("config_json"))
     d["counts"] = json.loads(d.pop("counts_json") or "{}")
     d["model_quality_note"] = _quality_note(d["execution_mode"])
+    d["call_stats"] = call_stats(conn, analysis_id, d["execution_mode"])
     return d
+
+
+def call_stats(conn: sqlite3.Connection, analysis_id: str, mode: str) -> dict:
+    """Model calls, outcomes and time for this run (brief: record calls, time and cost).
+    In replay mode the latencies are lookup times; the original model latencies are
+    stored in the replay recordings."""
+    rows = conn.execute("SELECT outcome, COUNT(*) AS n, SUM(latency_ms) AS ms FROM model_calls "
+                        "WHERE analysis_id = ? GROUP BY outcome", (analysis_id,)).fetchall()
+    total_ms = sum(r["ms"] or 0 for r in rows)
+    calls = sum(r["n"] for r in rows)
+    return {
+        "calls": calls,
+        "by_outcome": {r["outcome"]: r["n"] for r in rows},
+        "total_call_seconds": round(total_ms / 1000, 1),
+        "mean_call_seconds": round(total_ms / 1000 / calls, 2) if calls else None,
+        "cost_usd": 0.0 if mode in ("local_model", "replay", "stub") else None,
+        "cost_note": {"local_model": "local Ollama model; no API charges (electricity/GPU time not costed)",
+                      "replay": "no model calls; replayed recordings",
+                      "stub": "no model calls; deterministic stub"}.get(mode, "not measured"),
+    }
 
 
 def _quality_note(mode: str) -> str:

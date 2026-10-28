@@ -6,7 +6,17 @@ A small FastAPI + SQLite backend that analyses the Kasparro assignment pack: 50 
 * **Deterministic code:** validation, citation counting, scoring, aggregation, diagnostics ranking, permissions and state transitions.
 * **Keyless replay:** the real local-model run is recorded under `replay/classify_v1/`. Replay re-validates those recorded outputs with current code, so the whole workflow runs without a model. Outputs and traces carry their execution mode (`local_model`, `replay`, `stub`).
 
-See [DECISION_NOTE.md](DECISION_NOTE.md) for the one-page rationale, [ARCHITECTURE.md](ARCHITECTURE.md) for the design, and [EVALUATION.md](EVALUATION.md) for evaluation method and results.
+## Reviewer reading guide (15 minutes)
+
+| Read | For |
+|---|---|
+| [DECISION_NOTE.md](DECISION_NOTE.md) | One page: scoring, design and review choices, top remedy, failure/fix, risks, AI assistance |
+| [outputs/analysis_output.json](outputs/analysis_output.json) and [outputs/approved_report_export.json](outputs/approved_report_export.json) | Scores, coverage, three diagnostics and three remedies; the reviewer-approved export |
+| [EVALUATION.md](EVALUATION.md) and [evaluation/results/eval_report.md](evaluation/results/eval_report.md) | Baseline vs model on labelled cases; evidence checks |
+| [evaluation/FAILURES.md](evaluation/FAILURES.md) | Five real failures, their diagnoses, fixes and regression tests |
+| [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export, edit-after-approval, step by step |
+
+Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md), [TESTING.md](TESTING.md), [evaluation/LABEL_AUDIT.md](evaluation/LABEL_AUDIT.md), [evaluation/RUBRIC.md](evaluation/RUBRIC.md). Planning records live in `claude-code/` and PROJECT.md / PROBLEM_STATEMENT.md / RESEARCH.md.
 
 ## Prerequisites
 

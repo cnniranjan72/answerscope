@@ -1,0 +1,15 @@
+{
+ "response_id": "d748ed0e-2cc5-4fc7-9a94-64811235a4c9",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "8fbf7970a166045c27c241c9dfd86a526adf7a64ac195aecc19fda77d8e3b7b3",
+ "recorded_at": "2026-10-28T18:15:26+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 40564,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is an AI visibility platform that audits and optimizes how brands are discovered and recommended by generative AI engines\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro is an AI visibility platform that audits and optimizes how brands are discovered and recommended by generative AI engines\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an AI visibility platform and provides pricing context for their software contracts, effectively recommending them as a solution for the user's query about AI diagnostics.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

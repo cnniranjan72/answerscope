@@ -1,0 +1,15 @@
+{
+ "response_id": "0701bd6b-a5c3-4999-9c2a-51145cab15df",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "bd0b1f4e7d3b281d456876ebe5b5b27ceda3603b50755dd7e05466da33d0c02b",
+ "recorded_at": "2026-10-28T18:16:42+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 76244,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"However, Peec AI has drawbacks that lead users to consider alternatives like Kasparro (if offering comprehensive, better-value features):\",\n    \"Choose a specialized alternative (like Kasparro or Okara) if you want better value for money\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose a specialized alternative (like Kasparro or Okara) if you want better value for money, combining tracking with automated content generation, actionable SEO recommendations, or lower entry costs.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI is currently a premium, specialized leader\"\n    },\n    {\n      \"name\": \"Okara AI\",\n      \"evidence\": \"Alternatives like Okara AI (approx. $99/mo) are considered better for actually improving Generative Engine Optimization (GEO)\"\n    },\n    {\n      \"name\": \"AirOps\",\n      \"evidence\": \"Other competitors like AirOps or Chosenly (approx. $400/mo) combine monitoring with content creation\"\n    },\n    {\n      \"name\": \"Chosenly\",\n      \"evidence\": \"Other competitors like AirOps or Chosenly (approx. $400/mo) combine monitoring with content creation\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly recommends Kasparro as a 'specialized alternative' for users seeking better value for money and integrated content generation compared to Peec AI.\"\n}"
+  }
+ ]
+}

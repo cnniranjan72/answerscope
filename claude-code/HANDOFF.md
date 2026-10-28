@@ -22,8 +22,8 @@
 1. Personally review and approve or reject the final (replay-based) report in the console as the reviewer.
 2. Add own active time to TIME_LOG.md.
 
-## Known console nit
-* At 390 px width the scorecard caption (score weights rendered as one JSON string) still forces horizontal page scroll (554 px). It is cosmetic; the fix was deferred by the candidate.
+* Mobile layout fixed: page width 390 px at a 390 px viewport (verified in headless Chrome).
+* Analysis runs now report call statistics (calls, outcomes, total/mean seconds, cost).
 
 ## Remaining (after the run and the freeze)
 1. Final analysis: `python -m app.cli analyse --provider replay` (main DB), then `python -m app.cli write-output <id>`.
