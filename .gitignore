@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+var/
+# Supplied private assignment pack: never committed
+assignment/
+*.zip

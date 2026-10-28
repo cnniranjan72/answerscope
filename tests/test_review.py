@@ -1,0 +1,196 @@
+"""Required: incorrect reviewer role; rejection blocks export; edit-after-approval needs a
+new review. Plus the end-to-end workflow, immutability and evidence checks."""
+import sqlite3
+
+import pytest
+
+from tests.conftest import A, R
+
+
+def latest(client, rid):
+    return client.get(f"/reports/{rid}", headers=A).json()
+
+
+def submit(client, rid, v):
+    return client.post(f"/reports/{rid}/submit", headers=A, json={"version": v})
+
+
+def decide(client, rid, v, decision="approve", headers=R, sha=None, comment="Checked evidence against sources."):
+    sha = sha or client.get(f"/reports/{rid}/versions/{v}", headers=A).json()["content_sha256"]
+    return client.post(f"/reports/{rid}/decision", headers=headers,
+                       json={"version": v, "decision": decision, "comment": comment, "content_sha256": sha})
+
+
+def test_end_to_end_import_analyse_edit_submit_approve_export(client, report):
+    rid = report["report_id"]
+    assert report["latest_status"] == "draft" and report["evidence_problems"] == []
+    content = report["latest"]["content"]
+    assert len(content["diagnostics"]) == 3 and len(content["remedies"]) == 3
+    assert content["provenance"]["execution_mode"] == "stub"
+
+    r = client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "executive_summary": "Edited by analyst."})
+    assert r.status_code == 200 and r.json()["version"] == 1 and not r.json()["new_version_created"]
+    assert submit(client, rid, 1).status_code == 200
+    r = decide(client, rid, 1)
+    assert r.status_code == 200 and r.json()["latest_status"] == "approved"
+    dec = r.json()["decisions"][0]
+    assert (dec["actor"], dec["actor_role"], dec["version"], dec["decision"]) == ("rita-reviewer", "reviewer", 1, "approved")
+    assert dec["comment"] and dec["decided_at"] and len(dec["content_sha256"]) == 64
+
+    ex = client.get(f"/reports/{rid}/export", headers=A)
+    assert ex.status_code == 200
+    body = ex.json()
+    assert body["version"] == 1 and body["is_latest_version"] and body["approval"]["reviewer"] == "rita-reviewer"
+    assert body["content"]["executive_summary"] == "Edited by analyst."
+    ev = body["content"]["diagnostics"][0]["evidence"][0]
+    assert ev["location"]["start"] < ev["location"]["end"] and ev["engine"] in {"aimode", "chatgpt", "gemini"}
+
+
+def test_wrong_role_denied(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    r = decide(client, rid, 1, headers=A)  # analyst tries to approve
+    assert r.status_code == 403 and r.json()["error"]["code"] == "forbidden"
+    assert client.patch(f"/reports/{rid}", headers=R, json={"base_version": 1, "title": "Reviewer edit"}).status_code == 403
+    assert client.post("/analyses", headers=R, json={}).status_code == 403
+    assert latest(client, rid)["latest_status"] == "submitted"  # nothing changed
+
+
+def test_caller_supplied_identity_is_not_authorisation(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    sha = client.get(f"/reports/{rid}/versions/1", headers=A).json()["content_sha256"]
+    r = client.post(f"/reports/{rid}/decision", headers=A,
+                    json={"version": 1, "decision": "approve", "comment": "ok", "content_sha256": sha,
+                          "role": "reviewer", "actor": "rita-reviewer"})
+    assert r.status_code in (403, 422)  # forged fields never grant authority
+    r = client.post(f"/reports/{rid}/decision", headers={**A, "X-Role": "reviewer"},
+                    json={"version": 1, "decision": "approve", "comment": "ok", "content_sha256": sha})
+    assert r.status_code == 403
+
+
+@pytest.mark.parametrize("headers,code", [({}, 401), ({"Authorization": "Bearer not-a-real-token-xxxxx"}, 401)])
+def test_unauthenticated(client, report, headers, code):
+    r = client.get(f"/reports/{report['report_id']}/export", headers=headers)
+    assert r.status_code == code and r.json()["error"]["code"] == "unauthenticated"
+    assert "test-analyst-token" not in r.text
+
+
+def test_rejection_blocks_export(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    r = decide(client, rid, 1, decision="reject", comment="D2 evidence is too thin.")
+    assert r.status_code == 200 and r.json()["latest_status"] == "rejected"
+    for url in (f"/reports/{rid}/export", f"/reports/{rid}/export?version=1"):
+        ex = client.get(url, headers=A)
+        assert ex.status_code == 409 and ex.json()["error"]["code"] == "not_approved"
+    assert decide(client, rid, 1).status_code == 409  # cannot flip a decided version
+    assert submit(client, rid, 1).status_code == 409  # cannot resubmit rejected content
+    r = client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "analyst_notes": "Addressed review."})
+    assert r.json()["version"] == 2 and r.json()["status"] == "draft"
+
+
+def test_edit_after_approval_requires_new_review(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    decide(client, rid, 1)
+    r = client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "title": "Changed after approval"})
+    assert r.status_code == 200 and r.json()["new_version_created"] and r.json()["version"] == 2
+    assert client.get(f"/reports/{rid}/versions/1", headers=A).json()["status"] == "approved"
+
+    ex = client.get(f"/reports/{rid}/export", headers=A)  # latest is an unreviewed draft
+    assert ex.status_code == 409 and ex.json()["error"]["details"]["latest_approved_version"] == 1
+    old = client.get(f"/reports/{rid}/export?version=1", headers=A)  # old approval: only its own content
+    assert old.status_code == 200 and old.json()["superseded_by_version"] == 2
+    assert old.json()["content"]["title"] != "Changed after approval"
+    assert decide(client, rid, 2).status_code == 409  # draft cannot be approved without submission
+
+    assert submit(client, rid, 2).status_code == 200
+    assert decide(client, rid, 2).status_code == 200
+    ex = client.get(f"/reports/{rid}/export", headers=A)
+    assert ex.status_code == 200 and ex.json()["version"] == 2 and ex.json()["content"]["title"] == "Changed after approval"
+
+
+def test_editing_submitted_version_supersedes_it(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "analyst_notes": "late fix"})
+    r = decide(client, rid, 1)
+    assert r.status_code == 409 and r.json()["error"]["code"] == "stale_version"
+
+
+def test_stale_base_version_rejected(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "analyst_notes": "v2"})
+    r = client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "analyst_notes": "lost update"})
+    assert r.status_code == 409 and r.json()["error"]["code"] == "stale_version"
+
+
+def test_decision_hash_must_match_reviewed_content(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    r = decide(client, rid, 1, sha="0" * 64)
+    assert r.status_code == 409 and r.json()["error"]["code"] == "content_mismatch"
+
+
+def test_decision_requires_comment(client, report):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    assert decide(client, rid, 1, comment="  ").status_code == 422
+
+
+def test_double_submit_rejected(client, report):
+    rid = report["report_id"]
+    assert submit(client, rid, 1).status_code == 200
+    assert submit(client, rid, 1).status_code == 409
+
+
+def test_no_silent_approval_without_reviewer(client, report):
+    """review_no_response fixture: nothing approves on its own; the version waits."""
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    assert client.get(f"/reports/{rid}/export", headers=A).status_code == 409
+    assert latest(client, rid)["latest_status"] == "submitted"
+
+
+def test_fabricated_evidence_blocks_submission(client, report):
+    rid = report["report_id"]
+    diags = report["latest"]["content"]["diagnostics"]
+    diags[0]["evidence"][0]["quote"] = "Kasparro is the clear market leader trusted by every Fortune 500 firm."
+    r = client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "diagnostics": diags})
+    assert r.status_code == 200 and any("quote not found" in p for p in r.json()["evidence_problems"])
+    r = submit(client, rid, 1)
+    assert r.status_code == 422 and r.json()["error"]["code"] == "evidence_check_failed"
+
+
+def test_remedy_must_follow_from_its_diagnostic(client, report):
+    rid = report["report_id"]
+    rem = report["latest"]["content"]["remedies"]
+    rem[0]["evidence"] = report["latest"]["content"]["diagnostics"][1]["evidence"][:1]
+    if rem[0]["evidence"] == report["latest"]["content"]["diagnostics"][0]["evidence"][:1]:
+        pytest.skip("diagnostics share evidence")
+    client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "remedies": rem})
+    r = submit(client, rid, 1)
+    assert r.status_code == 422 and any("not drawn from its diagnostic" in p for p in r.json()["error"]["details"]["problems"])
+
+
+def test_database_refuses_to_alter_frozen_version(client, report, conn):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    with pytest.raises(sqlite3.IntegrityError, match="frozen"):
+        conn.execute("UPDATE report_versions SET content_json = '{}' WHERE report_id = ? AND version = 1", (rid,))
+    with pytest.raises(sqlite3.IntegrityError, match="invalid report status transition"):
+        conn.execute("UPDATE report_versions SET status = 'draft' WHERE report_id = ?", (rid,))
+    with pytest.raises(sqlite3.IntegrityError, match="append-only"):
+        conn.execute("DELETE FROM report_versions WHERE report_id = ?", (rid,))
+
+
+def test_tampered_approved_content_fails_export_integrity(client, report, conn):
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    decide(client, rid, 1)
+    conn.execute("DROP TRIGGER trg_frozen_content")  # simulate out-of-band tampering
+    conn.execute("UPDATE report_versions SET content_json = '{\"title\":\"forged\"}' WHERE report_id = ?", (rid,))
+    r = client.get(f"/reports/{rid}/export", headers=A)
+    assert r.status_code == 409 and r.json()["error"]["code"] == "integrity_error"
