@@ -101,6 +101,16 @@ AUDIT = {
 }
 
 
+# Candidate adjudication record (decisions made by the candidate, not the assistant).
+ADJUDICATION = {
+    "D-CONF-NEG": {"decision": "accepted: misidentified-entity statements are not negative (R-I2)", "date": "2026-10-28"},
+    "D-NEG": {"decision": "accepted: keep evidence/visibility doubts framed as caution as negative, marked ambiguous",
+              "date": "2026-10-28"},
+    "D-MISATTR": None,  # pending: candidate is checking revenuepulseai.com as a separate dated observation
+    "VIS-V2": {"decision": "keep vis-v1; note confused-mention score (20 > absent 0) as a limitation", "date": "2026-10-28"},
+}
+
+
 def span_cell(spans: dict) -> str:
     cells = []
     for lab, items in spans.items():
@@ -172,8 +182,11 @@ def main() -> int:
         if not changes and score != c["expected_score"]:
             errors.append(f"{c['case_id']}: v1 expected_score {c['expected_score']} != vis-v1 {score}")
 
-        status = "needs_adjudication" if a.get("adjudicate") else "proposed_keep"
-        new["review"] = {"status": status, "confidence": a["confidence"], "adjudication_question": a.get("adjudicate"),
+        q = a.get("adjudicate")
+        status = ("needs_adjudication" if q and not ADJUDICATION.get(q)
+                  else "adjudicated" if q else "proposed_keep")
+        new["review"] = {"status": status, "confidence": a["confidence"], "adjudication_question": q,
+                         "adjudication": ADJUDICATION.get(q) if q else None,
                          "rationale": a["rationale"], "refers_to_intended_entity": a["intended"],
                          "design_exposure": DESIGN_EXPOSURE.get(c["case_id"])
                          or (BRANDED_FIRST_SENTENCE_SEEN if c["split"] == "holdout" and c["prompt_id"].split(":")[-1] <= "025"

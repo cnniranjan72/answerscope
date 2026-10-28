@@ -1,0 +1,15 @@
+{
+ "response_id": "2fef505c-f845-43d3-aee0-8926d21bc31e",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "96ec0dee36260d61626a875b147a776115d41645440bb0267976c97c6a8e5044",
+ "recorded_at": "2026-10-28T17:42:37+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 71475,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's Four Module Audit Score appears to be a proprietary assessment framework\",\n    \"According to Kasparro's published methodology, the audit produces scores across four areas\",\n    \"Kasparro does not publicly document the exact weighting or mathematical formula used to combine them.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro's Four Module Audit Score appears to be a proprietary assessment framework that measures how visible and \\\"recommendable\\\" a brand is to AI assistants\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro and describes its Four Module Audit Score as a tool for measuring AI visibility and recommendation readiness, effectively recommending it as a solution for the user's query about AI-mediated commerce.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -108,3 +108,14 @@ python -m evaluation.run_eval --labels evaluation/cases/labels_v2.jsonl
 ```
 
 To freeze after your decisions: edit `AUDIT` in `evaluation/audit_labels.py`, rerun it, copy `labels_v2_proposed.jsonl` to `labels_v2.jsonl` with `label_version: labels-v2`, and record the adjudicator and date.
+
+## 8. Adjudication record
+
+| Question | Decision (by candidate, 28 Oct 2026) | Effect |
+|---|---|---|
+| D-CONF-NEG (H01) | Accepted R-I2: statements about a misidentified entity are not negative toward Kasparro | H01 negative = false, score 20 |
+| D-NEG (H02, H03) | Accepted: evidence/visibility doubts framed as caution stay negative, marked ambiguous | metrics reported with and without |
+| Scoring | Keep vis-v1; confused mention (20) > absent (0) noted as a limitation for vis-v2 | no formula change |
+| D-MISATTR (H06) | **Pending:** candidate is checking revenuepulseai.com; the finding will be recorded as a separate, dated observation | labels stay `labels-v2-proposed` until resolved |
+
+The labels are **not frozen** yet. The final holdout evaluation runs only after H06 is resolved and `labels_v2.jsonl` is written.
