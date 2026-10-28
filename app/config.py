@@ -58,6 +58,8 @@ def load_settings() -> Settings:
     reviewer_token = env.get("REVIEWER_TOKEN", "")
     if len(analyst_token) < 16 or len(reviewer_token) < 16:
         raise ConfigError("ANALYST_TOKEN and REVIEWER_TOKEN must be set (>= 16 chars). See .env.example.")
+    if "change-me" in analyst_token or "change-me" in reviewer_token:
+        raise ConfigError("Replace the placeholder tokens from .env.example before starting.")
     if analyst_token == reviewer_token:
         raise ConfigError("ANALYST_TOKEN and REVIEWER_TOKEN must differ.")
     analyst_name = env.get("ANALYST_NAME", "analyst")

@@ -1,0 +1,15 @@
+{
+ "response_id": "449f8530-b47a-411c-9bec-1b5b6e0552cb",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "7d06f3dcbac80a66c139084175b511f21a6586a754fee92cbb90637303dad29a",
+ "recorded_at": "2026-10-28T17:17:14+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 107623,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot for tracking how Claude recommends B2B software\",\n    \"Where Alternatives (e.g., Kasparro/Cairrot/Rankr) Offer Advantages\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose Alternatives if: You are an SMB/lean team that needs quick, affordable, multi-LLM tracking and faster content execution.\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot\",\n    \"Profound distinguishes itself through a massive, 1.3B+ real user prompt dataset, rather than relying solely on synthetic, pre-set queries\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot\"\n    },\n    {\n      \"name\": \"Cairrot\",\n      \"evidence\": \"smaller, niche alternatives like Kasparro/Cairrot\"\n    },\n    {\n      \"name\": \"Rankr\",\n      \"evidence\": \"Where Alternatives (e.g., Kasparro/Cairrot/Rankr) Offer Advantages\"\n    },\n    {\n      \"name\": \"Brand Armor AI\",\n      \"evidence\": \"Some smaller alternatives, such as Brand Armor AI, focus heavily on turning visibility gaps into immediately generated SEO content\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro is mentioned and recommended as a cost-effective alternative for SMBs and lean teams, but it is negatively characterized as 'inferior' to Profound in terms of data depth and enterprise-grade capabilities.\"\n}"
+  }
+ ]
+}

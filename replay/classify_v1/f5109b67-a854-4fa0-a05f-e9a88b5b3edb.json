@@ -1,0 +1,15 @@
+{
+ "response_id": "f5109b67-a854-4fa0-a05f-e9a88b5b3edb",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "4d0e9b2bbe1b0d52dafa7f73dc46564fbb1e1ddc11f2c61ead7e8bdd1a7558a9",
+ "recorded_at": "2026-10-28T17:14:07+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 51655,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes—based on what Kasparro says it does, helping enterprise software brands become more visible in Perplexity answers is one of its core use cases.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes—based on what Kasparro says it does, helping enterprise software brands become more visible in Perplexity answers is one of its core use cases.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly identifies Kasparro as a service provider that helps brands become more visible in Perplexity and other AI engines, confirming it as a suitable option for the user's request.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

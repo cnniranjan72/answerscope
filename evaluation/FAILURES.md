@@ -1,0 +1,14 @@
+# Failures, diagnoses, fixes and regression cases
+
+Found while building and evaluating; each has a regression test. All were observed, not hypothetical.
+
+| ID | How it was found | Symptom | Diagnosis | Fix | Regression |
+|---|---|---|---|---|---|
+| F1 | Local-model tuning run on case T01 (`a3fdd8bb…`, 001/aimode) | Response failed after 3 attempts: `competitor name not found in answer: 'G2'`, although "G2" is in the text | `locate()` refuses needles shorter than 3 characters (to stop trivial quote matches), and competitor names reused it | Separate whole-word `contains_name()` for names; review sites like G2 are additionally filtered by policy | `test_regression_f1_short_competitor_name_accepted`; eval case T01 |
+| F2 | Stub smoke run over all 150 answers: 39 failures | Baseline (stub) outputs rejected: "quote not found" | The baseline removed URLs *before* splitting sentences, so its "quotes" had gaps and were not verbatim | Split the original text; strip URLs only for pattern matching | `test_regression_f2_baseline_quotes_are_verbatim_with_urls`; full-pack baseline validates 150/150 |
+| F3 | First full live run, first response | Valid model output rejected 3 times: quote "(like Reddit, G2, Capterra" not found | Answers contain markdown links (`[G2](https://…)`, `[[1]](…)`); the model quotes rendered text | Quote matching skips link URLs and citation markers while mapping back to exact source offsets; competitor quotes became soft (name still hard-checked) | `test_regression_f3_quotes_of_rendered_markdown_links_match`, `test_review_sites_filtered_and_competitor_quote_is_soft` |
+| F4 | **Caught by the evaluation's diagnostic evidence check** after the F3 fix | Generated report had 3 "quote not found" problems for quotes that were cut from the source itself | A stored span could start/end inside link syntax (`[Scrunch AI` without `](url)`), which normalised differently from the body. The F3 fix introduced this | Treat `[`/`]` as droppable characters and skip `](url)` / citation markers even when truncated | `test_regression_f4_any_visible_span_round_trips` (property test over all 150 answers when the pack is present); report evidence problems 3 → 0 |
+
+## Lessons
+* Strict grounding is only as good as the matcher. F3/F4 were matcher bugs that would have made a correct model look broken. The fix kept strictness (exact source offsets) and widened only what counts as "the same visible text".
+* F4 shows why the evidence checker runs on generated reports as well as on model outputs: a round-trip property (`locate(body[s:e], body)`) catches a whole class of defects that example tests missed.

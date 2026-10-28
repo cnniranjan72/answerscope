@@ -1,0 +1,15 @@
+{
+ "response_id": "6b6e79d3-a582-4d23-8fa6-714c9e982af2",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "38e73a055d0d6b50bc29e03efb4c1130ddbd498f50e42a5b5e0d162ee23d5ad6",
+ "recorded_at": "2026-10-28T17:15:26+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 79155,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro is designed specifically for this use case.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro is designed specifically for this use case.\",\n    \"Kasparro assists enterprise software brands through several core mechanisms:\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"It functions as an AI-native SEO and brand intelligence platform (often referred to as Answer Engine Optimization or AEO) that helps brands audit, track, and improve how they are discovered, cited, and recommended by AI engines like Perplexity, ChatGPT, Gemini, and Claude.\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"It functions as an AI-native SEO and brand intelligence platform (often referred to as Answer Engine Optimization or AEO) that helps brands audit, track, and improve how they are discovered, cited, and recommended by AI engines like Perplexity, ChatGPT, Gemini, and Claude.\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"It functions as an AI-native SEO and brand intelligence platform (often referred to as Answer Engine Optimization or AEO) that helps brands audit, track, and improve how they are discovered, cited, and recommended by AI engines like Perplexity, ChatGPT, Gemini, and Claude.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly recommends Kasparro as a tool designed for the specific use case of improving visibility in AI search engines like Perplexity, detailing its core features and mechanisms.\"\n}"
+  }
+ ]
+}
