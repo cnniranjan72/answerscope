@@ -60,8 +60,12 @@ LABELS = {  # label -> evidence field
 }
 _FLAG = {"mentioned": "kasparro_mentioned", "recommended": "kasparro_recommended",
          "negative": "negative_characterization", "entity_confusion": "entity_confusion"}
+# Policy filter (deterministic, also stated in the prompt): engines being measured and
+# review sites / forums / media are not competitors. Filtered names are dropped silently.
 EXCLUDED_COMPETITORS = {"kasparro", "kasparro ai", "chatgpt", "gemini", "claude", "perplexity",
-                        "copilot", "google ai mode", "ai mode", "google", "openai"}
+                        "copilot", "microsoft copilot", "google ai mode", "ai mode", "google",
+                        "google ai overviews", "openai", "anthropic", "g2", "capterra", "reddit",
+                        "youtube", "linkedin", "gartner", "trustpilot", "wikipedia", "kaspr"}
 
 
 class OutputRejected(Exception):
@@ -157,7 +161,10 @@ def validate_output(raw: str, body: str) -> dict:
     if out.kasparro_list_position is not None and out.position_basis != "ranked_list":
         problems.append("a list position requires position_basis 'ranked_list'")
 
-    competitors, seen = [], set()
+    # Competitor names are hard-checked (an invented name is rejected). Their supporting
+    # quote is secondary: an unlocatable quote is dropped with a warning instead of
+    # failing the core labels.
+    competitors, seen, warnings = [], set(), []
     for c in out.competitors:
         key = c.name.strip().lower()
         if key in EXCLUDED_COMPETITORS or key in seen or BRAND_RE.search(c.name):
@@ -165,9 +172,13 @@ def validate_output(raw: str, body: str) -> dict:
         if not contains_name(c.name, body):
             problems.append(f"competitor name not found in answer: {c.name!r}")
             continue
-        spans = _spans([c.evidence], body, f"competitor {c.name}", problems)
+        loc = locate(c.evidence, body)
+        if loc is None:
+            warnings.append(f"competitor {c.name}: quote not found, evidence omitted")
         seen.add(key)
-        competitors.append({"name": c.name.strip(), "evidence": spans[0] if spans else None})
+        competitors.append({"name": c.name.strip(),
+                            "evidence": {"quote": body[loc[0]:loc[1]], "start": loc[0], "end": loc[1]}
+                            if loc else None})
 
     if problems:
         raise OutputRejected("invalid", problems)
@@ -179,6 +190,7 @@ def validate_output(raw: str, body: str) -> dict:
         "position": out.kasparro_list_position,
         "position_basis": out.position_basis if out.kasparro_mentioned else "not_mentioned",
         "rationale": out.rationale,
+        "validation_warnings": warnings,
     }
 
 

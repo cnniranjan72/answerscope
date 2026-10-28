@@ -14,7 +14,7 @@ _TRANSLATE = str.maketrans({
     "‘": "'", "’": "'", "“": '"', "”": '"',
     "–": "-", "—": "-", " ": " ", " ": " ",
 })
-_DROP = set("*_`#>")
+_DROP = set("*_`#>[]")
 
 
 def answer_body(answer_text: str) -> str:
@@ -37,13 +37,31 @@ def brand_mention_offsets(body: str) -> list[int]:
             if not any(a <= m.start() < b for a, b in url_spans)]
 
 
+# Markdown a reader does not see: citation markers like [[1]](url) / [](url), and the
+# '](url)' tail of a link. Both patterns also match when truncated at the end of an
+# excerpt, and '[' / ']' are dropped as characters, so a span cut anywhere from the
+# source still matches the source (regressions: F3 rendered link text, F4 partial links).
+_HIDDEN_RE = re.compile(r"\[(?:\[\d+\]|)\]\([^)\s]*\)?|\]\(https?://[^)\s]*\)?|\[\[\d*\]?\]?$")
+
+
+def _markdown_skip_mask(text: str) -> list[bool]:
+    skip = [False] * len(text)
+    for m in _HIDDEN_RE.finditer(text):
+        skip[m.start():m.end()] = [True] * (m.end() - m.start())
+    return skip
+
+
 def _normalise_with_map(text: str) -> tuple[str, list[int]]:
-    """Lower-case, unify quotes/dashes, drop markdown emphasis characters and collapse
-    whitespace, keeping a map from each normalised character to its source offset."""
+    """Lower-case, unify quotes/dashes, drop markdown emphasis characters and link syntax,
+    and collapse whitespace, keeping a map from each normalised character to its source
+    offset."""
     out: list[str] = []
     idx: list[int] = []
     prev_space = True
+    skip = _markdown_skip_mask(text)
     for i, ch in enumerate(text):
+        if skip[i]:
+            continue
         ch = unicodedata.normalize("NFKC", ch).translate(_TRANSLATE)
         if not ch or ch in _DROP:
             continue

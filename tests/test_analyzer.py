@@ -1,6 +1,7 @@
 """Required: model timeout / malformed result. Plus output validation, replay integrity,
 and regression tests for failures F1 and F2 (see evaluation/FAILURES.md)."""
 import json
+from pathlib import Path
 
 import pytest
 
@@ -9,7 +10,9 @@ from app.services.analysis import build_provider, result_rows, run_analysis
 from app.services.analyzer import OutputRejected, analyse_response, build_messages, validate_output
 from app.services.llm import ReplayProvider, StubProvider
 from app.services.text import answer_body, locate
-from tests.conftest import A
+from tests.conftest import A, MINI_PACK
+
+MINI_PACK_RESPONSES = MINI_PACK / "data" / "responses.jsonl"
 
 BODY = ("Kasparro is designed for AI visibility audits and can help B2B brands. "
         "Reviews often mention G2 and Profound.")
@@ -101,11 +104,12 @@ def test_extra_fields_rejected():
 
 
 def test_regression_f1_short_competitor_name_accepted():
-    """F1: locate() needs >= 3 chars, so 'G2' was always 'not found' and burned all retries."""
-    out = json.loads(ok_output())
-    out["competitors"] = [{"name": "G2", "evidence": "Reviews often mention G2 and Profound."}]
-    res = validate_output(json.dumps(out), BODY)
-    assert [c["name"] for c in res["competitors"]] == ["G2"]
+    """F1: locate() needs >= 3 chars, so a 2-char name was always 'not found' and burned all retries."""
+    body = BODY + " Some teams use Q2 for this."
+    out = baseline.classify(body)
+    out["competitors"] = [{"name": "Q2", "evidence": "Some teams use Q2 for this."}]
+    res = validate_output(json.dumps(out), body)
+    assert "Q2" in [c["name"] for c in res["competitors"]]
 
 
 def test_regression_f2_baseline_quotes_are_verbatim_with_urls():
@@ -138,3 +142,53 @@ def test_replay_refuses_recording_for_different_input(tmp_path):
 def test_answer_body_strips_citation_list():
     assert answer_body("Answer text.\n\nCitations:\n[1] https://a.com\n[2] https://b.com") == "Answer text."
     assert answer_body("No list here.") == "No list here."
+
+
+def test_regression_f3_quotes_of_rendered_markdown_links_match():
+    """F3: answers contain [G2](url) and [[1]](url) markers; quotes of the rendered text
+    never matched, so valid outputs were rejected until retries ran out."""
+    body = "Kasparro cites sources (like Reddit, [G2](https://www.g2.com/), [Capterra](https://c.com/)).[[1]](https://x.y)"
+    span = locate("sources (like Reddit, G2, Capterra).", body)
+    assert span is not None and body[span[0]:span[1]].startswith("sources (like Reddit, [G2]")
+
+
+def test_review_sites_filtered_and_competitor_quote_is_soft():
+    out = json.loads(ok_output())
+    out["competitors"] = [{"name": "G2", "evidence": "G2"}, {"name": "Profound", "evidence": "paraphrased quote"}]
+    res = validate_output(json.dumps(out), BODY)
+    assert [c["name"] for c in res["competitors"]] == ["Profound"]  # G2 is a review site: policy-filtered
+    assert res["competitors"][0]["evidence"] is None and res["validation_warnings"]
+
+
+def test_invented_competitor_name_still_rejected():
+    out = json.loads(ok_output())
+    out["competitors"] = [{"name": "MadeUpVendor", "evidence": "x"}]
+    with pytest.raises(OutputRejected):
+        validate_output(json.dumps(out), BODY)
+
+
+LINKY = ("Use **[Scrunch AI](https://a.com/x) & Semrush's AI Toolkit**[](https://b.com) [[1]](https://c.com/y) for "
+         "tracking. [Kasparro's](https://kasparro.com/) audit covers [G2](https://g2.com), Reddit and more.[[2]](https://d.com)")
+
+
+def test_regression_f4_any_visible_span_round_trips():
+    """F4 (introduced by the F3 fix, caught by the evaluation evidence checker): a quote cut
+    from the source that started/ended inside link syntax no longer matched the source."""
+    import random
+    from app.services.text import _normalise_with_map
+    bodies = [LINKY]
+    pack = MINI_PACK_RESPONSES if MINI_PACK_RESPONSES.exists() else None
+    real = Path(__file__).resolve().parents[1] / "assignment" / "data" / "responses.jsonl"
+    if real.exists():
+        bodies += [answer_body(json.loads(l)["answer_text"]) for l in real.read_text(encoding="utf-8").splitlines()]
+    elif pack:
+        bodies += [answer_body(json.loads(l)["answer_text"]) for l in pack.read_text(encoding="utf-8").splitlines()]
+    rnd = random.Random(7)
+    for body in bodies:
+        _, idx = _normalise_with_map(body)
+        for _ in range(30):
+            i = rnd.randrange(0, len(idx) - 3)
+            j = min(len(idx) - 1, i + rnd.randint(4, 300))
+            quote = body[idx[i]:idx[j] + 1]
+            if len(quote.strip()) >= 4:
+                assert locate(quote, body) is not None, quote

@@ -1,0 +1,15 @@
+{
+ "response_id": "a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "59dab80a57fdb2d7bd6d654341b484d99ce940858bc4047570a039654d76169d",
+ "recorded_at": "2026-10-28T17:07:55+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 72811,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is not a widely recognized, top-tier agency or tool in the AI visibility space\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro is not a widely recognized, top-tier agency or tool in the AI visibility space (AISO - AI Search Optimization) for B2B SaaS according to public search results as of July 2026.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"Over 88% of ChatGPT recommendations cite third-party sources (like Reddit, G2, Capterra, or media articles)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Over 88% of ChatGPT recommendations cite third-party sources (like Reddit, G2, Capterra, or media articles)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but explicitly characterizes it negatively by stating it is not a 'widely recognized, top-tier agency' in the relevant space. It does not recommend the service.\"\n}"
+  }
+ ]
+}

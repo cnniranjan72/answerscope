@@ -1,0 +1,1411 @@
+{
+ "generated_at": "2026-10-28T17:10:24+00:00",
+ "label_version": "labels-v1",
+ "prompt_version": "classify-v1",
+ "score_version": "vis-v1",
+ "baseline_version": "baseline-v1",
+ "model": {
+  "provider": "stub",
+  "execution_mode": "stub",
+  "model": "stub-baseline-v1"
+ },
+ "arithmetic": {
+  "checked": 19,
+  "mismatches": []
+ },
+ "splits": {
+  "final": {
+   "n_cases": 14,
+   "case_ids": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "H10",
+    "H11",
+    "H12",
+    "S01",
+    "S02"
+   ],
+   "baseline": {
+    "counts": {
+     "eligible": 14,
+     "succeeded": 14,
+     "failed": 0,
+     "skipped": 0
+    },
+    "labels_strict": {
+     "mentioned": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 11,
+      "n": 14,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.929
+     },
+     "negative": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 4,
+      "tn": 9,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 0.2,
+      "f1": 0.333,
+      "agreement": 0.714
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "tn": 12,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "agreement": 0.929
+     }
+    },
+    "labels_unambiguous": {
+     "mentioned": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 8,
+      "n": 11,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.909
+     },
+     "negative": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "tn": 9,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "agreement": 0.769
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "tn": 12,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "agreement": 0.929
+     }
+    },
+    "competitors": {
+     "tp": 14,
+     "fp": 1,
+     "fn": 2,
+     "precision": 0.933,
+     "recall": 0.875
+    },
+    "score": {
+     "n": 14,
+     "exact": 10,
+     "mae": 12.143,
+     "position_cases": 1,
+     "position_exact": 0
+    }
+   },
+   "model": {
+    "counts": {
+     "eligible": 14,
+     "succeeded": 14,
+     "failed": 0,
+     "skipped": 0
+    },
+    "labels_strict": {
+     "mentioned": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 11,
+      "n": 14,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.929
+     },
+     "negative": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 4,
+      "tn": 9,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 0.2,
+      "f1": 0.333,
+      "agreement": 0.714
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "tn": 12,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "agreement": 0.929
+     }
+    },
+    "labels_unambiguous": {
+     "mentioned": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "tn": 8,
+      "n": 11,
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "agreement": 0.909
+     },
+     "negative": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 3,
+      "tn": 9,
+      "n": 13,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1": 0.4,
+      "agreement": 0.769
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "tn": 12,
+      "n": 14,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.667,
+      "agreement": 0.929
+     }
+    },
+    "competitors": {
+     "tp": 14,
+     "fp": 1,
+     "fn": 2,
+     "precision": 0.933,
+     "recall": 0.875
+    },
+    "score": {
+     "n": 14,
+     "exact": 10,
+     "mae": 12.143,
+     "position_cases": 1,
+     "position_exact": 0
+    }
+   }
+  },
+  "tuning": {
+   "n_cases": 5,
+   "case_ids": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05"
+   ],
+   "baseline": {
+    "counts": {
+     "eligible": 5,
+     "succeeded": 5,
+     "failed": 0,
+     "skipped": 0
+    },
+    "labels_strict": {
+     "mentioned": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 2,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "negative": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "labels_unambiguous": {
+     "mentioned": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 2,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "negative": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "competitors": {
+     "tp": 8,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "score": {
+     "n": 5,
+     "exact": 5,
+     "mae": 0.0,
+     "position_cases": 0,
+     "position_exact": 0
+    }
+   },
+   "model": {
+    "counts": {
+     "eligible": 5,
+     "succeeded": 5,
+     "failed": 0,
+     "skipped": 0
+    },
+    "labels_strict": {
+     "mentioned": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 2,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "negative": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "labels_unambiguous": {
+     "mentioned": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 2,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "recommended": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "negative": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "entity_confusion": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "n": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     }
+    },
+    "competitors": {
+     "tp": 8,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "score": {
+     "n": 5,
+     "exact": 5,
+     "mae": 0.0,
+     "position_cases": 0,
+     "position_exact": 0
+    }
+   }
+  }
+ },
+ "cases": {
+  "T01": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": true,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 10,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": true,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 10,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "T02": {
+   "expected": {
+    "mentioned": true,
+    "recommended": true,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "T03": {
+   "expected": {
+    "mentioned": false,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": true
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": true
+     },
+     "competitors": [],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": true
+     },
+     "competitors": [],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "T04": {
+   "expected": {
+    "mentioned": false,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Peec AI",
+      "Otterly.AI",
+      "AthenaHQ",
+      "Semrush",
+      "Ahrefs",
+      "Goodie"
+     ],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Peec AI",
+      "Otterly.AI",
+      "AthenaHQ",
+      "Semrush",
+      "Ahrefs",
+      "Goodie"
+     ],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "T05": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": true,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "HubSpot"
+     ],
+     "position": null,
+     "score": 10,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": true,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "HubSpot"
+     ],
+     "position": null,
+     "score": 10,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H01": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": true
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H02": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H03": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": true,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "AthenaHQ",
+      "Dageno AI"
+     ],
+     "position": null,
+     "score": 10,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": true,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "AthenaHQ",
+      "Dageno AI"
+     ],
+     "position": null,
+     "score": 10,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H04": {
+   "expected": {
+    "mentioned": false,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": true
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": true
+     },
+     "competitors": [],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": true
+     },
+     "competitors": [],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H05": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H06": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H07": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound"
+     ],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound"
+     ],
+     "position": null,
+     "score": 40,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H08": {
+   "expected": {
+    "mentioned": false,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Peec AI",
+      "Semrush",
+      "Ahrefs",
+      "HubSpot",
+      "SE Ranking"
+     ],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Peec AI",
+      "Semrush",
+      "Ahrefs",
+      "HubSpot",
+      "SE Ranking"
+     ],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H09": {
+   "expected": {
+    "mentioned": false,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Otterly",
+      "Semrush",
+      "siftly"
+     ],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": false,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Otterly",
+      "Semrush",
+      "siftly"
+     ],
+     "position": null,
+     "score": 0,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H10": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 60,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 60,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H11": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 60,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": false,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 60,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "H12": {
+   "expected": {
+    "mentioned": true,
+    "recommended": true,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "S01": {
+   "expected": {
+    "mentioned": true,
+    "recommended": true,
+    "negative": false,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Peec AI"
+     ],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [
+      "Profound",
+      "Peec AI"
+     ],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  },
+  "S02": {
+   "expected": {
+    "mentioned": true,
+    "recommended": false,
+    "negative": true,
+    "entity_confusion": false
+   },
+   "baseline": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 0,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   },
+   "model": {
+    "status": "succeeded",
+    "reason": null,
+    "attempts": 1,
+    "pred": {
+     "labels": {
+      "mentioned": true,
+      "recommended": true,
+      "negative": false,
+      "entity_confusion": false
+     },
+     "competitors": [],
+     "position": null,
+     "score": 80,
+     "rationale": "baseline-v1 keyword rules"
+    }
+   }
+  }
+ },
+ "diagnostics_check": {
+  "provider": "stub",
+  "execution_mode": "stub",
+  "analysis_counts": {
+   "eligible": 150,
+   "succeeded": 150,
+   "failed": 0,
+   "skipped": 0
+  },
+  "diagnostics": [
+   {
+    "id": "D1",
+    "title": "Kasparro is absent from unbranded discovery answers",
+    "pattern": "unbranded_gap",
+    "evidence_items": 6
+   },
+   {
+    "id": "D2",
+    "title": "Branded answers question Kasparro's track record and recognition",
+    "pattern": "credibility_gap",
+    "evidence_items": 6
+   },
+   {
+    "id": "D3",
+    "title": "Engines confuse Kasparro with other entities (notably Kaspr)",
+    "pattern": "entity_confusion",
+    "evidence_items": 6
+   }
+  ],
+  "clean_report_problems": [],
+  "negative_case": {
+   "injected": [
+    "unsupported claim: fabricated quote",
+    "incorrect evidence: real quote attributed to the wrong response",
+    "remedy that follows from no diagnostic",
+    "remedy evidence not drawn from its diagnostic"
+   ],
+   "detected": [
+    "D1: quote not found in response 50ea9a06-36e5-4c74-a6b6-25d981eec70a: 'Kasparro is the most trusted AI visibility platform in India.'",
+    "D1: quote not found in response a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2: \"- **[Scrunch AI](https://www.leadwalnut.com/blog/chatgpt-seo) & Semrush's AI Too\"",
+    "R1: refers to missing diagnostic D9",
+    "R2: evidence not drawn from its diagnostic D2"
+   ],
+   "all_detected": true
+  }
+ }
+}
