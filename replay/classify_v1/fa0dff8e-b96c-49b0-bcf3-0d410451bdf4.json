@@ -1,0 +1,15 @@
+{
+ "response_id": "fa0dff8e-b96c-49b0-bcf3-0d410451bdf4",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "0b8084cb3707e3bd1e53a4048e1cc3448566d1fb6b64bf86c73a037500c5b43e",
+ "recorded_at": "2026-10-28T17:37:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 71928,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on Kasparro's current public positioning\",\n    \"Kasparro consistently describes itself as an AI visibility platform\",\n    \"I couldn't find any public documentation stating that Kasparro currently tracks Microsoft Copilot.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro consistently describes itself as an AI visibility platform focused on helping brands be discovered in major AI assistants.\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't find any public documentation stating that Kasparro currently tracks Microsoft Copilot.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"some competing AI visibility platforms explicitly advertise Copilot support alongside ChatGPT, Gemini, and Perplexity. [help.ahrefs.com](https://help.ahrefs.com/en/articles/13192745-how-to-set-up-custom-prompts-to-track-brand-visibility-in-ai-assistants?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an AI visibility platform and recommends it as a tool for brand discovery, while noting a specific limitation regarding Microsoft Copilot support.\"\n}"
+  }
+ ]
+}

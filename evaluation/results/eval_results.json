@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-28T17:10:24+00:00",
- "label_version": "labels-v1",
+ "generated_at": "2026-10-28T17:41:22+00:00",
+ "label_version": "labels-v2-proposed",
  "prompt_version": "classify-v1",
  "score_version": "vis-v1",
  "baseline_version": "baseline-v1",
@@ -65,24 +65,24 @@
      "negative": {
       "tp": 1,
       "fp": 0,
-      "fn": 4,
-      "tn": 9,
+      "fn": 3,
+      "tn": 10,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.2,
-      "f1": 0.333,
-      "agreement": 0.714
+      "recall": 0.25,
+      "f1": 0.4,
+      "agreement": 0.786
      },
      "entity_confusion": {
       "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "tn": 12,
+      "fn": 2,
+      "tn": 11,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.5,
-      "f1": 0.667,
-      "agreement": 0.929
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.857
      }
     },
     "labels_unambiguous": {
@@ -109,38 +109,38 @@
       "agreement": 0.909
      },
      "negative": {
-      "tp": 1,
+      "tp": 0,
       "fp": 0,
-      "fn": 3,
+      "fn": 2,
       "tn": 9,
-      "n": 13,
-      "precision": 1.0,
-      "recall": 0.25,
-      "f1": 0.4,
-      "agreement": 0.769
+      "n": 11,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "agreement": 0.818
      },
      "entity_confusion": {
       "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "tn": 12,
+      "fn": 2,
+      "tn": 11,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.5,
-      "f1": 0.667,
-      "agreement": 0.929
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.857
      }
     },
     "competitors": {
      "tp": 14,
-     "fp": 1,
+     "fp": 0,
      "fn": 2,
-     "precision": 0.933,
+     "precision": 1.0,
      "recall": 0.875
     },
     "score": {
      "n": 14,
-     "exact": 10,
+     "exact": 9,
      "mae": 12.143,
      "position_cases": 1,
      "position_exact": 0
@@ -179,24 +179,24 @@
      "negative": {
       "tp": 1,
       "fp": 0,
-      "fn": 4,
-      "tn": 9,
+      "fn": 3,
+      "tn": 10,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.2,
-      "f1": 0.333,
-      "agreement": 0.714
+      "recall": 0.25,
+      "f1": 0.4,
+      "agreement": 0.786
      },
      "entity_confusion": {
       "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "tn": 12,
+      "fn": 2,
+      "tn": 11,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.5,
-      "f1": 0.667,
-      "agreement": 0.929
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.857
      }
     },
     "labels_unambiguous": {
@@ -223,38 +223,38 @@
       "agreement": 0.909
      },
      "negative": {
-      "tp": 1,
+      "tp": 0,
       "fp": 0,
-      "fn": 3,
+      "fn": 2,
       "tn": 9,
-      "n": 13,
-      "precision": 1.0,
-      "recall": 0.25,
-      "f1": 0.4,
-      "agreement": 0.769
+      "n": 11,
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "agreement": 0.818
      },
      "entity_confusion": {
       "tp": 1,
       "fp": 0,
-      "fn": 1,
-      "tn": 12,
+      "fn": 2,
+      "tn": 11,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.5,
-      "f1": 0.667,
-      "agreement": 0.929
+      "recall": 0.333,
+      "f1": 0.5,
+      "agreement": 0.857
      }
     },
     "competitors": {
      "tp": 14,
-     "fp": 1,
+     "fp": 0,
      "fn": 2,
-     "precision": 0.933,
+     "precision": 1.0,
      "recall": 0.875
     },
     "score": {
      "n": 14,
-     "exact": 10,
+     "exact": 9,
      "mae": 12.143,
      "position_cases": 1,
      "position_exact": 0
@@ -737,7 +737,7 @@
    "expected": {
     "mentioned": true,
     "recommended": false,
-    "negative": true,
+    "negative": false,
     "entity_confusion": true
    },
    "baseline": {
@@ -954,7 +954,7 @@
     "mentioned": true,
     "recommended": false,
     "negative": false,
-    "entity_confusion": false
+    "entity_confusion": true
    },
    "baseline": {
     "status": "succeeded",
@@ -1360,52 +1360,6 @@
      "rationale": "baseline-v1 keyword rules"
     }
    }
-  }
- },
- "diagnostics_check": {
-  "provider": "stub",
-  "execution_mode": "stub",
-  "analysis_counts": {
-   "eligible": 150,
-   "succeeded": 150,
-   "failed": 0,
-   "skipped": 0
-  },
-  "diagnostics": [
-   {
-    "id": "D1",
-    "title": "Kasparro is absent from unbranded discovery answers",
-    "pattern": "unbranded_gap",
-    "evidence_items": 6
-   },
-   {
-    "id": "D2",
-    "title": "Branded answers question Kasparro's track record and recognition",
-    "pattern": "credibility_gap",
-    "evidence_items": 6
-   },
-   {
-    "id": "D3",
-    "title": "Engines confuse Kasparro with other entities (notably Kaspr)",
-    "pattern": "entity_confusion",
-    "evidence_items": 6
-   }
-  ],
-  "clean_report_problems": [],
-  "negative_case": {
-   "injected": [
-    "unsupported claim: fabricated quote",
-    "incorrect evidence: real quote attributed to the wrong response",
-    "remedy that follows from no diagnostic",
-    "remedy evidence not drawn from its diagnostic"
-   ],
-   "detected": [
-    "D1: quote not found in response 50ea9a06-36e5-4c74-a6b6-25d981eec70a: 'Kasparro is the most trusted AI visibility platform in India.'",
-    "D1: quote not found in response a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2: \"- **[Scrunch AI](https://www.leadwalnut.com/blog/chatgpt-seo) & Semrush's AI Too\"",
-    "R1: refers to missing diagnostic D9",
-    "R2: evidence not drawn from its diagnostic D2"
-   ],
-   "all_detected": true
   }
  }
 }

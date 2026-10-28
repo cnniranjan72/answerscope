@@ -233,12 +233,13 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m evaluation.run_eval")
     ap.add_argument("--provider", default="replay", choices=["replay", "ollama", "stub"])
     ap.add_argument("--record", action="store_true")
+    ap.add_argument("--labels", default=str(CASES), help="label file (default: labels_v1.jsonl)")
     ap.add_argument("--report-provider", default="replay", choices=["replay", "stub", "skip"],
                     help="provider for the full-pack diagnostics check")
     args = ap.parse_args(argv)
 
     settings = load_settings()
-    cases = [json.loads(l) for l in CASES.read_text(encoding="utf-8").splitlines() if l.strip()]
+    cases = [json.loads(l) for l in Path(args.labels).read_text(encoding="utf-8").splitlines() if l.strip()]
     pack = load_pack_index(settings.pack_dir)
     provider = build_provider(args.provider, settings)
     record_dir = settings.replay_dir / PROMPT_VERSION.replace("-", "_") if args.record else None
@@ -305,12 +306,12 @@ def render(res: dict, cases: list[dict]) -> str:
             lines.append(f"| {sys_} | {c['eligible']} | {c['succeeded']} | {c['failed']} | {c['skipped']} |")
         for mode, title in (("labels_strict", "all labels"), ("labels_unambiguous", "ambiguous labels excluded")):
             lines += ["", f"**Per-label metrics ({title})**", "",
-                      "| Label | System | TP | FP | FN | TN | Precision | Recall | F1 | Agreement |",
-                      "|---|---|---|---|---|---|---|---|---|---|"]
+                      "| Label | System | Positives | TP | FP | FN | TN | Precision | Recall | F1 | Agreement |",
+                      "|---|---|---|---|---|---|---|---|---|---|---|"]
             for lab in LABELS:
                 for sys_ in ("baseline", "model"):
                     x = s[sys_][mode][lab]
-                    lines.append(f"| {lab} | {sys_} | {x['tp']} | {x['fp']} | {x['fn']} | {x['tn']} | "
+                    lines.append(f"| {lab} | {sys_} | {x['tp'] + x['fn']} | {x['tp']} | {x['fp']} | {x['fn']} | {x['tn']} | "
                                  f"{_fmt(x['precision'])} | {_fmt(x['recall'])} | {_fmt(x['f1'])} | {_fmt(x['agreement'])} |")
         lines += ["", "| System | Competitor precision | Competitor recall | Score exact | Score MAE | Position exact |",
                   "|---|---|---|---|---|---|"]

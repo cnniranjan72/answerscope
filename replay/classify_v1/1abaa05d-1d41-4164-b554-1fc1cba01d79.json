@@ -1,0 +1,21 @@
+{
+ "response_id": "1abaa05d-1d41-4164-b554-1fc1cba01d79",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "16ba41a2ddb19d610842290bab18e55a9ff744cb2876a8b2cf6b9de8d4fc1baf",
+ "recorded_at": "2026-10-28T17:24:27+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Skyram Technologies'",
+   "latency_ms": 57489,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're referring to an AI visibility service like Kasparro, the answer depends entirely on what they promised in your agreement.\",\n    \"If you can share: - the exact Kasparro plan you purchased\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Skyram Technologies\",\n      \"evidence\": \"skyramtechnologies.com\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro in the context of a hypothetical service agreement but does not recommend it or provide a specific ranking. It treats the entity as a service provider the user is already considering or using.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37227,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're referring to an AI visibility service like Kasparro, the answer depends entirely on what they promised in your agreement.\",\n    \"If you can share: - the exact Kasparro plan you purchased\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro in the context of a hypothetical service agreement but does not recommend it or provide a specific ranking. The URL provided in the text is a source citation rather than a named competitor product or service.\"\n}"
+  }
+ ]
+}

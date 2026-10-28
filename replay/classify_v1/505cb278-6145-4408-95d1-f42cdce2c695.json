@@ -1,0 +1,15 @@
+{
+ "response_id": "505cb278-6145-4408-95d1-f42cdce2c695",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e4d8c551c4d80318bf20fe397e265f648cc799c12ffe516c1df4ac534b0090fe",
+ "recorded_at": "2026-10-28T17:21:26+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 94076,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"When comparing Kasparro and Profound for tracking B2B software recommendations on LLMs like Claude, ChatGPT, and Perplexity, you are looking at two platforms built for AI Search Optimization (AEO) and Generative Engine Optimization (GEO).\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose Kasparro if: You prefer an emerging, hands-on solution that leans heavily into actionable remediation across the entire digital ecosystem (fixing the external signals—like developer forums, review sites, and technical content—that Claude actually uses to build its recommendations).\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro is an emerging AI brand intelligence and SEO platform\",\n    \"Leaner, founder-led agile platform geared toward fast-moving tech and e-commerce brands.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound is an established, enterprise-grade AI visibility platform built specifically to track how brands appear across major answer engines.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro and recommends it as a suitable choice for users seeking a hands-on remediation approach, while simultaneously characterizing it as an 'emerging' and 'leaner' platform compared to the 'enterprise-grade' competitor.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

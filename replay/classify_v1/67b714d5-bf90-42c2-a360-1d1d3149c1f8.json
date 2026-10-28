@@ -1,0 +1,15 @@
+{
+ "response_id": "67b714d5-bf90-42c2-a360-1d1d3149c1f8",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "2293183721a67d33ffa3457212a870c4e416429dd448e81faef052852510ba8e",
+ "recorded_at": "2026-10-28T17:22:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 86941,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If Kasparro or any similar AI visibility service does not show improvements within 14 days\",\n    \"The problem might not be Kasparro\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"The problem might not be Kasparro, but that you are tracking broad keywords instead of the specific \\\"buying\\\" or \\\"comparison\\\" prompts that drive revenue.\",\n    \"If they promised \\\"guaranteed rankings\\\" within 14 days, you may need to reconsider the partnership based on the long-term, volatile nature of AI search.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"AEO graders like the one from Semrush can provide a neutral, third-party assessment\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but does not recommend it; instead, it suggests that a lack of results might be due to the user's own metrics or the inherent nature of AI search. It characterizes the service negatively by suggesting the user might need to 'reconsider the partnership' if results aren't immediate.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "4abad2ab-5d73-4104-bc45-1d7a50c8f244",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "127f713881a8c5079028a7def68f1ab8f3ea360c028432f466e43aa7b8efaaae",
+ "recorded_at": "2026-10-28T17:25:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 85733,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If an AI visibility or Generative Engine Optimization (GEO) tool like Kasparro doesn't show an increase in your metrics after 14 days\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If an AI visibility or Generative Engine Optimization (GEO) tool like Kasparro doesn't show an increase in your metrics after 14 days, it is rarely a sign of permanent failure.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"AI search models (like ChatGPT, Perplexity, Gemini, and Claude) process data differently\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"AI search models (like ChatGPT, Perplexity, Gemini, and Claude) process data differently\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"AI search models (like ChatGPT, Perplexity, Gemini, and Claude) process data differently\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"AI search models (like ChatGPT, Perplexity, Gemini, and Claude) process data differently\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro as an example of a GEO tool and provides advice on how to troubleshoot if it doesn't show immediate results, effectively recommending it as a suitable tool for the user's query.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

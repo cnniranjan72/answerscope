@@ -1,0 +1,27 @@
+{
+ "response_id": "44a32b81-7166-44dc-bac3-8cd2ae40da73",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "66a9500dbbc5f4b3021fc2a4af374cb64769660f3c8416b9e1451bb3195bfd5b",
+ "recorded_at": "2026-10-28T17:35:18+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'SparkTor'",
+   "latency_ms": 114472,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"Don't expect exact coordinates or precise rankings.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"SparkTor\",\n      \"evidence\": \"sparktoro.com\"\n    },\n    {\n      \"name\": \"Searchable\",\n      \"evidence\": \"www.searchable.com\"\n    },\n    {\n      \"name\": \"Dageno\",\n      \"evidence\": \"dageno.ai\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro as a tool for AI visibility tracking. It recommends it as a viable option for tracking 'Share of Voice' and 'Ghost Citations' but includes a negative characterization by warning that it is not a 'plug-and-play source of truth' and should be treated like a 'weather forecast' rather than precise GPS.\"\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'SparkTor'",
+   "latency_ms": 62340,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"Don't expect exact coordinates or precise rankings.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"SparkTor\",\n      \"evidence\": \"sparktoro.com\"\n    },\n    {\n      \"name\": \"Searchable\",\n      \"evidence\": \"www.searchable.com\"\n    },\n    {\n      \"name\": \"Dageno\",\n      \"evidence\": \"dageno.ai\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro as a tool for AI visibility tracking. It recommends it as a viable option for tracking 'Share of Voice' and 'Ghost Citations' but includes a negative characterization by warning that it is not a 'plug-and-play source of truth' and should be treated like a 'weather forecast' rather than precise GPS.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57012,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"Don't expect exact coordinates or precise rankings.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"sparktoro.com\",\n      \"evidence\": \"sparktoro.com\"\n    },\n    {\n      \"name\": \"www.searchable.com\",\n      \"evidence\": \"www.searchable.com\"\n    },\n    {\n      \"name\": \"dageno.ai\",\n      \"evidence\": \"dageno.ai\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro as a tool for AI visibility tracking. It recommends it as a viable option for tracking 'Share of Voice' and 'Ghost Citations' but includes a negative characterization by warning that it is not a 'plug-and-play source of truth' and should be treated like a 'weather forecast' rather than precise GPS.\"\n}"
+  }
+ ]
+}

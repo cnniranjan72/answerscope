@@ -1,0 +1,27 @@
+{
+ "response_id": "90b3eb79-cdf8-4fdb-ac9b-43089065a092",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "80c6bf0de983118462064cc79b0c79ea64cc6ba9cc35e3ca3d448dff7dcd1421",
+ "recorded_at": "2026-10-28T17:41:25+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "recommended: quote not found in answer: 'If you are considering this audit, I can: Detail the specific actions you can ta'",
+   "latency_ms": 58958,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"The [Kasparro four-module audit](https://kasparro.com/) scores how artificial intelligence engines and AI commerce systems perceive and represent a brand.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering this audit, I can: Detail the specific actions you can take to improve the scores.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and describes its four-module audit as a tool for assessing AI-readiness. It recommends the audit by offering to explain how to improve scores and track competitors using the framework.\",\n  \"kasparro_list_position\": null\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "recommended: quote not found in answer: 'If you are considering this audit, I can: Detail the specific actions you can ta'",
+   "latency_ms": 37088,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"The [Kasparro four-module audit](https://kasparro.com/) scores how artificial intelligence engines and AI commerce systems perceive and represent a brand.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering this audit, I can: Detail the specific actions you can take to improve the scores.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro's audit and presents it as a viable solution for the user's query by offering to provide actionable steps to improve the scores.\",\n  \"kasparro_list_position\": null\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "recommended: quote not found in answer: 'If you are considering this audit, I can: Detail the specific actions you can ta'",
+   "latency_ms": 36838,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"The [Kasparro four-module audit](https://kasparro.com/) scores how artificial intelligence engines and AI commerce systems perceive and represent a brand.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering this audit, I can: Detail the specific actions you can take to improve the scores.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro's audit and presents it as a viable solution for the user's query by offering to provide actionable steps to improve the scores.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "b7768287-1be1-4089-bbbd-c0908289b0b9",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "3e8f3aa3991505c44f995bdbb86f41787736a66212c164de61770eb8c5664dba",
+ "recorded_at": "2026-10-28T17:27:03+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 70044,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"making tools like Kasparro and its competitors useful for identifying trends rather than guaranteed ROI\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"making tools like Kasparro and its competitors useful for identifying trends rather than guaranteed ROI\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"making tools like Kasparro and its competitors useful for identifying trends rather than guaranteed ROI\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Microsoft Clarity\",\n      \"evidence\": \"Use [Microsoft Clarity](https://clarity.microsoft.com/) (which offers free AI visibility tracking)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro as a useful tool for identifying trends, which constitutes a recommendation. However, it also qualifies this by stating it is a 'directional indicator' rather than a 'precise science' and doesn't guarantee ROI, which serves as a negative characterization of its current capabilities.\"\n}"
+  }
+ ]
+}

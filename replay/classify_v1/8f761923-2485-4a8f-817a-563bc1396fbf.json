@@ -1,0 +1,15 @@
+{
+ "response_id": "8f761923-2485-4a8f-817a-563bc1396fbf",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "0754214a6f3a4419c5df0b717b8aeca6d44ec1205b976da90662055a8ba7f5be",
+ "recorded_at": "2026-10-28T17:36:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 82583,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"are you asking about a specific tool named \\\"Kasparro,\\\"\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Strajist.ai\",\n      \"evidence\": \"platforms like [Strajist.ai](https://strajist.ai/track-brand-in/copilot) and [RanksPro](https://www.rankspro.io/ai-visibility-rank-tracker) provide tracking across multiple LLMs\"\n    },\n    {\n      \"name\": \"RanksPro\",\n      \"evidence\": \"platforms like [Strajist.ai](https://strajist.ai/track-brand-in/copilot) and [RanksPro](https://www.rankspro.io/ai-visibility-rank-tracker) provide tracking across multiple LLMs\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro only to ask for clarification on whether the user meant that specific tool, but it does not provide any information about its features or recommend it.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}
