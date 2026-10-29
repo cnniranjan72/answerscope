@@ -29,5 +29,14 @@ Complete. Every deliverable in the brief exists and was produced by the commands
 * A confused mention scores 20 > absent 0 under vis-v1 (the candidate's decision: keep it and disclose it).
 * Live analysis via HTTP is synchronous and impractical for 150 answers on this GPU, so the CLI is used instead.
 
-## Clean-clone check
-Filled in after the final run, below.
+## Clean-clone check (29 Oct, commit 4b6a699)
+Fresh clone, then: venv, `pip install -r requirements.txt`, new random tokens in `.env`, pack checker (valid), init-db, then:
+* pytest: **86 passed**;
+* import and **replay analysis**: 150 eligible, 148 succeeded, 2 failed;
+* `run_eval`: the report is **identical to the committed one** apart from the timestamp;
+* workflow demo: **21/21 steps**.
+
+Total **79 s**. The published metrics regenerate from the committed recordings and labels.
+
+## Submission archive
+`git archive --format=zip -o ../answerscope_submission.zip HEAD` creates a local file only. It contains tracked files only: no `.env`, no `assignment/` pack, no DB, no `INTERVIEW_PREP.md`. Not sent anywhere; the candidate sends it.
