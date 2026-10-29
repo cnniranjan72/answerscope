@@ -18,14 +18,15 @@ BODY = ("Kasparro is designed for AI visibility audits and can help B2B brands. 
         "Reviews often mention G2 and Profound.")
 
 
-def ok_output(**over):
-    d = baseline.classify(BODY)
+def ok_output(**over):  # production contract (classify-v2)
+    d = baseline.to_v2(baseline.classify(BODY))
     d.update(over)
     return json.dumps(d)
 
 
 def stub(scenarios=None, responder=None):
-    return StubProvider(responder or (lambda req: baseline.classify_json(BODY)), scenarios or {})
+    return StubProvider(responder or (lambda req: json.dumps(baseline.to_v2(baseline.classify(BODY)))),
+                        scenarios or {})
 
 
 @pytest.mark.parametrize("scenario,expect", [
@@ -90,11 +91,12 @@ def test_mention_must_match_lexical_fact():
 
 
 def test_recommended_requires_mentioned():
+    """classify-v1 contract (v2 equivalent: test_similar_name_without_kasparro_requires_not_applicable)."""
     body = "Use Profound."
     out = baseline.classify(body)
     out.update(kasparro_recommended=True, recommendation_evidence=["Use Profound."])
     with pytest.raises(OutputRejected) as e:
-        validate_output(json.dumps(out), body)
+        validate_output(json.dumps(out), body, "classify-v1")
     assert "recommended requires mentioned" in str(e.value)
 
 
@@ -106,7 +108,7 @@ def test_extra_fields_rejected():
 def test_regression_f1_short_competitor_name_accepted():
     """F1: locate() needs >= 3 chars, so a 2-char name was always 'not found' and burned all retries."""
     body = BODY + " Some teams use Q2 for this."
-    out = baseline.classify(body)
+    out = baseline.to_v2(baseline.classify(body))
     out["competitors"] = [{"name": "Q2", "evidence": "Some teams use Q2 for this."}]
     res = validate_output(json.dumps(out), body)
     assert "Q2" in [c["name"] for c in res["competitors"]]
@@ -115,7 +117,7 @@ def test_regression_f1_short_competitor_name_accepted():
 def test_regression_f2_baseline_quotes_are_verbatim_with_urls():
     """F2: baseline built quotes from URL-stripped text, so quotes were unverifiable."""
     body = "The [Kasparro audit](https://kasparro.com/audit) is designed for B2B brands."
-    res = validate_output(baseline.classify_json(body), body)
+    res = validate_output(baseline.classify_json(body), body, "classify-v1")  # baseline emits the v1 contract
     assert res["labels"]["mentioned"] and locate(res["evidence"]["mentioned"][0]["quote"], body)
 
 
@@ -218,6 +220,6 @@ def test_resume_treats_truncated_or_stale_recordings_as_missing(client, conn, se
     assert not has_valid_recording(conn, d, rid)
     (d / f"{rid}.json").write_text(json.dumps({"input_sha256": "stale"}), encoding="utf-8")
     assert not has_valid_recording(conn, d, rid)
-    good = input_hash(build_messages(q, answer_body(text)))
+    good = input_hash(build_messages(q, answer_body(text), "classify-v1"), "classify-v1")
     (d / f"{rid}.json").write_text(json.dumps({"input_sha256": good}), encoding="utf-8")
-    assert has_valid_recording(conn, d, rid) and not has_valid_recording(conn, d, rid, "classify-v2")
+    assert has_valid_recording(conn, d, rid, "classify-v1") and not has_valid_recording(conn, d, rid, "classify-v2")

@@ -28,7 +28,9 @@ from app.services.text import answer_body
 def _stub_responder(req: CallRequest) -> str:
     user = req.messages[1]["content"]
     body = user.split("<<<ANSWER\n", 1)[1].rsplit("\nANSWER>>>", 1)[0]
-    return baseline.classify_json(body)
+    if "recommendation_type" not in req.messages[0]["content"]:
+        return baseline.classify_json(body)
+    return json.dumps(baseline.to_v2(baseline.classify(body)))
 
 
 def replay_dir(settings: Settings, version: str = PROMPT_VERSION) -> Path:

@@ -3,7 +3,7 @@
   python -m app.cli init-db
   python -m app.cli import-pack
   python -m app.cli analyse [--provider replay|ollama|stub] [--record] [--ids id1,id2] [--only-unrecorded]
-                            [--prompt-version classify-v1|classify-v2]
+                            [--prompt-version classify-v2|classify-v1]
   python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json] [--active-minutes N]
 """
 from __future__ import annotations
@@ -36,7 +36,7 @@ def main(argv: list[str] | None = None) -> int:
     a.add_argument("--record", action="store_true", help="with --provider ollama: write replay recordings")
     a.add_argument("--ids", help="comma-separated response IDs (default: all)")
     a.add_argument("--prompt-version", default=PROMPT_VERSION, choices=sorted(PROMPTS),
-                   help="classification prompt (default: production classify-v1)")
+                   help="classification prompt (default: production classify-v2; classify-v1 reproduces the approved run)")
     a.add_argument("--only-unrecorded", action="store_true",
                    help="resume: analyse only responses without a replay recording (use with --record)")
     w = sub.add_parser("write-output")

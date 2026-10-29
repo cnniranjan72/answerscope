@@ -1,4 +1,7 @@
-"""Three-way comparison: keyword baseline vs classify-v1 (production) vs classify-v2 (candidate).
+"""Three-way comparison: keyword baseline vs classify-v1 vs classify-v2.
+
+classify-v2 was the candidate when this report was produced and became the production default
+on 29 Oct 2026 (DECISION_NOTE.md, promotion record); classify-v1 produced the approved report.
 
   python -m evaluation.compare                       # v1 and v2 from replay recordings (keyless)
   python -m evaluation.compare --v2-provider ollama --record --splits dev,tuning   # tune v2 live
@@ -102,7 +105,8 @@ def run(system: str, cases: list[dict], pack: dict, settings, provider=None, rec
         key = c["response_id"] or c["case_id"]
         if system == "baseline":
             try:
-                res = AnalysisOutcome("succeeded", None, validate_output(baseline.classify_json(body), body))
+                res = AnalysisOutcome("succeeded", None, validate_output(baseline.classify_json(body), body,
+                                                                       "classify-v1"))  # baseline emits the v1 contract
             except Exception as e:  # noqa: BLE001 - validated like the model's output
                 res = AnalysisOutcome("failed", f"baseline output rejected: {e}", None)
         else:

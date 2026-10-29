@@ -28,7 +28,8 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from app.services.llm import CallRequest, Provider, ProviderError, ProviderTimeout, ReplayMissing
 from app.services.text import BRAND_RE, brand_mention_offsets, contains_name, locate
 
-PROMPT_VERSION = "classify-v1"  # production default; classify-v2 is a candidate (EVALUATION.md)
+PROMPT_VERSION = "classify-v2"  # production default since 29 Oct 2026 (DECISION_NOTE.md, promotion record);
+# classify-v1 stays registered: the approved report and eval_report.md were produced with it and still replay.
 PROMPT_DIR = Path(__file__).resolve().parents[2] / "prompts"
 PROMPT_PATH = PROMPT_DIR / "classify_v1.md"
 MAX_RAW_OUTPUT_CHARS = 20_000

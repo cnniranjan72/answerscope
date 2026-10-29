@@ -73,3 +73,14 @@ def classify(body: str) -> dict:
 
 def classify_json(body: str) -> str:
     return json.dumps(classify(body))
+
+
+def to_v2(out: dict) -> dict:
+    """Shape a baseline result for the classify-v2 contract (used by the stub provider):
+    add recommendation_type and apply rule R-I3 (a confused answer recommends the other entity)."""
+    out = dict(out)
+    if out["entity_confusion"]:
+        out["kasparro_recommended"], out["recommendation_evidence"] = False, []
+    out["recommendation_type"] = ("not_applicable" if not out["kasparro_mentioned"] else
+                                  "suitability_claim" if out["kasparro_recommended"] else "neutral_description")
+    return out

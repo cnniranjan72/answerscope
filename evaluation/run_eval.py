@@ -29,7 +29,11 @@ from app.config import load_settings  # noqa: E402
 from app.db import connect, init_db  # noqa: E402
 from app.services import baseline, scoring  # noqa: E402
 from app.services.analysis import build_provider, result_rows, run_analysis  # noqa: E402
-from app.services.analyzer import PROMPT_VERSION, AnalysisOutcome, analyse_response, validate_output  # noqa: E402
+from app.services.analyzer import AnalysisOutcome, analyse_response, validate_output  # noqa: E402
+
+# The approved evaluation (eval_report.md, labels-v3) is a classify-v1 result and must keep
+# reproducing after classify-v2 became the default; v2 is evaluated by evaluation/compare.py.
+PROMPT_VERSION = "classify-v1"
 from app.services.citations import citation_features  # noqa: E402
 from app.services.ingestion import import_records, load_pack  # noqa: E402
 from app.services.llm import OllamaProvider  # noqa: E402
@@ -68,12 +72,13 @@ def run_system(name: str, cases: list[dict], pack: dict, provider=None, record_d
         key = c["response_id"] or c["case_id"]
         if name == "baseline":
             try:
-                v = validate_output(baseline.classify_json(body), body)
+                v = validate_output(baseline.classify_json(body), body, PROMPT_VERSION)
                 res = AnalysisOutcome("succeeded", None, v)
             except Exception as e:  # baseline output is validated like the model's
                 res = AnalysisOutcome("failed", f"baseline output rejected: {e}", None)
         else:
-            res = analyse_response(provider, response_id=key, question=q, body=body, max_attempts=max_attempts)
+            res = analyse_response(provider, response_id=key, question=q, body=body, max_attempts=max_attempts,
+                                   version=PROMPT_VERSION)
             if record_dir is not None and isinstance(provider, OllamaProvider):
                 from app.services.analysis import _write_recording
                 _write_recording(record_dir, key, provider.model, res)
@@ -168,8 +173,8 @@ def diagnostics_check(provider_name: str, settings) -> dict:
         conn = connect(s.db_path)
         try:
             import_records(conn, load_pack(s.pack_dir), actor="eval", source="configured_pack")
-            provider = build_provider(provider_name, s)
-            aid = run_analysis(conn, s, provider, actor="eval")
+            provider = build_provider(provider_name, s, version=PROMPT_VERSION)
+            aid = run_analysis(conn, s, provider, actor="eval", version=PROMPT_VERSION)
             rows = {r["response_id"]: r for r in result_rows(conn, aid)}
             summary = scoring.aggregate(list(rows.values()))["overall"]
             draft = build_draft(conn, aid)
@@ -244,7 +249,7 @@ def main(argv=None) -> int:
     settings = load_settings()
     cases = [json.loads(l) for l in Path(args.labels).read_text(encoding="utf-8").splitlines() if l.strip()]
     pack = load_pack_index(settings.pack_dir)
-    provider = build_provider(args.provider, settings)
+    provider = build_provider(args.provider, settings, version=PROMPT_VERSION)
     record_dir = settings.replay_dir / PROMPT_VERSION.replace("-", "_") if args.record else None
     if args.record_only:
         if args.provider != "ollama" or record_dir is None:

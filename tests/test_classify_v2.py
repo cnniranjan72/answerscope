@@ -60,7 +60,7 @@ def test_v1_behaviour_is_unchanged_for_the_same_output():
     """The approved classify-v1 run must replay identically: v1 has no v2 rules."""
     d = json.loads(v2(H11_LIKE, kasparro_recommended=True, recommendation_evidence=["If you are considering this audit, I can:"]))
     d.pop("recommendation_type")
-    assert validate_output(json.dumps(d), H11_LIKE)["labels"]["recommended"] is True
+    assert validate_output(json.dumps(d), H11_LIKE, "classify-v1")["labels"]["recommended"] is True
     with pytest.raises(OutputRejected):  # and a v2-only field is not accepted by the v1 contract
         validate_output(v2(H11_LIKE), H11_LIKE, "classify-v1")
 
@@ -113,3 +113,13 @@ def test_regression_dev_017_gemini_confused_entity_cannot_be_recommended():
              entity_confusion=True, confusion_evidence=["Comparing Kasparro (often searched or spelled as Kaspr)"])
     with pytest.raises(OutputRejected, match="R-I3"):
         validate_output(out, body, "classify-v2")
+
+
+def test_promotion_v2_is_default_and_approved_evaluation_stays_on_v1(client):
+    """Promotion record (DECISION_NOTE.md): new analyses use classify-v2; the approved
+    evaluation and baseline keep the classify-v1 contract so they still reproduce."""
+    from app.services import analyzer
+    from evaluation import run_eval
+    assert analyzer.PROMPT_VERSION == "classify-v2" and "classify-v1" in analyzer.PROMPTS
+    assert run_eval.PROMPT_VERSION == "classify-v1"
+    assert client.get("/health").json()["versions"]["prompt"] == "classify-v2"
