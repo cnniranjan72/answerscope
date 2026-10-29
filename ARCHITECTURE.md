@@ -18,6 +18,16 @@ HTTP (FastAPI, bearer token -> server-configured identity)
 SQLite (app/db/schema.sql) + immutability triggers
 ```
 
+## Prompt versions, evidence policy and review deadline (29 Oct sprint)
+
+* **Prompt registry** (`analyzer.PROMPTS`). `classify-v1` is the production default: the approved run, its recordings and the evaluation of record. `classify-v2` is a candidate, selected with `--prompt-version classify-v2`. Each version has its own prompt file, output contract and replay directory (`replay/classify_v1/`, `replay/classify_v2/`). The input hash includes the version, so a recording can never be replayed under the other prompt. classify-v2 adds an explicit `recommendation_type` decision and three deterministic rules:
+  1. recommended must agree with the type;
+  2. recommendation evidence must sit in a sentence that names Kasparro;
+  3. a confused entity cannot be recommended.
+* **Recordings** are written atomically (temp file + rename). Resume (`--only-unrecorded`, `compare --fill-v1/--fill-v2`) treats a missing, truncated or input-hash-mismatched recording as unrecorded.
+* **evidence-v2** (`reporting.evidence_warnings`) adds advisory flags per evidence item: very short quote, response lacks the claimed label, quote not in a sentence that names Kasparro, answer also confuses the entity. They are returned beside the report (`evidence_warnings`), shown in the console, and included in the export outside the hashed content. Drafts prefer quotes without warnings. Warnings never block; a human decides.
+* **Review deadline.** Submit sets `review_due_at` (`REVIEW_DUE_HOURS`, default 72). An overdue version stays `submitted`, is flagged `review_overdue`, is never approved or rejected by timeout, and export keeps refusing. Databases from before this change are migrated additively by `init_db`.
+
 ## Data model
 
 | Table | Purpose |
@@ -64,6 +74,6 @@ draft ──submit(version)──► submitted ──decision(version, sha, comm
 
 * **Synchronous analysis.** A replay run of 150 answers takes seconds. A live local-model run takes hours, so it is run from the CLI (`python -m app.cli analyse --provider ollama --record`) rather than holding an HTTP request open. A job queue with resumable runs is the next step.
 * **Single process, SQLite.** `BEGIN IMMEDIATE` serialises writers, which is enough for two local users. What exists today: a decision must name the latest version and its content SHA-256, Decisions run inside `BEGIN IMMEDIATE`, so a second concurrent decision sees the version is no longer `submitted` and gets 409. `UNIQUE(report_id, version)` on decisions is the database backstop. An edit must name its `base_version`, so a stale edit gets 409.
-* **Review expiry (future work, policy described).** On submit, store `review_due_at` (for example 3 working days). A version past its deadline stays `submitted`, is flagged `overdue` in listings and is escalated to a named second reviewer. It is **never** approved by timeout. A decision on an overdue version still requires the hash match. Export keeps refusing until a human approves.
+* **Review expiry (implemented 29 Oct as a deadline flag; escalation routing remains future work).** Submit stores `review_due_at` (`REVIEW_DUE_HOURS`, default 72). A version past its deadline stays `submitted` and is flagged `review_overdue` (API and console banner). It is **never** approved by timeout. Not implemented: routing an overdue review to a named second reviewer. A decision on an overdue version still requires the hash match. Export keeps refusing until a human approves.
 * **Concurrency at scale (future work).** With several reviewers or processes: Postgres with row locks (`SELECT … FOR UPDATE`) on the version, a review claim with a lease so two reviewers do not work on the same version, and optional two-reviewer quorum for client exports. Analysis would move to a job queue with per-response checkpoints. The CLI `--only-unrecorded` resume is the current stand-in.
 * **Recommendation position** is recorded but not scored, because it is rarely observable for Kasparro in this snapshot.
