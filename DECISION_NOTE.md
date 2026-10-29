@@ -30,9 +30,9 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
 - A job queue: a bounded synchronous flow is allowed, and the CLI handles long live runs.
 - A hosted API: not approved, and it costs money.
 
-**Top remedy.** R1 ⟦title from the approved report⟧.
+**Top remedy.** R1 addresses D1: Kasparro is named in **0/75 unbranded answers**, against 70/73 branded ones (148/150 analysed; 2 failures excluded). The remedy is a source-coverage audit of the hosts most cited in unbranded answers (reddit, linkedin, youtube, medium…), checking whether a factual listing is possible through legitimate editorial routes.
 - It is an investigation, not a fix.
-- Validation: re-run the same prompts on the same engines and settings, at least 3 runs, with the metric stated beforehand (baseline ⟦value⟧).
+- Validation: re-run the same prompts on the same engines and settings, at least 3 runs, with the metric stated beforehand (primary metric: unbranded mention rate, baseline 0/75).
 - No causal claim is made from a single snapshot.
 
 **Failure and fix (F4, [FAILURES.md](evaluation/FAILURES.md)).**
@@ -42,7 +42,12 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
 - F5 then showed that a narrow fix can over-correct. Its regression test caught my first attempt.
 
 **Evaluation.**
-- 12 holdout and 2 synthetic cases against a keyword baseline: ⟦headline numbers from EVALUATION.md⟧.
+- 12 holdout and 2 synthetic cases, compared with a keyword baseline (F1):
+  - negative: model **0.89**, baseline 0.40;
+  - entity confusion: model **0.80**, baseline 0.50;
+  - the injected instruction (S02) fooled the baseline but not the model;
+  - recommended: the model is **worse**, at 0.44 against 0.80 (precision 0.29). It treats favourable descriptions as recommendations.
+- I did not retune on the holdout. Instead, the report flags that the branded recommendation count (40/73) is likely an overestimate.
 - Labels: AI-drafted, then every one of the 19 cases reviewed and decided by me before the final evaluation (labels-v3; 2 changes, log in `evaluation/cases/candidate_review_log.jsonl`). This includes manual site check MC-01: the site cited for H06's price belongs to a different firm and does not mention Kasparro, so H06 is a *suspected* misattribution; no business relationship is claimed either way.
 
 **Largest risk.** Label definitions and sample size.
