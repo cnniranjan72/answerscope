@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import copy
 import json
+from pathlib import Path
 
 from app.verify_export import main, verify
 from tests.conftest import A, MINI_PACK
@@ -82,3 +83,25 @@ def test_markdown_export_endpoint_renders_only_approved_versions(client, report)
     assert r.status_code == 200 and r.headers["content-type"].startswith("text/markdown")
     assert "attachment" in r.headers["content-disposition"] and "## Diagnostics" in r.text
     assert client.get(f"/reports/{rid}/export", headers=A).json()["content_sha256"] in r.text
+
+
+def test_regression_f6_reserialised_numbers_fail_and_console_saves_raw_bytes(client, report):
+    """F6: the console re-serialised the export with JSON.stringify, which writes 1.0 as 1;
+    the canonical content changed and the hash failed. The console now saves the server's bytes."""
+    doc = exported(client, report)
+
+    def js_like(x):  # what JSON.stringify does to whole-number floats
+        if isinstance(x, float) and x.is_integer():
+            return int(x)
+        if isinstance(x, dict):
+            return {k: js_like(v) for k, v in x.items()}
+        if isinstance(x, list):
+            return [js_like(v) for v in x]
+        return x
+
+    reserialised = js_like(copy.deepcopy(doc))
+    assert json.dumps(reserialised, sort_keys=True) != json.dumps(doc, sort_keys=True)  # whole-number floats, e.g. 1.0
+    checks = {n: (ok, d) for n, ok, d in verify(reserialised)}
+    assert checks["content hash"][0] is False and "re-export" in checks["content hash"][1]
+    console = (Path(__file__).resolve().parents[1] / "app" / "static" / "index.html").read_text(encoding="utf-8")
+    assert "new Blob([text]" in console and "JSON.stringify(r, null" not in console

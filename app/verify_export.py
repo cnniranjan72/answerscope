@@ -39,8 +39,10 @@ def verify(doc: dict, answers: dict[str, str] | None = None) -> list[tuple[str, 
                 for k in EXPORT_EVIDENCE_FIELDS:
                     e.pop(k, None)
     actual = sha256(canonical(content))
-    checks.append(("content hash", actual == doc.get("content_sha256"),
-                   f"recomputed {actual[:16]}…, stated {str(doc.get('content_sha256'))[:16]}…"))
+    ok = actual == doc.get("content_sha256")
+    checks.append(("content hash", ok, f"recomputed {actual[:16]}…, stated {str(doc.get('content_sha256'))[:16]}…"
+                   + ("" if ok else "; the content differs from what was approved. A file re-serialised by another tool "
+                      "(e.g. 1.0 written as 1) also fails: re-export it from the server (F6)")))
     appr = doc.get("approval") or {}
     checks.append(("approval", appr.get("decision") == "approved" and bool(appr.get("reviewer")),
                    f"{appr.get('decision')} by {appr.get('reviewer')} at {appr.get('decided_at')}"))
