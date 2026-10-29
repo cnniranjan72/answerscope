@@ -63,3 +63,9 @@ Headline (holdout2, 24 answers, independent of tuning): recommended false positi
 Reviewer UX: evidence-v2 warnings (⚠ weak evidence) in the console and export, outside the hashed content; a Key findings card with a reviewer checklist; a review deadline (`REVIEW_DUE_HOURS`, default 72) that flags overdue versions and never auto-approves.
 
 Open for the candidate: review the fresh-v1 labels (until then, holdout2 numbers rest on AI-drafted labels); decide whether to promote classify-v2. Promoting it would need a new reviewed report.
+
+### Hosted demo (Render, 29 Oct 2026)
+* Service `answerscope-demo` at https://answerscope-demo.onrender.com, built from the private repo's `Dockerfile` (`main`), free plan, auto-deploy off. Tokens were generated at creation and exist only as Render environment variables.
+* Verified against the live URL: `/health` ok (stub provider); the console and `/docs` are served; no token gives 401; the seeded stub analysis has 6/6 succeeded; reviewer creating a report 403; analyst deciding 403; stale content hash 409; export of a draft or an unapproved submitted version 409; submit sets `review_due_at` (+72 h). `/replay/` and `/.env` give 404.
+* No approval was made on the hosted demo; a submitted synthetic report is waiting for a reviewer decision.
+* CI (GitHub Actions) builds the same image, checks that no private paths are inside it, and smoke-tests it on every push.
