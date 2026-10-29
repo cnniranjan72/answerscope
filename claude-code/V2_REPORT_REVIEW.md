@@ -1,6 +1,6 @@
 # classify-v2 report draft: AI-prepared review notes
 
-**Status:** report `1dcbae40-9728-44d3-bfdb-0390b87504b0`, version 1, **draft**, created 29 Oct 2026 from analysis `f144fd60` (report generator `report-v2`) (classify-v2, replay, 149/150 succeeded). Nothing has been edited, submitted or approved. The notes below were prepared by the AI assistant. The edits, the submission and the approve or reject decision belong to the candidate (analyst, then reviewer). The approved v1 report `7d80ca70` is unchanged.
+**Status:** report `6edb78b8-2db6-4633-b9c7-f1a6aa8b8e4f`, version 1, **draft**, created 29 Oct 2026 from analysis `f144fd60` (classify-v2, replay, 149/150 succeeded) with report generator `report-v3` (evidence-v3). It supersedes draft `1dcbae40` (report-v2), which stays in the database unedited and unsubmitted: **ignore it** (same analysis, same metrics and scorecard; its D1/R1 had four weak quotes that evidence-v3 now avoids). Nothing has been edited, submitted or approved. The notes below were prepared by the AI assistant. The edits, the submission and the approve or reject decision belong to the candidate (analyst, then reviewer). The approved v1 report `7d80ca70` is unchanged.
 
 ## What changed against the approved report (same 31 Jul 2026 capture)
 
@@ -16,17 +16,16 @@ The differences come from the method change, not from new engine answers. On hol
 
 ## Suggested analyst edits (console, signed in as analyst)
 
-**Remove these evidence quotes** (tick "remove" on each):
+**Remove these evidence quotes** (tick "remove" on each). The draft shows no ⚠ weak-evidence flags; these come from reading the quotes against the labels:
 
 | Item | Quote | Why |
 |---|---|---|
-| D1 #2 and R1 #2 | "Otterly.AI" | Flagged as a very short quote: only a name, so it shows nothing about Kasparro's absence |
-| D1 #4 | "Would you like a comparison of specific tools like **Semrush" | A fragment of an assistant offer |
-| D1 #5 | "Ahrefs" | Flagged as a very short quote |
 | D2 #3 and R2 #3 | "Kasparro** is an emerging AI brand intelligence and SEO platform" | A neutral description, not an unfavourable one (the same kind of quote was removed from v1) |
 | D2 #6 | "Publicly available enterprise user feedback ... is currently limited" | From H2-012-gemini, which the candidate decided is **not** negative (fresh_review_log.jsonl) |
 
-After the removals, D1 keeps 3 quotes, D2 4, D3 6, R1 2, R2 2 and R3 3. Every one of the remaining quotes from labelled cases agrees with its human label (T01, T05, H01, H2-018-chatgpt, T03, D-017-gemini).
+Optional: D1 #4 "If you already use modern SEO suites (like Semrush or Google Search Console)" is a conditional clause; it does name a competitor, so keeping it is defensible.
+
+After the removals, D1 keeps 6 quotes, D2 4, D3 6, R1 3, R2 2 and R3 3. Every remaining quote from a labelled case agrees with its human label; the three new D1 quotes (evidence-v3) come from unlabelled unbranded answers, all verbatim (evidence check: no problems).
 
 **Analyst notes** (paste):
 
@@ -35,7 +34,7 @@ After the removals, D1 keeps 3 quotes, D2 4, D3 6, R1 2, R2 2 and R3 3. Every on
 Then **submit** version 1 (as analyst). The review deadline is set to 72 hours.
 
 ## Reviewer checklist (signed in as reviewer)
-- Do the key findings match the scorecard? D1 0/75 unbranded, D2 23/74, D3 9/74.
+- Do the key findings match the scorecard? D1 0/75 unbranded, D2 23/74, D3 9/74 (identical in both drafts).
 - Is there no ⚠ weak-evidence flag left?
 - Do the analyst notes disclose the method change and the uncertainty in the negative count?
 - Remedies: R3 is low effort and validated by a re-run; R1 and R2 are framed as investigations, not guaranteed outcomes.
@@ -46,4 +45,5 @@ Possible reviewer comment if approving (edit freely): "Approved. classify-v2 dra
 ## Notes
 - Restart the console server so it runs the promoted code: stop the running `uvicorn` processes and start `python -m uvicorn app.main:create_app --factory --port 8000`. `/health` should then show prompt `classify-v2`. The draft itself is in the database and displays either way.
 - The competitor count fix (59bc7e5) merges "Otterly"/"OtterlyAI" (16), as well as "Dageno"/"Dageno AI" and "Scrunch"/"Scrunch AI". The approved report counted Otterly in two rows (12 + 4). That report is unchanged; this note records the discrepancy.
+- `6edb78b8` was created with `python -m app.cli draft-report f144fd60-c2aa-4291-aff7-4a1147a6fa75` after a backup (`var/backups/answerscope_pre_report_v3_draft.db`); nothing was deleted.
 - Backup of the main DB before any v2 change: `var/backups/answerscope_pre_v2_promotion.db`. Two earlier v2 drafts were removed by restoring this backup: `01f0ff76`, made before the competitor-count fix, and `b4b9c5fd`, made before the report-v2 version bump. Neither was edited or submitted. The restores are the only DB changes other than the new analysis and draft; both approved versions are intact.

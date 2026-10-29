@@ -101,7 +101,7 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
   - classify-v1 stays registered and replayable. The approved report `7d80ca70`, `outputs/analysis_output.json` and `evaluation/results/eval_report.md` are classify-v1 results and are unchanged.
   - `evaluation.run_eval` and the keyword baseline are pinned to the classify-v1 contract, so the evaluation of record still reproduces.
 - **Rollback.** `--prompt-version classify-v1` per run, or set `analyzer.PROMPT_VERSION` back. Both recording sets are kept.
-- **Report.** A classify-v2 report has been drafted (`1dcbae40`, report generator `report-v2`). It is not approved until I submit it as analyst and approve it as reviewer. Until then, the approved deliverable is the classify-v1 report.
+- **Report.** A classify-v2 report has been drafted (`6edb78b8`, report generator `report-v3`; it supersedes the unsubmitted draft `1dcbae40`). It is not approved until I submit it as analyst and approve it as reviewer. Until then, the approved deliverable is the classify-v1 report.
 - **Known limits carried over.**
   - Negative precision on holdout2 is 3/6.
   - Entity confusion is weak (1/4).
