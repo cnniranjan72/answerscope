@@ -6,13 +6,16 @@
                             [--prompt-version classify-v2|classify-v1]
   python -m app.cli draft-report [<analysis_id>]   (default: the latest analysis; creates a DRAFT only)
   python -m app.cli report-diff <base_report_id> <other_report_id> [--out file.md]
+  python -m app.cli backup-db [--out path]   (online, consistent copy; integrity-checked)
   python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json] [--active-minutes N]
 """
 from __future__ import annotations
 
 import argparse
 import json
+import sqlite3
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 from app.config import ROOT, Identity, load_settings
@@ -47,6 +50,8 @@ def main(argv: list[str] | None = None) -> int:
     rd.add_argument("base_report_id")
     rd.add_argument("other_report_id")
     rd.add_argument("--out", help="also write the markdown to this file")
+    bk = sub.add_parser("backup-db", help="consistent copy of the database while the server runs; integrity-checked")
+    bk.add_argument("--out", help="default: var/backups/answerscope_<UTC timestamp>.db")
     w = sub.add_parser("write-output")
     w.add_argument("analysis_id")
     w.add_argument("--out", default=str(ROOT / "outputs" / "analysis_output.json"))
@@ -94,6 +99,23 @@ def main(argv: list[str] | None = None) -> int:
         if args.out:
             Path(args.out).write_text(md, encoding="utf-8")
         print(md)
+    elif args.cmd == "backup-db":
+        out = Path(args.out) if args.out else s.db_path.parent / "backups" / (
+            "answerscope_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + ".db")
+        if out.exists():
+            print(f"refusing to overwrite {out}", file=sys.stderr)
+            return 1
+        out.parent.mkdir(parents=True, exist_ok=True)
+        dst = sqlite3.connect(out)
+        try:
+            conn.backup(dst)
+            check = dst.execute("PRAGMA integrity_check").fetchone()[0]
+            n = {t: dst.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
+                 for t in ("analysis_runs", "reports", "report_versions", "review_decisions")}
+        finally:
+            dst.close()
+        print(json.dumps({"backup": str(out), "integrity_check": check, "rows": n}))
+        return 0 if check == "ok" else 1
     elif args.cmd == "write-output":
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)

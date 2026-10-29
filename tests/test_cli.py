@@ -20,3 +20,17 @@ def test_draft_report_creates_a_draft_from_the_latest_analysis_and_never_submits
     statuses = [r["status"] for r in conn.execute("SELECT status FROM report_versions")]
     assert statuses == ["draft"]
     assert conn.execute("SELECT COUNT(*) FROM review_decisions").fetchone()[0] == 0
+
+
+def test_backup_db_makes_a_checked_copy_and_never_overwrites(settings, monkeypatch, capsys, tmp_path):
+    monkeypatch.setattr(cli, "load_settings", lambda: settings)
+    cli.main(["import-pack"])
+    cli.main(["analyse", "--provider", "stub"])
+    cli.main(["draft-report"])
+    capsys.readouterr()
+    out = tmp_path / "b.db"
+    assert cli.main(["backup-db", "--out", str(out)]) == 0
+    res = json.loads(capsys.readouterr().out)
+    assert res["integrity_check"] == "ok" and res["rows"]["reports"] == 1 and res["rows"]["analysis_runs"] == 1
+    assert connect(out).execute("SELECT COUNT(*) FROM report_versions").fetchone()[0] == 1
+    assert cli.main(["backup-db", "--out", str(out)]) == 1  # existing file is never overwritten

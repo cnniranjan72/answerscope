@@ -14,6 +14,8 @@
 
 The differences come from the method change, not from new engine answers. On holdout2, v2 cut recommended false positives from 10 to 2 (EVALUATION.md).
 
+Before editing, take a backup: `python -m app.cli backup-db` (a consistent copy even while the server runs; it prints the integrity check and row counts).
+
 ## Suggested analyst edits (console, signed in as analyst)
 
 **Remove these evidence quotes** (tick "remove" on each). The draft shows no ⚠ weak-evidence flags; these come from reading the quotes against the labels:
