@@ -10,14 +10,14 @@ Self-reported by the candidate on 29 October 2026. All estimates are approximate
 | 28–29 Oct 2026 | ~60 min | Reviewed the label audit table and full archived answers; made the 28 October adjudication decisions (H01, H02, H03, scoring and H06) and completed the 19-case review on 29 October. Reading and decision-making are counted once, without double-counting overlap. |
 | 28 Oct 2026 | ~20 min | Manually checked revenuepulseai.com and the Wayback capture for MC-01 and documented the findings. |
 | 28 Oct 2026 | ~25 min | Walked through the review console on port 8000, including the stub report and approve/export workflow. |
-| Pending | — | Final review of the diagnostics and report, followed by report approval in the console. This time will be added only after the work is completed. |
-| **Total candidate active time so far** | **~135 min (~2 h 15 min)** | **Verified self-reported entries only; final report review and approval excluded.** |
+| 29 Oct 2026 | ~35 min | Final review of the diagnostics and report against the cited answers. As analyst: removed 5 weak evidence quotes, replaced the D3 hypothesis and the R3 action, edited the notes, submitted. As reviewer: approved v1 with a comment and exported it. |
+| **Total candidate active time** | **~170 min (~2 h 50 min)** | **Verified self-reported entries only.** |
 
 ### Candidate time accounting notes
 
 - These durations are candidate-reported estimates, not independently measured timings.
 - The label-review estimate combines reading and adjudication to avoid double-counting overlapping work.
-- Final diagnostics review and report approval remain outstanding and are not included in the total.
+- The final diagnostics review and report approval (~35 min, self-reported) are included in the total.
 - No active time is claimed for work that has not yet been performed.
 
 ## 2. AI-Assisted Development Session
@@ -56,8 +56,8 @@ The following are wall-clock intervals recorded during the Claude Code-assisted 
 
 | Item | Status | Time |
 |---|---|---|
-| Candidate review of final diagnostics and report | Pending | To be recorded after completion |
-| Final report approval in the console | Pending | To be recorded after approval |
-| Final candidate active-time total | Pending | Update only after the above work is completed |
+| Candidate review of final diagnostics and report | Done, 29 Oct 2026 | ~35 min including approval (self-reported) |
+| Final report approval in the console | Approved v1 of report `7d80ca70`, 2026-10-29T02:20:33Z, by the reviewer identity, with comment | included above |
+| Final candidate active-time total | ~170 min (est.) | sum of section 1 |
 
 **Accounting rule:** Candidate active time, AI-assisted development session time, and unattended model execution are separate categories. They must not be summed into a single claimed active-work total. All estimated durations must remain explicitly marked as estimates.

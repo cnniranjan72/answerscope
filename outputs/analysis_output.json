@@ -1416,7 +1416,7 @@
    "priority": 1,
    "title": "Kasparro is absent from unbranded discovery answers",
    "kind": "loss",
-   "observation": "In unbranded questions (the asker does not name Kasparro), Kasparro was named in 0/75 successfully analysed answers (by engine: {'aimode': '0/25', 'chatgpt': '0/25', 'gemini': '0/25'}), versus 70/73 branded answers. Competitors named most often in unbranded answers (number of answers): Peec AI (18), Profound (15), Semrush (15), OtterlyAI (12), Ahrefs (8), SE Ranking (6).",
+   "observation": "In unbranded questions (the asker does not name Kasparro), Kasparro was named in 0/75 successfully analysed answers (by engine: {'aimode': '0/25', 'chatgpt': '0/25', 'gemini': '0/25'}), versus 70/73 branded answers. Competitors named most often in unbranded answers (number of answers): Peec AI (18), Semrush (15), Profound (15), OtterlyAI (12), Ahrefs (8), SE Ranking (6).",
    "hypothesis": "Engines build category answers from third-party lists, reviews and comparison content; Kasparro may be absent from the sources engines retrieve for these questions. Recency may also matter: the archived homepage schema gives a 2026 foundingDate. This is a hypothesis, not established by the snapshot.",
    "how_to_test": "Check whether the hosts most cited in unbranded answers mention Kasparro at all (most cited, number of answers: reddit.com (20), linkedin.com (20), youtube.com (19), medium.com (13), arxiv.org (11), semrush.com (9)). If none do, the absence is consistent with the hypothesis; if several do and Kasparro is still omitted, look for another cause.",
    "metrics": {
@@ -1424,8 +1424,8 @@
     "branded_mentioned": "70/73",
     "top_competitors_unbranded": {
      "Peec AI": 18,
-     "Profound": 15,
      "Semrush": 15,
+     "Profound": 15,
      "OtterlyAI": 12,
      "Ahrefs": 8,
      "SE Ranking": 6,
@@ -1452,11 +1452,11 @@
     },
     {
      "response_id": "ee8878c5-69b1-41c4-82a0-13a83c237f2f",
-     "quote": "Profound"
+     "quote": "Semrush"
     },
     {
      "response_id": "874f97b5-f122-4ac0-b53c-c35ddc82291d",
-     "quote": "Semrush & Ahrefs:** Traditional SEO giants that have rolled out dedicated AI visibility toolkits and brand radar add-ons to measure how brands appear in AI search summaries alongside traditional keyword rankings."
+     "quote": "Profound:** Widely recognized as a leading enterprise-grade tool for tracking brand presence, citations, and share of voice across a wide array of LLMs and AI platforms."
     },
     {
      "response_id": "af2462e6-b4a0-47b2-a540-a374b22e0d5f",
@@ -1576,11 +1576,11 @@
     },
     {
      "response_id": "ee8878c5-69b1-41c4-82a0-13a83c237f2f",
-     "quote": "Profound"
+     "quote": "Semrush"
     },
     {
      "response_id": "874f97b5-f122-4ac0-b53c-c35ddc82291d",
-     "quote": "Semrush & Ahrefs:** Traditional SEO giants that have rolled out dedicated AI visibility toolkits and brand radar add-ons to measure how brands appear in AI search summaries alongside traditional keyword rankings."
+     "quote": "Profound:** Widely recognized as a leading enterprise-grade tool for tracking brand presence, citations, and share of voice across a wide array of LLMs and AI platforms."
     }
    ],
    "action": "Investigation first: for each of the most-cited hosts in unbranded answers, record whether Kasparro is listed, and whether a factual listing or comparison inclusion is possible through legitimate editorial routes. Do not create spam or undisclosed promotional content.",
@@ -1644,7 +1644,7 @@
   }
  ],
  "active_time": {
-  "minutes": 135,
+  "minutes": 170,
   "source": "TIME_LOG.md",
   "note": "Candidate active time as self-reported in TIME_LOG.md (estimates marked there). AI-assisted session time and unattended model-run time are listed separately."
  },
