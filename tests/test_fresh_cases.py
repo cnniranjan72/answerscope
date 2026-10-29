@@ -2,6 +2,7 @@
 and split by prompt so holdout2 shares no prompt with dev or the earlier tuning cases."""
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -72,7 +73,7 @@ def test_review_sheet_is_reproducible_and_lists_only_undecided_cases():
     from evaluation.fresh_review_sheet import build_sheet, main
     text = build_sheet()
     decided = {json.loads(l)["case_id"] for l in (CASES / "fresh_review_log.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()}
-    headings = [l for l in text.splitlines() if l.startswith("## ") and "(" in l and not l.startswith("## Appendix")]
+    headings = [l for l in text.splitlines() if re.match(r"## \d+\. ", l)]
     assert len(headings) == 36 - len(decided)
     assert not any(f" {cid} (" in h for h in headings for cid in decided)
     assert main(["--check"]) == 0
