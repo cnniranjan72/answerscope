@@ -194,3 +194,15 @@ def test_tampered_approved_content_fails_export_integrity(client, report, conn):
     conn.execute("UPDATE report_versions SET content_json = '{\"title\":\"forged\"}' WHERE report_id = ?", (rid,))
     r = client.get(f"/reports/{rid}/export", headers=A)
     assert r.status_code == 409 and r.json()["error"]["code"] == "integrity_error"
+
+
+def test_competitor_counting_ignores_spelling_variants():
+    from app.services.reporting import comp_key
+    assert comp_key("Otterly.ai") == comp_key("Otterly AI") == comp_key("otterly-ai")
+    assert comp_key("HubSpot AEO") != comp_key("HubSpot")
+
+
+def test_remedy_problem_text_has_single_full_stop(client, report):
+    content = report["latest"]["content"]
+    for r in content["remedies"]:
+        assert ".." not in r["problem"], r["problem"]

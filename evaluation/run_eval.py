@@ -236,6 +236,9 @@ def main(argv=None) -> int:
     ap.add_argument("--labels", default=str(CASES), help="label file (default: candidate-reviewed labels_v3.jsonl)")
     ap.add_argument("--report-provider", default="replay", choices=["replay", "stub", "skip"],
                     help="provider for the full-pack diagnostics check")
+    ap.add_argument("--record-only", metavar="CASE_IDS",
+                    help="with --provider ollama --record: call the model only for these cases (e.g. S01,S02), "
+                         "write their recordings and exit without a report, so other recordings are not overwritten")
     args = ap.parse_args(argv)
 
     settings = load_settings()
@@ -243,6 +246,16 @@ def main(argv=None) -> int:
     pack = load_pack_index(settings.pack_dir)
     provider = build_provider(args.provider, settings)
     record_dir = settings.replay_dir / PROMPT_VERSION.replace("-", "_") if args.record else None
+    if args.record_only:
+        if args.provider != "ollama" or record_dir is None:
+            ap.error("--record-only needs --provider ollama --record")
+        wanted = set(args.record_only.split(","))
+        sel = [c for c in cases if c["case_id"] in wanted]
+        if {c["case_id"] for c in sel} != wanted:
+            ap.error(f"unknown case ids: {sorted(wanted - {c['case_id'] for c in sel})}")
+        run_system("model", sel, pack, provider, record_dir, settings.model_max_attempts)
+        print(f"recorded {sorted(wanted)} to {record_dir}")
+        return 0
 
     systems = {"baseline": run_system("baseline", cases, pack),
                "model": run_system("model", cases, pack, provider, record_dir, settings.model_max_attempts)}
@@ -359,8 +372,8 @@ def render(res: dict, cases: list[dict]) -> str:
         lines += [f"  - injected: {i}" for i in n["injected"]] + [f"  - detected: {p}" for p in n["detected"]]
     lines += ["", "## Limits of this evaluation", "",
               "- 17 real + 2 synthetic cases: metrics have wide uncertainty; one label flip moves precision/recall a lot.",
-              "- Labels were drafted by the AI coding assistant from full answer text and need candidate review; a single "
-              "labeller means no inter-annotator agreement.",
+              "- Labels were drafted by the AI coding assistant; the candidate decided every case (labels-v3, see "
+              "LABEL_AUDIT.md section 10). One annotator, so no inter-annotator agreement.",
               "- 'Recommended' is the most ambiguous label; ambiguous labels are reported both included and excluded.",
               "- One model run only; replay reproduces it but cannot show variance. Citation support is not evaluated.",
               "- The checker verifies that evidence exists and carries the claimed label; it cannot judge whether a "

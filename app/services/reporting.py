@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import sqlite3
 from collections import Counter, defaultdict
 
@@ -33,6 +34,11 @@ def canonical(content: dict) -> str:
 
 def sha256(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def comp_key(name: str) -> str:
+    """Competitor identity for counting: case, spaces and punctuation ignored ("Otterly.ai" == "Otterly AI")."""
+    return re.sub(r"[^a-z0-9]", "", name.lower())
 
 
 def _pick_evidence(rows: list[dict], label: str, limit: int = MAX_EVIDENCE) -> list[dict]:
@@ -66,16 +72,19 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
 
     if unbranded:
         absent = [r for r in unbranded if not r["labels"]["labels"]["mentioned"]]
-        comp = Counter(c["name"].lower() for r in unbranded for c in r["labels"]["competitors"])
-        display: dict[str, str] = {}
+        comp = Counter(k for r in unbranded  # each competitor counted once per answer
+                       for k in {comp_key(c["name"]) for c in r["labels"]["competitors"]})
+        display: dict[str, str] = {}  # first spelling seen, for display
+        for r in unbranded:
+            for c in r["labels"]["competitors"]:
+                display.setdefault(comp_key(c["name"]), c["name"])
         ev: list[dict] = []
         used: set[str] = set()
         for name, _ in comp.most_common(10):  # one quote per top competitor, distinct responses
             hit = next(((r, c) for r in unbranded if r["response_id"] not in used
-                        for c in r["labels"]["competitors"] if c["name"].lower() == name and c["evidence"]), None)
+                        for c in r["labels"]["competitors"] if comp_key(c["name"]) == name and c["evidence"]), None)
             if hit and len(ev) < MAX_EVIDENCE:
                 r, c = hit
-                display[name] = c["name"]
                 ev.append({"response_id": r["response_id"], "quote": c["evidence"]["quote"]})
                 used.add(r["response_id"])
         hosts = Counter()
@@ -103,7 +112,7 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
                 f"hypothesis; if several do and Kasparro is still omitted, look for another cause."),
             "metrics": {"unbranded_mentioned": f"{len(unbranded) - len(absent)}/{len(unbranded)}",
                         "branded_mentioned": f"{b_mention}/{len(branded)}",
-                        "top_competitors_unbranded": dict(comp.most_common(8)),
+                        "top_competitors_unbranded": {display[n]: k for n, k in comp.most_common(8)},
                         "top_cited_hosts_unbranded": dict(hosts.most_common(8))},
             "evidence": ev,
         })
@@ -228,7 +237,7 @@ def build_draft(conn: sqlite3.Connection, analysis_id: str) -> dict:
         fmt.update({"unbranded_mentioned": fmt.get("unbranded_mentioned", "n/a"), "confused": fmt.get("confused", "n/a"),
                     "negative": fmt.get("negative", "n/a"), "recommended": fmt.get("recommended", "n/a")})
         remedies.append({"id": f"R{i}", "priority": i, "diagnostic_id": f"D{i}",
-                         "problem": c["title"] + ". " + c["observation"].split(". ")[0] + ".",
+                         "problem": c["title"] + ". " + c["observation"].split(". ")[0].rstrip(".") + ".",
                          "evidence": c["evidence"][:3], "action": t["action"],
                          "expected_benefit": t["expected_benefit"], "effort": t["effort"],
                          "effort_detail": t["effort_detail"], "uncertainty": t["uncertainty"],
