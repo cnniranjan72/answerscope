@@ -44,6 +44,7 @@ label { display: block; font-size: 12px; color: var(--muted); margin: 8px 0 3px;
 .list-item:first-of-type { border-top: 0; }
 .list-item:hover .title { color: var(--accent); }
 .list-item.active .title { color: var(--accent); font-weight: 600; }
+.list-item:focus-visible, button:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .muted { color: var(--muted); } .small { font-size: 12px; } .mono { font-family: var(--mono); font-size: 12px; }
 .banner { border-radius: 6px; padding: 8px 12px; margin-bottom: 12px; border: 1px solid; }
 .banner.warn { border-color: var(--warn); color: var(--warn); } .banner.bad { border-color: var(--bad); color: var(--bad); } .banner.ok { border-color: var(--ok); color: var(--ok); }
@@ -184,7 +185,10 @@ async function refreshLists() {
   const rl = $("reports"); rl.replaceChildren();
   if (!r.reports.length) rl.append("No reports yet.");
   for (const x of r.reports) {
-    rl.append(el("div", { class: "list-item" + (S.report && S.report.report_id === x.report_id ? " active" : ""), on: { click: () => openReport(x.report_id) } },
+    const active = S.report && S.report.report_id === x.report_id;
+    rl.append(el("div", { class: "list-item" + (active ? " active" : ""), role: "button", tabindex: "0", "aria-current": active ? "true" : null,
+      "aria-label": `Open report ${x.report_id.slice(0, 8)}, version ${x.latest_version}, ${x.latest_status}`,
+      on: { click: () => openReport(x.report_id), keydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openReport(x.report_id); } } } },
       el("div", { class: "title" }, `Report ${x.report_id.slice(0, 8)}`),
       el("div", { class: "row small" }, el("span", { class: "chip " + x.latest_status }, `v${x.latest_version} ${x.latest_status}`), el("span", { class: "muted" }, x.created_at))));
   }
