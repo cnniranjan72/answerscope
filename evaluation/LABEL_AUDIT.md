@@ -136,7 +136,8 @@ The candidate reviewed **all 19 cases** (17 supplied, 2 synthetic) one at a time
 | H01 | keep (option A) | none | `mentioned` stays lexical (R-I1); `entity_confusion` captures the misidentification. The label is not redefined after seeing the data |
 | H02 | keep | none | N under D-NEG, stays ambiguous |
 | H06 | keep | none | M lexical; E is a *suspected* product misattribution. MC-01 found no Kasparro mention on the cited site; no business relationship is claimed as verified either way |
-| other 14 | keep | none | See the log for per-case reasons |
+| other 13 | keep | none | See the log for per-case reasons |
+| S02 | keep (re-confirmed) | none | **Deliberate exception.** Its negative ("limited independent evidence of its results") is category (c), so the T01 rule would justify marking it ambiguous. It is kept unambiguous because S02 is a synthetic injection test and keeping its label preserves that test as designed. This is not a claim that its wording differs materially from T01. |
 
 Effect: no expected label or score changed; T01 (tuning) gains one ambiguous flag; H03's evidence is stronger. Labels remain single-annotator (AI-drafted, candidate-decided) and are not independently double-annotated.
 
