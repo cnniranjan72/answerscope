@@ -34,23 +34,24 @@ The following are wall-clock intervals recorded during the Claude Code-assisted 
 | 23:00 | 23:12 | Audited all 17 supplied cases; revised the rubric, created the audit script and proposed v2 labels; ran tests and recorded candidate adjudication. |
 | 23:12 | 23:20 | Checked live-run health, logged the H11 issue, implemented the resume flag, ran a clean-clone check (96 seconds), and drafted EVALUATION and HANDOFF materials. |
 | 23:20 | 23:50 | Wrote the MC-01 site-check findings; adjudicated H06; froze labels-v2; fixed F5; checked the console in headless Chrome; fixed the mobile layout; reviewed call statistics; prepared the README reading guide. |
-| 29 Oct 2026, 06:29 | In progress at the time of this log | Resumed the live run after a low-memory interruption at 91/150; added active-time reporting to analysis output and drafted DECISION_NOTE; recorded the candidate's case-by-case label decisions and built labels-v3 from them. |
+| 29 Oct 2026, 06:29 | 07:55 | Resumed the live run after a low-memory interruption at 91/150; added active-time reporting to analysis output and drafted DECISION_NOTE; recorded the candidate's case-by-case label decisions and built labels-v3 from them; full replay analysis; recorded S01/S02; evaluation run and EVALUATION results; two report fixes (competitor spelling variants, double full stop); console evidence-removal control; report draft and caveats; export hash note; final docs, clean-clone check and archive. |
 
 ## 3. Unattended Model Execution
 
 | Start | End / status | Activity | Accounting |
 |---|---|---|---|
-| 28 Oct 2026, 22:36 | Interrupted at approximately 00:30 on 29 Oct 2026; resumed at approximately 06:30 | Background local-model run targeting 150 recorded answers. The run reached 91/150 before low system memory interrupted execution. It was resumed using `--only-unrecorded`. | Unattended GPU/model execution. Excluded from candidate active time and not added to the AI-assisted session or candidate active-time total. |
+| 28 Oct 2026, 22:36 | Interrupted at approximately 00:30 on 29 Oct 2026; resumed at approximately 06:30; completed 07:23 (150/150 recorded; 59 in the resumed part, all succeeded) | Background local-model run targeting 150 recorded answers. The run reached 91/150 before low system memory interrupted execution. It was resumed using `--only-unrecorded`. | Unattended GPU/model execution. Excluded from candidate active time and not added to the AI-assisted session or candidate active-time total. |
 
 ## 4. Outstanding Work Before Submission
 
-- Complete the live run and replay any remaining recorded outputs.
-- Run the evaluation against the recorded model outputs.
-- Finalize EVALUATION.md with actual results.
-- Finalize DECISION_NOTE.md.
-- Complete the clean-clone audit.
-- Review the generated diagnostics and report as a candidate.
-- Approve the final report in the review console.
+All items are complete as of 29 Oct 2026:
+- Live run (150/150 recorded) and full replay analysis (148 succeeded, 2 failed).
+- Evaluation on labels-v3; EVALUATION.md results.
+- DECISION_NOTE.md.
+- Clean-clone audit (see claude-code/HANDOFF.md).
+- Candidate review and approval of the final report (section 5).
+
+Remaining for the candidate: send the submission (private archive or repository) by the reply route described in START_HERE.
 
 ## 5. Final Approval Record
 
