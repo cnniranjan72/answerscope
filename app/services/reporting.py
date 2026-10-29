@@ -38,8 +38,10 @@ def sha256(text: str) -> str:
 
 
 def comp_key(name: str) -> str:
-    """Competitor identity for counting: case, spaces and punctuation ignored ("Otterly.ai" == "Otterly AI")."""
-    return re.sub(r"[^a-z0-9]", "", name.lower())
+    """Competitor identity for counting: case, spaces, punctuation and a trailing "AI" ignored
+    ("Otterly.ai" == "Otterly AI" == "Otterly"; "Peec AI" == "Peec")."""
+    key = re.sub(r"[^a-z0-9]", "", name.lower())
+    return key[:-2] if key.endswith("ai") and len(key) >= 5 else key
 
 
 PATTERN_LABEL = {"entity_confusion": "entity_confusion", "credibility_gap": "negative", "branded_win": "recommended"}

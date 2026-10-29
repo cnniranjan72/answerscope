@@ -200,6 +200,7 @@ def test_tampered_approved_content_fails_export_integrity(client, report, conn):
 def test_competitor_counting_ignores_spelling_variants():
     from app.services.reporting import comp_key
     assert comp_key("Otterly.ai") == comp_key("Otterly AI") == comp_key("otterly-ai")
+    assert comp_key("OtterlyAI") == comp_key("Otterly") and comp_key("Peec AI") == comp_key("Peec")  # draft v2 review
     assert comp_key("HubSpot AEO") != comp_key("HubSpot")
 
 
