@@ -404,6 +404,9 @@ async function doExport(version) {
     const blob = new Blob([JSON.stringify(r, null, 1)], { type: "application/json" });
     out.append(el("div", { class: "banner ok", style: "margin-top:10px" }, `Export of approved v${r.version} (approved by ${r.approval.reviewer})${r.superseded_by_version ? `, superseded by v${r.superseded_by_version}` : ""}. `,
       el("a", { href: URL.createObjectURL(blob), download: `report-${r.report_id.slice(0, 8)}-v${r.version}.json` }, "Download JSON")));
+    // Same report and version as the JSON just exported, even if the user navigated meanwhile.
+    const md = await fetch(`/reports/${r.report_id}/export.md?version=${r.version}`, { headers: { "Authorization": "Bearer " + S.token } });
+    if (md.ok) out.firstChild.append(" · ", el("a", { href: URL.createObjectURL(await md.blob()), download: `report-${r.report_id.slice(0, 8)}-v${r.version}.md` }, "Download readable report (.md)"));
   } catch (e) { out.append(el("div", { class: "banner bad", style: "margin-top:10px;white-space:pre-wrap" }, "Export refused: " + e.message)); }
 }
 

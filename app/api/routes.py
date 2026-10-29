@@ -6,10 +6,11 @@ import sqlite3
 from typing import Iterator
 
 from fastapi import APIRouter, Depends, Query, Request
+from fastapi.responses import PlainTextResponse
 
 from app.config import Identity
 from app.db import connect
-from app.errors import NotFound
+from app.errors import Conflict, NotFound
 from app.schemas import AnalysisCreate, DatasetImport, DecisionRequest, ReportCreate, ReportPatch, SubmitRequest
 from app.security import current_identity, require
 from app.services import analysis, ingestion, reporting, review, scoring
@@ -173,3 +174,17 @@ def decision(report_id: str, body: DecisionRequest, actor: Identity = Depends(RE
 def export(report_id: str, version: int | None = Query(None, ge=1), _: Identity = Depends(current_identity),
            conn=Depends(db)):
     return review.export(conn, report_id, version)
+
+
+@router.get("/reports/{report_id}/export.md", tags=["review"], response_class=PlainTextResponse,
+            summary="The same approved export, rendered as a readable Markdown report (verified before rendering)")
+def export_markdown(report_id: str, version: int | None = Query(None, ge=1), _: Identity = Depends(current_identity),
+                    conn=Depends(db)):
+    from app.render_export import render
+    from app.verify_export import verify
+    doc = json.loads(json.dumps(review.export(conn, report_id, version)))
+    failed = [n for n, ok, _ in verify(doc) if not ok]
+    if failed:
+        raise Conflict("export did not verify; not rendered", {"failed_checks": failed}, code="integrity_error")
+    return PlainTextResponse(render(doc), media_type="text/markdown; charset=utf-8", headers={
+        "Content-Disposition": f'attachment; filename="report-{report_id[:8]}-v{doc["version"]}.md"'})

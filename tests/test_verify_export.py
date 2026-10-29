@@ -70,3 +70,15 @@ def test_render_produces_a_readable_report_only_from_a_verified_export(client, r
     out.unlink()
     assert render_main([str(bad), "--out", str(out)]) == 1 and not out.exists()
     assert "REFUSED" in capsys.readouterr().err
+
+
+def test_markdown_export_endpoint_renders_only_approved_versions(client, report):
+    rid = report["report_id"]
+    assert client.get(f"/reports/{rid}/export.md", headers=A).status_code == 409  # draft: refused like JSON export
+    assert client.get(f"/reports/{rid}/export.md").status_code == 401
+    submit(client, rid, 1)
+    decide(client, rid, 1)
+    r = client.get(f"/reports/{rid}/export.md", headers=A)
+    assert r.status_code == 200 and r.headers["content-type"].startswith("text/markdown")
+    assert "attachment" in r.headers["content-disposition"] and "## Diagnostics" in r.text
+    assert client.get(f"/reports/{rid}/export", headers=A).json()["content_sha256"] in r.text
