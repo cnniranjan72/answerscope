@@ -37,6 +37,8 @@ The approved report `7d80ca70`, `outputs/approved_report_export.json`, `outputs/
 - `backup-db` CLI (5212152).
 - Readable report: `python -m app.render_export` and `GET /reports/{id}/export.md` (console: "Download readable report"). It renders only an export that verifies (93fe477, 2ff0531). `outputs/approved_report.md` is the approved v1 report rendered this way.
 - `/health` lists every version above (2199d63).
+- Console accessibility (e76ef2c, 03d03b3): the report list works by keyboard (Tab, Enter/Space, `aria-current`, visible focus), and every editor label is associated with its field. Checked in headless Chrome: 0 unlabelled controls in view and edit modes.
+- The fresh-v2 review sheet has a committed generator with a `--check` mode (`python -m evaluation.fresh_review_sheet`, 08f6773).
 
 ### Evaluation
 - fresh-v1 (b932b1e): 36 answers, AI-drafted labels blind to predictions, frozen before any v2 run.
