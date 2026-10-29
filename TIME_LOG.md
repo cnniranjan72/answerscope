@@ -53,7 +53,7 @@ All items are complete as of 29 Oct 2026:
 - Clean-clone audit (see claude-code/HANDOFF.md).
 - Candidate review and approval of the final report (section 5).
 
-Sprint (after approval): the candidate has not yet reviewed the AI-drafted fresh-v1 labels (`evaluation/cases/fresh_v1.jsonl`); no candidate active time is claimed for the sprint.
+Sprint (after approval): the AI-drafted fresh-v1 labels received an AI second-pass audit. On 29 Oct (~14:35) the candidate decided its 4 items by accepting the AI suggestions (`evaluation/cases/fresh_review_log.jsonl`). The candidate did not report time for this, so no candidate active time is claimed for the sprint.
 
 Remaining for the candidate: send the submission (private archive or repository) by the reply route described in START_HERE.
 

@@ -1,6 +1,6 @@
 # fresh-v1 label audit (AI second pass, 29 Oct 2026)
 
-**Status: AI audit only. This is not the candidate's review.** The labels in `fresh_v1.jsonl` stay frozen (hash-pinned) and still read `labeller: AI-drafted`. Each item below needs a candidate decision. Until the candidate decides, holdout2 results rest on AI-drafted labels.
+**Status: AI audit; the 4 items were decided by the candidate on 29 Oct 2026 (~14:35), who accepted every AI suggestion.** The decisions are in `fresh_review_log.jsonl`, applied to `fresh_v2.jsonl` by `python -m evaluation.fresh_review`. `fresh_v1.jsonl` stays frozen (hash-pinned). The candidate did not individually re-read the other 32 cases.
 
 Method: every one of the 36 cases was re-read against the full answer text in the supplied pack. The checks were:
 * each label against the rubric (`evaluation/RUBRIC.md`);

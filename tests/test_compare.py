@@ -14,7 +14,7 @@ REAL = Path(compare.CASES)
 def cases_dir(tmp_path, monkeypatch):
     d = tmp_path / "cases"
     d.mkdir()
-    for n in ("labels_v3.jsonl", "fresh_v1.jsonl", "synthetic_robust_v1.jsonl"):
+    for n in ("labels_v3.jsonl", "fresh_v1.jsonl", "fresh_v2.jsonl", "synthetic_robust_v1.jsonl"):
         shutil.copy(REAL / n, d / n)
     monkeypatch.setattr(compare, "CASES", d)
     return d
@@ -67,7 +67,7 @@ def test_holdout_contamination_fails(cases_dir, monkeypatch):
         first = next(i for i, r in enumerate(rows) if r["split"] == "holdout2")
         return [{**r, "prompt_id": "kasparro:ai_shortlisting:001"} if i == first else r for i, r in enumerate(rows)]
     _rewrite(cases_dir / "fresh_v1.jsonl", poison)
-    monkeypatch.setattr(compare, "_fresh_pin", lambda: compare._sha(cases_dir / "fresh_v1.jsonl"))
+    monkeypatch.setattr(compare, "_fresh_pin", lambda _v="fresh-v1": compare._sha(cases_dir / "fresh_v1.jsonl"))
     with pytest.raises(compare.IntegrityError, match="shares prompts"):
         compare.load_cases()
 
@@ -76,3 +76,9 @@ def test_wilson_interval_reference():
     assert compare.wilson(0, 0) is None
     lo, hi = compare.wilson(2, 7)
     assert 0.08 <= lo <= 0.09 and 0.64 <= hi <= 0.65
+
+
+def test_fresh_v2_labels_load_with_the_same_splits(cases_dir):
+    s1, s2 = compare.load_cases(), compare.load_cases("fresh-v2")
+    assert {k: len(v) for k, v in s1.items()} == {k: len(v) for k, v in s2.items()}
+    assert {c["label_version"] for c in s2["holdout2"]} == {"fresh-v2"}

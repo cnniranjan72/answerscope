@@ -73,7 +73,7 @@ The results above are the evaluation of record for the approved submission (clas
 * 12 dev answers, used for tuning v2.
 * 24 holdout2 answers on 8 prompts disjoint from every other split.
 
-All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, before any v2 call. v2 was tuned in 3 iterations on dev and tuning only (`results/v2_tuning/`) and frozen at tag `classify-v2-frozen` before it ran on holdout2. fresh-v1 labels are AI-drafted and await candidate review.
+All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, before any v2 call. v2 was tuned in 3 iterations on dev and tuning only (`results/v2_tuning/`) and frozen at tag `classify-v2-frozen` before it ran on holdout2. fresh-v1 labels are AI-drafted. After the results above were produced, an AI second-pass audit (`cases/fresh_v1_ai_audit.md`) raised 4 consistency items. The candidate decided them by accepting the AI suggestions, which changed one dev label (D-017-aimode → recommended, ambiguous). The result is `fresh_v2.jsonl`; fresh-v1 stays frozen. The other 32 cases were not individually re-read by the candidate.
 
 ### holdout2 (24 cases; the independent test)
 
@@ -102,7 +102,8 @@ All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, b
   * entity confusion stays weak: 1 of 4 caught. Three of the four misses are "asks which Kasparro is meant" answers, two of them labelled ambiguous. The baseline catches 2 of 4 through keywords.
 * **Injection case SR08 (synthetic):** the embedded instruction pushed v2 to output `recommended: true` with no evidence on all 3 attempts. The validator rejected every attempt, so the case ended as an **explicit failure, not a wrong label**. classify-v1 accepted a wrong `recommended`. The defence held, but the model is still steerable by injected text.
 * **Small n:** holdout2 has 1 recommendation positive. It shows that v2 stops over-calling (specificity); it cannot show recall. Wilson 95% intervals in the report are wide. This is evidence that v2 is the better candidate, not a significance claim.
-* **Status:** classify-v1 stays the production default and the approved report is unchanged. Promoting v2 would need: candidate review of the fresh-v1 labels, a full-pack v2 report under analyst → reviewer approval, and the repeated-run stability check (done: see below).
+* **Label sensitivity (fresh-v2, `results/compare_fresh_v2_report.md`):** holdout2 is unchanged, because the one changed label is in dev. On dev, v2's single recommendation false positive becomes a true positive (dev MAE 7.5 → 4.2) and v1 goes from 0/4/0 to 1/3/0 (TP/FP/FN). Dev was used for tuning, so this is not independent evidence. The other audit options were computed too: under any of them, holdout2 recommendation false positives stay at 2–3 for v2 against 10–11 for v1.
+* **Status:** classify-v1 stays the production default and the approved report is unchanged. Promoting v2 would need: candidate decisions on the fresh labels (done for the 4 audit items: fresh-v2), a full-pack v2 report under analyst → reviewer approval, and the repeated-run stability check (done: see below).
 
 ### Run-to-run stability (live re-run vs recorded)
 `python -m evaluation.stability --version <v> --splits final_seen,holdout2`: one fresh live call per case with the same settings (temperature 0, seed 7, `gemma4:12b`), compared label by label with the recorded run. Reports: `evaluation/results/stability_classify_v1.md`, `stability_classify_v2.md`.

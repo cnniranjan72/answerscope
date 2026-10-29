@@ -47,7 +47,9 @@ The approved submission is unchanged and protected: tag `submission-v1` (`0abc2c
 
 | Artifact | Path | Produced by |
 |---|---|---|
-| Fresh labelled set (dev 12 / holdout2 24, split by prompt, frozen before any v2 run; AI-drafted, **candidate review pending**) | `evaluation/cases/fresh_v1.jsonl` | `python -m evaluation.build_fresh_cases` |
+| Fresh labelled set (dev 12 / holdout2 24, split by prompt, frozen before any v2 run; AI-drafted) | `evaluation/cases/fresh_v1.jsonl` | `python -m evaluation.build_fresh_cases` |
+| AI audit of fresh-v1 and candidate decisions (4 items, all AI suggestions accepted; 1 dev label changed) | `evaluation/cases/fresh_v1_ai_audit.md`, `fresh_review_log.jsonl`, `fresh_v2.jsonl` | `python -m evaluation.fresh_review` |
+| Comparison on fresh-v2 labels (holdout2 unchanged; dev v2 FP 1 → 0) | `evaluation/results/compare_fresh_v2_*` | `python -m evaluation.compare --fresh fresh-v2` |
 | Synthetic robustness fixtures (SR01–SR10, one per failure mode) | `evaluation/cases/synthetic_robust_v1.jsonl` | `python -m evaluation.build_synthetic_robustness` |
 | Candidate prompt `classify-v2` (frozen at tag `classify-v2-frozen`) | `prompts/classify_v2.md`, rules in `app/services/analyzer.py` | – |
 | Three-way comparison (baseline / v1 / v2, per split, Wilson CIs, FP/FN tables) | `evaluation/results/compare_report.md`, `compare_results.json`, `compare_predictions.json` | `python -m evaluation.compare` (replay); `--from-predictions` recomputes the metrics |
@@ -62,7 +64,7 @@ Headline (holdout2, 24 answers, independent of tuning): recommended false positi
 
 Reviewer UX: evidence-v2 warnings (⚠ weak evidence) in the console and export, outside the hashed content; a Key findings card with a reviewer checklist; a review deadline (`REVIEW_DUE_HOURS`, default 72) that flags overdue versions and never auto-approves.
 
-Open for the candidate: review the fresh-v1 labels (until then, holdout2 numbers rest on AI-drafted labels); decide whether to promote classify-v2. Promoting it would need a new reviewed report.
+Open for the candidate: the fresh labels are AI-drafted plus an AI audit whose 4 items the candidate decided; the other 32 cases were not individually re-read. Decide whether to promote classify-v2. Promoting it would need a new reviewed report.
 
 ### Hosted demo (Render, 29 Oct 2026)
 * Service `answerscope-demo` at https://answerscope-demo.onrender.com, built from the private repo's `Dockerfile` (`main`), free plan, auto-deploy off. Tokens were generated at creation and exist only as Render environment variables.

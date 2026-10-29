@@ -1,0 +1,3103 @@
+{
+ "provenance": {
+  "generated_at": "2026-10-29T09:07:23+00:00",
+  "fresh": "fresh-v2",
+  "label_files": {
+   "labels_v3.jsonl": "a893038eb00bd4c7",
+   "fresh_v2.jsonl": "e5efcf2ddc070908"
+  },
+  "providers": {
+   "classify-v1": "replay",
+   "classify-v2": "replay"
+  },
+  "model": "replay:gemma4:12b",
+  "baseline": "baseline-v1",
+  "prompt_files": {
+   "classify-v1": "c339efedb0594aad",
+   "classify-v2": "3d726ce8e959b1d2"
+  },
+  "splits_run": [
+   "tuning",
+   "dev",
+   "final_seen",
+   "holdout2",
+   "synthetic_robust"
+  ]
+ },
+ "results": {
+  "tuning": {
+   "cases": [
+    "T01",
+    "T02",
+    "T03",
+    "T04",
+    "T05"
+   ],
+   "systems": {
+    "baseline": {
+     "counts": {
+      "eligible": 5,
+      "succeeded": 5,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 4,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": []
+      },
+      "negative": {
+       "fp": [],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0
+     },
+     "score_mae": 0.0,
+     "score_exact": "5/5"
+    },
+    "classify-v1": {
+     "counts": {
+      "eligible": 5,
+      "succeeded": 5,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 4,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": []
+      },
+      "negative": {
+       "fp": [],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 8,
+      "fp": 5,
+      "fn": 0,
+      "precision": 0.615,
+      "recall": 1.0
+     },
+     "score_mae": 0.0,
+     "score_exact": "5/5"
+    },
+    "classify-v2": {
+     "counts": {
+      "eligible": 5,
+      "succeeded": 5,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 2,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 4,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 4,
+       "n": 5,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": []
+      },
+      "negative": {
+       "fp": [],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 8,
+      "fp": 5,
+      "fn": 0,
+      "precision": 0.615,
+      "recall": 1.0
+     },
+     "score_mae": 0.0,
+     "score_exact": "5/5"
+    }
+   },
+   "v2_recommendation_types": {
+    "neutral_description": 1,
+    "explicit_endorsement": 1,
+    "not_applicable": 2,
+    "negative_or_alternative": 1
+   }
+  },
+  "dev": {
+   "cases": [
+    "D-004-aimode",
+    "D-004-chatgpt",
+    "D-004-gemini",
+    "D-010-aimode",
+    "D-010-chatgpt",
+    "D-010-gemini",
+    "D-017-aimode",
+    "D-017-chatgpt",
+    "D-017-gemini",
+    "D-025-aimode",
+    "D-025-chatgpt",
+    "D-025-gemini"
+   ],
+   "systems": {
+    "baseline": {
+     "counts": {
+      "eligible": 12,
+      "succeeded": 12,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 1,
+       "tn": 9,
+       "n": 12,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "agreement": 0.75,
+       "precision_ci95": [
+        0.0,
+        0.66
+       ],
+       "recall_ci95": [
+        0.0,
+        0.79
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 3,
+       "fn": 1,
+       "tn": 7,
+       "n": 12,
+       "precision": 0.25,
+       "recall": 0.5,
+       "f1": 0.333,
+       "agreement": 0.667,
+       "precision_ci95": [
+        0.05,
+        0.7
+       ],
+       "recall_ci95": [
+        0.09,
+        0.91
+       ]
+      },
+      "entity_confusion": {
+       "tp": 3,
+       "fp": 1,
+       "fn": 0,
+       "tn": 8,
+       "n": 12,
+       "precision": 0.75,
+       "recall": 1.0,
+       "f1": 0.857,
+       "agreement": 0.917,
+       "precision_ci95": [
+        0.3,
+        0.95
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 2,
+       "fn": 0,
+       "tn": 9,
+       "n": 11,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.818,
+       "precision_ci95": [
+        0.0,
+        0.66
+       ],
+       "recall_ci95": null
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 1,
+       "fn": 1,
+       "tn": 7,
+       "n": 10,
+       "precision": 0.5,
+       "recall": 0.5,
+       "f1": 0.5,
+       "agreement": 0.8,
+       "precision_ci95": [
+        0.09,
+        0.91
+       ],
+       "recall_ci95": [
+        0.09,
+        0.91
+       ]
+      },
+      "entity_confusion": {
+       "tp": 3,
+       "fp": 1,
+       "fn": 0,
+       "tn": 8,
+       "n": 12,
+       "precision": 0.75,
+       "recall": 1.0,
+       "f1": 0.857,
+       "agreement": 0.917,
+       "precision_ci95": [
+        0.3,
+        0.95
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "D-010-chatgpt",
+        "D-017-chatgpt"
+       ],
+       "fn": [
+        "D-017-aimode"
+       ]
+      },
+      "negative": {
+       "fp": [
+        "D-010-chatgpt",
+        "D-010-gemini",
+        "D-025-chatgpt"
+       ],
+       "fn": [
+        "D-017-chatgpt"
+       ]
+      },
+      "entity_confusion": {
+       "fp": [
+        "D-017-chatgpt"
+       ],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 12.5,
+     "score_exact": "7/12"
+    },
+    "classify-v1": {
+     "counts": {
+      "eligible": 12,
+      "succeeded": 12,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 3,
+       "fn": 0,
+       "tn": 8,
+       "n": 12,
+       "precision": 0.25,
+       "recall": 1.0,
+       "f1": 0.4,
+       "agreement": 0.75,
+       "precision_ci95": [
+        0.05,
+        0.7
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 3,
+       "fn": 0,
+       "tn": 7,
+       "n": 12,
+       "precision": 0.4,
+       "recall": 1.0,
+       "f1": 0.571,
+       "agreement": 0.75,
+       "precision_ci95": [
+        0.12,
+        0.77
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 3,
+       "fn": 0,
+       "tn": 8,
+       "n": 11,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.727,
+       "precision_ci95": [
+        0.0,
+        0.56
+       ],
+       "recall_ci95": null
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 1,
+       "fn": 0,
+       "tn": 7,
+       "n": 10,
+       "precision": 0.667,
+       "recall": 1.0,
+       "f1": 0.8,
+       "agreement": 0.9,
+       "precision_ci95": [
+        0.21,
+        0.94
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "D-004-gemini",
+        "D-010-gemini",
+        "D-017-gemini"
+       ],
+       "fn": []
+      },
+      "negative": {
+       "fp": [
+        "D-004-aimode",
+        "D-010-chatgpt",
+        "D-025-chatgpt"
+       ],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 16.67,
+     "score_exact": "6/12"
+    },
+    "classify-v2": {
+     "counts": {
+      "eligible": 12,
+      "succeeded": 12,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 11,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 2,
+       "fn": 0,
+       "tn": 8,
+       "n": 12,
+       "precision": 0.5,
+       "recall": 1.0,
+       "f1": 0.667,
+       "agreement": 0.833,
+       "precision_ci95": [
+        0.15,
+        0.85
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 0,
+       "tn": 11,
+       "n": 11,
+       "precision": null,
+       "recall": null,
+       "f1": null,
+       "agreement": 1.0,
+       "precision_ci95": null,
+       "recall_ci95": null
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 8,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 12,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": []
+      },
+      "negative": {
+       "fp": [
+        "D-010-chatgpt",
+        "D-025-chatgpt"
+       ],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 4.17,
+     "score_exact": "10/12"
+    }
+   },
+   "v2_recommendation_types": {
+    "neutral_description": 7,
+    "factual_answer": 2,
+    "suitability_claim": 1,
+    "negative_or_alternative": 1,
+    "not_applicable": 1
+   }
+  },
+  "final_seen": {
+   "cases": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H09",
+    "H10",
+    "H11",
+    "H12",
+    "S01",
+    "S02"
+   ],
+   "systems": {
+    "baseline": {
+     "counts": {
+      "eligible": 14,
+      "succeeded": 14,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 1,
+       "fn": 0,
+       "tn": 11,
+       "n": 14,
+       "precision": 0.667,
+       "recall": 1.0,
+       "f1": 0.8,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.21,
+        0.94
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 3,
+       "tn": 10,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.25,
+       "f1": 0.4,
+       "agreement": 0.786,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.05,
+        0.7
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 2,
+       "tn": 11,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.333,
+       "f1": 0.5,
+       "agreement": 0.857,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.06,
+        0.79
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 1,
+       "fn": 0,
+       "tn": 8,
+       "n": 11,
+       "precision": 0.667,
+       "recall": 1.0,
+       "f1": 0.8,
+       "agreement": 0.909,
+       "precision_ci95": [
+        0.21,
+        0.94
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 2,
+       "tn": 9,
+       "n": 11,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "agreement": 0.818,
+       "precision_ci95": null,
+       "recall_ci95": [
+        0.0,
+        0.66
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 2,
+       "tn": 11,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.333,
+       "f1": 0.5,
+       "agreement": 0.857,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.06,
+        0.79
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "S02"
+       ],
+       "fn": []
+      },
+      "negative": {
+       "fp": [],
+       "fn": [
+        "H02",
+        "H07",
+        "S02"
+       ]
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": [
+        "H01",
+        "H06"
+       ]
+      }
+     },
+     "competitors": {
+      "tp": 14,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1.0,
+      "recall": 0.875
+     },
+     "score_mae": 12.14,
+     "score_exact": "9/14"
+    },
+    "classify-v1": {
+     "counts": {
+      "eligible": 14,
+      "succeeded": 14,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 5,
+       "fn": 0,
+       "tn": 7,
+       "n": 14,
+       "precision": 0.286,
+       "recall": 1.0,
+       "f1": 0.444,
+       "agreement": 0.643,
+       "precision_ci95": [
+        0.08,
+        0.64
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 4,
+       "fp": 1,
+       "fn": 0,
+       "tn": 9,
+       "n": 14,
+       "precision": 0.8,
+       "recall": 1.0,
+       "f1": 0.889,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.38,
+        0.96
+       ],
+       "recall_ci95": [
+        0.51,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 1,
+       "tn": 11,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.667,
+       "f1": 0.8,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        0.94
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 2,
+       "fn": 0,
+       "tn": 7,
+       "n": 11,
+       "precision": 0.5,
+       "recall": 1.0,
+       "f1": 0.667,
+       "agreement": 0.818,
+       "precision_ci95": [
+        0.15,
+        0.85
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 11,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 1,
+       "tn": 11,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.667,
+       "f1": 0.8,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        0.94
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "H05",
+        "H06",
+        "H07",
+        "H10",
+        "H11"
+       ],
+       "fn": []
+      },
+      "negative": {
+       "fp": [
+        "H01"
+       ],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": [
+        "H06"
+       ]
+      }
+     },
+     "competitors": {
+      "tp": 16,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.941,
+      "recall": 1.0
+     },
+     "score_mae": 17.14,
+     "score_exact": "8/14"
+    },
+    "classify-v2": {
+     "counts": {
+      "eligible": 14,
+      "succeeded": 14,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 12,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 4,
+       "fp": 1,
+       "fn": 0,
+       "tn": 9,
+       "n": 14,
+       "precision": 0.8,
+       "recall": 1.0,
+       "f1": 0.889,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.38,
+        0.96
+       ],
+       "recall_ci95": [
+        0.51,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 1,
+       "tn": 11,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.667,
+       "f1": 0.8,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        0.94
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 11,
+       "fp": 0,
+       "fn": 0,
+       "tn": 3,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.74,
+        1.0
+       ],
+       "recall_ci95": [
+        0.74,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 11,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 11,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 1,
+       "tn": 11,
+       "n": 14,
+       "precision": 1.0,
+       "recall": 0.667,
+       "f1": 0.8,
+       "agreement": 0.929,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        0.94
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": []
+      },
+      "negative": {
+       "fp": [
+        "H01"
+       ],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": [
+        "H06"
+       ]
+      }
+     },
+     "competitors": {
+      "tp": 16,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.941,
+      "recall": 1.0
+     },
+     "score_mae": 2.86,
+     "score_exact": "12/14"
+    }
+   },
+   "v2_recommendation_types": {
+    "neutral_description": 5,
+    "negative_or_alternative": 1,
+    "not_applicable": 3,
+    "factual_answer": 3,
+    "suitability_claim": 1,
+    "explicit_endorsement": 1
+   }
+  },
+  "holdout2": {
+   "cases": [
+    "H2-005-aimode",
+    "H2-005-chatgpt",
+    "H2-005-gemini",
+    "H2-006-aimode",
+    "H2-006-chatgpt",
+    "H2-006-gemini",
+    "H2-008-aimode",
+    "H2-008-chatgpt",
+    "H2-008-gemini",
+    "H2-012-aimode",
+    "H2-012-chatgpt",
+    "H2-012-gemini",
+    "H2-018-aimode",
+    "H2-018-chatgpt",
+    "H2-018-gemini",
+    "H2-019-aimode",
+    "H2-019-chatgpt",
+    "H2-019-gemini",
+    "H2-020-aimode",
+    "H2-020-chatgpt",
+    "H2-020-gemini",
+    "H2-021-aimode",
+    "H2-021-chatgpt",
+    "H2-021-gemini"
+   ],
+   "systems": {
+    "baseline": {
+     "counts": {
+      "eligible": 24,
+      "succeeded": 24,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 24,
+       "fp": 0,
+       "fn": 0,
+       "tn": 0,
+       "n": 24,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.86,
+        1.0
+       ],
+       "recall_ci95": [
+        0.86,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 4,
+       "fn": 1,
+       "tn": 19,
+       "n": 24,
+       "precision": 0.0,
+       "recall": 0.0,
+       "f1": 0.0,
+       "agreement": 0.792,
+       "precision_ci95": [
+        0.0,
+        0.49
+       ],
+       "recall_ci95": [
+        0.0,
+        0.79
+       ]
+      },
+      "negative": {
+       "tp": 3,
+       "fp": 5,
+       "fn": 1,
+       "tn": 15,
+       "n": 24,
+       "precision": 0.375,
+       "recall": 0.75,
+       "f1": 0.5,
+       "agreement": 0.75,
+       "precision_ci95": [
+        0.14,
+        0.69
+       ],
+       "recall_ci95": [
+        0.3,
+        0.95
+       ]
+      },
+      "entity_confusion": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 2,
+       "tn": 20,
+       "n": 24,
+       "precision": 1.0,
+       "recall": 0.5,
+       "f1": 0.667,
+       "agreement": 0.917,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.15,
+        0.85
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 24,
+       "fp": 0,
+       "fn": 0,
+       "tn": 0,
+       "n": 24,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.86,
+        1.0
+       ],
+       "recall_ci95": [
+        0.86,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 3,
+       "fn": 0,
+       "tn": 19,
+       "n": 22,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.864,
+       "precision_ci95": [
+        0.0,
+        0.56
+       ],
+       "recall_ci95": null
+      },
+      "negative": {
+       "tp": 0,
+       "fp": 4,
+       "fn": 0,
+       "tn": 13,
+       "n": 17,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.765,
+       "precision_ci95": [
+        0.0,
+        0.49
+       ],
+       "recall_ci95": null
+      },
+      "entity_confusion": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 19,
+       "n": 21,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "H2-006-gemini",
+        "H2-012-aimode",
+        "H2-020-gemini",
+        "H2-021-aimode"
+       ],
+       "fn": [
+        "H2-008-chatgpt"
+       ]
+      },
+      "negative": {
+       "fp": [
+        "H2-018-chatgpt",
+        "H2-019-aimode",
+        "H2-019-chatgpt",
+        "H2-020-chatgpt",
+        "H2-021-chatgpt"
+       ],
+       "fn": [
+        "H2-012-aimode"
+       ]
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": [
+        "H2-006-aimode",
+        "H2-019-aimode"
+       ]
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 15.0,
+     "score_exact": "13/24"
+    },
+    "classify-v1": {
+     "counts": {
+      "eligible": 24,
+      "succeeded": 23,
+      "failed": 1
+     },
+     "failures": {
+      "H2-012-gemini": "invalid_output: mentioned: quote not found in answer: 'Kasparro builds an AI Visibility platform' (after 3 attempts)"
+     },
+     "labels_strict": {
+      "mentioned": {
+       "tp": 23,
+       "fp": 0,
+       "fn": 0,
+       "tn": 0,
+       "n": 23,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.86,
+        1.0
+       ],
+       "recall_ci95": [
+        0.86,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 10,
+       "fn": 0,
+       "tn": 12,
+       "n": 23,
+       "precision": 0.091,
+       "recall": 1.0,
+       "f1": 0.167,
+       "agreement": 0.565,
+       "precision_ci95": [
+        0.02,
+        0.38
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 4,
+       "fp": 6,
+       "fn": 0,
+       "tn": 13,
+       "n": 23,
+       "precision": 0.4,
+       "recall": 1.0,
+       "f1": 0.571,
+       "agreement": 0.739,
+       "precision_ci95": [
+        0.17,
+        0.69
+       ],
+       "recall_ci95": [
+        0.51,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 4,
+       "tn": 19,
+       "n": 23,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "agreement": 0.826,
+       "precision_ci95": null,
+       "recall_ci95": [
+        0.0,
+        0.49
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 23,
+       "fp": 0,
+       "fn": 0,
+       "tn": 0,
+       "n": 23,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.86,
+        1.0
+       ],
+       "recall_ci95": [
+        0.86,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 9,
+       "fn": 0,
+       "tn": 12,
+       "n": 21,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.571,
+       "precision_ci95": [
+        0.0,
+        0.3
+       ],
+       "recall_ci95": null
+      },
+      "negative": {
+       "tp": 0,
+       "fp": 5,
+       "fn": 0,
+       "tn": 12,
+       "n": 17,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.706,
+       "precision_ci95": [
+        -0.0,
+        0.43
+       ],
+       "recall_ci95": null
+      },
+      "entity_confusion": {
+       "tp": 0,
+       "fp": 0,
+       "fn": 2,
+       "tn": 18,
+       "n": 20,
+       "precision": null,
+       "recall": 0.0,
+       "f1": 0.0,
+       "agreement": 0.9,
+       "precision_ci95": null,
+       "recall_ci95": [
+        0.0,
+        0.66
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "H2-005-aimode",
+        "H2-005-chatgpt",
+        "H2-005-gemini",
+        "H2-006-chatgpt",
+        "H2-006-gemini",
+        "H2-018-gemini",
+        "H2-019-gemini",
+        "H2-020-aimode",
+        "H2-020-gemini",
+        "H2-021-aimode"
+       ],
+       "fn": []
+      },
+      "negative": {
+       "fp": [
+        "H2-005-aimode",
+        "H2-005-gemini",
+        "H2-008-aimode",
+        "H2-018-chatgpt",
+        "H2-019-chatgpt",
+        "H2-021-chatgpt"
+       ],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": [
+        "H2-006-aimode",
+        "H2-018-chatgpt",
+        "H2-019-aimode",
+        "H2-019-chatgpt"
+       ]
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 20.0,
+     "score_exact": "7/23"
+    },
+    "classify-v2": {
+     "counts": {
+      "eligible": 24,
+      "succeeded": 24,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 24,
+       "fp": 0,
+       "fn": 0,
+       "tn": 0,
+       "n": 24,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.86,
+        1.0
+       ],
+       "recall_ci95": [
+        0.86,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 2,
+       "fn": 0,
+       "tn": 21,
+       "n": 24,
+       "precision": 0.333,
+       "recall": 1.0,
+       "f1": 0.5,
+       "agreement": 0.917,
+       "precision_ci95": [
+        0.06,
+        0.79
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 3,
+       "fp": 3,
+       "fn": 1,
+       "tn": 17,
+       "n": 24,
+       "precision": 0.5,
+       "recall": 0.75,
+       "f1": 0.6,
+       "agreement": 0.833,
+       "precision_ci95": [
+        0.19,
+        0.81
+       ],
+       "recall_ci95": [
+        0.3,
+        0.95
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 3,
+       "tn": 20,
+       "n": 24,
+       "precision": 1.0,
+       "recall": 0.25,
+       "f1": 0.4,
+       "agreement": 0.875,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.05,
+        0.7
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 24,
+       "fp": 0,
+       "fn": 0,
+       "tn": 0,
+       "n": 24,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.86,
+        1.0
+       ],
+       "recall_ci95": [
+        0.86,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 21,
+       "n": 22,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.955,
+       "precision_ci95": [
+        0.0,
+        0.79
+       ],
+       "recall_ci95": null
+      },
+      "negative": {
+       "tp": 0,
+       "fp": 1,
+       "fn": 0,
+       "tn": 16,
+       "n": 17,
+       "precision": 0.0,
+       "recall": null,
+       "f1": 0.0,
+       "agreement": 0.941,
+       "precision_ci95": [
+        0.0,
+        0.79
+       ],
+       "recall_ci95": null
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 1,
+       "tn": 19,
+       "n": 21,
+       "precision": 1.0,
+       "recall": 0.5,
+       "f1": 0.667,
+       "agreement": 0.952,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.09,
+        0.91
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "H2-006-gemini",
+        "H2-021-aimode"
+       ],
+       "fn": []
+      },
+      "negative": {
+       "fp": [
+        "H2-005-aimode",
+        "H2-012-gemini",
+        "H2-021-chatgpt"
+       ],
+       "fn": [
+        "H2-006-chatgpt"
+       ]
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": [
+        "H2-006-aimode",
+        "H2-019-aimode",
+        "H2-019-chatgpt"
+       ]
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 10.83,
+     "score_exact": "15/24"
+    }
+   },
+   "v2_recommendation_types": {
+    "neutral_description": 15,
+    "factual_answer": 5,
+    "suitability_claim": 2,
+    "explicit_endorsement": 1,
+    "not_applicable": 1
+   }
+  },
+  "synthetic_robust": {
+   "cases": [
+    "SR01",
+    "SR02",
+    "SR03",
+    "SR04",
+    "SR05",
+    "SR06",
+    "SR07",
+    "SR08",
+    "SR09",
+    "SR10"
+   ],
+   "systems": {
+    "baseline": {
+     "counts": {
+      "eligible": 10,
+      "succeeded": 10,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 9,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.7,
+        1.0
+       ],
+       "recall_ci95": [
+        0.7,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 1,
+       "tn": 8,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 0.5,
+       "f1": 0.667,
+       "agreement": 0.9,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.09,
+        0.91
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 3,
+       "tn": 6,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 0.25,
+       "f1": 0.4,
+       "agreement": 0.7,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.05,
+        0.7
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 9,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.7,
+        1.0
+       ],
+       "recall_ci95": [
+        0.7,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 1,
+       "tn": 8,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 0.5,
+       "f1": 0.667,
+       "agreement": 0.9,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.09,
+        0.91
+       ]
+      },
+      "negative": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 2,
+       "tn": 6,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 0.333,
+       "f1": 0.5,
+       "agreement": 0.778,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.06,
+        0.79
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": [
+        "SR01"
+       ]
+      },
+      "negative": {
+       "fp": [],
+       "fn": [
+        "SR05",
+        "SR06",
+        "SR08"
+       ]
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 13.0,
+     "score_exact": "6/10"
+    },
+    "classify-v1": {
+     "counts": {
+      "eligible": 10,
+      "succeeded": 10,
+      "failed": 0
+     },
+     "failures": {},
+     "labels_strict": {
+      "mentioned": {
+       "tp": 9,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.7,
+        1.0
+       ],
+       "recall_ci95": [
+        0.7,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 4,
+       "fn": 0,
+       "tn": 4,
+       "n": 10,
+       "precision": 0.333,
+       "recall": 1.0,
+       "f1": 0.5,
+       "agreement": 0.6,
+       "precision_ci95": [
+        0.1,
+        0.7
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 4,
+       "fp": 0,
+       "fn": 0,
+       "tn": 6,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.51,
+        1.0
+       ],
+       "recall_ci95": [
+        0.51,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 9,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.7,
+        1.0
+       ],
+       "recall_ci95": [
+        0.7,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 4,
+       "fn": 0,
+       "tn": 4,
+       "n": 10,
+       "precision": 0.333,
+       "recall": 1.0,
+       "f1": 0.5,
+       "agreement": 0.6,
+       "precision_ci95": [
+        0.1,
+        0.7
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 6,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 9,
+       "n": 10,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [
+        "SR02",
+        "SR03",
+        "SR08",
+        "SR10"
+       ],
+       "fn": []
+      },
+      "negative": {
+       "fp": [],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 16.0,
+     "score_exact": "6/10"
+    },
+    "classify-v2": {
+     "counts": {
+      "eligible": 10,
+      "succeeded": 9,
+      "failed": 1
+     },
+     "failures": {
+      "SR08": "invalid_output: recommended is true but no evidence quote was given (after 3 attempts)"
+     },
+     "labels_strict": {
+      "mentioned": {
+       "tp": 8,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.68,
+        1.0
+       ],
+       "recall_ci95": [
+        0.68,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 7,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 6,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 8,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "labels_unambiguous": {
+      "mentioned": {
+       "tp": 8,
+       "fp": 0,
+       "fn": 0,
+       "tn": 1,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.68,
+        1.0
+       ],
+       "recall_ci95": [
+        0.68,
+        1.0
+       ]
+      },
+      "recommended": {
+       "tp": 2,
+       "fp": 0,
+       "fn": 0,
+       "tn": 7,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.34,
+        1.0
+       ],
+       "recall_ci95": [
+        0.34,
+        1.0
+       ]
+      },
+      "negative": {
+       "tp": 3,
+       "fp": 0,
+       "fn": 0,
+       "tn": 6,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.44,
+        1.0
+       ],
+       "recall_ci95": [
+        0.44,
+        1.0
+       ]
+      },
+      "entity_confusion": {
+       "tp": 1,
+       "fp": 0,
+       "fn": 0,
+       "tn": 8,
+       "n": 9,
+       "precision": 1.0,
+       "recall": 1.0,
+       "f1": 1.0,
+       "agreement": 1.0,
+       "precision_ci95": [
+        0.21,
+        1.0
+       ],
+       "recall_ci95": [
+        0.21,
+        1.0
+       ]
+      }
+     },
+     "errors": {
+      "mentioned": {
+       "fp": [],
+       "fn": []
+      },
+      "recommended": {
+       "fp": [],
+       "fn": []
+      },
+      "negative": {
+       "fp": [],
+       "fn": []
+      },
+      "entity_confusion": {
+       "fp": [],
+       "fn": []
+      }
+     },
+     "competitors": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null
+     },
+     "score_mae": 0.0,
+     "score_exact": "9/9"
+    }
+   },
+   "v2_recommendation_types": {
+    "explicit_endorsement": 1,
+    "neutral_description": 2,
+    "factual_answer": 1,
+    "negative_or_alternative": 3,
+    "not_applicable": 1,
+    "None": 1,
+    "suitability_claim": 1
+   }
+  }
+ }
+}

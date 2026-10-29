@@ -3,6 +3,8 @@
   python -m evaluation.compare                       # v1 and v2 from replay recordings (keyless)
   python -m evaluation.compare --v2-provider ollama --record --splits dev,tuning   # tune v2 live
   python -m evaluation.compare --from-predictions evaluation/results/compare_predictions.json
+  python -m evaluation.compare --fresh fresh-v2     # same, on the candidate-decided fresh labels
+                                                    # (writes compare_fresh_v2_*; fresh-v1 stays the default)
 
 Splits and what they can show:
   tuning     5 labels-v3 cases used to write classify-v1 (and to check classify-v2).
@@ -52,23 +54,26 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
-def _fresh_pin() -> str:
+FRESH = {"fresh-v1": ("fresh_v1.jsonl", "FRESH_SHA256"), "fresh-v2": ("fresh_v2.jsonl", "FRESH_V2_SHA256")}
+
+
+def _fresh_pin(fresh: str = "fresh-v1") -> str:
     text = (ROOT / "tests" / "test_fresh_cases.py").read_text(encoding="utf-8")
-    return text.split('FRESH_SHA256 = "', 1)[1].split('"', 1)[0]
+    return text.split(f'{FRESH[fresh][1]} = "', 1)[1].split('"', 1)[0]
 
 
-def load_cases() -> dict[str, list[dict]]:
-    v3p, frp, srp = CASES / "labels_v3.jsonl", CASES / "fresh_v1.jsonl", CASES / "synthetic_robust_v1.jsonl"
+def load_cases(fresh_version: str = "fresh-v1") -> dict[str, list[dict]]:
+    v3p, frp, srp = CASES / "labels_v3.jsonl", CASES / FRESH[fresh_version][0], CASES / "synthetic_robust_v1.jsonl"
     for p in (v3p, frp, srp):
         if not p.exists():
             raise IntegrityError(f"missing label file {p}")
     if not _sha(v3p).startswith(FROZEN["labels_v3.jsonl"]):
         raise IntegrityError("labels_v3.jsonl changed: frozen candidate-reviewed labels must not change")
-    if _sha(frp) != _fresh_pin():
-        raise IntegrityError("fresh_v1.jsonl changed after it was frozen")
+    if _sha(frp) != _fresh_pin(fresh_version):
+        raise IntegrityError(f"{frp.name} changed after it was frozen")
     load = lambda p: [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]  # noqa: E731
     v3, fresh, robust = load(v3p), load(frp), load(srp)
-    if ({c["label_version"] for c in v3} != {"labels-v3"} or {c["label_version"] for c in fresh} != {"fresh-v1"}
+    if ({c["label_version"] for c in v3} != {"labels-v3"} or {c["label_version"] for c in fresh} != {fresh_version}
             or {c["label_version"] for c in robust} != {"synthetic-robust-v1"}):
         raise IntegrityError("unexpected label_version in a label file")
     splits = {"tuning": [c for c in v3 if c["split"] == "tuning"],
@@ -171,13 +176,17 @@ def summarise(splits: dict, preds: dict) -> dict:
     return res
 
 
+FRESH_NOTE = {"fresh-v1": "fresh-v1 (AI-drafted, blind to predictions, candidate review pending)",
+              "fresh-v2": ("fresh-v2 (fresh-v1 after an AI audit; the candidate decided the 4 audit items, "
+                           "changing D-017-aimode only; see fresh_review_log.jsonl)")}
+
+
 def report(results: dict, provenance: dict) -> str:
     L = ["# Comparison report: baseline vs classify-v1 vs classify-v2", "",
          f"Generated {provenance['generated_at']} | labels {provenance['label_files']} | score `vis-v1` | "
          f"v1 `{provenance['providers']['classify-v1']}` | v2 `{provenance['providers']['classify-v2']}`", "",
          "> **Read holdout2 for independent evidence.** final_seen was inspected while designing classify-v2; "
-         "dev was used to tune it. Labels: labels-v3 (candidate-reviewed) and fresh-v1 (AI-drafted, blind to "
-         "predictions, candidate review pending). Intervals are Wilson 95% on tiny counts: treat them as a "
+         "dev was used to tune it. Labels: labels-v3 (candidate-reviewed) and " + FRESH_NOTE[provenance.get("fresh", "fresh-v1")] + ". Intervals are Wilson 95% on tiny counts: treat them as a "
          "warning about uncertainty, not as significance tests.", ""]
     for s in SPLIT_ORDER:
         r = results[s]
@@ -222,15 +231,17 @@ def main(argv=None) -> int:
                     help="same for classify-v2 (a recording made for an older prompt text is re-recorded)")
     ap.add_argument("--splits", help=f"comma-separated subset of {','.join(SPLIT_ORDER)} (default: all)")
     ap.add_argument("--from-predictions", help="recompute metrics from saved predictions and verify them")
+    ap.add_argument("--fresh", default="fresh-v1", choices=sorted(FRESH), help="fresh label version for dev/holdout2")
     args = ap.parse_args(argv)
-    splits = load_cases()
+    splits = load_cases(args.fresh)
+    base = "compare" if args.fresh == "fresh-v1" else f"compare_{args.fresh.replace('-', '_')}"
     if args.from_predictions:
         saved = json.loads(Path(args.from_predictions).read_text(encoding="utf-8"))
         results = summarise(splits, saved["predictions"])
-        stored = json.loads((OUT / "compare_results.json").read_text(encoding="utf-8"))["results"]
+        stored = json.loads((OUT / f"{base}_results.json").read_text(encoding="utf-8"))["results"]
         if results != stored:
-            raise IntegrityError("metrics recomputed from saved predictions differ from compare_results.json")
-        print("reproduced: metrics recomputed from saved predictions match compare_results.json")
+            raise IntegrityError(f"metrics recomputed from saved predictions differ from {base}_results.json")
+        print(f"reproduced: metrics recomputed from saved predictions match {base}_results.json")
         return 0
     if args.splits:
         keep = set(args.splits.split(","))
@@ -256,8 +267,8 @@ def main(argv=None) -> int:
              "classify-v2": run("classify-v2", every, pack, settings, v2, rec)}
     results = summarise(splits, preds)
     from app.db import utcnow
-    provenance = {"generated_at": utcnow(),
-                  "label_files": {n: _sha(CASES / n)[:16] for n in ("labels_v3.jsonl", "fresh_v1.jsonl")},
+    provenance = {"generated_at": utcnow(), "fresh": args.fresh,
+                  "label_files": {n: _sha(CASES / n)[:16] for n in ("labels_v3.jsonl", FRESH[args.fresh][0])},
                   "providers": {"classify-v1": v1.execution_mode, "classify-v2": v2.execution_mode},
                   "model": v2.model, "baseline": "baseline-v1",
                   "prompt_files": {v: _sha(ROOT / "prompts" / f"{v.replace('-', '_')}.md")[:16]
@@ -265,7 +276,7 @@ def main(argv=None) -> int:
                   "splits_run": [s for s in SPLIT_ORDER if splits[s]]}
     OUT.mkdir(parents=True, exist_ok=True)
     full = not args.splits
-    stem = "compare" if full else "compare_partial"
+    stem = base if full else f"{base}_partial"
     (OUT / f"{stem}_predictions.json").write_text(json.dumps({"predictions": preds}, indent=1, ensure_ascii=False), encoding="utf-8")
     (OUT / f"{stem}_results.json").write_text(json.dumps({"provenance": provenance, "results": results}, indent=1), encoding="utf-8")
     (OUT / f"{stem}_report.md").write_text(report(results, provenance), encoding="utf-8")
