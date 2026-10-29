@@ -2,7 +2,7 @@
 
 Step-by-step checklist with suggested comments: `claude-code/CANDIDATE_STEPS.md`.
 
-**Status:** report `6edb78b8-2db6-4633-b9c7-f1a6aa8b8e4f`, version 1, **draft**, created 29 Oct 2026 from analysis `f144fd60` (classify-v2, replay, 149/150 succeeded) with report generator `report-v3` (evidence-v3). It supersedes draft `1dcbae40` (report-v2), which stays in the database unedited and unsubmitted: **ignore it** (same analysis, same metrics and scorecard; its D1/R1 had four weak quotes that evidence-v3 now avoids). Nothing has been edited, submitted or approved. The notes below were prepared by the AI assistant. The edits, the submission and the approve or reject decision belong to the candidate (analyst, then reviewer). The approved v1 report `7d80ca70` is unchanged.
+**Status (29 Oct, 19:25 IST):** approved by the candidate. As analyst, the candidate removed D1 #4, D2 #3 (and R2 #3 with it) and D2 #6, added notes and submitted. As reviewer, the candidate approved v1 (review record in DECISION_NOTE.md). The text below is the AI-prepared guidance that preceded the review.
 
 ## What changed against the approved report (same 31 Jul 2026 capture)
 

@@ -40,6 +40,10 @@ The approved report `7d80ca70`, `outputs/approved_report_export.json`, `outputs/
 - Console accessibility (e76ef2c, 03d03b3): the report list works by keyboard (Tab, Enter/Space, `aria-current`, visible focus), and every editor label is associated with its field. Checked in headless Chrome: 0 unlabelled controls in view and edit modes.
 - The fresh-v2 review sheet has a committed generator with a `--check` mode (`python -m evaluation.fresh_review_sheet`, 08f6773).
 
+### Approved classify-v2 report
+- `6edb78b8` v1, approved by the candidate on 29 Oct (review record in DECISION_NOTE.md); `outputs/approved_report_v2_export.json` and `.md`.
+- F6 (console download re-serialised numbers and broke the hash) fixed; regression test added.
+
 ### Evaluation
 - fresh-v1 (b932b1e): 36 answers, AI-drafted labels blind to predictions, frozen before any v2 run.
 - fresh-v2 (593b549): fresh-v1 plus the candidate's decisions on the AI audit (one label changed). `fresh_review` refuses to overwrite a frozen set (d69276b).

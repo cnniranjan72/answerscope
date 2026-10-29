@@ -101,9 +101,20 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
   - classify-v1 stays registered and replayable. The approved report `7d80ca70`, `outputs/analysis_output.json` and `evaluation/results/eval_report.md` are classify-v1 results and are unchanged.
   - `evaluation.run_eval` and the keyword baseline are pinned to the classify-v1 contract, so the evaluation of record still reproduces.
 - **Rollback.** `--prompt-version classify-v1` per run, or set `analyzer.PROMPT_VERSION` back. Both recording sets are kept.
-- **Report.** A classify-v2 report has been drafted (`6edb78b8`, report generator `report-v3`; it supersedes the unsubmitted draft `1dcbae40`). It is not approved until I submit it as analyst and approve it as reviewer. Until then, the approved deliverable is the classify-v1 report.
+- **Report.** The classify-v2 report `6edb78b8` v1 (report generator `report-v3`) is approved; see the review record below. The classify-v1 report `7d80ca70` remains approved and unchanged as the original submission. `1dcbae40` is a superseded draft that was never submitted.
 - **Known limits carried over.**
   - Negative precision on holdout2 is 3/6.
   - Entity confusion is weak (1/4).
   - Product misattribution (H06) is not detected.
   - holdout2 has too few true recommendations to measure recall.
+
+**Review record: classify-v2 report `6edb78b8` v1 (29 Oct 2026).**
+- **As analyst** (draft saved 19:23:36 IST, submitted 19:23:40), I removed three evidence quotes:
+  - D1 #4, a conditional clause ("If you already use modern SEO suites…");
+  - D2 #3, a neutral description of Kasparro, which also removed it from R2;
+  - D2 #6, from H2-012-gemini, which I had labelled not negative.
+- I added analyst notes disclosing the method change, the uncertain negative count and the misattribution advisory. The draft text, the suggested removals and the suggested notes were prepared by the AI assistant (`claude-code/CANDIDATE_STEPS.md`); the decisions to apply them were mine.
+- **As reviewer** (approved 19:24:46 IST), I approved v1 with the comment recorded in the export: the method change explains the lower recommended rate, and the negative and entity-confusion changes are within uncertainty. Content SHA-256 `426350ce…`.
+- **Export.** `outputs/approved_report_v2_export.json` verifies (`python -m app.verify_export`: all checks pass, 23/23 quotes located). Readable copy: `outputs/approved_report_v2.md`.
+  - The copy I first downloaded from the console failed the hash check. The browser had rewritten numbers such as 1.0 as 1 (failure F6, fixed).
+  - The committed export was therefore regenerated on the server from the same approved version.
