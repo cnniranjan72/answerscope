@@ -64,7 +64,7 @@ Headline (holdout2, 24 answers, independent of tuning): recommended false positi
 
 Reviewer UX: evidence-v2 warnings (⚠ weak evidence) in the console and export, outside the hashed content; a Key findings card with a reviewer checklist; a review deadline (`REVIEW_DUE_HOURS`, default 72) that flags overdue versions and never auto-approves.
 
-Open for the candidate: the fresh labels are AI-drafted plus an AI audit whose 4 items the candidate decided; the other 31 cases (the 4 items covered 5 cases) were not individually re-read; review sheet: `claude-code/FRESH_V2_REVIEW_SHEET.md`. Decide whether to promote classify-v2. Promoting it would need a new reviewed report.
+Open for the candidate: the fresh labels are AI-drafted plus an AI audit whose 4 items the candidate decided; the other 31 cases (the 4 items covered 5 cases) were not individually re-read; review sheet: `claude-code/FRESH_V2_REVIEW_SHEET.md`. Decide whether to promote classify-v2 (decided 29 Oct: promoted; see below). Promoting it would need a new reviewed report.
 
 ### Hosted demo (Render, 29 Oct 2026)
 * Service `answerscope-demo` at https://answerscope-demo.onrender.com, built from the private repo's `Dockerfile` (`main`), free plan, auto-deploy off. Tokens were generated at creation and exist only as Render environment variables.
