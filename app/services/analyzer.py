@@ -7,9 +7,9 @@ The model proposes labels and quotes; code decides whether they are acceptable:
     (quotes are stored with their exact source offsets);
   * mention must agree with the lexical fact of whether the body names the brand;
   * recommended implies mentioned; a position requires a ranked list.
-classify-v2 adds two deterministic rules (see PROMPTS): the recommendation decision must
-agree with an explicit recommendation_type, and recommendation evidence must sit in a
-sentence that names Kasparro.
+classify-v2 adds three deterministic rules (see PROMPTS): the recommendation decision must
+agree with an explicit recommendation_type, recommendation evidence must sit in a sentence
+that names Kasparro, and an answer that confuses the entity cannot also recommend it.
 Rejected output is retried (bounded), then recorded as an explicit failure.
 """
 from __future__ import annotations
@@ -222,6 +222,10 @@ def validate_output(raw: str, body: str, version: str = PROMPT_VERSION) -> dict:
                             f"{rtype!r} (only {' / '.join(RECOMMENDING_TYPES)} are recommendations)")
         if not out.kasparro_mentioned and rtype != "not_applicable":
             problems.append("recommendation_type must be 'not_applicable' when Kasparro is not mentioned")
+        if out.kasparro_recommended and out.entity_confusion:
+            problems.append("entity_confusion is true, so the recommended product is the misidentified entity, "
+                            "not Kasparro (rubric R-I3): set kasparro_recommended false and recommendation_type "
+                            "'neutral_description'")
         for sp in evidence["recommended"]:
             s0, e0 = sentence_bounds(body, sp["start"], sp["end"])
             if not any(s0 <= o < e0 for o in lexical_mentions):
