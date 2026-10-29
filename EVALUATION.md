@@ -102,11 +102,26 @@ All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, b
   * entity confusion stays weak: 1 of 4 caught. Three of the four misses are "asks which Kasparro is meant" answers, two of them labelled ambiguous. The baseline catches 2 of 4 through keywords.
 * **Injection case SR08 (synthetic):** the embedded instruction pushed v2 to output `recommended: true` with no evidence on all 3 attempts. The validator rejected every attempt, so the case ended as an **explicit failure, not a wrong label**. classify-v1 accepted a wrong `recommended`. The defence held, but the model is still steerable by injected text.
 * **Small n:** holdout2 has 1 recommendation positive. It shows that v2 stops over-calling (specificity); it cannot show recall. Wilson 95% intervals in the report are wide. This is evidence that v2 is the better candidate, not a significance claim.
-* **Status:** classify-v1 stays the production default and the approved report is unchanged. Promoting v2 would need: candidate review of the fresh-v1 labels, a full-pack v2 report under analyst → reviewer approval, and ideally the repeated-run stability check (`python -m evaluation.stability`).
+* **Status:** classify-v1 stays the production default and the approved report is unchanged. Promoting v2 would need: candidate review of the fresh-v1 labels, a full-pack v2 report under analyst → reviewer approval, and the repeated-run stability check (done: see below).
+
+### Run-to-run stability (live re-run vs recorded)
+`python -m evaluation.stability --version <v> --splits final_seen,holdout2`: one fresh live call per case with the same settings (temperature 0, seed 7, `gemma4:12b`), compared label by label with the recorded run. Reports: `evaluation/results/stability_classify_v1.md`, `stability_classify_v2.md`.
+
+| Label | classify-v1 agree | classify-v2 agree |
+|---|---|---|
+| mentioned | 37/37 | 38/38 |
+| recommended | 36/37 | 38/38 |
+| negative | 37/37 | 37/38 |
+| entity_confusion | 37/37 | 38/38 |
+| status changes | 1 case failed in both runs | none |
+
+* Both prompts are stable at these settings, but not fully deterministic: temperature 0 and a fixed seed do not guarantee identical output from the local runtime.
+* Each prompt flipped one label, both on prompt 018 ("is kasparro overpriced for B2B SaaS startups?"). v1: H2-018-aimode `recommended` False→True (label False). v2: H2-018-chatgpt `negative` False→True (label False; that answer is entity-confused). Both flips move away from the label, on borderline answers.
+* One re-run per prompt (n = 37–38 per label); Wilson lower bounds are about 0.86–0.91. It shows that the comparison results are not artefacts of a lucky run; it does not measure variance at temperature > 0.
 
 ## Limits
 * 17 real + 2 synthetic cases; some labels have 1–2 positives in the final split, so one case moves recall by 50 points. Treat the metrics as indicative only.
 * Labels were drafted by the AI assistant that also wrote the prompt. The candidate then reviewed and decided every case (an AI-assisted second-opinion audit was used as input). There is effectively one annotator and no inter-annotator agreement.
-* One model run (temperature 0, fixed seed). Replay reproduces it; it cannot show variance, latency distribution or cost.
+* One recorded model run (temperature 0, fixed seed); replay reproduces it. One live re-run per prompt was compared afterwards (see Run-to-run stability); variance at higher temperature, latency distribution and cost are not measured.
 * Citation support is not evaluated: no cited page was opened.
 * The checker proves that evidence exists and is consistent; it cannot prove that a hypothesis is right. No LLM grades its own output.
