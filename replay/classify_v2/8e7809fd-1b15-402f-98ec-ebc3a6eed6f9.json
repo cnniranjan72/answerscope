@@ -1,0 +1,21 @@
+{
+ "response_id": "8e7809fd-1b15-402f-98ec-ebc3a6eed6f9",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "f7ab68f0164fc03309fed6dc5f77bfe98741c8f902dcbd02f8f9a9a932305888",
+ "recorded_at": "2026-10-29T04:48:56+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "mentioned is true but the answer body never names Kasparro; mention evidence does not contain the name Kasparro",
+   "latency_ms": 49427,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Canceling Kaspr (assuming you mean the B2B contact data and LinkedIn prospecting tool) is technically straightforward\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Canceling Kaspr (assuming you mean the B2B contact data and LinkedIn prospecting tool) is technically straightforward\"\n  ],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies 'Kaspr' as the entity, which is a different company from Kasparro. It provides factual information about the cancellation process for the misidentified entity.\",\n  \"kasparro_list_position\": null\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 30171,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Canceling Kaspr (assuming you mean the B2B contact data and LinkedIn prospecting tool) is technically straightforward\"\n  ],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention 'Kasparro' at all; it confuses the query with 'Kaspr', a different company. Therefore, kasparro_mentioned is false.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

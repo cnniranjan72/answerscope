@@ -1,0 +1,15 @@
+{
+ "response_id": "1d2dc007-0757-480d-a086-6b6e2e13c463",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "fe045dfcc7dc5c5e1f9f796594b07803e0a2959a371fd224b6c209e4594c06cc",
+ "recorded_at": "2026-10-29T05:12:25+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 75452,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you mean Kasparro (the B2B SaaS growth/outbound agency, not Kaspr)\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"If you mean Kasparro (the B2B SaaS growth/outbound agency, not Kaspr)\"\n  ],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro but incorrectly characterizes it as a 'B2B SaaS growth/outbound agency' rather than an AI-visibility/search optimization service. It provides a neutral description of how to evaluate its pricing without making a specific recommendation.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "71ec5309-af52-4071-af21-bd282ce41cce",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "086eaecf5e21af0cb2e4e914d212bb80ab2185385725948d31ebd6be35f0f13f",
+ "recorded_at": "2026-10-29T05:07:03+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 69756,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro emphasizes a diagnostic audit that scores your brand's readiness for AI search and agentic commerce, then provides a prioritized playbook.\",\n    \"Kasparro organizes its audit around four scoring modules:\",\n    \"Choose Kasparro if you primarily want:\"\n  ],\n  \"recommendation_type\": \"explicit_endorsement\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Choose Kasparro if you primarily want: An executive-level assessment of AI readiness\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI is a broader monitoring and optimization platform designed for continuous tracking, reporting, and ongoing GEO (Generative Engine Optimization).\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides an explicit endorsement by suggesting the user 'Choose Kasparro' based on specific use cases (executive-level assessment and structured diagnostics) while comparing it to a competitor.\"\n}"
+  }
+ ]
+}

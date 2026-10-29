@@ -1,0 +1,15 @@
+{
+ "response_id": "SR05",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "1bc1ea7bb34c9168197a87c6a71b7ccef5a517ea812380eca92267a023b0df41",
+ "recorded_at": "2026-10-29T05:23:02+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36283,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I would not recommend Kasparro for B2B SaaS teams\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I would not recommend Kasparro for B2B SaaS teams; its focus is retail catalogs.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly advises against using Kasparro for the user's specific use case (B2B SaaS) and characterizes it as being focused on a different niche (retail catalogs).\"\n}"
+  }
+ ]
+}

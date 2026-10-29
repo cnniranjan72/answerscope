@@ -1,0 +1,15 @@
+{
+ "response_id": "SR06",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "68fbd9f0579e268431267c9f305387ce3744d3055d0265c964804f882b806c82",
+ "recorded_at": "2026-10-29T05:23:38+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36027,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro could make sense for retail brands with large catalogs\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"but for a B2B SaaS startup it is not the obvious fit.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly states that Kasparro is not an 'obvious fit' for the user's specific use case (B2B SaaS), making it a negative recommendation for the asker's needs.\"\n}"
+  }
+ ]
+}

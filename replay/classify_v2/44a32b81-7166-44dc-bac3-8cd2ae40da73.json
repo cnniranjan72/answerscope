@@ -1,0 +1,21 @@
+{
+ "response_id": "44a32b81-7166-44dc-bac3-8cd2ae40da73",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "1b1b68fa4916ea4c486b50f57349415834e367650bbe31ac92e7325285c1b421",
+ "recorded_at": "2026-10-29T05:01:16+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'SparkTor'",
+   "latency_ms": 56659,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"SparkTor\",\n      \"evidence\": \"sparktoro.com\"\n    },\n    {\n      \"name\": \"Searchable\",\n      \"evidence\": \"www.searchable.com\"\n    },\n    {\n      \"name\": \"Dageno\",\n      \"evidence\": \"dageno.ai\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro as a platform for AI visibility tracking and discusses its utility and limitations in a neutral, analytical way without explicitly recommending it or claiming it is the best choice.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 44712,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"To understand whether platforms like Kasparro (or similar AI tracking tools) actually work, it helps to look at what they can genuinely do versus the inherent limitations of the technology.\",\n    \"If you are considering using Kasparro or a similar tool, keep these ground rules in mind:\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"sparktoro.com\",\n      \"evidence\": \"sparktoro.com\"\n    },\n    {\n      \"name\": \"www.searchable.com\",\n      \"evidence\": \"www.searchable.com\"\n    },\n    {\n      \"name\": \"dageno.ai\",\n      \"evidence\": \"dageno.ai\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro as a platform for AI visibility tracking and discusses its utility and limitations in a neutral, analytical way without explicitly recommending it or claiming it is the best choice.\"\n}"
+  }
+ ]
+}

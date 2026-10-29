@@ -1,0 +1,15 @@
+{
+ "response_id": "ac5bdf24-6a6e-49a0-abf5-2755ff3b42bc",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "b4439695198c2540fdacdda5e52a9877a891ae3076daed2d5fc710603351c7aa",
+ "recorded_at": "2026-10-29T05:28:12+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56486,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro positions itself as an \\\"AI Revenue Engine\\\"\",\n    \"If you're considering Kasparro specifically, tell me:\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't find independent evidence showing that Kasparro consistently delivers measurable improvements for B2B SaaS companies specifically.\",\n    \"Most of the publicly available material is the company's own positioning rather than third-party case studies with before/after data.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"Reviews on sites like G2 and Capterra\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Reviews on sites like G2 and Capterra\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model describes Kasparro's positioning and services neutrally but includes a negative characterization regarding the lack of independent evidence or third-party case studies for B2B SaaS results.\"\n}"
+  }
+ ]
+}

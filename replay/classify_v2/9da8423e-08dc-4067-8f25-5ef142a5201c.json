@@ -1,0 +1,15 @@
+{
+ "response_id": "9da8423e-08dc-4067-8f25-5ef142a5201c",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "a96792e2bfbebfa12d261e552647eacc8a711e3a99fb5040e1f0c22530f51314",
+ "recorded_at": "2026-10-29T05:05:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 77150,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"The provided search results did not contain specific information regarding a product named \\\"Kasparro.\\\"\",\n    \"If Kasparro is an audit or transcription system, it likely competes with the alternatives listed below rather than Otter directly.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"WisprFlow\",\n      \"evidence\": \"WisprFlow (Superior Accuracy): Offers higher transcription accuracy (97-99%) and better handling of jargon or noisy environments compared to Otter.ai's ~85-90% accuracy.\"\n    },\n    {\n      \"name\": \"Fireflies.ai\",\n      \"evidence\": \"Fireflies.ai (Stronger Integrations): Similar to Otter, but often preferred by teams needing more comprehensive CRM automation, action-item tracking, and deeper integration with productivity tools.\"\n    },\n    {\n      \"name\": \"Fathom\",\n      \"evidence\": \"Fathom (Better Free Plan): Focuses on unlimited free recording for desktop users and emphasizes privacy.\"\n    },\n    {\n      \"name\": \"Read.ai\",\n      \"evidence\": \"Read.ai (Alternative Analytics): Offers more robust sentiment tracking and performance analytics compared to Otter’s simple summary approach.\"\n    },\n    {\n      \"name\": \"Yaps\",\n      \"evidence\": \"Local/Offline Alternatives (e.g., Yaps): For high-stakes security, tools that allow for on-device, offline recording (no cloud upload) are considered superior to Otter’s cloud-only architecture.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but states it found no specific information about the product, and then provides a neutral description of its potential competitive landscape without making a specific recommendation or suitability claim.\"\n}"
+  }
+ ]
+}

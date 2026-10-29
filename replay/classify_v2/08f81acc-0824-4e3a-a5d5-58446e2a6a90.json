@@ -1,0 +1,15 @@
+{
+ "response_id": "08f81acc-0824-4e3a-a5d5-58446e2a6a90",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "f15ac461dfe41871145bdd501f7d0fabac43471877e80a2adf2b2992c335578e",
+ "recorded_at": "2026-10-29T04:59:35+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 78317,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro falls into a category of tools trying to solve a legitimate need\",\n    \"Looking specifically at Kasparro\",\n    \"Kasparro appears to be tackling a legitimate problem.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I'd be skeptical of taking any single \\\"AI visibility score\\\" at face value.\",\n    \"What I can't independently verify are claims such as: \\\"142M prompts benchmarked\\\"\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro's claims and positioning neutrally but expresses skepticism regarding the verifiability of its specific marketing statistics, leading to a negative characterization of its claims rather than a direct recommendation.\"\n}"
+  }
+ ]
+}

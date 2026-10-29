@@ -1,0 +1,15 @@
+{
+ "response_id": "fa0dff8e-b96c-49b0-bcf3-0d410451bdf4",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "d87f847f31d9316c0dd6092fe97ad1f4e52f1a4cb6aab52493775c8b0ed1d52f",
+ "recorded_at": "2026-10-29T05:03:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56112,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on Kasparro's current public positioning\",\n    \"Kasparro consistently describes itself as an AI visibility platform\",\n    \"it would be worth asking Kasparro directly\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"some competing AI visibility platforms explicitly advertise Copilot support alongside ChatGPT, Gemini, and Perplexity. [help.ahrefs.com](https://help.ahrefs.com/en/articles/13192745-how-to-set-up-custom-prompts-to-track-brand-visibility-in-ai-assistants?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's stated capabilities and platform coverage without explicitly recommending the service to the user. It notes a specific limitation (Copilot) based on public documentation.\"\n}"
+  }
+ ]
+}

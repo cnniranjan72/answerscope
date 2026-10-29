@@ -1,0 +1,15 @@
+{
+ "response_id": "66854c1c-447b-4eae-9601-d1a5895285e2",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "64b89739df91a7b4d0f743e1271ee7f26af2c0ad5caa3302406faa7d551bcc91",
+ "recorded_at": "2026-10-29T05:17:05+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36034,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro specializes as an AI visibility and discovery platform\",\n    \"Because Kasparro's evaluations and diagnostic-led demos focus on AI search presence\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides factual information regarding Kasparro's services and the typical timeline for their visibility audits, but does not explicitly recommend the service or make a suitability claim.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

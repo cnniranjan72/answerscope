@@ -1,0 +1,15 @@
+{
+ "response_id": "6ba5d428-1b45-4c6d-9263-73129d059b01",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "b1c197287c577b4c9a28100727345998596c829a948ac1d16f412936caf0bb40",
+ "recorded_at": "2026-10-29T05:11:10+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60095,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"determining if Kasparro (or any similar specialized B2B SaaS tool) is \\\"overpriced\\\"\",\n    \"If Kasparro provides a 10x ROI\",\n    \"If Kasparro reduces headcount needed or automates crucial processes\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Salesforce\",\n      \"evidence\": \"If Kasparro costs similar to industry competitors (e.g., Salesforce, HubSpot, or specialized vertical SaaS)\"\n    },\n    {\n      \"name\": \"HubSpot\",\n      \"evidence\": \"If Kasparro costs similar to industry competitors (e.g., Salesforce, HubSpot, or specialized vertical SaaS)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral analysis of how to evaluate Kasparro's pricing based on ROI and operational leverage rather than making a direct recommendation or claim about the product's specific value.\"\n}"
+  }
+ ]
+}

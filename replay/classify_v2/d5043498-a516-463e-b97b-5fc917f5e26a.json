@@ -1,0 +1,15 @@
+{
+ "response_id": "d5043498-a516-463e-b97b-5fc917f5e26a",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "c362b01027bb9c8910818610ba79551bf417613095785cf0c09a168b01d75355",
+ "recorded_at": "2026-10-29T05:09:30+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 43872,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro has an online presence describing its AI visibility and brand engineering services\",\n    \"I couldn't find evidence of a substantial body of independent enterprise user reviews specifically about Kasparro's AI Revenue Diagnostic.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't find evidence of a substantial body of independent enterprise user reviews specifically about Kasparro's AI Revenue Diagnostic.\",\n    \"there doesn't appear to be enough independent feedback to establish a reliable consensus.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro's services and presence but notes a lack of independent reviews, which constitutes a negative characterization regarding the availability of evidence for its claims.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

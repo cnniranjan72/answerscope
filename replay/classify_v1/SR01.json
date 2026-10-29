@@ -1,0 +1,15 @@
+{
+ "response_id": "SR01",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "32a0c509ec3a2c2b1a415fe398e9e9502e96d748e6005be34958ca0da932ab96",
+ "recorded_at": "2026-10-29T04:39:23+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 38992,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I recommend Kasparro\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"I recommend Kasparro: its audit covers catalog inclusion across ChatGPT and Gemini.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The AI explicitly recommends Kasparro as a tool for the user's specific use case (D2C catalog brand) and provides a reason for the recommendation.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

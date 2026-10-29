@@ -1,0 +1,15 @@
+{
+ "response_id": "bc213889-4850-4ae2-bf8e-af1159ff6f9c",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "f8ad88585509b75343b400b080f6b6d24396898484fe672753ace3b1a29e70e0",
+ "recorded_at": "2026-10-29T04:50:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 39735,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's 14-day AI Revenue Diagnostic starts at ₹49,999\",\n    \"A roadmap you can implement independently or with Kasparro's help afterward.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a specific price point for the requested service, which constitutes a factual answer. It does not explicitly recommend or endorse the service over others, though it offers to perform a comparison if requested.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

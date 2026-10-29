@@ -1,0 +1,15 @@
+{
+ "response_id": "SR04",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "ea94d63dcbdb0ab4077100c5b5ffa91e1d4e5f796d69949bf64b2402717a5437",
+ "recorded_at": "2026-10-29T04:41:02+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 35667,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I would choose Profound over Kasparro\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro, which is less proven at that scale.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"I would choose Profound over Kasparro\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but explicitly recommends a competitor (Profound) over it, characterizing Kasparro as 'less proven' for enterprise scale.\"\n}"
+  }
+ ]
+}

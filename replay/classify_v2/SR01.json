@@ -1,0 +1,15 @@
+{
+ "response_id": "SR01",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "2ab16d1bbcbb8b74fd90b800d7f8c9d404a9cd067e8d40659734c89141d75afe",
+ "recorded_at": "2026-10-29T05:20:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 32718,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I recommend Kasparro\"\n  ],\n  \"recommendation_type\": \"explicit_endorsement\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"For a D2C catalog brand I recommend Kasparro\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly recommends Kasparro as the best tool for the user's specific use case (D2C catalog brand).\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

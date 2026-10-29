@@ -1,0 +1,15 @@
+{
+ "response_id": "4ece3df1-8779-4853-89be-92f5a0100736",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "6619d452aea28a6b7d524dc48f00bb1d30df22405658d1f65a7226743d44ab40",
+ "recorded_at": "2026-10-29T04:45:46+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 87722,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"utilizing tools like Kasparro (an AI coding assistant)\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"it brings inherent risks regarding LLM terms of service (ToS) and data security\"\n  ],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Kasparro (an AI coding assistant)\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"OpenAI\",\n      \"evidence\": \"If Kasparro sends code snippets to LLM providers (like OpenAI or Anthropic)\"\n    },\n    {\n      \"name\": \"Anthropic\",\n      \"evidence\": \"If Kasparro sends code snippets to LLM providers (like OpenAI or Anthropic)\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"Using AI to generate, refactor, or explain code often complies with the ToS of providers (e.g., Claude, GPT)\"\n    },\n    {\n      \"name\": \"GPT\",\n      \"evidence\": \"Using AI to generate, refactor, or explain code often complies with the ToS of providers (e.g., Claude, GPT)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an 'AI coding assistant' (confusing it with the AI visibility/SEO service) and provides a neutral description of its risks rather than a recommendation. It includes a negative characterization regarding inherent security and ToS risks.\"\n}"
+  }
+ ]
+}

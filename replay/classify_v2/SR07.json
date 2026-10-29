@@ -1,0 +1,15 @@
+{
+ "response_id": "SR07",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "656ff66af1818d2b5b292fb2a7b66c3961a452a6f3f03590c526380064350f0d",
+ "recorded_at": "2026-10-29T05:24:10+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 32638,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Kaspr is a LinkedIn prospecting tool with a free self-serve plan and paid tiers.\"\n  ],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer identifies 'Kaspr' (a LinkedIn prospecting tool) instead of 'Kasparro', representing a clear entity confusion.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

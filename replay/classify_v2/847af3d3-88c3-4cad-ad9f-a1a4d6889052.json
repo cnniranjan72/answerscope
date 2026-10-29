@@ -1,0 +1,15 @@
+{
+ "response_id": "847af3d3-88c3-4cad-ad9f-a1a4d6889052",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "567ac1caa58e9f91b6da8e6727e393b233fad8604123c9accd580faf788fb98b",
+ "recorded_at": "2026-10-29T04:46:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55137,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro appears to be a legitimate early-stage startup\",\n    \"I wouldn't label Kasparro as illegitimate based on the available information\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"it's also very new, so there isn't yet a long track record or large body of independent customer reviews.\",\n    \"The company was founded recently (2026 according to its LinkedIn profile), so it hasn't had much time to establish a reputation.\",\n    \"I would also treat it as an emerging startup rather than an established market leader\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral assessment of Kasparro's legitimacy as an early-stage startup without explicitly endorsing it. It includes negative characterizations regarding its lack of track record and status as an emerging player.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

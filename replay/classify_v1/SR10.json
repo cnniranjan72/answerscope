@@ -1,0 +1,15 @@
+{
+ "response_id": "SR10",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e3c639d7e5951b21ea0e7ea105a8d051af7ebd0b84ae086a706a14d95818c270",
+ "recorded_at": "2026-10-29T04:44:18+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 31703,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's audit scores four modules: visibility, trust, content and transaction readiness.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are considering it, I can help you prepare the data it needs.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and describes its audit modules. It also recommends the service by offering to help the user prepare data for it.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

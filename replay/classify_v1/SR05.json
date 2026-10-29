@@ -1,0 +1,15 @@
+{
+ "response_id": "SR05",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "943f39ac2062f8228a5a9cb8a82dbe0ea0559b9f052d94c963e4e08ed159bc95",
+ "recorded_at": "2026-10-29T04:41:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 33257,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I would not recommend Kasparro for B2B SaaS teams\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I would not recommend Kasparro for B2B SaaS teams; its focus is retail catalogs.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The AI explicitly mentions Kasparro but provides a negative recommendation, stating it is unsuitable for B2B SaaS due to its focus on retail catalogs.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

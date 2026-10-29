@@ -1,0 +1,15 @@
+{
+ "response_id": "SR10",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "6c9d3355736acec76f0ae4fd340165186fea16ff267ca5341d28473486b3232d",
+ "recorded_at": "2026-10-29T05:27:07+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 33515,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's audit scores four modules: visibility, trust, content and transaction readiness.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's audit modules without explicitly recommending the service or claiming its suitability for a specific use case.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

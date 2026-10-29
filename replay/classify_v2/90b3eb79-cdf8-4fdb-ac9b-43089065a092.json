@@ -1,0 +1,15 @@
+{
+ "response_id": "90b3eb79-cdf8-4fdb-ac9b-43089065a092",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "763bfd59a7faafe5c6d60eba0c10a7cf0471aad6c7def4e32c2249df83655b5f",
+ "recorded_at": "2026-10-29T04:54:56+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 38387,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"The [Kasparro four-module audit](https://kasparro.com/) scores how artificial intelligence engines and AI commerce systems perceive and represent a brand.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of what the Kasparro four-module audit scores and its specific dimensions without explicitly recommending the user to purchase or use it.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

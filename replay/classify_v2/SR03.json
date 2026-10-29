@@ -1,0 +1,15 @@
+{
+ "response_id": "SR03",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "e1c3de8ef98bacc18b35f2fb70a36f5bcedb213352fc29d733417c515ea44cf1",
+ "recorded_at": "2026-10-29T05:21:45+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 33798,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes. Brands in India can sign up for Kasparro on its website\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual confirmation that brands in India can sign up, which is a direct answer to the user's query without offering a subjective recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

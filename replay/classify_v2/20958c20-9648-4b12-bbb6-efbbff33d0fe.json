@@ -1,0 +1,15 @@
+{
+ "response_id": "20958c20-9648-4b12-bbb6-efbbff33d0fe",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "df80aaff33a9222714f1c0ee0c776e69af46e5ada005f64a0d7fa4a10b6a67ae",
+ "recorded_at": "2026-10-29T05:13:05+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 39641,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro builds an AI Visibility platform\",\n    \"Are you currently evaluating Kasparro for an early-stage team\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes what Kasparro is (an AI Visibility platform) and provides a framework for evaluating its ROI, but it does not explicitly recommend or advise the user to choose it.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

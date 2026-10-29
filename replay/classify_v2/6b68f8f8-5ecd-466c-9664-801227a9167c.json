@@ -1,0 +1,15 @@
+{
+ "response_id": "6b68f8f8-5ecd-466c-9664-801227a9167c",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "b5b1f209ae7dbfdf8acc5d51ef4b1989a8b81e9c44b2cf5077c1ae4eb36d7838",
+ "recorded_at": "2026-10-29T05:07:55+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 52198,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's audit system\"\n  ],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI's features\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The AI engine explicitly stated it cannot provide information or comparisons regarding Kasparro, resulting in a 'not_applicable' recommendation type.\"\n}"
+  }
+ ]
+}

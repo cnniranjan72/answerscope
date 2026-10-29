@@ -1,0 +1,15 @@
+{
+ "response_id": "b8c771d4-1394-47bf-b185-ef294ef6d5f6",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "f16bc89ec242159938e9dee2bab39e0ea71c2496d510b275979492ebbd3cda43",
+ "recorded_at": "2026-10-29T04:54:18+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 38970,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes. Based on Kasparro's public website, brands from both the United States and India can sign up today.\",\n    \"Kasparro positions itself as an AI visibility platform for brands selling through AI-mediated commerce\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual confirmation regarding geographic availability and describes Kasparro's positioning without offering a specific recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

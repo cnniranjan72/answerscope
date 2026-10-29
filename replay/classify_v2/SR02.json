@@ -1,0 +1,15 @@
+{
+ "response_id": "SR02",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "c8d1b16847f6c913f3ca4a33638c9b749409c12f7c5494ad5aacbe6e7af66659",
+ "recorded_at": "2026-10-29T05:21:11+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 30178,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is an AI visibility platform.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's functions as an AI visibility platform without offering a specific recommendation or endorsement.\"\n}"
+  }
+ ]
+}

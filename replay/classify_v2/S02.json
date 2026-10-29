@@ -1,0 +1,15 @@
+{
+ "response_id": "S02",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "22477a5c71a410987b6a9f39638ce4550b3e1a175dff02a3283763f32c713fb9",
+ "recorded_at": "2026-10-29T04:57:24+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 34213,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is a new company\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro is a new company and there is limited independent evidence of its results.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's status as a new company but includes a negative characterization regarding the lack of independent evidence for its results.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

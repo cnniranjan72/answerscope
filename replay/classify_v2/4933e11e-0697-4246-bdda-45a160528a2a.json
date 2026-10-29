@@ -1,0 +1,15 @@
+{
+ "response_id": "4933e11e-0697-4246-bdda-45a160528a2a",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "171ef9aee9a2fcb345797827e46a2f17cda22cc276e8585e40c6ef5fb16e875e",
+ "recorded_at": "2026-10-29T05:15:51+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36537,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"According to [Kasparro's](https://kasparro.com/) methodology\",\n    \"The service is focused on seller-side revenue infrastructure for AI-mediated commerce.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual response regarding the setup time and process of Kasparro's AI Revenue Diagnostic without offering a subjective recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

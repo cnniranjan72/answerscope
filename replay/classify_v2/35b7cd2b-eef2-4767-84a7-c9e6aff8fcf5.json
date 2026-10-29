@@ -1,0 +1,15 @@
+{
+ "response_id": "35b7cd2b-eef2-4767-84a7-c9e6aff8fcf5",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "35461ec78156d4b92e71d4459f1bff27b210d72556a34e9fe30de8bb5774a330",
+ "recorded_at": "2026-10-29T04:47:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55339,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"There is no data available for a competitor named \\\"Kasparro,\\\"\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"There is no data available for a competitor named \\\"Kasparro,\\\"\",\n    \"suggesting AthenaHQ is the more established or visible entity in this specialized market segment.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"AthenaHQ is positioned as a highly trustworthy and specialized platform for AI brand tracking and Generative Engine Optimization (GEO).\"\n    },\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"sources list tools like Dageno AI for AI visibility\"\n    },\n    {\n      \"name\": \"Analyze AI\",\n      \"evidence\": \"Analyze AI for competitive tracking\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly states there is no data for Kasparro and suggests AthenaHQ is the more established and trustworthy entity, effectively recommending the alternative over Kasparro.\"\n}"
+  }
+ ]
+}

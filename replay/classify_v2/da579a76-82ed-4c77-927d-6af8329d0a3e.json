@@ -1,0 +1,15 @@
+{
+ "response_id": "da579a76-82ed-4c77-927d-6af8329d0a3e",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "aebb6cbcd90091581e073aa097d12e9a03e41c40b5e8746e97d4ecfe1840c9a8",
+ "recorded_at": "2026-10-29T05:20:09+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 43865,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"When comparing onboarding speeds for Kasparro and Dageno AI\",\n    \"Kasparro operates similarly as an AI-native brand intelligence and audit platform\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"When comparing onboarding speeds for Kasparro and Dageno AI\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's operations and platform type without making a specific recommendation or claim of superiority regarding onboarding speed.\"\n}"
+  }
+ ]
+}

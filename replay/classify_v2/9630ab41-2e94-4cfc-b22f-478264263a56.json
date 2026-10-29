@@ -1,0 +1,15 @@
+{
+ "response_id": "9630ab41-2e94-4cfc-b22f-478264263a56",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "978fb245437ae528e0b0beeac303ba643e5ec7266c77a76166cceb0c08fdb767",
+ "recorded_at": "2026-10-29T05:04:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 67426,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro tracks brand visibility, representation, and recommendations across major LLMs and AI search engines, including ChatGPT.\",\n    \"Key Capabilities of Kasparro's AI Visibility Platform:\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro tracks brand visibility, representation, and recommendations across major LLMs and AI search engines, including ChatGPT.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"their primary focus across major product updates centers heavily on primary generative engines like ChatGPT, Claude, Gemini, Perplexity, and Google AI.\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"their primary focus across major product updates centers heavily on primary generative engines like ChatGPT, Claude, Gemini, Perplexity, and Google AI.\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"their primary focus across major product updates centers heavily on primary generative engines like ChatGPT, Claude, Gemini, Perplexity, and Google AI.\"\n    },\n    {\n      \"name\": \"Google AI\",\n      \"evidence\": \"their primary focus across major product updates centers heavily on primary generative engines like ChatGPT, Claude, Gemini, Perplexity, and Google AI.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer confirms that Kasparro tracks brand visibility across major LLMs including ChatGPT, which serves as a suitability claim for the user's specific query about tracking capabilities.\"\n}"
+  }
+ ]
+}

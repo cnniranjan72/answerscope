@@ -1,0 +1,15 @@
+{
+ "response_id": "SR02",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "108bac70804d991b79d90dbc72691cd369cefe9a33b5900c06e23bea255a6622",
+ "recorded_at": "2026-10-29T04:39:56+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 32994,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is an AI visibility platform.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro is an AI visibility platform.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly identifies Kasparro as an AI visibility platform and describes its core functionality, effectively recommending it as a solution for brand auditing in AI models.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

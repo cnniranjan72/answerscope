@@ -1,0 +1,15 @@
+{
+ "response_id": "ead5da6c-cd59-4bad-827e-49ae12f4e232",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "a21be961fb0ffd22bba22aeffac2c57f75320d433d36a6f62f77381f6b639121",
+ "recorded_at": "2026-10-29T04:49:50+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 53508,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"No, Kasparro does not rely on short-term \\\"prompt hacks\\\" or superficial prompt engineering tricks to artificially boost brand visibility inside AI engines.\",\n    \"Instead, Kasparro operates as an AI-native SEO and Brand Intelligence platform focused on Generative Engine Optimization (GEO) and systemic brand eligibility.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's methodology and positioning as an AI-native SEO platform, specifically addressing the user's question about its technical approach without explicitly recommending it as a choice.\"\n}"
+  }
+ ]
+}

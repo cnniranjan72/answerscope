@@ -1,0 +1,15 @@
+{
+ "response_id": "861a9955-69ab-46ed-927c-fd336bc37893",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "9671462b399f082534be49dc164a7c781fac17239bf38f319930235a5c981b09",
+ "recorded_at": "2026-10-29T05:10:10+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 39727,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro specializes in AI visibility platforms\",\n    \"Publicly available enterprise user feedback specifically detailing an \\\"AI revenue diagnostic\\\" from Kasparro is currently limited\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Publicly available enterprise user feedback specifically detailing an \\\"AI revenue diagnostic\\\" from Kasparro is currently limited\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's services but includes a negative characterization by stating that public enterprise feedback for the specific 'AI revenue diagnostic' is limited.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

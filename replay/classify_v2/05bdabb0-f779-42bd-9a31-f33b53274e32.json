@@ -1,0 +1,15 @@
+{
+ "response_id": "05bdabb0-f779-42bd-9a31-f33b53274e32",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "27a9c416311e9127eee162ffdc86069a00fa9d038f6e8811cf771b2bbf10409d",
+ "recorded_at": "2026-10-29T05:08:46+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 50846,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's AI revenue diagnostic\",\n    \"product description provided by Kasparro\",\n    \"Kasparro promises a diagnostic report\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"there are no specific, publicly available testimonials or reviews from enterprise users regarding Kasparro's AI revenue diagnostic tool\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Clari\",\n      \"evidence\": \"General AI revenue tools mentioned in the search results (like Clari)?\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's product features and value proposition based on its own website. It includes a negative characterization by explicitly stating that no public testimonials or reviews from enterprise users were found.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "9aefbc5a-d270-42d8-b07f-1945b2e98c76",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "f81550899101c4b27a08e082751f3e099c0ce12e4da2d3add90bfc6b593ae0cb",
+ "recorded_at": "2026-10-29T05:16:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37482,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I couldn't find a public page for a product specifically called Kasparro's AI Revenue Audit\",\n    \"If you're referring to Kasparro's audit service\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro's audit service process in a neutral way without explicitly recommending it or making a suitability claim. It notes a lack of specific information regarding a product named 'AI Revenue Audit'.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "51366d92-2978-4654-b6fb-1f5dca180980",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "511f0e52ca79088c0cb48d73f75299eeda650db47b6d2cb18e1ddfd7367b57de",
+ "recorded_at": "2026-10-29T05:13:45+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 40134,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there is no direct evidence that a company specifically named \\\"Kasparro\\\" locks clients into expensive monthly retainers.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Squarespace\",\n      \"evidence\": \"where maintenance is included\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual statement that there is no evidence regarding Kasparro's retainer structure, rather than making a recommendation or suitability claim.\"\n}"
+  }
+ ]
+}

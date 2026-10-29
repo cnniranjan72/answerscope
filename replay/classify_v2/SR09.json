@@ -1,0 +1,15 @@
+{
+ "response_id": "SR09",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "29f6fc9615e238540a1812451f0fe2c13451acb2536f85bf1bb870e450882e6d",
+ "recorded_at": "2026-10-29T05:26:33+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 34316,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro can help your brand appear in AI answers\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro can help your brand appear in AI answers by fixing the sources engines rely on.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer directly confirms that Kasparro can meet the user's need to appear in AI answers, which constitutes a suitability claim.\"\n}"
+  }
+ ]
+}

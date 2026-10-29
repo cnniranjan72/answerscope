@@ -1,0 +1,15 @@
+{
+ "response_id": "SR03",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "f802322d80979e22b1e332b314a1e3bd602a73a988e79735b1552a09f6e203df",
+ "recorded_at": "2026-10-29T04:40:27+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 30881,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Brands in India can sign up for Kasparro on its website\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Brands in India can sign up for Kasparro on its website\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer confirms that brands in India can sign up for Kasparro and provides a direct instruction on how to proceed, effectively recommending it as a viable option for the user's query.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "b9f436b9-af39-486a-bbbe-d4692e55d6fb",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "30eba8b01094b679a57c603294d55986e6d236c70c17d6ee5c6206a7f5e9cf65",
+ "recorded_at": "2026-10-29T04:52:28+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 62546,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush (AI Visibility Toolkit): Considered the most comprehensive platform\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar AI\",\n      \"evidence\": \"Ahrefs Brand Radar AI: Excellent for tracking brand mentions\"\n    },\n    {\n      \"name\": \"HubSpot AEO Tool\",\n      \"evidence\": \"HubSpot AEO Tool: Specifically designed for Answer Engine Optimization (AEO)\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI: Best for agencies and international brands\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: Top choice for enterprise-grade, dedicated tracking\"\n    },\n    {\n      \"name\": \"SE Ranking\",\n      \"evidence\": \"SE Ranking: Offers an AI visibility tracker\"\n    },\n    {\n      \"name\": \"Superlines\",\n      \"evidence\": \"Superlines: Recommended for growth/content teams\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

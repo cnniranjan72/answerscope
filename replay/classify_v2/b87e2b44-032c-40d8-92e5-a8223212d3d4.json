@@ -1,0 +1,15 @@
+{
+ "response_id": "b87e2b44-032c-40d8-92e5-a8223212d3d4",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "8d8f8088ecf76d4526f594b86011ad17ee06d425fe10dc815543269c8932c8df",
+ "recorded_at": "2026-10-29T05:15:15+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 43129,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is not a traditional marketing or SEO agency that locks clients into rigid, lengthy retainers.\",\n    \"Kasparro focuses on multi-module AI visibility audits and optimization infrastructure.\",\n    \"If you are evaluating them for your brand, they operate as a B2B SaaS/AI product solution rather than a service agency billing traditional monthly execution retainers.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro's business model and contract structure in a neutral manner, clarifying that it functions as a platform rather than a traditional agency with rigid retainers.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

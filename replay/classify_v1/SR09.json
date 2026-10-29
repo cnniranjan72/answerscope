@@ -1,0 +1,15 @@
+{
+ "response_id": "SR09",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "42eb7438da1f8d9cba0d3ec7000481fd99d1abbf04ab49441fd1c2d06d6929d0",
+ "recorded_at": "2026-10-29T04:43:46+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 31099,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro can help your brand appear in AI answers\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro can help your brand appear in AI answers by fixing the sources engines rely on.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly confirms that Kasparro can help the brand appear in AI answers and describes its functionality as fixing the sources engines rely on.\"\n}"
+  }
+ ]
+}

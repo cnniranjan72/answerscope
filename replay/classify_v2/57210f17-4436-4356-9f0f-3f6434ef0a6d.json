@@ -1,0 +1,15 @@
+{
+ "response_id": "57210f17-4436-4356-9f0f-3f6434ef0a6d",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "6617c38768cc3e9978deb4f012f92cb3c53cfa64e980734936b217c20353e5cc",
+ "recorded_at": "2026-10-29T04:55:42+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 45579,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro —and similar specialized Perplexity SEO or AI Search Optimization strategies—can help an enterprise software brand increase its visibility, citations, and authority within Perplexity answers.\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro —and similar specialized Perplexity SEO or AI Search Optimization strategies—can help an enterprise software brand increase its visibility, citations, and authority within Perplexity answers.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly states that Kasparro can help an enterprise brand increase visibility in Perplexity, which constitutes a suitability claim.\"\n}"
+  }
+ ]
+}

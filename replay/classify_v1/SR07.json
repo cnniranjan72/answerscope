@@ -1,0 +1,15 @@
+{
+ "response_id": "SR07",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "fda4fd68addc206e0afa309ef26f8791d85e56d751ad6c24edf2a5b1293ef7a0",
+ "recorded_at": "2026-10-29T04:42:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 29202,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Kaspr is a LinkedIn prospecting tool with a free self-serve plan and paid tiers.\"\n  ],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The AI engine confuses Kasparro with 'Kaspr', a LinkedIn prospecting tool, and does not mention the actual company Kasparro.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}
