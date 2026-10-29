@@ -1,36 +1,63 @@
-# Time log
+# TIME_LOG.md
 
-Times are IST clock readings taken with `date` during the session on 28 Oct 2026. The work was done with an AI coding assistant (Claude Code); the clock times below are wall-clock for that assisted session. **Candidate: add your own reading, review and verification time below; it counts as active work.**
+## 1. Candidate Active Time
 
-| Start | End | Activity |
+Self-reported by the candidate on 29 October 2026. All estimates are approximate (`~`), not clock readings. No duration has been inferred from session timestamps.
+
+| Date | Active time | Activity |
+|---|---:|---|
+| 28 Oct 2026 | ~30 min | Read the assignment brief and pack, including the provided instructions and supporting materials. |
+| 28–29 Oct 2026 | ~60 min | Reviewed the label audit table and full archived answers; made the 28 October adjudication decisions (H01, H02, H03, scoring and H06) and completed the 19-case review on 29 October. Reading and decision-making are counted once, without double-counting overlap. |
+| 28 Oct 2026 | ~20 min | Manually checked revenuepulseai.com and the Wayback capture for MC-01 and documented the findings. |
+| 28 Oct 2026 | ~25 min | Walked through the review console on port 8000, including the stub report and approve/export workflow. |
+| Pending | — | Final review of the diagnostics and report, followed by report approval in the console. This time will be added only after the work is completed. |
+| **Total candidate active time so far** | **~135 min (~2 h 15 min)** | **Verified self-reported entries only; final report review and approval excluded.** |
+
+### Candidate time accounting notes
+
+- These durations are candidate-reported estimates, not independently measured timings.
+- The label-review estimate combines reading and adjudication to avoid double-counting overlapping work.
+- Final diagnostics review and report approval remain outstanding and are not included in the total.
+- No active time is claimed for work that has not yet been performed.
+
+## 2. AI-Assisted Development Session
+
+The following are wall-clock intervals recorded during the Claude Code-assisted development session on 28 October 2026. They describe the overall assisted work session, not independently measured candidate-active minutes. They are reported separately from the candidate active-time total.
+
+| Start (IST) | End (IST) | Activity |
 |---|---|---|
-| 22:07 | 22:13 | Read START_HERE, brief, Assignment.pdf, READ_ME, schema, fixtures; ran pack checker; profiled data; tested local model latency |
-| 22:13 | 22:28 | Backend: config, schema, ingestion, text/citation/category/scoring modules, model adapters, analyzer, prompt v1; tuning probe on 5 tuning cases (found F1) |
-| 22:28 | 22:36 | Reports + review state machine, API, CLI; stub smoke run (found F2); tests (57 → green); first live run started, stopped after finding F3; fixed; live run restarted |
-| 22:36 | 22:43 | Labelled 17 supplied + 2 synthetic cases; evaluation runner; found F4 via evidence checker; fixed; review console |
-| 22:43 | 22:49 | Documentation, workflow demo script, secret scan |
-| 23:00 | 23:12 | Label audit: full re-read of 17 cases, rubric-v2, audit script, proposed v2 labels, tests; candidate adjudication recorded |
-| 23:12 | 23:20 | Live-run health check (exposed H11, logged), resume flag, clean-clone check (96 s), EVALUATION/HANDOFF drafts |
-| 23:20 | 23:50 | MC-01 manual site check write-up, H06 adjudication, labels-v2 freeze, F5 fix, console checks (headless Chrome), mobile layout fix, call statistics, README reading guide |
-| 29 Oct 06:29 | (open) | Resumed live run after it was stopped for low memory at 91/150; active-time field in analysis output; DECISION_NOTE draft |
-| 22:36 | (running) | Background: full 150-answer local-model run with recording (unattended GPU time, not active work). Stopped by low system memory at 91/150 (≈00:30, 29 Oct); resumed 06:30 with `--only-unrecorded` |
+| 22:07 | 22:13 | Read START_HERE, brief, Assignment.pdf, READ_ME, schema and fixtures; ran the pack checker; profiled data; tested local-model latency. |
+| 22:13 | 22:28 | Implemented backend configuration, schema, ingestion, text/citation/category/scoring modules, model adapters, analyzer and prompt v1; ran a tuning probe on five tuning cases and identified F1. |
+| 22:28 | 22:36 | Implemented reports, review state machine, API and CLI; ran stub smoke test and identified F2; brought tests from 57 to green; investigated F3 during the initial live run, fixed it and restarted the run. |
+| 22:36 | 22:43 | Created labels for 17 supplied cases and two synthetic cases; implemented the evaluation runner and review console; identified and fixed F4 through the evidence checker. |
+| 22:43 | 22:49 | Prepared documentation and workflow demo script; ran a secret scan. |
+| 23:00 | 23:12 | Audited all 17 supplied cases; revised the rubric, created the audit script and proposed v2 labels; ran tests and recorded candidate adjudication. |
+| 23:12 | 23:20 | Checked live-run health, logged the H11 issue, implemented the resume flag, ran a clean-clone check (96 seconds), and drafted EVALUATION and HANDOFF materials. |
+| 23:20 | 23:50 | Wrote the MC-01 site-check findings; adjudicated H06; froze labels-v2; fixed F5; checked the console in headless Chrome; fixed the mobile layout; reviewed call statistics; prepared the README reading guide. |
+| 29 Oct 2026, 06:29 | In progress at the time of this log | Resumed the live run after a low-memory interruption at 91/150; added active-time reporting to analysis output and drafted DECISION_NOTE; recorded the candidate's case-by-case label decisions and built labels-v3 from them. |
 
-Remaining before submission: final analysis from replay, evaluation on recorded model outputs, EVALUATION.md results, DECISION_NOTE.md, clean-clone audit, and **candidate review of diagnostics and the report approval** (label review done 29 Oct).
+## 3. Unattended Model Execution
 
-## Candidate active time
+| Start | End / status | Activity | Accounting |
+|---|---|---|---|
+| 28 Oct 2026, 22:36 | Interrupted at approximately 00:30 on 29 Oct 2026; resumed at approximately 06:30 | Background local-model run targeting 150 recorded answers. The run reached 91/150 before low system memory interrupted execution. It was resumed using `--only-unrecorded`. | Unattended GPU/model execution. Excluded from candidate active time and not added to the AI-assisted session or candidate active-time total. |
 
-Self-reported by the candidate on 29 Oct 2026. All four values are estimates (~), not clock readings, and none was inferred from session timestamps.
+## 4. Outstanding Work Before Submission
 
-| Date | Minutes | Activity |
+- Complete the live run and replay any remaining recorded outputs.
+- Run the evaluation against the recorded model outputs.
+- Finalize EVALUATION.md with actual results.
+- Finalize DECISION_NOTE.md.
+- Complete the clean-clone audit.
+- Review the generated diagnostics and report as a candidate.
+- Approve the final report in the review console.
+
+## 5. Final Approval Record
+
+| Item | Status | Time |
 |---|---|---|
-| 28 Oct 2026 | ~30 (est.) | Reading the assignment brief and pack |
-| 28–29 Oct 2026 | ~60 (est.) | Label review: audit table and full archived answers, the 28 Oct adjudication (H01, H02, H03, scoring, H06), and the 29 Oct case-by-case decisions on all 19 cases (reading and deciding counted once) |
-| 28 Oct 2026 | ~20 (est.) | MC-01 manual site check (revenuepulseai.com, live site and Wayback capture) and its findings |
-| 28 Oct 2026 | ~25 (est.) | Review console walkthrough on :8000 (stub report, approve and export) |
-| pending | – | Final report review and approval in the console |
-| **Total so far** | **~135 (est.)** | Candidate active time, verified entries only |
+| Candidate review of final diagnostics and report | Pending | To be recorded after completion |
+| Final report approval in the console | Pending | To be recorded after approval |
+| Final candidate active-time total | Pending | Update only after the above work is completed |
 
-These categories are kept apart and not added together:
-- Candidate active time (this table).
-- The AI-assisted development session (the clock-time table above): the assistant's working time, which the candidate directed.
-- Unattended model execution (the background row above), which is not active work.
+**Accounting rule:** Candidate active time, AI-assisted development session time, and unattended model execution are separate categories. They must not be summed into a single claimed active-work total. All estimated durations must remain explicitly marked as estimates.
