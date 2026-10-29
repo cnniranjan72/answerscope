@@ -1,37 +1,24 @@
-# Handoff (updated 28 Oct 2026, 23:20 IST)
+# Handoff (updated 29 Oct 2026, 07:20 IST)
 
 ## Verified (commands run, output observed)
-* Pack checker: valid (from repo root and inside a clean clone).
-* `python -m pytest -q`: **73 passed** (main repo and a clean clone).
-* Clean clone → venv → install → `.env` → init-db → pytest → stub eval → workflow demo: **96 s** end to end.
-* `scripts/demo_review_workflow.py`: 21/21 steps returned the expected status (403 wrong role, 409 rejected/unapproved/stale export, 409 hash mismatch, explicit old-version export marked superseded).
-* HTTP smoke test via uvicorn: `/health`, `/`, `/docs`, import, analysis, report, 403 and 409 paths.
-* Label audit: `python -m evaluation.audit_labels` OK (all spans exact, scores match vis-v1).
-* Secret scan: token values in no commit; `.env`, `assignment/`, `var/` untracked.
+* Clean clone of `22815dd`+ → venv → install → `.env` → pack checker (valid) → init-db → pytest (**82 passed**) → stub eval → workflow demo (**21/21 steps**): **93 s** end to end (29 Oct, 07:15).
+* `scripts/demo_review_workflow.py`: 403 wrong role, 409 rejected/unapproved/stale export, 409 hash mismatch, explicit old-version export marked superseded.
+* HTTP smoke test via uvicorn, and headless-Chrome analyst/reviewer flows (28 Oct). The candidate's manual console walkthrough on :8000 was filed in `outputs/console_check/` (stub; not the submission report).
+* Secret scan (29 Oct): neither token value appears in any commit; `.env`, `assignment/`, `var/` and `INTERVIEW_PREP.md` are untracked.
+
+## Labels
+* labels-v1 (draft) → labels-v2 (frozen 28 Oct after adjudication of disputed cases) → **labels-v3** (29 Oct). For v3 the candidate decided all 19 cases one at a time (`evaluation/cases/candidate_review_log.jsonl`), using an AI-assisted second-opinion audit as input. There are 2 changes: T01 negative marked ambiguous, and H03's evidence span extended. S02 is recorded as a deliberate exception. v2 is pinned by hash in a test. `run_eval` defaults to v3. See LABEL_AUDIT.md §10.
 
 ## In progress
-* Live local-model run with recording (`var/live_run.log`): 22/150 at 23:16, about 75 s per call, ETA ≈ 02:30–03:00. If interrupted: `DATABASE_PATH=var/live.db python -m app.cli analyse --provider ollama --record --only-unrecorded`.
+* Live local-model run with recording. It was stopped for low memory at 91/150 (≈00:30) and resumed at 06:30 with `--only-unrecorded`. Log: `var/live_resume.log`.
 
-## Done since last update (28 Oct, ~23:45)
-* H06 adjudicated after candidate manual check MC-01 → entity_confusion = true; labels frozen as `labels_v2.jsonl` (now the eval default).
-* F5 matcher fix (second-pass list-marker hiding) + regression test; H11 reported with and without (`final_sensitivity`).
-* Console verified: headless Chrome (Playwright) analyst/reviewer flows, plus the candidate's manual walkthrough on :8000. The export is filed in `outputs/console_check/` (stub; not the submission report).
-* 77 tests pass.
-
-## Waiting on the candidate
-1. Personally review and approve or reject the final (replay-based) report in the console as the reviewer.
-2. Add own active time to TIME_LOG.md.
-
-* Mobile layout fixed: page width 390 px at a 390 px viewport (verified in headless Chrome).
-* Analysis runs now report call statistics (calls, outcomes, total/mean seconds, cost).
-
-## Remaining (after the run and the freeze)
-1. Final analysis: `python -m app.cli analyse --provider replay` (main DB), then `python -m app.cli write-output <id>`.
-2. `python -m evaluation.run_eval` (default: candidate-reviewed `labels_v3.jsonl`); fill EVALUATION.md results.
-3. Review diagnostic wording against real numbers; create the report; candidate approves; save the export to `outputs/approved_report_export.json`.
-4. DECISION_NOTE.md (one page), final TIME_LOG, final quality-gate pass, private archive.
+## Remaining (after the run)
+1. Final analysis: `python -m app.cli analyse --provider replay` (main DB), then `python -m app.cli write-output <id> --active-minutes <candidate total>`.
+2. `python -m evaluation.run_eval`; fill in the EVALUATION.md results and the `⟦…⟧` placeholders in DECISION_NOTE.md.
+3. Check the diagnostic wording against the real numbers; create the report. **The candidate reviews and approves it in the console.** Save the export to `outputs/approved_report_export.json`.
+4. TIME_LOG §5 (approval time), final quality-gate pass, private archive (`git archive --format=zip -o ../answerscope_submission.zip HEAD`; supplied data is excluded because it is untracked).
 
 ## Known issues
-* Live analysis via HTTP is synchronous and impractical for 150 answers on this GPU (CLI is used instead; documented).
-* A confused mention scores 20 > absent 0 under vis-v1 (candidate decision: keep, note as limitation).
-* The prompt does not cover product misattribution (H06 class); not changed, to avoid tuning on holdout.
+* Live analysis via HTTP is synchronous and impractical for 150 answers on this GPU, so the CLI is used instead (documented).
+* A confused mention scores 20 > absent 0 under vis-v1. Candidate decision: keep, and note it as a limitation.
+* The prompt does not cover product misattribution (the H06 class). Not changed, to avoid tuning on the holdout.
