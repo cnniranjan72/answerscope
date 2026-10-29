@@ -135,6 +135,13 @@ def get_report(report_id: str, _: Identity = Depends(current_identity), conn=Dep
     return review.get_report(conn, report_id)
 
 
+@router.get("/reports/{report_id}/compare", tags=["reports"],
+            summary="Compare with another report: method vs data changes, rate changes with interval overlap")
+def compare_report(report_id: str, against: str = Query(..., description="base report id, e.g. the approved one"),
+                   _: Identity = Depends(current_identity), conn=Depends(db)):
+    return review.compare_reports(conn, against, report_id)
+
+
 @router.get("/reports/{report_id}/versions/{version}", tags=["reports"])
 def get_version(report_id: str, version: int, _: Identity = Depends(current_identity), conn=Depends(db)):
     return review.get_version(conn, report_id, version)

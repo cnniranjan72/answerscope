@@ -222,3 +222,22 @@ def export(conn: sqlite3.Connection, report_id: str, version: int | None) -> dic
         "content": enrich_evidence(conn, content),
         "evidence_warnings": evidence_warnings(conn, content),  # advisory; outside the hashed content
     }
+
+
+def _version_for_comparison(conn: sqlite3.Connection, report_id: str) -> sqlite3.Row:
+    """The latest approved version if there is one (the record of truth), else the latest version."""
+    row = conn.execute("SELECT * FROM report_versions WHERE report_id = ? ORDER BY (status = 'approved') DESC, "
+                       "version DESC LIMIT 1", (report_id,)).fetchone()
+    if row is None:
+        raise NotFound(f"report {report_id} not found")
+    return row
+
+
+def compare_reports(conn: sqlite3.Connection, base_id: str, other_id: str) -> dict:
+    from app.services.report_diff import compare_contents, to_markdown
+    b, o = _version_for_comparison(conn, base_id), _version_for_comparison(conn, other_id)
+    diff = compare_contents(json.loads(b["content_json"]), json.loads(o["content_json"]))
+    label = lambda r: f"{r['report_id'][:8]} v{r['version']} ({r['status']})"
+    return {"base": {"report_id": base_id, "version": b["version"], "status": b["status"]},
+            "other": {"report_id": other_id, "version": o["version"], "status": o["status"]},
+            **diff, "markdown": to_markdown(diff, label(b), label(o))}

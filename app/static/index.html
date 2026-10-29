@@ -55,6 +55,7 @@ th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line
 th { color: var(--muted); font-weight: 600; font-size: 12px; }
 td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .table-wrap { overflow-x: auto; }
+table.compact td, table.compact th { white-space: nowrap; overflow-wrap: normal; }
 .warn-text { color: var(--warn, #9a6700); margin-top: 4px; }
 .findings { margin: 0; padding-left: 20px; } .findings li { margin: 6px 0; } .findings .chip { margin-left: 6px; }
 blockquote { margin: 6px 0; padding: 6px 10px; background: var(--quote); border-left: 3px solid var(--line); border-radius: 4px; }
@@ -216,6 +217,7 @@ function render() {
       el("span", { class: "chip " + v.status }, `v${v.version} ${v.status}`)))));
   root.append(head);
   root.append(keyFindings(R, V, C, isLatest));
+  if (!S.editing) root.append(compareCard(R));
 
   const prov = C.provenance || {};
   if (prov.execution_mode === "stub") root.append(el("div", { class: "banner warn" }, "STUB analysis: labels come from the deterministic baseline. Not evidence of model quality."));
@@ -289,6 +291,38 @@ function keyFindings(R, V, C, isLatest) {
       + "counts come from one historical capture and one model run; ⚠ marks evidence that may not support its claim. "
       + (V.status === "approved" ? "This version is approved and exportable." : V.status === "rejected" ? "This version was rejected and can never be exported." : "This version is not approved; export is refused.")));
   return card;
+}
+
+function compareCard(R) {
+  // What changed against another report (default: an approved one). Uses that report's latest
+  // approved version, else its latest; rate changes are marked by 95% interval overlap.
+  const sel = el("select", { style: "flex:1", "aria-label": "Report to compare with" }), out = el("div", {});
+  async function run() {
+    if (!sel.value) return;
+    try {
+      const d = await api("GET", `/reports/${R.report_id}/compare?against=${encodeURIComponent(sel.value)}`);
+      const changed = d.rates.filter((r) => r.ci_overlap !== null && r.base !== r.other);
+      out.replaceChildren(
+        el("p", { class: d.method_changes.length ? "banner warn" : "small" }, d.reading),
+        d.method_changes.length ? el("div", { class: "small mono" }, d.method_changes.map((m) => `${m.field}: ${m.base} → ${m.other}`).join(" · ")) : null,
+        el("div", { class: "table-wrap" }, el("table", { class: "compact" },
+          el("tr", {}, ...["Scope", "Measure", `${d.base.report_id.slice(0, 8)} v${d.base.version}`, "This report", "Change (pp)", "95% intervals"].map((h) => el("th", {}, h))),
+          ...changed.map((r) => el("tr", {}, el("td", {}, r.scope), el("td", {}, r.label.replace(/_/g, " ")), el("td", { class: "num" }, r.base),
+            el("td", { class: "num" }, r.other), el("td", { class: "num" }, (r.change_pp > 0 ? "+" : "") + r.change_pp),
+            el("td", {}, r.ci_overlap ? "overlap" : el("b", {}, "do not overlap")))))),
+        el("p", { class: "small muted" }, `${d.rates.filter((r) => r.ci_overlap !== null).length - changed.length} rates unchanged. `
+          + `Diagnostics only in ${d.base.report_id.slice(0, 8)}: ${d.diagnostics.only_in_base.join("; ") || "none"}. Only in this report: ${d.diagnostics.only_in_other.join("; ") || "none"}.`));
+    } catch (e) { toast(e.message); }
+  }
+  api("GET", "/reports").then((r) => {
+    const others = r.reports.filter((x) => x.report_id !== R.report_id);
+    if (!others.length) sel.append(el("option", { value: "" }, "No other reports"));
+    for (const x of others) sel.append(el("option", { value: x.report_id }, `${x.report_id.slice(0, 8)} · v${x.latest_version} ${x.latest_status}`));
+    const approved = others.find((x) => x.latest_status === "approved");
+    if (approved) sel.value = approved.report_id;
+  }).catch((e) => toast(e.message));
+  return el("div", { class: "card" }, el("h2", {}, "Compare with another report"),
+    el("div", { class: "row" }, sel, el("button", { on: { click: run } }, "Compare")), out);
 }
 
 function evidenceList(ev, owner) {

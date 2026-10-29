@@ -5,6 +5,7 @@
   python -m app.cli analyse [--provider replay|ollama|stub] [--record] [--ids id1,id2] [--only-unrecorded]
                             [--prompt-version classify-v2|classify-v1]
   python -m app.cli draft-report [<analysis_id>]   (default: the latest analysis; creates a DRAFT only)
+  python -m app.cli report-diff <base_report_id> <other_report_id> [--out file.md]
   python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json] [--active-minutes N]
 """
 from __future__ import annotations
@@ -42,6 +43,10 @@ def main(argv: list[str] | None = None) -> int:
                    help="resume: analyse only responses without a replay recording (use with --record)")
     d = sub.add_parser("draft-report", help="create a draft report as the analyst; never submits or approves")
     d.add_argument("analysis_id", nargs="?", help="default: the most recent analysis")
+    rd = sub.add_parser("report-diff", help="compare two reports (latest approved version, else latest)")
+    rd.add_argument("base_report_id")
+    rd.add_argument("other_report_id")
+    rd.add_argument("--out", help="also write the markdown to this file")
     w = sub.add_parser("write-output")
     w.add_argument("analysis_id")
     w.add_argument("--out", default=str(ROOT / "outputs" / "analysis_output.json"))
@@ -84,6 +89,11 @@ def main(argv: list[str] | None = None) -> int:
             return 1
         rep = review.create_report(conn, aid, _analyst(s))
         print(json.dumps({k: rep[k] for k in ("report_id", "analysis_id", "latest_status")}))
+    elif args.cmd == "report-diff":
+        md = review.compare_reports(conn, args.base_report_id, args.other_report_id)["markdown"]
+        if args.out:
+            Path(args.out).write_text(md, encoding="utf-8")
+        print(md)
     elif args.cmd == "write-output":
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
