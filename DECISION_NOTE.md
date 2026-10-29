@@ -72,4 +72,4 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
   - the console walkthrough;
   - label adjudication (H01, H02, H03, H06) and MC-01;
   - the final report approval.
-- Active time: ⟦minutes⟧ (see [TIME_LOG.md](TIME_LOG.md)).
+- Active time: candidate ~135 min (self-reported estimate; final approval still pending), shown separately from the AI-assisted session time and the unattended model run (see [TIME_LOG.md](TIME_LOG.md)).
