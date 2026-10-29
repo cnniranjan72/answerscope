@@ -73,7 +73,7 @@ The results above are the evaluation of record for the approved submission (clas
 * 12 dev answers, used for tuning v2.
 * 24 holdout2 answers on 8 prompts disjoint from every other split.
 
-All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, before any v2 call. v2 was tuned in 3 iterations on dev and tuning only (`results/v2_tuning/`) and frozen at tag `classify-v2-frozen` before it ran on holdout2. fresh-v1 labels are AI-drafted. After the results above were produced, an AI second-pass audit (`cases/fresh_v1_ai_audit.md`) raised 4 consistency items. The candidate decided them by accepting the AI suggestions, which changed one dev label (D-017-aimode → recommended, ambiguous). The result is `fresh_v2.jsonl`; fresh-v1 stays frozen. The other 32 cases were not individually re-read by the candidate.
+All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, before any v2 call. v2 was tuned in 3 iterations on dev and tuning only (`results/v2_tuning/`) and frozen at tag `classify-v2-frozen` before it ran on holdout2. fresh-v1 labels are AI-drafted. After the results above were produced, an AI second-pass audit (`cases/fresh_v1_ai_audit.md`) raised 4 consistency items. The candidate decided them by accepting the AI suggestions, which changed one dev label (D-017-aimode → recommended, ambiguous). The result is `fresh_v2.jsonl`; fresh-v1 stays frozen. The 4 items covered 5 cases; the other 31 were not individually re-read by the candidate (review sheet: `claude-code/FRESH_V2_REVIEW_SHEET.md`).
 
 ### holdout2 (24 cases; the independent test)
 
