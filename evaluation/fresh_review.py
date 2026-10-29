@@ -5,7 +5,12 @@
   evaluation/cases/fresh_review_log.jsonl    one record per candidate decision (last record per case wins)
   evaluation/cases/fresh_v2.jsonl            written here
 
-  python -m evaluation.fresh_review
+  python -m evaluation.fresh_review     rebuild fresh-v2; refuses to overwrite it if the result differs
+
+A written label set is frozen. Later decisions go to a new log and a new label version:
+
+  python -m evaluation.fresh_review --log evaluation/cases/fresh_review_log.jsonl \
+      --log evaluation/cases/fresh_review_log_v3.jsonl --out evaluation/cases/fresh_v3.jsonl --label-version fresh-v3
 
 Supported changes: expected_set ({label: bool}) and evidence_replace ({label: [excerpts]}).
 Excerpts are located in the answer and stored as exact raw spans; the expected score is
@@ -14,6 +19,7 @@ proposed no change for them, and the candidate did not re-read them individually
 """
 from __future__ import annotations
 
+import argparse
 import copy
 import json
 import sys
@@ -35,9 +41,23 @@ def _jsonl(path: Path) -> list[dict]:
     return [json.loads(l) for l in path.read_text(encoding="utf-8").splitlines() if l.strip()]
 
 
-def main() -> int:
+def _labeller(version: str, decided: int) -> str:
+    if version == "fresh-v2":
+        return LABELLER  # wording of the frozen fresh-v2 set
+    return ("drafted by AI coding assistant (Claude Code) blind to model predictions; AI second-pass audit "
+            f"(fresh_v1_ai_audit.md); the candidate decided {decided} cases (decision logs); "
+            "other cases keep the AI-drafted fresh-v1 labels")
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(prog="python -m evaluation.fresh_review")
+    ap.add_argument("--log", action="append", type=Path,
+                    help="decision log; repeatable, later records win (default: the fresh-v2 log)")
+    ap.add_argument("--out", type=Path, default=V2)
+    ap.add_argument("--label-version", default="fresh-v2")
+    args = ap.parse_args(argv)
     v1 = _jsonl(V1)
-    decisions = {d["case_id"]: d for d in _jsonl(LOG)}
+    decisions = {d["case_id"]: d for log in (args.log or [LOG]) for d in _jsonl(log)}
     unknown = set(decisions) - {c["case_id"] for c in v1}
     if unknown:
         print(f"BUILD FAILED: decisions for unknown cases {sorted(unknown)}")
@@ -47,7 +67,7 @@ def main() -> int:
     out, errors = [], []
     for c in v1:
         new = copy.deepcopy(c)
-        new["label_version"], new["labeller"] = "fresh-v2", LABELLER
+        new["label_version"], new["labeller"] = args.label_version, _labeller(args.label_version, len(decisions))
         d = decisions.get(c["case_id"])
         if d:
             ch = d["changes"]
@@ -71,9 +91,17 @@ def main() -> int:
     if errors:
         print("BUILD FAILED:\n" + "\n".join(errors))
         return 1
-    V2.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in out), encoding="utf-8")
+    text = "".join(json.dumps(x, ensure_ascii=False) + "\n" for x in out)
     changed = [x["case_id"] for x in out if x["expected"] != next(c for c in v1 if c["case_id"] == x["case_id"])["expected"]]
-    print(f"wrote {V2}: {len(out)} cases; labels changed: {changed}")
+    if args.out.exists():  # a written label set is frozen (CLAUDE.md: label changes get a new version)
+        if args.out.read_text(encoding="utf-8").replace("\r\n", "\n") == text:
+            print(f"unchanged: {args.out} reproduces from its decision logs ({len(out)} cases)")
+            return 0
+        print(f"REFUSED: {args.out} exists and the rebuild differs; label sets are frozen. Put new decisions in "
+              "a new log and build a new version (--out evaluation/cases/fresh_v3.jsonl --label-version fresh-v3).")
+        return 1
+    args.out.write_text(text, encoding="utf-8")
+    print(f"wrote {args.out}: {len(out)} cases; labels changed vs fresh-v1: {changed}")
     return 0
 
 
