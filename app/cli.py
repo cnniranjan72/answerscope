@@ -4,6 +4,7 @@
   python -m app.cli import-pack
   python -m app.cli analyse [--provider replay|ollama|stub] [--record] [--ids id1,id2] [--only-unrecorded]
                             [--prompt-version classify-v2|classify-v1]
+  python -m app.cli draft-report [<analysis_id>]   (default: the latest analysis; creates a DRAFT only)
   python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json] [--active-minutes N]
 """
 from __future__ import annotations
@@ -15,7 +16,7 @@ from pathlib import Path
 
 from app.config import ROOT, Identity, load_settings
 from app.db import connect, init_db
-from app.services import analysis, ingestion, scoring
+from app.services import analysis, ingestion, review, scoring
 from app.services.analyzer import PROMPT_VERSION, PROMPTS
 from app.services.reporting import build_draft
 
@@ -39,6 +40,8 @@ def main(argv: list[str] | None = None) -> int:
                    help="classification prompt (default: production classify-v2; classify-v1 reproduces the approved run)")
     a.add_argument("--only-unrecorded", action="store_true",
                    help="resume: analyse only responses without a replay recording (use with --record)")
+    d = sub.add_parser("draft-report", help="create a draft report as the analyst; never submits or approves")
+    d.add_argument("analysis_id", nargs="?", help="default: the most recent analysis")
     w = sub.add_parser("write-output")
     w.add_argument("analysis_id")
     w.add_argument("--out", default=str(ROOT / "outputs" / "analysis_output.json"))
@@ -73,6 +76,14 @@ def main(argv: list[str] | None = None) -> int:
                                     progress=progress, version=args.prompt_version)
         run = analysis.get_run(conn, aid)
         print(json.dumps({k: run[k] for k in ("analysis_id", "status", "execution_mode", "model", "counts")}))
+    elif args.cmd == "draft-report":
+        row = conn.execute("SELECT analysis_id FROM analysis_runs ORDER BY started_at DESC, rowid DESC LIMIT 1").fetchone()
+        aid = args.analysis_id or (row["analysis_id"] if row else None)
+        if aid is None:
+            print("no analysis to draft a report from; run analyse first", file=sys.stderr)
+            return 1
+        rep = review.create_report(conn, aid, _analyst(s))
+        print(json.dumps({k: rep[k] for k in ("report_id", "analysis_id", "latest_status")}))
     elif args.cmd == "write-output":
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)

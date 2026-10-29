@@ -8,3 +8,5 @@ var/
 assignment/
 *.zip
 INTERVIEW_PREP.md
+# Local copies of approved report exports (the record is in the database and outputs/)
+/report-*.json

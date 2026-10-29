@@ -34,6 +34,7 @@ jobs:
           docker run -d --name demo -p 8000:8000 -e ANALYST_TOKEN=$A -e REVIEWER_TOKEN=$(python3 -c "import secrets;print(secrets.token_urlsafe(24))") answerscope-demo
           for i in $(seq 1 30); do curl -fs localhost:8000/health && break; sleep 2; done
           curl -fs -H "Authorization: Bearer $A" localhost:8000/analyses | python3 -c "import json,sys; a=json.load(sys.stdin)['analyses']; assert a and a[0]['counts']['succeeded']==6, a; print('seeded', a[0]['counts'])"
+          curl -fs -H "Authorization: Bearer $A" localhost:8000/reports | python3 -c "import json,sys; r=json.load(sys.stdin)['reports']; assert len(r)==1 and r[0]['latest_status']=='draft', r; print('draft seeded')"
           test "$(curl -s -o /dev/null -w '%{http_code}' localhost:8000/analyses)" = 401
       - if: failure()
         run: docker logs demo || true
