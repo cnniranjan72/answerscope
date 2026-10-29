@@ -118,6 +118,16 @@ def run(system: str, cases: list[dict], pack: dict, settings, provider=None, rec
     return out
 
 
+def _valid_recording(d: Path, case: dict, pack: dict, version: str) -> bool:
+    """A recording exists and was made for exactly this prompt text and answer (input hash)."""
+    from app.services.analyzer import build_messages, input_hash
+    f = d / f"{case['response_id'] or case['case_id']}.json"
+    if not f.exists():
+        return False
+    q, body, _ = load_inputs(case, pack)
+    return json.loads(f.read_text(encoding="utf-8")).get("input_sha256") == input_hash(build_messages(q, body, version), version)
+
+
 def wilson(k: int, n: int) -> list[float] | None:
     if not n:
         return None
@@ -206,8 +216,10 @@ def main(argv=None) -> int:
     ap.add_argument("--v2-provider", default="replay", choices=["replay", "ollama"])
     ap.add_argument("--record", action="store_true", help="with --v2-provider ollama: write classify-v2 recordings")
     ap.add_argument("--fill-v1", action="store_true",
-                    help="record classify-v1 live (Ollama) only for cases that have no v1 recording yet; "
-                         "existing v1 recordings are never touched")
+                    help="record classify-v1 live (Ollama) only for cases with no valid v1 recording; "
+                         "valid recordings are never touched")
+    ap.add_argument("--fill-v2", action="store_true",
+                    help="same for classify-v2 (a recording made for an older prompt text is re-recorded)")
     ap.add_argument("--splits", help=f"comma-separated subset of {','.join(SPLIT_ORDER)} (default: all)")
     ap.add_argument("--from-predictions", help="recompute metrics from saved predictions and verify them")
     args = ap.parse_args(argv)
@@ -230,11 +242,12 @@ def main(argv=None) -> int:
         raise IntegrityError(f"assignment pack not found at {settings.pack_dir}")
     pack = load_pack_index(settings.pack_dir)
     every = [c for s in SPLIT_ORDER for c in splits[s]]
-    if args.fill_v1:
-        v1_dir, live = replay_dir(settings, "classify-v1"), build_provider("ollama", settings, version="classify-v1")
-        missing = [c for c in every if not (v1_dir / f"{c['response_id'] or c['case_id']}.json").exists()]
-        print(f"fill-v1: recording {len(missing)} cases without a classify-v1 recording", file=sys.stderr)
-        run("classify-v1", missing, pack, settings, live, v1_dir)
+    for version, wanted in (("classify-v1", args.fill_v1), ("classify-v2", args.fill_v2)):
+        if wanted:
+            d, live = replay_dir(settings, version), build_provider("ollama", settings, version=version)
+            todo = [c for c in every if not _valid_recording(d, c, pack, version)]
+            print(f"fill {version}: recording {len(todo)} cases without a valid recording", file=sys.stderr)
+            run(version, todo, pack, settings, live, d)
     v1 = build_provider("replay", settings, version="classify-v1")
     v2 = build_provider(args.v2_provider, settings, version="classify-v2")
     rec = replay_dir(settings, "classify-v2") if args.record else None

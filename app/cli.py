@@ -61,8 +61,8 @@ def main(argv: list[str] | None = None) -> int:
         if args.only_unrecorded:
             rec_dir = analysis.replay_dir(s, args.prompt_version)
             all_ids = ids or [r["response_id"] for r in conn.execute("SELECT response_id FROM responses")]
-            ids = [i for i in all_ids if not (rec_dir / f"{i}.json").exists()]
-            print(f"resume: {len(all_ids) - len(ids)} already recorded, {len(ids)} to analyse", file=sys.stderr)
+            ids = [i for i in all_ids if not analysis.has_valid_recording(conn, rec_dir, i, args.prompt_version)]
+            print(f"resume: {len(all_ids) - len(ids)} validly recorded, {len(ids)} to analyse", file=sys.stderr)
             if not ids:
                 return 0
 

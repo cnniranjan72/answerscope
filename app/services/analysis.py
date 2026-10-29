@@ -62,6 +62,23 @@ def _write_recording(directory: Path, response_id: str, model: str, outcome: Ana
     os.replace(tmp, target)
 
 
+def has_valid_recording(conn: sqlite3.Connection, directory: Path, response_id: str,
+                        version: str = PROMPT_VERSION) -> bool:
+    """True if a recording exists for exactly this prompt text and answer (input hash).
+    A truncated file or one made for an older prompt revision is not valid."""
+    from app.services.analyzer import build_messages, input_hash
+    f = directory / f"{response_id}.json"
+    if not f.exists():
+        return False
+    r = conn.execute("SELECT r.answer_text, p.text FROM responses r JOIN prompts p USING (prompt_id) "
+                     "WHERE r.response_id = ?", (response_id,)).fetchone()
+    try:
+        rec = json.loads(f.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    return bool(r) and rec.get("input_sha256") == input_hash(build_messages(r["text"], answer_body(r["answer_text"]), version), version)
+
+
 def run_analysis(conn: sqlite3.Connection, settings: Settings, provider: Provider, *, actor: str,
                  response_ids: list[str] | None = None, record_dir: Path | None = None,
                  progress=None, version: str = PROMPT_VERSION) -> str:

@@ -202,3 +202,22 @@ def test_regression_f5_quote_across_list_items_matches():
     assert span is not None and body[span[0]:span[1]].endswith("specific actions")
     assert locate("you can take. Next step", body) is not None
     assert locate("I can: - Detail", body) is not None  # quoting the bullet itself still matches
+
+
+def test_resume_treats_truncated_or_stale_recordings_as_missing(client, conn, settings, tmp_path):
+    """--only-unrecorded must re-run an answer whose recording is truncated or was made
+    for another prompt text, instead of skipping it and failing later in replay."""
+    from app.services.analysis import has_valid_recording
+    from app.services.analyzer import build_messages, input_hash
+    client.post("/datasets/pack", headers=A)
+    rid, q, text = conn.execute("SELECT r.response_id, p.text, r.answer_text FROM responses r "
+                                "JOIN prompts p USING (prompt_id) LIMIT 1").fetchone()
+    d = tmp_path / "rec"; d.mkdir()
+    assert not has_valid_recording(conn, d, rid)
+    (d / f"{rid}.json").write_text('{"input_sha256": "abc"', encoding="utf-8")  # truncated
+    assert not has_valid_recording(conn, d, rid)
+    (d / f"{rid}.json").write_text(json.dumps({"input_sha256": "stale"}), encoding="utf-8")
+    assert not has_valid_recording(conn, d, rid)
+    good = input_hash(build_messages(q, answer_body(text)))
+    (d / f"{rid}.json").write_text(json.dumps({"input_sha256": good}), encoding="utf-8")
+    assert has_valid_recording(conn, d, rid) and not has_valid_recording(conn, d, rid, "classify-v2")
