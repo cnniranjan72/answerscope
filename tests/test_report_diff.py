@@ -71,3 +71,10 @@ def test_a_segment_without_successful_answers_is_not_comparable_rather_than_an_e
     assert rec["kind"] == "rate" and rec["ci_overlap"] is None and rec["change_pp"] is None
     from app.services.report_diff import to_markdown
     assert "not comparable" in to_markdown(d, "a", "b")
+
+
+def test_report_list_shows_prompt_and_generator_so_similar_drafts_are_distinguishable(client, report):
+    from app.services.analyzer import PROMPT_VERSION
+    from app.services.reporting import REPORT_GENERATOR_VERSION
+    [row] = client.get("/reports", headers=A).json()["reports"]
+    assert row["prompt_version"] == PROMPT_VERSION and row["report_generator"] == REPORT_GENERATOR_VERSION

@@ -128,9 +128,11 @@ def create_report(body: ReportCreate, actor: Identity = Depends(ANALYST), conn=D
 @router.get("/reports", tags=["reports"])
 def list_reports(_: Identity = Depends(current_identity), conn=Depends(db)):
     rows = conn.execute(
-        "SELECT r.report_id, r.analysis_id, r.created_at, v.version AS latest_version, v.status AS latest_status "
+        "SELECT r.report_id, r.analysis_id, r.created_at, v.version AS latest_version, v.status AS latest_status, "
+        "a.prompt_version, json_extract(v.content_json, '$.provenance.report_generator') AS report_generator "
         "FROM reports r JOIN report_versions v ON v.report_id = r.report_id AND v.version = "
-        "(SELECT MAX(version) FROM report_versions WHERE report_id = r.report_id) ORDER BY r.created_at DESC")
+        "(SELECT MAX(version) FROM report_versions WHERE report_id = r.report_id) "
+        "LEFT JOIN analysis_runs a ON a.analysis_id = r.analysis_id ORDER BY r.created_at DESC")
     return {"reports": [dict(r) for r in rows]}
 
 
