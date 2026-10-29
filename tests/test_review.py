@@ -206,3 +206,20 @@ def test_remedy_problem_text_has_single_full_stop(client, report):
     content = report["latest"]["content"]
     for r in content["remedies"]:
         assert ".." not in r["problem"], r["problem"]
+
+
+def test_analyst_can_remove_weak_evidence_and_still_submit(client, report):
+    """The console lets the analyst drop a weak quote from a diagnostic and its remedy."""
+    rid, c = report["report_id"], report["latest"]["content"]
+    d0 = c["diagnostics"][0]
+    if len(d0["evidence"]) < 2:
+        pytest.skip("needs two evidence items")
+    drop = d0["evidence"][0]
+    d0["evidence"] = d0["evidence"][1:]
+    r0 = next(r for r in c["remedies"] if r["diagnostic_id"] == d0["id"])
+    r0["evidence"] = [e for e in r0["evidence"] if e != drop] or d0["evidence"][:1]
+    r = client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "diagnostics": c["diagnostics"],
+                                                          "remedies": c["remedies"]})
+    assert r.status_code == 200, r.text
+    assert drop not in latest(client, rid)["latest"]["content"]["diagnostics"][0]["evidence"]
+    assert submit(client, rid, 1).status_code == 200

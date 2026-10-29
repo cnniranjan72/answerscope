@@ -291,8 +291,14 @@ function editor(C) {
   const card = el("div", { class: "card" }, el("h2", {}, "Edit report"),
     el("p", { class: "small muted" }, "Evidence quotes must stay verbatim from the cited response; the server re-checks every quote before submission."),
     ...field(draft, "title", "Title", false), ...field(draft, "executive_summary", "Executive summary"), ...field(draft, "analyst_notes", "Analyst notes"));
+  const removed = new Set(); // "D2|response_id|quote" keys of evidence the analyst removes
+  const evKey = (d, e) => `${d}|${e.response_id}|${e.quote}`;
   draft.diagnostics.forEach((d) => card.append(el("h3", { style: "margin-top:14px" }, `${d.id} diagnostic`), ...field(d, "title", "Title", false),
-    ...field(d, "observation", "Observed pattern"), ...field(d, "hypothesis", "Hypothesis"), ...field(d, "how_to_test", "How to test")));
+    ...field(d, "observation", "Observed pattern"), ...field(d, "hypothesis", "Hypothesis"), ...field(d, "how_to_test", "How to test"),
+    el("label", {}, "Evidence (tick to remove a weak or wrong quote; it is also removed from this diagnostic's remedy)"),
+    ...d.evidence.map((e) => el("label", { class: "small", style: "display:flex;gap:8px;align-items:flex-start" },
+      el("input", { type: "checkbox", style: "width:auto", on: { change: (ev) => ev.target.checked ? removed.add(evKey(d.id, e)) : removed.delete(evKey(d.id, e)) } }),
+      el("span", { title: "Exact source text: " + e.quote }, rendered(e.quote))))));
   draft.remedies.forEach((r) => {
     const eff = el("select", { on: { change: (e) => (r.effort = e.target.value) } }, ...["low", "medium", "high"].map((x) => el("option", { value: x }, x))); eff.value = r.effort;
     card.append(el("h3", { style: "margin-top:14px" }, `${r.id} remedy`), ...field(r, "action", "Action"), ...field(r, "expected_benefit", "Expected benefit"),
@@ -300,6 +306,8 @@ function editor(C) {
   });
   card.append(el("div", { class: "row", style: "margin-top:12px" }, el("button", { class: "primary", on: { click: async () => {
     try {
+      draft.diagnostics.forEach((d) => { d.evidence = d.evidence.filter((e) => !removed.has(evKey(d.id, e))); });
+      draft.remedies.forEach((r) => { r.evidence = r.evidence.filter((e) => !removed.has(evKey(r.diagnostic_id, e))); });
       const res = await api("PATCH", `/reports/${S.report.report_id}`, { base_version: S.report.latest_version, title: draft.title,
         executive_summary: draft.executive_summary, analyst_notes: draft.analyst_notes, diagnostics: draft.diagnostics, remedies: draft.remedies });
       toast(res.new_version_created ? `Saved as new draft v${res.version}; it needs a new review.` : `Draft v${res.version} saved.`, "ok");
