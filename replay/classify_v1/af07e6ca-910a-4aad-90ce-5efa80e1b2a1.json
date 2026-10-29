@@ -1,0 +1,15 @@
+{
+ "response_id": "af07e6ca-910a-4aad-90ce-5efa80e1b2a1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "14787d614b2db9f9339238a200856267851771c767c8808cd3ac2e556c29a327",
+ "recorded_at": "2026-10-29T01:23:23+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 71105,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"TripAdvisor\",\n      \"evidence\": \"AI tools, such as ChatGPT, frequently prioritize information from third-party sites like TripAdvisor, Forbes, or Reddit\"\n    },\n    {\n      \"name\": \"Forbes\",\n      \"evidence\": \"AI tools, such as ChatGPT, frequently prioritize information from third-party sites like TripAdvisor, Forbes, or Reddit\"\n    },\n    {\n      \"name\": \"Reddit\",\n      \"evidence\": \"AI tools, such as ChatGPT, frequently prioritize information from third-party sites like TripAdvisor, Forbes, or Reddit\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all. It discusses the general skepticism surrounding GEO/AEO tools but does not list or recommend specific vendors.\"\n}"
+  }
+ ]
+}

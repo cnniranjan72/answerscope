@@ -1,0 +1,15 @@
+{
+ "response_id": "e2bb9e59-578d-474c-b7e1-ee8c29b36d90",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "fc4f8a304f5c7876daad44eb200ef3d3557c0233dd8384941bdcb54c8e060f54",
+ "recorded_at": "2026-10-29T01:24:51+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 41896,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The provided answer does not mention Kasparro or any specific competitors; it discusses the general skepticism surrounding AI recommendation optimization tools as a category.\"\n}"
+  }
+ ]
+}

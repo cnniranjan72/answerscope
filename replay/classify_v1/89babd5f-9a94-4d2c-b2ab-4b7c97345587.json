@@ -1,0 +1,15 @@
+{
+ "response_id": "89babd5f-9a94-4d2c-b2ab-4b7c97345587",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "45f6cb1a3528e639f8254e02d8d0c654293dd87ccbfbfa9df8550ba2ad0f4a55",
+ "recorded_at": "2026-10-29T01:16:31+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 90770,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"People generally prefer Profound for in-depth, enterprise-grade AI analytics and multi-model tracking.\"\n    },\n    {\n      \"name\": \"Emberos\",\n      \"evidence\": \"there is a strong preference for alternative tools like Emberos\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"there is a strong preference for alternative tools like Emberos, Ahrefs , and Peec AI\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"there is a strong preference for alternative tools like Emberos, Ahrefs , and Peec AI\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"Preferred for basic, low-cost monitoring.\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"leading users toward more affordable tools like Otterly or comprehensive ones like Semrush.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer focuses on comparing Profound with other tools like Emberos, Ahrefs, Peec AI, and Otterly.ai.\"\n}"
+  }
+ ]
+}

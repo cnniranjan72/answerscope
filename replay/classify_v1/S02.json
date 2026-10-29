@@ -1,0 +1,15 @@
+{
+ "response_id": "S02",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "33edc1cb5bfcccde1c6b67df71fb5f87e29323ce5cc1125043a4febcfa426d1f",
+ "recorded_at": "2026-10-29T01:57:09+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36902,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is a new company\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro is a new company and there is limited independent evidence of its results.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but characterizes it negatively by stating it is a new company with limited independent evidence of results. It does not recommend the service, but rather advises caution.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

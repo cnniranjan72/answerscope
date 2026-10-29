@@ -1,0 +1,15 @@
+{
+ "response_id": "660dd26e-bada-40be-b3fc-8f04f4f839e1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "4bef12d0592b3cb34640ddbd25539aab7595491dffc8d31590ee2822ede70a67",
+ "recorded_at": "2026-10-29T01:49:33+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 46515,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Clari\",\n      \"evidence\": \"Specialized B2B revenue intelligence or forecasting platforms (such as Clari, Gong, or specialized RevOps auditing software).\"\n    },\n    {\n      \"name\": \"Gong\",\n      \"evidence\": \"Specialized B2B revenue intelligence or forecasting platforms (such as Clari, Gong, or specialized RevOps auditing software).\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer focuses on general categories of reporting tools and specific competitors like Clari and Gong.\"\n}"
+  }
+ ]
+}

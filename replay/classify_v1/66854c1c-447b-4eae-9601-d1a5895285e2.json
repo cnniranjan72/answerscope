@@ -1,0 +1,15 @@
+{
+ "response_id": "66854c1c-447b-4eae-9601-d1a5895285e2",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "27c5056ae10ce4103982fec387184344908ba40bd7f04e00aa593b5931e03c37",
+ "recorded_at": "2026-10-28T18:29:40+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 47209,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro specializes as an AI visibility and discovery platform\",\n    \"Because Kasparro's evaluations and diagnostic-led demos focus on AI search presence\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"initial visibility audits are typically designed to be rapid and diagnostic-driven—often delivered as part of their initial sales and onboarding consultation process within a few days.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an AI visibility platform and recommends it as a rapid diagnostic tool for brand sentiment and AI search presence, while clarifying it is not a financial revenue audit tool.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "1c2f6b84-50ad-4192-a20e-8b000e3aa7e1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "ef00e7ad4fc7ad47c4c4fcc68e647a929c200f943458e01b5a98b95098b62fd0",
+ "recorded_at": "2026-10-29T01:06:15+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 70032,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"If your product isn't mentioned across trusted software directories (G2, Capterra, SourceForge)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"If your product isn't mentioned across trusted software directories (G2, Capterra, SourceForge)\"\n    },\n    {\n      \"name\": \"SourceForge\",\n      \"evidence\": \"If your product isn't mentioned across trusted software directories (G2, Capterra, SourceForge)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all. It provides general advice on AI visibility and lists several software review platforms as places to build a footprint.\"\n}"
+  }
+ ]
+}

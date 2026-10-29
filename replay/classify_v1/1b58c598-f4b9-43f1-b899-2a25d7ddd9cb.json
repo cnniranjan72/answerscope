@@ -1,0 +1,21 @@
+{
+ "response_id": "1b58c598-f4b9-43f1-b899-2a25d7ddd9cb",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "5d3edb3b864b6b19eccfeecaeedc5a49c48acf3e7b15d8a79a01a14a0ab30b04",
+ "recorded_at": "2026-10-28T18:31:24+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "a list position requires position_basis 'ranked_list'",
+   "latency_ms": 61437,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is designed for high-speed, targeted remediation in e-commerce\",\n    \"Kasparro: Offers a four-module remediation playbook designed to drive fast results\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"if you need to rapidly improve product listings, Kasparro’s targeted, fast-iteration approach appears to be quicker.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"Dageno AI is focused on GEO (Generative Engine Optimization) tracking for marketing teams\"\n    }\n  ],\n  \"position_basis\": \"unordered_list\",\n  \"rationale\": \"The model explicitly recommends Kasparro for rapid onboarding and remediation compared to Dageno AI, which it describes as a slower, continuous monitoring process.\",\n  \"kasparro_list_position\": 1\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 41781,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is designed for high-speed, targeted remediation in e-commerce\",\n    \"Kasparro: Offers a four-module remediation playbook designed to drive fast results\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"if you need to rapidly improve product listings, Kasparro’s targeted, fast-iteration approach appears to be quicker.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"Dageno AI is focused on GEO (Generative Engine Optimization) tracking for marketing teams\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model recommends Kasparro for rapid onboarding and remediation compared to Dageno AI, which it describes as a slower, continuous monitoring process.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

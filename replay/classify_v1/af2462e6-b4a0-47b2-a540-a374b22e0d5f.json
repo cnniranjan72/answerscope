@@ -1,0 +1,15 @@
+{
+ "response_id": "af2462e6-b4a0-47b2-a540-a374b22e0d5f",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "b2a26e23f171695f39dc4c6326f6bed7ddd5fc46b2c46164253b607f3e19fe65",
+ "recorded_at": "2026-10-28T19:01:54+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 61824,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Use tools like Otterly AI, Peec AI , or ZipTie to check if AI engines are correctly recommending your brand.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Use tools like Otterly AI, Peec AI , or ZipTie to check if AI engines are correctly recommending your brand.\"\n    },\n    {\n      \"name\": \"ZipTie\",\n      \"evidence\": \"Use tools like Otterly AI, Peec AI , or ZipTie to check if AI engines are correctly recommending your brand.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro is not mentioned in the provided text. The answer lists other tools (Otterly AI, Peec AI, ZipTie) as practical steps for monitoring brand mentions.\"\n}"
+  }
+ ]
+}

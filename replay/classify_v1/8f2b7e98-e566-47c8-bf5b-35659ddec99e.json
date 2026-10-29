@@ -1,0 +1,15 @@
+{
+ "response_id": "8f2b7e98-e566-47c8-bf5b-35659ddec99e",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "fdf067a14ef5281c71365b65055a43eff0588539a3fdecd38cb328a0f530ff43",
+ "recorded_at": "2026-10-29T01:34:21+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 39690,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"costlayer.ai\",\n      \"evidence\": \"costlayer.ai\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general overview of AI tracking tool integrations and costs.\"\n}"
+  }
+ ]
+}

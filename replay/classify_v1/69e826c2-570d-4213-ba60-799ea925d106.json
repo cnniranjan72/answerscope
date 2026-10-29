@@ -1,0 +1,15 @@
+{
+ "response_id": "69e826c2-570d-4213-ba60-799ea925d106",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "9597203474b94e35eecff17d84ac19dd9332f93bc4a1ab381902461aee2779c9",
+ "recorded_at": "2026-10-29T01:05:05+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 39605,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro, its services, or any competitors. It provides general advice on AI visibility and SEO.\"\n}"
+  }
+ ]
+}

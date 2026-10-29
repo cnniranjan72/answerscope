@@ -1,0 +1,21 @@
+{
+ "response_id": "9aefbc5a-d270-42d8-b07f-1945b2e98c76",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "f982dde06ed3dbe6e5ef36ac26f784b3d0a08021909e48e454e0de8020a97505",
+ "recorded_at": "2026-10-28T18:28:53+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Operra'",
+   "latency_ms": 46031,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I couldn't find a public page for a product specifically called Kasparro's AI Revenue Audit\",\n    \"If you're referring to Kasparro's audit service\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Operra\",\n      \"evidence\": \"getoperra.com\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro in the context of an audit service but does not provide a definitive recommendation or specific setup time due to a lack of specific product information. It mentions Operra as a source/link.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 41162,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I couldn't find a public page for a product specifically called Kasparro's AI Revenue Audit\",\n    \"If you're referring to Kasparro's audit service\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but does not provide a specific recommendation or setup time. No competitors were identified as tools/vendors in the AI visibility space; the link provided was a source for general audit processes.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "13c261d3-f05a-444f-81d6-69e769af59cf",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "4f5d362404381a38da6b83c797b484fbbdee0dd90777fa7d4c742267632ca9db",
+ "recorded_at": "2026-10-29T01:08:39+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60979,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"HubSpot AEO\",\n      \"evidence\": \"HubSpot AEO\"\n    },\n    {\n      \"name\": \"Quattr\",\n      \"evidence\": \"Quattr\"\n    },\n    {\n      \"name\": \"AI-Netra\",\n      \"evidence\": \"AI-Netra\"\n    },\n    {\n      \"name\": \"Forzeo\",\n      \"evidence\": \"Forzeo\"\n    },\n    {\n      \"name\": \"Topify GEO Platform\",\n      \"evidence\": \"Topify GEO Platform\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar\",\n      \"evidence\": \"Ahrefs Brand Radar\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer lists several other GEO and AI visibility tools instead.\"\n}"
+  }
+ ]
+}

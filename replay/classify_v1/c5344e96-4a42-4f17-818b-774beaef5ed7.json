@@ -1,0 +1,15 @@
+{
+ "response_id": "c5344e96-4a42-4f17-818b-774beaef5ed7",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "35cdad4126286a28d779a37bfc246d80f4a6a628aa08cfd15f060006a5eabcc3",
+ "recorded_at": "2026-10-29T00:59:54+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37869,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific AI optimization tools/companies by name.\"\n}"
+  }
+ ]
+}

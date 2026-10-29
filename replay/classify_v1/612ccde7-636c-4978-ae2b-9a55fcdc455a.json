@@ -1,0 +1,15 @@
+{
+ "response_id": "612ccde7-636c-4978-ae2b-9a55fcdc455a",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "49037dda7f96c5001075e45d6427328e27e7a026882f4925fe29af43f96058ed",
+ "recorded_at": "2026-10-29T01:51:23+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 34724,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general comparison between turnkey AI audit software and hiring an agency.\"\n}"
+  }
+ ]
+}

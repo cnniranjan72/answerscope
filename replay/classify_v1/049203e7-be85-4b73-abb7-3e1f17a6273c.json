@@ -1,0 +1,15 @@
+{
+ "response_id": "049203e7-be85-4b73-abb7-3e1f17a6273c",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6810118a3c3d70c388d6b4977b2e3cbe20fada000385730e83113c4d9f6f43ee",
+ "recorded_at": "2026-10-28T19:02:44+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 49958,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Genee Tech\",\n      \"evidence\": \"Genee Tech\"\n    },\n    {\n      \"name\": \"MarketScale\",\n      \"evidence\": \"MarketScale\"\n    },\n    {\n      \"name\": \"NBound Marketing\",\n      \"evidence\": \"NBound Marketing\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided text. The answer suggests a manual approach for small companies and lists other tools/agencies as references.\"\n}"
+  }
+ ]
+}

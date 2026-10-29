@@ -1,0 +1,15 @@
+{
+ "response_id": "f2081176-45c1-4b0b-afec-0f0a65110fc6",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6c334940731430f2664cf923170bceb2d63ee9501f8188dbb9cf234599ba007f",
+ "recorded_at": "2026-10-28T19:04:43+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 76824,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Ayzeo\",\n      \"evidence\": \"Ayzeo: Tracks presence across AI search platforms, including Claude and Perplexity, to help you move from invisible to recommended.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI: A platform for monitoring visibility share, position, and sentiment metrics, best for teams looking for simple, data-driven insights.\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: A polished, higher-end tool for tracking brand presence.\"\n    },\n    {\n      \"name\": \"Clairon\",\n      \"evidence\": \"Clairon: Focuses on multi-model monitoring (Perplexity, Claude, Gemini) and offers AI brand visibility tracking.\"\n    },\n    {\n      \"name\": \"LLMReach\",\n      \"evidence\": \"LLMReach: Specialized in engineering content structure, schema markup, and off-site signals to improve ranking in AI shortlists.\"\n    }\n  ],\n  \"position_basis\": \"unordered_list\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several competitors in the AI visibility and monitoring space.\"\n}"
+  }
+ ]
+}

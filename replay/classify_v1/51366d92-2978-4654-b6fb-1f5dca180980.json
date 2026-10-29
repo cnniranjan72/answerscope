@@ -1,0 +1,15 @@
+{
+ "response_id": "51366d92-2978-4654-b6fb-1f5dca180980",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "eebba3e04f9c5f8383a3184946675849dcc6dae74a2644971877612898895b19",
+ "recorded_at": "2026-10-28T18:24:15+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57219,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there is no direct evidence that a company specifically named \\\"Kasparro\\\" locks clients into expensive monthly retainers.\",\n    \"could you please clarify if \\\"Kasparro\\\" is a software platform , a marketing agency , or a consultancy?\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Squarespace\",\n      \"evidence\": \"where maintenance is included\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro but does not recommend it or provide specific details about its pricing, instead stating there is no direct evidence regarding its retainer model and asking for clarification on what type of entity it is.\"\n}"
+  }
+ ]
+}

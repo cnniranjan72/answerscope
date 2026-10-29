@@ -1,0 +1,15 @@
+{
+ "response_id": "db36a033-8f83-47bb-a0ba-8c35539f8aed",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a3f5253fbbcd1fb5a590edd9d300f5910a141046b323b17ca0b27a0f4bc7ba6d",
+ "recorded_at": "2026-10-29T01:30:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 70208,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"seoClarity\",\n      \"evidence\": \"Leading platforms that provide these detailed insights include [seoClarity](https://www.sitepoint.com/best-ai-overviews-tracking-tools/) (Clarity ArcAI)\"\n    },\n    {\n      \"name\": \"SE Ranking\",\n      \"evidence\": \"Leading platforms that provide these detailed insights include ... [SE Ranking](https://seranking.com/ai-visibility-tracker.html) (AI Visibility Tracker)\"\n    },\n    {\n      \"name\": \"Veza Digital\",\n      \"evidence\": \"specialized services like [Veza Digital](https://www.vezadigital.com/services/ai-search-visibility-audit)\"\n    },\n    {\n      \"name\": \"iPullRank\",\n      \"evidence\": \"specialized services like ... and [iPullRank](https://ipullrank.com/ai-search-audit)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several competitors but does not reference the target entity.\"\n}"
+  }
+ ]
+}

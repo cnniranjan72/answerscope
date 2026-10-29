@@ -1,0 +1,15 @@
+{
+ "response_id": "e6415205-604e-4fae-988e-5fa13dfb8002",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "bbc2d86123604bc77a7c1a80d39f4afa203838954d83600ff6e55869a28d50b1",
+ "recorded_at": "2026-10-29T01:20:20+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 78308,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: Noted as best for enterprise businesses needing deep, actionable insights.\"\n    },\n    {\n      \"name\": \"Semrush AI Visibility Toolkit\",\n      \"evidence\": \"Semrush AI Visibility Toolkit: Effective for those already using Semrush for SEO to track visibility across LLMs.\"\n    },\n    {\n      \"name\": \"Omnia\",\n      \"evidence\": \"Omnia: Recognized for turning AI tracking into concrete content recommendations.\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar\",\n      \"evidence\": \"Ahrefs Brand Radar: Good for insights into how brand mentions appear in AI answers.\"\n    },\n    {\n      \"name\": \"HubSpot AEO\",\n      \"evidence\": \"HubSpot AEO: Cited for affordability.\"\n    }\n  ],\n  \"position_basis\": \"unordered_list\",\n  \"rationale\": \"Kasparro is not mentioned in the provided text. The answer lists several other competitors but does not reference Kasparro.\"\n}"
+  }
+ ]
+}

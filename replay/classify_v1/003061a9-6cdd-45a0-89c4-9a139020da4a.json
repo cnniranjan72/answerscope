@@ -1,0 +1,15 @@
+{
+ "response_id": "003061a9-6cdd-45a0-89c4-9a139020da4a",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "421e34828b7536db0561476ec8c99ca47cbeb4e6c7c6c6d459ced367d548a328",
+ "recorded_at": "2026-10-29T01:36:18+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 52226,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general technical explanation of AI branding systems versus prompt engineering.\"\n}"
+  }
+ ]
+}

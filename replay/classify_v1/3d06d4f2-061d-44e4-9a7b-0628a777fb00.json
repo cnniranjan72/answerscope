@@ -1,0 +1,15 @@
+{
+ "response_id": "3d06d4f2-061d-44e4-9a7b-0628a777fb00",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "9c179b86cd1ba0b1b6fa3d7b4dbc5cfb8d257203d9aa954bfa341d0208ec7cac",
+ "recorded_at": "2026-10-28T18:59:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36495,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general analysis of the AI visibility market and the efficacy of monitoring tools.\"\n}"
+  }
+ ]
+}

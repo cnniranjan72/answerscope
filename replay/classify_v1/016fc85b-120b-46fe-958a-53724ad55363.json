@@ -1,0 +1,15 @@
+{
+ "response_id": "016fc85b-120b-46fe-958a-53724ad55363",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "3e25b84ad00069e9416b4678a0d91fb700b6586d8ea82a675243df79e8a5e8aa",
+ "recorded_at": "2026-10-29T01:50:14+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 40886,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general comparison between DIY turnkey audits and hiring an agency.\"\n}"
+  }
+ ]
+}

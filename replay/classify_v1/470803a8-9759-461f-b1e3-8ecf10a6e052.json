@@ -1,0 +1,15 @@
+{
+ "response_id": "470803a8-9759-461f-b1e3-8ecf10a6e052",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a25a6f258dc00e86cc8a6dc1595232c09054217d9d78bf0dbbe72e30c5af024c",
+ "recorded_at": "2026-10-29T00:53:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 119067,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI\"\n    },\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI\"\n    },\n    {\n      \"name\": \"Scrunch\",\n      \"evidence\": \"Scrunch\"\n    },\n    {\n      \"name\": \"Geoptie\",\n      \"evidence\": \"Geoptie\"\n    },\n    {\n      \"name\": \"AnswerLift\",\n      \"evidence\": \"AnswerLift\"\n    },\n    {\n      \"name\": \"LLM Pulse\",\n      \"evidence\": \"LLM Pulse\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided text. The answer lists several other GEO and AI visibility tools instead.\"\n}"
+  }
+ ]
+}

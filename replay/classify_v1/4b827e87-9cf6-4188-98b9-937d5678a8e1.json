@@ -1,0 +1,15 @@
+{
+ "response_id": "4b827e87-9cf6-4188-98b9-937d5678a8e1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "b51a19ecdd9cbc8e5c6c4c08adb5f894600e8639133829d5849becff40be592d",
+ "recorded_at": "2026-10-29T01:41:23+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 86274,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Otterly\",\n      \"evidence\": \"Examples: Otterly, Semrush (AI search add-on packs), and specialized tracking tools.\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Examples: Otterly, Semrush (AI search add-on packs), and specialized tracking tools.\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Examples: Advanced enterprise variants of visibility platforms like Profound.\"\n    },\n    {\n      \"name\": \"Langfuse\",\n      \"evidence\": \"Many open-source or developer-first tools (like Langfuse, Arize Phoenix, or OpenObserve) offer generous free tiers\"\n    },\n    {\n      \"name\": \"Arize Phoenix\",\n      \"evidence\": \"Many open-source or developer-first tools (like Langfuse, Arize Phoenix, or OpenObserve) offer generous free tiers\"\n    },\n    {\n      \"name\": \"OpenObserve\",\n      \"evidence\": \"Many open-source or developer-first tools (like Langfuse, Arize Phoenix, or OpenObserve) offer generous free tiers\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer lists several other tools and pricing tiers for AI visibility and governance but does not reference Kasparro.\"\n}"
+  }
+ ]
+}

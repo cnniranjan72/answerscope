@@ -1,0 +1,15 @@
+{
+ "response_id": "72e3c05f-de18-4cc2-8e24-96ffb2e3d593",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "34804d7466e5d162db4b58295b77478d57b5877e63124c8df7054c94a1d8129a",
+ "recorded_at": "2026-10-29T00:54:55+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 78880,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: One of the most polished platforms for tracking enterprise AI search visibility, share of voice, and citations across LLMs.\"\n    },\n    {\n      \"name\": \"GrackerAI\",\n      \"evidence\": \"GrackerAI: Purpose-built specifically for B2B SaaS and cybersecurity companies, combining AEO (Answer Engine Optimization) analytics with built-in content recommendations.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI & Otterly.ai: Highly effective mid-tier options for tracking brand mentions, citation frequency, and competitor placement across platforms like Perplexity and Claude.\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"Peec AI & Otterly.ai: Highly effective mid-tier options for tracking brand mentions, citation frequency, and competitor placement across platforms like Perplexity and Claude.\"\n    },\n    {\n      \"name\": \"AI Sightline\",\n      \"evidence\": \"AI Sightline: A newer tool that stands out by offering API and MCP (Model Context Protocol) server integrations, allowing you to pull AI visibility data directly into your workflows.\"\n    }\n  ],\n  \"position_basis\": \"unordered_list\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other AI visibility and monitoring tools as recommendations.\"\n}"
+  }
+ ]
+}

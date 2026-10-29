@@ -1,0 +1,15 @@
+{
+ "response_id": "3d2402de-0de4-4965-bcc5-9c077ddddcd2",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "2c6ced39af1eeafc512e642eb9513fe633340f13d3bd062e1b2dea7f67ba1ed4",
+ "recorded_at": "2026-10-29T01:13:17+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 105565,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound - Enterprise-focused\"\n    },\n    {\n      \"name\": \"Scrunch AI\",\n      \"evidence\": \"Scrunch AI - Enterprise AI search monitoring\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"Otterly.ai - Affordable\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI - Multi-market tracking\"\n    },\n    {\n      \"name\": \"Semrush AI Visibility Toolkit\",\n      \"evidence\": \"Semrush AI Visibility Toolkit - AI citation tracking\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar\",\n      \"evidence\": \"Ahrefs Brand Radar - Measures brand mentions\"\n    },\n    {\n      \"name\": \"SE Ranking\",\n      \"evidence\": \"SE Ranking\"\n    },\n    {\n      \"name\": \"AirOps\",\n      \"evidence\": \"AirOps - Content generation\"\n    },\n    {\n      \"name\": \"HubSpot AEO\",\n      \"evidence\": \"HubSpot AEO - AI visibility tracking\"\n    },\n    {\n      \"name\": \"BrightEdge\",\n      \"evidence\": \"BrightEdge\"\n    },\n    {\n      \"name\": \"Conductor\",\n      \"evidence\": \"Conductor\"\n    },\n    {\n      \"name\": \"Meltwater\",\n      \"evidence\": \"Meltwater\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided text. The answer lists several other competitors in the AEO and AI visibility space.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "S01",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "29f72442245142c91b2dc791ff77553479b5a8510e893d6d1248d821532c9ca7",
+ "recorded_at": "2026-10-29T01:56:32+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 54866,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"2. Kasparro - a good choice for D2C catalogs that need an audit and an improvement plan.\",\n    \"For a D2C brand, Kasparro is worth considering alongside Profound.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro - a good choice for D2C catalogs that need an audit and an improvement plan.\",\n    \"For a D2C brand, Kasparro is worth considering alongside Profound.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound - strongest enterprise analytics.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI - affordable prompt tracking.\"\n    }\n  ],\n  \"position_basis\": \"ranked_list\",\n  \"rationale\": \"Kasparro is explicitly mentioned and recommended as a good choice for D2C catalogs, appearing as the second item in a ranked list of tools.\",\n  \"kasparro_list_position\": 2\n}"
+  }
+ ]
+}

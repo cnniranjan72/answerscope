@@ -1,0 +1,15 @@
+{
+ "response_id": "b9042e76-dd8d-4ecb-8dae-bdd37ef04754",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "8206dc3a09cb627bf32c198295abdec02043aca18a9f63791e26ae12df91ab5e",
+ "recorded_at": "2026-10-29T01:01:52+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56860,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Meridian\",\n      \"evidence\": \"Tools (like [Meridian](https://www.linkedin.com/posts/ardis_generationai-activity-7353400157985538049-skp6) ) can monitor what AI platforms like ChatGPT and Claude say about a brand\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer mentions 'Meridian' as an AI visibility platform.\"\n}"
+  }
+ ]
+}

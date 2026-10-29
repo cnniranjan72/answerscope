@@ -1,0 +1,15 @@
+{
+ "response_id": "bb1301e0-c91a-4d8a-a954-f9fecd87a4d5",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e657645a1766acb5e1e92c3a63110b0be18c37d13babfdf4bbb8811ab78ff736",
+ "recorded_at": "2026-10-29T00:59:16+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 86214,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Traditional tools (like Ahrefs/Semrush) focus on ranking positions\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Traditional tools (like Ahrefs/Semrush) focus on ranking positions\"\n    },\n    {\n      \"name\": \"CogNerd\",\n      \"evidence\": \"dedicated AI tools (such as CogNerd, Peec AI, and Geoptie) track citation frequency\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"dedicated AI tools (such as CogNerd, Peec AI, and Geoptie) track citation frequency\"\n    },\n    {\n      \"name\": \"Geoptie\",\n      \"evidence\": \"dedicated AI tools (such as CogNerd, Peec AI, and Geoptie) track citation frequency\"\n    },\n    {\n      \"name\": \"Jasper AI\",\n      \"evidence\": \"Jasper AI for optimization across AEO and traditional SEO\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other tools (CogNerd, Peec AI, Geoptie, Jasper AI) as examples of AI optimization tools.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "7ed900ae-a524-4c47-969c-2c43b2b0b620",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "9f43adc9a6f3fdcfbc3c3c7f0ea4dfd39cd685a013c1677a3eed3f91b77634a1",
+ "recorded_at": "2026-10-29T01:25:54+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 63190,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush: Offers an AI visibility toolkit that tracks brand mentions and competitor gaps, as well as AI Search Health.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI: Known for clean multi-engine tracking.\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: Suited for deep analytics and content workflows.\"\n    },\n    {\n      \"name\": \"SE Visible\",\n      \"evidence\": \"SE Visible: Focuses on high-level brand visibility snapshots.\"\n    }\n  ],\n  \"position_basis\": \"unordered_list\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several competitors in the AI visibility and tracking space.\"\n}"
+  }
+ ]
+}

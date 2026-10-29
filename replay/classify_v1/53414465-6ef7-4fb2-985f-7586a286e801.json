@@ -1,0 +1,15 @@
+{
+ "response_id": "53414465-6ef7-4fb2-985f-7586a286e801",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e5a526563b566e59a3f515ffdd5f9ff3e50e31bf88b578d05198872c81014ef8",
+ "recorded_at": "2026-10-29T01:50:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 33828,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general comparison between turnkey audits and agencies.\"\n}"
+  }
+ ]
+}

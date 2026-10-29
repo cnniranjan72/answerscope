@@ -1,0 +1,15 @@
+{
+ "response_id": "e3969fc6-5f7f-4994-a152-d9072be6f173",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e751d0c072ddc6682f7cc5fd65a768341805a0ebe7246e7b7bf4845241b32410",
+ "recorded_at": "2026-10-28T18:38:18+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 69375,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, both US and India-based brands can engage with Kasparro AI .\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro helps D2C companies and enterprises in both India and the US manage their visibility on AI engines\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"manage their visibility on AI engines such as ChatGPT\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"manage their visibility on AI engines such as ChatGPT, Claude\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"manage their visibility on AI engines such as ChatGPT, Claude, Gemini\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"manage their visibility on AI engines such as ChatGPT, Claude, Gemini, and Perplexity\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer confirms that Kasparro AI serves both US and India-based brands and describes its services as helping companies manage visibility on AI engines, effectively recommending it for the user's query.\"\n}"
+  }
+ ]
+}

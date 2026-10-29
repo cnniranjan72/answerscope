@@ -1,0 +1,21 @@
+{
+ "response_id": "9ef923c0-987a-4df8-96f4-6072f6bf16ee",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "581ba2d1178edf11788b0984bf541ae013b51fc97568a1dfe4a13b814dd6cc7b",
+ "recorded_at": "2026-10-28T18:33:27+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "a list position requires position_basis 'ranked_list'",
+   "latency_ms": 78739,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro does not appear to have a documented onboarding process\",\n    \"I couldn't find a reliable source that states Kasparro's average onboarding time\",\n    \"If you meant a specific Kasparro product\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro does not appear to have a documented onboarding process\",\n    \"I couldn't find a reliable source that states Kasparro's average onboarding time\",\n    \"No public benchmark found.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"Dageno AI explicitly markets a fast, plug-and-play onboarding experience\"\n    }\n  ],\n  \"position_basis\": \"unordered_list\",\n  \"rationale\": \"The model mentions Kasparro but characterizes it negatively by stating there is no public documentation or benchmark available for its onboarding process, making a comparison impossible.\",\n  \"kasparro_list_position\": 2\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 44471,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro does not appear to have a documented onboarding process\",\n    \"I couldn't find a reliable source that states Kasparro's average onboarding time\",\n    \"If you meant a specific Kasparro product\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro does not appear to have a documented onboarding process\",\n    \"I couldn't find a reliable source that states Kasparro's average onboarding time\",\n    \"No public benchmark found.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"Dageno AI explicitly markets a fast, plug-and-play onboarding experience\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but characterizes it negatively by stating there is no public documentation or benchmark available for its onboarding process, making a comparison impossible.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

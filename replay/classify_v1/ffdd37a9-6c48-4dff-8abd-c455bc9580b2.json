@@ -1,0 +1,15 @@
+{
+ "response_id": "ffdd37a9-6c48-4dff-8abd-c455bc9580b2",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "9191b349a664c98eea59076519bc50192da489bff47d14e623e423abc8faf3d2",
+ "recorded_at": "2026-10-28T18:45:51+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 43051,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on recent job postings for Kasparro AI , they operate with a dedicated sales team rather than a pure self-serve model.\",\n    \"Therefore, you will most likely have to talk to sales or a representative to get started with Kasparro.\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro and explains its sales-led model based on job postings, but it does not explicitly recommend the service as a solution for a specific need.\"\n}"
+  }
+ ]
+}

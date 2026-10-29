@@ -1,0 +1,15 @@
+{
+ "response_id": "1d2dc007-0757-480d-a086-6b6e2e13c463",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e249bd2bb2e533df35854b2565a30c3d438f40c73fad8ac4220dc52eae02b568",
+ "recorded_at": "2026-10-28T18:22:17+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 62650,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you mean Kasparro (the B2B SaaS growth/outbound agency, not Kaspr)\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't find reliable public pricing or enough verified information to judge whether it's objectively overpriced.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but does not recommend it; instead, it expresses an inability to judge its pricing due to a lack of verified information, which constitutes a negative characterization regarding its transparency/verifiability.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "42b3f554-e490-43a3-bfcf-08be6cb61261",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "73727f45eeb0416b647b722696ec1ee2eec9f0553005331c1cb875c120cca13b",
+ "recorded_at": "2026-10-29T01:42:33+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 70904,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ZipTie\",\n      \"evidence\": \"These tools, such as [ZipTie](https://radarkit.ai/blog/best-ai-search-rank-tracking-and-visibility-tools/), Otterly , and Peec AI\"\n    },\n    {\n      \"name\": \"Otterly\",\n      \"evidence\": \"These tools, such as [ZipTie](https://radarkit.ai/blog/best-ai-search-rank-tracking-and-visibility-tools/), Otterly , and Peec AI\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"These tools, such as [ZipTie](https://radarkit.ai/blog/best-ai-search-rank-tracking-and-visibility-tools/), Otterly , and Peec AI\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer discusses general categories of AI search tracking tools and lists specific competitors like ZipTie, Otterly, and Peec AI.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "0eb89a67-4548-4810-ba1c-1881a919823d",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "791aaff295321c6a41c57816784c92a04ce07dce47bc584f204029645d934010",
+ "recorded_at": "2026-10-29T00:56:37+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37038,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides general strategic advice for improving AI visibility.\"\n}"
+  }
+ ]
+}

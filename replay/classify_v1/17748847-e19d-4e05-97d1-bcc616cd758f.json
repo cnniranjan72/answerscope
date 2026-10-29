@@ -1,0 +1,15 @@
+{
+ "response_id": "17748847-e19d-4e05-97d1-bcc616cd758f",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "bb5329a9c227f01e0799d573755ca494cb7570cd3678e574892014a7f981c4d6",
+ "recorded_at": "2026-10-29T01:52:14+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 51767,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Brainlabs\",\n      \"evidence\": \"as Brainlabs notes, a new, non-linear, \\\"brand impression\\\" measurement system.\"\n    },\n    {\n      \"name\": \"Beamtrace\",\n      \"evidence\": \"says Beamtrace.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general overview of AI visibility tool onboarding pitfalls and mentions Brainlabs and Beamtrace as sources/entities.\"\n}"
+  }
+ ]
+}

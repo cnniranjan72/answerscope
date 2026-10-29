@@ -1,0 +1,15 @@
+{
+ "response_id": "a49eba68-bda8-4278-95ac-4334391bc7f3",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "307cfc3c8e27605e90ce354f1b157044c7c0b2b70d0f8c42f6a3ed207a596b29",
+ "recorded_at": "2026-10-29T01:03:38+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 67850,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"peer-review platforms (like G2, Capterra, and TrustRadius)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"peer-review platforms (like G2, Capterra, and TrustRadius)\"\n    },\n    {\n      \"name\": \"TrustRadius\",\n      \"evidence\": \"peer-review platforms (like G2, Capterra, and TrustRadius)\"\n    },\n    {\n      \"name\": \"Reddit\",\n      \"evidence\": \"niche community discussions (like Reddit and GitHub)\"\n    },\n    {\n      \"name\": \"GitHub\",\n      \"evidence\": \"niche community discussions (like Reddit and GitHub)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer focuses on general strategies for AI visibility such as technical documentation, third-party validation, and semantic consistency.\"\n}"
+  }
+ ]
+}

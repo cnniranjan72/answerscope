@@ -1,0 +1,15 @@
+{
+ "response_id": "8c4a22e7-71a4-4a71-bc43-9a03f5d43480",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "912fef67836dc8653f621ed79acf1d19a7070664ea25856b14979bc5cd8020f8",
+ "recorded_at": "2026-10-29T01:36:56+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37360,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general technical analysis of AI brand platforms and prompt engineering.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "b8c771d4-1394-47bf-b185-ef294ef6d5f6",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "7f72502b0e2321d6efbb51595f0602bdfd84c606817bd8ef58f2b3efa18adb19",
+ "recorded_at": "2026-10-28T18:39:27+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 68603,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on Kasparro's public website, brands from both the United States and India can sign up today.\",\n    \"Kasparro positions itself as an AI visibility platform for brands selling through AI-mediated commerce\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro positions itself as an AI visibility platform for brands selling through AI-mediated commerce (e.g. helping brands monitor and improve how they're represented in AI assistants such as ChatGPT, Claude, Gemini, and Perplexity).\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"helping brands monitor and improve how they're represented in AI assistants such as ChatGPT\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"helping brands monitor and improve how they're represented in AI assistants such as ChatGPT, Claude, Gemini, and Perplexity\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"helping brands monitor and improve how they're represented in AI assistants such as ChatGPT, Claude, Gemini, and Perplexity\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"helping brands monitor and improve how they're represented in AI assistants such as ChatGPT, Claude, Gemini, and Perplexity\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and recommends it as a suitable platform for brands to monitor and improve their representation in AI assistants. It confirms that brands from the US and India can sign up based on the website's information.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "42e35106-67bf-48c8-aaca-4e8ccf910e77",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "3628ac738476156c5d61a7826a4de5c43c2614ff00476b2cd0e6ae2afc9efa73",
+ "recorded_at": "2026-10-28T18:46:40+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 48818,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you meant Kasparro (a different product/company), let me know which one you mean\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't identify a well-known SaaS by that exact name.\"\n  ],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"If you mean Kaspr (the LinkedIn prospecting tool), it's available as self-serve for most customers.\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Kaspr\",\n      \"evidence\": \"If you mean Kaspr (the LinkedIn prospecting tool), it's available as self-serve for most customers.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model confuses Kasparro with 'Kaspr' and explicitly states it cannot identify a well-known SaaS by the name Kasparro, which constitutes both entity confusion and a negative characterization of its visibility.\"\n}"
+  }
+ ]
+}

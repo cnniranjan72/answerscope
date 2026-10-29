@@ -1,0 +1,21 @@
+{
+ "response_id": "40d036db-4c8f-4823-af6f-0a6eaf1fcb8b",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "26417867fd8d11b8c347abb8d61aea036ab4bfd7faf30d93cf945c9bda7b4ecf",
+ "recorded_at": "2026-10-29T01:28:03+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'brandauditor.io'",
+   "latency_ms": 86488,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"llmaudit.ai\",\n      \"evidence\": \"Tracks visibility across ChatGPT, Gemini, Claude, Perplexity, Google AI Overviews, Copilot, etc., since each system may surface different sources. [www.llmaudit.ai](https://www.llmaudit.ai/?utm_source=chatgpt.com)\"\n    },\n    {\n      \"name\": \"geovisibility.in\",\n      \"evidence\": \"Shows which competitors are cited instead of you and identifies gaps. [geovisibility.in](https://geovisibility.in/features?utm_source=chatgpt.com)\"\n    },\n    {\n      \"name\": \"brandauditor.io\",\n      \"evidence\": \"Reveals which pages AI systems reference and which pages deserve more authority. [brandauditor.io](https://brandauditor.io/faq?utm_source=chatgpt.com)\"\n    },\n    {\n      \"name\": \"aisearchvisibility.ai\",\n      \"evidence\": \"Prioritized fixes with expected impact are much more useful than a simple score. [www.aisearchvisibility.ai](https://www.aisearchvisibility.ai/features?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other platforms and URLs as examples of tools with specific features.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 42552,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"llmaudit.ai\",\n      \"evidence\": \"[www.llmaudit.ai](https://www.llmaudit.ai/?utm_source=chatgpt.com)\"\n    },\n    {\n      \"name\": \"geovisibility.in\",\n      \"evidence\": \"[geovisibility.in](https://geovisibility.in/features?utm_source=chatgpt.com)\"\n    },\n    {\n      \"name\": \"aisearchvisibility.ai\",\n      \"evidence\": \"[www.aisearchvisibility.ai](https://www.aisearchvisibility.ai/features?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other platforms and URLs as examples of tools with specific features.\"\n}"
+  }
+ ]
+}

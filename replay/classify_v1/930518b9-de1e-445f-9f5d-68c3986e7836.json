@@ -1,0 +1,15 @@
+{
+ "response_id": "930518b9-de1e-445f-9f5d-68c3986e7836",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "4abf047c17a125227f095f650f57a5c47a279684ffb03a860241d20ec99fe297",
+ "recorded_at": "2026-10-29T01:46:20+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 34797,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific AI visibility platforms/agencies.\"\n}"
+  }
+ ]
+}

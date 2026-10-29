@@ -1,0 +1,15 @@
+{
+ "response_id": "68d96336-d387-4bac-9662-8596e99dd6a3",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e358e6b5e68f88030560b3909667052a886b88760cc013e743fe5170b6ae26a7",
+ "recorded_at": "2026-10-28T19:00:52+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 76148,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"If you type the exact same prompt into ChatGPT ten times, you will often get ten different answers\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"Answer engines (like ChatGPT, Perplexity, Google AI Overviews, and Claude) are notoriously unpredictable.\"\n    },\n    {\n      \"name\": \"Google AI Overviews\",\n      \"evidence\": \"Answer engines (like ChatGPT, Perplexity, Google AI Overviews, and Claude) are notoriously unpredictable.\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"Answer engines (like ChatGPT, Perplexity, Google AI Overviews, and Claude) are notoriously unpredictable.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all. It discusses AI visibility platforms in general terms without naming specific vendors.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "response_id": "34f5321e-242b-495c-9c68-98f3b297dcb1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6d7d1d6eabf20951cb6099b0d391baba5d50f854a2c4a89fc75c1909426316e5",
+ "recorded_at": "2026-10-29T01:43:47+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'cloro.dev'; competitor name not found in answer: 'ahrefs.com'",
+   "latency_ms": 46067,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"cloro.dev\",\n      \"evidence\": \"cloro.dev\"\n    },\n    {\n      \"name\": \"ahrefs.com\",\n      \"evidence\": \"ahrefs.com\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general comparison between buying and building AI search tracking tools.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 27097,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro. The previous competitor entries were URLs/citations rather than named products or companies offered as tools/vendors in the text.\"\n}"
+  }
+ ]
+}

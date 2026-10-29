@@ -1,0 +1,15 @@
+{
+ "response_id": "847be62a-f50a-4b19-ab6c-43965fbae5ed",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "abd6bed19e0acf4a86e6578e0bb071682826b0a8a3393205e3b2ae18bf9476ab",
+ "recorded_at": "2026-10-28T18:56:07+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 77595,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"MindStudio\",\n      \"evidence\": \"Using specialized agents like MindStudio allows for structured, multi-step queries\"\n    },\n    {\n      \"name\": \"PromptPerfect\",\n      \"evidence\": \"Tools like PromptPerfect or GeneratePrompt.ai instantly optimize, refine, and test prompts\"\n    },\n    {\n      \"name\": \"GeneratePrompt.ai\",\n      \"evidence\": \"Tools like PromptPerfect or GeneratePrompt.ai instantly optimize, refine, and test prompts\"\n    },\n    {\n      \"name\": \"Perplexity AI\",\n      \"evidence\": \"Platforms like Perplexity AI and You.com inherently focus on citing sources\"\n    },\n    {\n      \"name\": \"You.com\",\n      \"evidence\": \"Platforms like Perplexity AI and You.com inherently focus on citing sources\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"Use multiple AI agents (e.g., Perplexity, Claude, Gemini) to compare results\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"Use multiple AI agents (e.g., Perplexity, Claude, Gemini) to compare results\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other tools and platforms for AI research and prompt optimization.\"\n}"
+  }
+ ]
+}

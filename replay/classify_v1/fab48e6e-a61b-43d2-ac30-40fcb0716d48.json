@@ -1,0 +1,15 @@
+{
+ "response_id": "fab48e6e-a61b-43d2-ac30-40fcb0716d48",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a09d20e89cbc2eeae09eb8938d102a749c6a39df311318a5a6d677ef38bc430a",
+ "recorded_at": "2026-10-29T01:02:30+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37628,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The provided answer does not mention Kasparro or any specific competitors; it provides a general overview of AI visibility strategies.\"\n}"
+  }
+ ]
+}

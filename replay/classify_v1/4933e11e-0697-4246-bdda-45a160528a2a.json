@@ -1,0 +1,15 @@
+{
+ "response_id": "4933e11e-0697-4246-bdda-45a160528a2a",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "47f439a52ef8c7c5a6328da370429b61a34196547a3b8d165a7f038265b7fadd",
+ "recorded_at": "2026-10-28T18:27:26+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55594,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"According to [Kasparro's](https://kasparro.com/) methodology\",\n    \"The service is focused on seller-side revenue infrastructure for AI-mediated commerce.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"According to [Kasparro's](https://kasparro.com/) methodology, their AI Revenue Diagnostic is designed to be completed within 14 days, with a focus on quick actionability rather than long, drawn-out setup times.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly mentions Kasparro and recommends their AI Revenue Diagnostic as a solution for the user's query regarding setup time and process.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "4f391c44-7e1a-4d6b-96de-302bc426dfbe",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "ece04c093afea1b3b3e6dbad90aa40190d0a42c4a6fd3a58606af87f9879edaf",
+ "recorded_at": "2026-10-29T01:21:01+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 41150,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors by name, focusing instead on general categories of AI visibility tools.\"\n}"
+  }
+ ]
+}

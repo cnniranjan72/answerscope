@@ -1,0 +1,15 @@
+{
+ "response_id": "20958c20-9648-4b12-bbb6-efbbff33d0fe",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "8c62ebb4cece5be8982026a8ceb39c55bc9d30cc8257d7fea00b0b7cedc3fba5",
+ "recorded_at": "2026-10-28T18:23:18+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60592,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Whether Kasparro is \\\"overpriced\\\" for a B2B SaaS startup depends entirely on how you view **AI Engine Optimization (AEO)**\",\n    \"Kasparro builds an **AI Visibility platform** designed to help companies understand and optimize how they are represented across generative AI tools\",\n    \"Are you currently evaluating Kasparro for an early-stage team trying to build initial traction, or for a scaling startup looking to dominate AI search results?\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro builds an **AI Visibility platform** designed to help companies understand and optimize how they are represented across generative AI tools—a critical and emerging category as buyers increasingly use AI instead of traditional search engines for product discovery.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an AI Visibility platform and discusses its value proposition for different startup stages, effectively recommending it as a tool for optimizing brand representation in LLMs.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "1cf6f5bc-7a29-4128-b51d-aa56891b08f4",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "ab654a4c88939ecb393933f4a3b3d6d54398fa0fc5256244208f0becee474c3a",
+ "recorded_at": "2026-10-28T18:45:08+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60917,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro (an AI visibility and commerce infrastructure platform that tracks and optimizes how brands are discovered and recommended by AI engines like ChatGPT, Gemini, and Perplexity) explicitly supports enterprise and mid-market brands outside the US.\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro builds its core go-to-market and operational footprint specifically around both US and India/international brands\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Similar to how enterprise-grade AEO/GEO platforms like Profound operate globally across multiple regions and languages\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly confirms that Kasparro supports international brands and describes its capabilities as a suitable solution for enterprise-grade AEO/GEO needs, comparing it favorably to Profound.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

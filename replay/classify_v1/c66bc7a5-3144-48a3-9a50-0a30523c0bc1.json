@@ -1,0 +1,15 @@
+{
+ "response_id": "c66bc7a5-3144-48a3-9a50-0a30523c0bc1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "48190704bf3d71d363ef30dcdd67c7dfb1e5ca99169a8c9405f5cc22470f0783",
+ "recorded_at": "2026-10-29T01:44:51+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 64330,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"monitoring ChatGPT\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"monitoring ChatGPT, Perplexity, or Google AI Overviews\"\n    },\n    {\n      \"name\": \"Google AI Overviews\",\n      \"evidence\": \"monitoring ChatGPT, Perplexity, or Google AI Overviews\"\n    },\n    {\n      \"name\": \"Anthropic\",\n      \"evidence\": \"AI engines (like OpenAI, Google, and Anthropic)\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"multi-engine tracking (ChatGPT, Claude, Gemini, Perplexity)\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"multi-engine tracking (ChatGPT, Claude, Gemini, Perplexity)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general comparison between building an internal tracker and buying a paid tool without naming specific vendors.\"\n}"
+  }
+ ]
+}

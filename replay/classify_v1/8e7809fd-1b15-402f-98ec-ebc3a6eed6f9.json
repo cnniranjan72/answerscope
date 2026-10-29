@@ -1,0 +1,15 @@
+{
+ "response_id": "8e7809fd-1b15-402f-98ec-ebc3a6eed6f9",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "0cd7b1ec79eace53560c0f24411e77a8d05fe864247e4f920732a5392dfcebc9",
+ "recorded_at": "2026-10-28T18:37:09+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 42242,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Canceling Kaspr (assuming you mean the B2B contact data and LinkedIn prospecting tool) is technically straightforward\"\n  ],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The AI engine confuses 'Kasparro' with 'Kaspr', a LinkedIn prospecting tool, and provides instructions for canceling the latter instead of the former.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

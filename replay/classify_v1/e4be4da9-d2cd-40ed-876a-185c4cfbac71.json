@@ -1,0 +1,15 @@
+{
+ "response_id": "e4be4da9-d2cd-40ed-876a-185c4cfbac71",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "8665741e20124b10e35f56139e0471f55b2a0da934fd8defddffa7150ed71595",
+ "recorded_at": "2026-10-29T01:52:54+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 39219,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general analysis of AI visibility tool onboarding issues.\"\n}"
+  }
+ ]
+}

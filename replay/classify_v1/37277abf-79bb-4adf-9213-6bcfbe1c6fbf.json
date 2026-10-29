@@ -1,0 +1,15 @@
+{
+ "response_id": "37277abf-79bb-4adf-9213-6bcfbe1c6fbf",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "7e0ab512f7836aeb4bfb2ecf00565a53772d3e64c8e61821031899b9d1e75da5",
+ "recorded_at": "2026-10-29T01:53:47+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 53576,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"aeovision.ai\",\n      \"evidence\": \"aeovision.ai\"\n    },\n    {\n      \"name\": \"workshopdigital.com\",\n      \"evidence\": \"workshopdigital.com\"\n    },\n    {\n      \"name\": \"seobrand.com\",\n      \"evidence\": \"seobrand.com\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general overview of common issues when onboarding AI visibility tools.\"\n}"
+  }
+ ]
+}

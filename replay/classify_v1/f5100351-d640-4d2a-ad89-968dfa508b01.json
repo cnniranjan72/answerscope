@@ -1,0 +1,15 @@
+{
+ "response_id": "f5100351-d640-4d2a-ad89-968dfa508b01",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e03a8101da85d29c1d87353edf50a5f35f8ee2be4c043019109e69459b340c68",
+ "recorded_at": "2026-10-29T01:39:56+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 61084,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Areebi\",\n      \"evidence\": \"Areebi - Starts around $30,000/year\"\n    },\n    {\n      \"name\": \"GovernMy.ai\",\n      \"evidence\": \"GovernMy.ai - Starter $5,000/year\"\n    },\n    {\n      \"name\": \"Gradaris\",\n      \"evidence\": \"Gradaris - Governance plan roughly $30,000/year\"\n    },\n    {\n      \"name\": \"Danzo.ai\",\n      \"evidence\": \"Danzo.ai - Enterprise tier approximately $5,000/month (~$60k/year).\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other AI governance and audit platforms as examples.\"\n}"
+  }
+ ]
+}

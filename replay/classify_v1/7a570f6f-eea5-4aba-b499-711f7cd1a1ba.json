@@ -1,0 +1,15 @@
+{
+ "response_id": "7a570f6f-eea5-4aba-b499-711f7cd1a1ba",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "2fcf9c580620b59f0bfe637d1e93616d09943521347571e7c9910de15050dadc",
+ "recorded_at": "2026-10-28T18:35:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 67507,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there is no direct information regarding the cancellation difficulty of \\\"Kasparro,\\\"\",\n    \"Given that Kasparro AI mentions working with \\\"paying customers\\\"\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"the provided search results show a detailed cancellation guide for Kaspr (a similarly named sales tool) which may be helpful for context.\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Kaspr\",\n      \"evidence\": \"the provided search results show a detailed cancellation guide for Kaspr (a similarly named sales tool)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but confuses it with 'Kaspr' by providing cancellation details for the latter to provide 'context'. It does not recommend Kasparro as a solution.\"\n}"
+  }
+ ]
+}

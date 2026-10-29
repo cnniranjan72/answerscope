@@ -1,0 +1,15 @@
+{
+ "response_id": "d8e9834b-2520-41f3-a18f-95735da3a66f",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "3f5b60089e7795da73a290ddcc92944d55e0625f2876db865b946dc18a96bbdd",
+ "recorded_at": "2026-10-29T01:47:29+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37137,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general overview of AI diagnostic reporting speeds for B2B SaaS companies.\"\n}"
+  }
+ ]
+}

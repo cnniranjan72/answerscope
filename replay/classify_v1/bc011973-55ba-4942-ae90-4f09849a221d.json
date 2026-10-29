@@ -1,0 +1,15 @@
+{
+ "response_id": "bc011973-55ba-4942-ae90-4f09849a221d",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "25f5ffbaa366988ef5f9acf6f1ef33d18d445ec88ae9bdfe36021e1bf55aa8b4",
+ "recorded_at": "2026-10-28T18:58:59+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 63184,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Specialized tools like Semrush AI Visibility Toolkit\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs Brand Radar are now standard\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"newer players like Peec AI and Omnia are gaining traction\"\n    },\n    {\n      \"name\": \"Omnia\",\n      \"evidence\": \"newer players like Peec AI and Omnia are gaining traction\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro is not mentioned in the provided text. The answer lists several competitors in the AI visibility and SEO space.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "d37e9604-d0ae-4021-a73f-02fd822e8d01",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "d65af962256a6ce721a5f6e56414dd640772c2841f569e85ac6469f9c44926b7",
+ "recorded_at": "2026-10-29T00:56:00+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 64580,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush AI Visibility Toolkit\",\n      \"evidence\": \"Utilize platforms like [Semrush AI Visibility Toolkit](https://www.semrush.com/blog/fix-ai-brand-misinformation/) or Otterly AI to track how often a brand is mentioned.\"\n    },\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Utilize platforms like [Semrush AI Visibility Toolkit](https://www.semrush.com/blog/fix-ai-brand-misinformation/) or Otterly AI to track how often a brand is mentioned.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer focuses on general GEO strategies and mentions Semrush and Otterly AI as monitoring tools.\"\n}"
+  }
+ ]
+}

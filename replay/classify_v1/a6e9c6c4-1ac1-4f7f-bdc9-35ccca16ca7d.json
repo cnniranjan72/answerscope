@@ -1,0 +1,15 @@
+{
+ "response_id": "a6e9c6c4-1ac1-4f7f-bdc9-35ccca16ca7d",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "2cc9da7a0065d183447c8c7a2a21f7a1a6cd66933809d68d3b5ef8915aa7cf00",
+ "recorded_at": "2026-10-28T18:50:19+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60355,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"HubSpot’s AEO features\",\n      \"evidence\": \"HubSpot’s AEO features\"\n    },\n    {\n      \"name\": \"Metricus\",\n      \"evidence\": \"Metricus\"\n    },\n    {\n      \"name\": \"Brand24\",\n      \"evidence\": \"Brand24\"\n    },\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"G2\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Capterra\"\n    },\n    {\n      \"name\": \"TrustRadius\",\n      \"evidence\": \"TrustRadius\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer lists several other tools and platforms for tracking AI visibility.\"\n}"
+  }
+ ]
+}

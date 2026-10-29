@@ -1,0 +1,21 @@
+{
+ "response_id": "86af832e-ca04-4b47-b4d5-ff9dd62f2994",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "dbce12538f14c40847ca304808f18d45cec70e79d329b7ea3996f52d515165c4",
+ "recorded_at": "2026-10-29T01:48:47+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Clearpath Revenue'",
+   "latency_ms": 45206,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Clearpath Revenue\",\n      \"evidence\": \"Comprehensive revenue diagnostic ... [www.clearpath-revenue.com](https://www.clearpath-revenue.com/services/revops-diagnostic?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general timeline for revenue diagnostics and references Clearpath Revenue as a source/service.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 32392,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"clearpath-revenue.com\",\n      \"evidence\": \"[www.clearpath-revenue.com](https://www.clearpath-revenue.com/services/revops-diagnostic?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro. It provides a general timeline for revenue diagnostics and includes a link to clearpath-revenue.com as a reference for a comprehensive revenue diagnostic.\"\n}"
+  }
+ ]
+}

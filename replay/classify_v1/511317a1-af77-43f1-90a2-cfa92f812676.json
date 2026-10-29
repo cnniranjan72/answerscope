@@ -1,0 +1,15 @@
+{
+ "response_id": "511317a1-af77-43f1-90a2-cfa92f812676",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "f2a1a32673e7e08b6ef3181f08b76f11abc6499ccc0c82e7cde4fbcda9677737",
+ "recorded_at": "2026-10-28T18:36:27+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57589,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you meant a different service by \\\"Kasparro,\\\" let me know which one, and I can check its specific cancellation policy.\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"If you mean Kaspr (the B2B lead generation platform), canceling is generally straightforward\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Kaspr\",\n      \"evidence\": \"If you mean Kaspr (the B2B lead generation platform), canceling is generally straightforward\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model confuses Kasparro with 'Kaspr', a B2B lead generation tool, and provides cancellation instructions for the latter while stating it cannot find information for 'Kasparro'.\"\n}"
+  }
+ ]
+}

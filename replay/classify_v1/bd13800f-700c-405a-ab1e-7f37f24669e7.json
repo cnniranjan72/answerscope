@@ -1,0 +1,15 @@
+{
+ "response_id": "bd13800f-700c-405a-ab1e-7f37f24669e7",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e64e8104e66aa5b0ad6c593df3507d103050905c00b5d2d502be1391f0bb8200",
+ "recorded_at": "2026-10-29T01:29:19+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 75559,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Microsoft Copilot\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"Discovery Engines: Perplexity and other search-heavy LLMs.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer provides a general guide on features for AI visibility audit platforms but does not mention Kasparro or any specific commercial vendors in the AI visibility space.\"\n}"
+  }
+ ]
+}

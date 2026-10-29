@@ -1,0 +1,15 @@
+{
+ "response_id": "9a8ef397-694c-465a-81d4-09df1bc1342e",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a26ed73b42a29ce14cb14c81a510dc59516472962c0ec700cd4f6081891258bd",
+ "recorded_at": "2026-10-29T01:31:17+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 47633,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"filter.agency\",\n      \"evidence\": \"audit.filter.agency\"\n    },\n    {\n      \"name\": \"ranknova.in\",\n      \"evidence\": \"www.ranknova.in\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general comparison of AI visibility features and lists other websites as sources/tools.\"\n}"
+  }
+ ]
+}

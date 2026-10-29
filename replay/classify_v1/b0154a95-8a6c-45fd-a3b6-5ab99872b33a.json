@@ -1,0 +1,15 @@
+{
+ "response_id": "b0154a95-8a6c-45fd-a3b6-5ab99872b33a",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6a6b6498b40f5a3e1099f7c6c24e9edda78b2f77989fe5eaaae7295efb0f5a68",
+ "recorded_at": "2026-10-29T01:46:52+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 31900,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro or any specific competitors; it provides a general overview of pricing for AI search optimization services.\"\n}"
+  }
+ ]
+}

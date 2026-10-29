@@ -1,0 +1,15 @@
+{
+ "response_id": "da579a76-82ed-4c77-927d-6af8329d0a3e",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "4cf3d3c68c41c45f0fc4d869c602f7caad5c61625a8381ff7337949fa0633201",
+ "recorded_at": "2026-10-28T18:34:22+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 54699,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"When comparing onboarding speeds for Kasparro and Dageno AI\",\n    \"Kasparro operates similarly as an AI-native brand intelligence and audit platform\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"When comparing onboarding speeds for Kasparro and Dageno AI\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro and compares it to Dageno AI but does not provide a definitive recommendation or ranking, stating that a speed comparison is unavailable without specific context.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

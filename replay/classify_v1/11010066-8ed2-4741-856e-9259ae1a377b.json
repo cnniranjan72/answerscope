@@ -1,0 +1,15 @@
+{
+ "response_id": "11010066-8ed2-4741-856e-9259ae1a377b",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "201b4eb861f7938747d1688bf0e553df8bf17e4b34e08e42c93ddce414875c2f",
+ "recorded_at": "2026-10-29T01:15:00+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 102434,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Geoptie\",\n      \"evidence\": \"Geoptie: Highly recommended for broad engine coverage and affordable tier-scaling\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: A favorite for enterprise-level programs\"\n    },\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI: Popular for mid-market teams looking for straightforward, fixed-prompt tracking\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI: Frequently used by agencies to manage multi-brand tracking\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush (AI Toolkit): Allows marketers already using Semrush to flag which tracked keywords trigger AI Overviews\"\n    },\n    {\n      \"name\": \"SE Ranking\",\n      \"evidence\": \"SE Ranking (AI Results Tracker): Welds generative search tracking directly onto traditional workflows\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs (Brand Radar / AEO features): Integrates brand visibility and citation source analysis natively\"\n    },\n    {\n      \"name\": \"HubSpot AEO Grader\",\n      \"evidence\": \"HubSpot AEO Grader: A widely used, free one-shot diagnostic tool\"\n    },\n    {\n      \"name\": \"Writesonic GEO Suite\",\n      \"evidence\": \"Writesonic GEO Suite: Combines visibility reporting with content brief generation\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer. The answer lists several other AEO and SEO tools but does not include Kasparro.\"\n}"
+  }
+ ]
+}

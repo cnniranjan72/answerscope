@@ -1,0 +1,15 @@
+{
+ "response_id": "0e2c8f07-c483-493d-a9fc-467efc857faa",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6b422e535fc62a9cd0ea6a13eb26ac8c3f2cc0d288553a445aef1213acebcede",
+ "recorded_at": "2026-10-28T18:49:18+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 52689,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"Perplexity\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"Gemini\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"Claude\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer discusses general strategies and categories of tools for AI visibility but does not name specific vendors other than the AI models themselves.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "953e6675-8bec-4fe1-b53a-2fbcc9df00de",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "a8d1e711f529b9906661c96f13723ee7ce83185376ac108ddfe1a9320f739c13",
+ "recorded_at": "2026-10-28T18:25:16+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 61198,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're referring to Kasparro (rather than Kaspr), I couldn't verify that it has a standard pricing model or a policy that locks customers into expensive monthly retainers.\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't verify that it has a standard pricing model or a policy that locks customers into expensive monthly retainers.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Kaspr\",\n      \"evidence\": \"If you meant Kaspr (the B2B lead generation platform), it does not lock users into long-term retainers.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but states it cannot verify the pricing model, which serves as a negative characterization due to lack of information. It also correctly distinguishes Kasparro from the unrelated entity Kaspr.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

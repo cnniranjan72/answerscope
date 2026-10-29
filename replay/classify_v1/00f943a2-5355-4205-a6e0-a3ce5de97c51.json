@@ -1,0 +1,15 @@
+{
+ "response_id": "00f943a2-5355-4205-a6e0-a3ce5de97c51",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "1df5d88a3933d1e5d862396a6e912101d379d98c554d5c96c1a6d1c7bff07f99",
+ "recorded_at": "2026-10-28T19:03:26+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 42107,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"If you already use modern SEO suites (like Semrush or Google Search Console)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all. It discusses general AI visibility tracking and mentions Semrush as an existing SEO suite.\"\n}"
+  }
+ ]
+}

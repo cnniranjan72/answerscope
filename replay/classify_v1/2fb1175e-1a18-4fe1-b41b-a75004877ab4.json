@@ -1,0 +1,21 @@
+{
+ "response_id": "2fb1175e-1a18-4fe1-b41b-a75004877ab4",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "5129227db80764f374886947906fbded9d25cd68a96020f8fe0fa960f9842d36",
+ "recorded_at": "2026-10-29T01:32:36+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Semrush'",
+   "latency_ms": 44962,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"HubSpot\",\n      \"evidence\": \"HubSpot AEO helps teams run\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush describes AI visibility audits\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general overview of AI visibility and AEO platforms.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 34630,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"HubSpot\",\n      \"evidence\": \"HubSpot AEO helps teams run\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro. Semrush was removed as it was not explicitly named in the text (only referenced via a URL/context in the source data, but the text itself only explicitly names HubSpot).\"\n}"
+  }
+ ]
+}

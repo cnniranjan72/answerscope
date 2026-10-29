@@ -1,0 +1,15 @@
+{
+ "response_id": "6ba5d428-1b45-4c6d-9263-73129d059b01",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "df1957df989308d22b63f941ac350c3f437d2023aebd4eca32c842d953b84b45",
+ "recorded_at": "2026-10-28T18:21:14+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 76736,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"determining if Kasparro (or any similar specialized B2B SaaS tool) is \\\"overpriced\\\"\",\n    \"If Kasparro provides a 10x ROI\",\n    \"The key is whether Kasparro provides true AI efficiency\"\n  ],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Salesforce\",\n      \"evidence\": \"If Kasparro costs similar to industry competitors (e.g., Salesforce, HubSpot, or specialized vertical SaaS)\"\n    },\n    {\n      \"name\": \"HubSpot\",\n      \"evidence\": \"If Kasparro costs similar to industry competitors (e.g., Salesforce, HubSpot, or specialized vertical SaaS)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro multiple times in the context of evaluating its value proposition and ROI for a B2B startup. It does not explicitly recommend it as a solution but rather analyzes the conditions under which it would be considered 'overpriced' or 'high-value'.\"\n}"
+  }
+ ]
+}

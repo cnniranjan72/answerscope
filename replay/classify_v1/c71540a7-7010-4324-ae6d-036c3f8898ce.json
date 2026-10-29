@@ -1,0 +1,15 @@
+{
+ "response_id": "c71540a7-7010-4324-ae6d-036c3f8898ce",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "c8f4fc93cfcad6712a68ef2db364f34c750deedffb69b23f7395f9b3a3ff3b02",
+ "recorded_at": "2026-10-29T01:04:25+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 47349,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"review sites (G2, Capterra)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"review sites (G2, Capterra)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides general advice on AI visibility and SEO tactics.\"\n}"
+  }
+ ]
+}

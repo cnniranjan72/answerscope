@@ -1,0 +1,15 @@
+{
+ "response_id": "02c5ee8d-0ffe-4940-bf93-5793e7b01528",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "e024eb2cec5a2ae30c765d9d530e0262d3340c42954055614416e397a1a92458",
+ "recorded_at": "2026-10-29T00:57:50+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 72972,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"Actively optimize profiles on high-authority peer-review sites (e.g., G2, Capterra)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Actively optimize profiles on high-authority peer-review sites (e.g., G2, Capterra)\"\n    },\n    {\n      \"name\": \"Reddit\",\n      \"evidence\": \"AI models frequently reference professional communities like Reddit, Stack Overflow, or niche forums\"\n    },\n    {\n      \"name\": \"Stack Overflow\",\n      \"evidence\": \"AI models frequently reference professional communities like Reddit, Stack Overflow, or niche forums\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro. It provides a general strategic framework for Generative Engine Optimization (GEO) and lists several third-party platforms like G2 and Capterra as trust hubs.\"\n}"
+  }
+ ]
+}

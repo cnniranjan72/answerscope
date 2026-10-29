@@ -1,0 +1,15 @@
+{
+ "response_id": "136b8240-008c-46ff-b744-592c4d859e98",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "8ed25306ef71023e1a882abaa0b1c16294b82076e5f5cfce13c2beed995e3f6b",
+ "recorded_at": "2026-10-28T18:47:16+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36465,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Kaspr is primarily available as a **self-serve platform**.\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Cognism\",\n      \"evidence\": \"often managed alongside Cognism, its parent company\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The AI engine confuses Kasparro with 'Kaspr', a LinkedIn prospecting tool, and provides information about the latter instead of the requested company.\"\n}"
+  }
+ ]
+}

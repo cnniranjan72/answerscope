@@ -1,0 +1,15 @@
+{
+ "response_id": "b87e2b44-032c-40d8-92e5-a8223212d3d4",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "d18953e546c26d17a55df88dcdd33400251dcce5fb096b8a6d782b5c2fc82735",
+ "recorded_at": "2026-10-28T18:26:30+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 74321,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is not a traditional marketing or SEO agency\",\n    \"Kasparro focuses on multi-module AI visibility audits\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"If you are evaluating them for your brand, they operate as a B2B SaaS/AI product solution\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"measuring how brands appear in AI engines like ChatGPT\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"measuring how brands appear in AI engines like ChatGPT, Claude\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"measuring how brands appear in AI engines like ChatGPT, Claude, Perplexity\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"measuring how brands appear in AI engines like ChatGPT, Claude, Perplexity, and Gemini\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer identifies Kasparro as an AI-native brand intelligence platform and recommends it as a B2B SaaS solution rather than a traditional agency, specifically noting it avoids rigid monthly retainers.\"\n}"
+  }
+ ]
+}

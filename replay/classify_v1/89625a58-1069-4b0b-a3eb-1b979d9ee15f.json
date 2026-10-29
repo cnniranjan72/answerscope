@@ -1,0 +1,15 @@
+{
+ "response_id": "89625a58-1069-4b0b-a3eb-1b979d9ee15f",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "6519dd602916138dc04a476db5a2fd2a184eaa3ccb16aa4869d977ca2607d49a",
+ "recorded_at": "2026-10-29T01:00:55+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 61139,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"AI search layers (like Perplexity or Google AI Overviews) will never even index your content.\"\n    },\n    {\n      \"name\": \"Google AI Overviews\",\n      \"evidence\": \"AI search layers (like Perplexity or Google AI Overviews) will never even index your content.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general comparison between traditional SEO and Generative Engine Optimization (GEO).\"\n}"
+  }
+ ]
+}

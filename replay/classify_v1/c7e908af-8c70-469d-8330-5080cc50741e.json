@@ -1,0 +1,15 @@
+{
+ "response_id": "c7e908af-8c70-469d-8330-5080cc50741e",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "4c42d4a548ac5fedbbe59a247ac67c7f25ff4597a71b09af909e4f02c9484e3b",
+ "recorded_at": "2026-10-29T01:45:45+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 54047,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"continuous monitoring of evolving AI engines like ChatGPT\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"continuous monitoring of evolving AI engines like ChatGPT, Perplexity, and Gemini\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"continuous monitoring of evolving AI engines like ChatGPT, Perplexity, and Gemini\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general overview of AI search optimization pricing and mentions major AI engines as targets.\"\n}"
+  }
+ ]
+}

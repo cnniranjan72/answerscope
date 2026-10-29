@@ -1,0 +1,15 @@
+{
+ "response_id": "14a5d324-5cc3-4554-a8ae-9643d5fafa73",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "9e33510e41f231d700cf7b9af4aca7d0b3e2292891085555acaad3c77c3a9c17",
+ "recorded_at": "2026-10-29T01:22:12+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 71144,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"SparkToro\",\n      \"evidence\": \"Research (such as studies from SparkToro) shows there is often less than a 1% chance that an AI model will output the exact same list of recommended brands twice\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer does not mention Kasparro at all; it provides a general critique of the AI visibility and GEO tool market.\"\n}"
+  }
+ ]
+}

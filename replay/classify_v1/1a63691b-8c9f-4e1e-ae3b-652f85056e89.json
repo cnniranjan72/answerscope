@@ -1,0 +1,15 @@
+{
+ "response_id": "1a63691b-8c9f-4e1e-ae3b-652f85056e89",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "2c8f31924735a9c455c699258a3c905fca208853420fb200b77f955975142954",
+ "recorded_at": "2026-10-29T01:33:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 64722,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Testsigma\",\n      \"evidence\": \"Tools like [Testsigma](https://blog.logrocket.com/6-ai-tools-api-testing-development/)\"\n    },\n    {\n      \"name\": \"Helicone\",\n      \"evidence\": \"proxy-based tracers like Helicone can be implemented with minimal effort\"\n    },\n    {\n      \"name\": \"Google AI Studio\",\n      \"evidence\": \"Platforms like Google AI Studio or Replit (using OpenRouter) provide free tiers\"\n    },\n    {\n      \"name\": \"Replit\",\n      \"evidence\": \"Platforms like Google AI Studio or Replit (using OpenRouter) provide free tiers\"\n    },\n    {\n      \"name\": \"OpenRouter\",\n      \"evidence\": \"Replit (using OpenRouter) provide free tiers\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The answer discusses general AI tracking and integration categories without referencing specific vendors like Kasparro.\"\n}"
+  }
+ ]
+}

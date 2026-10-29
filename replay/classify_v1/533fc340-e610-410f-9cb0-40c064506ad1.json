@@ -1,0 +1,15 @@
+{
+ "response_id": "533fc340-e610-410f-9cb0-40c064506ad1",
+ "prompt_version": "classify-v1",
+ "model": "gemma4:12b",
+ "input_sha256": "542ba74b48542e870f4486bba7104198bbd7ac9b3d6019641cf47359b4b0fccb",
+ "recorded_at": "2026-10-28T18:44:07+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 78447,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro appears to support enterprise brands outside the US\",\n    \"Kasparro positions itself as helping brands monitor, control, and improve their eligibility in AI-driven discovery\"\n  ],\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"The answer is yes, based on its positioning there is no indication that it is US-only\"\n  ],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"it is not yet as visibly global or internationally proven as Profound\",\n    \"Kasparro hasn't yet published the same level of public evidence\",\n    \"there is currently less public proof of large global customer deployments or region-specific support\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound has spent more time publicly marketing itself to large multinational companies\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a viable option for international brands but notes a lack of public evidence regarding its global scale compared to its competitor, Profound.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}
