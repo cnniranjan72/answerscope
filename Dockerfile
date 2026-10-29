@@ -14,4 +14,5 @@ COPY tests/fixtures/mini_pack tests/fixtures/mini_pack
 RUN useradd --create-home appuser
 USER appuser
 EXPOSE 8000
-CMD ["sh", "-c", "python -m app.cli init-db && exec uvicorn app.main:create_app --factory --host 0.0.0.0 --port ${PORT:-8000}"]
+# Seeds the synthetic mini pack and a stub analysis so the demo console has data.
+CMD ["sh", "-c", "python -m app.cli init-db && python -m app.cli import-pack >/dev/null && python -m app.cli analyse --provider stub >/dev/null && exec uvicorn app.main:create_app --factory --host 0.0.0.0 --port ${PORT:-8000}"]
