@@ -24,6 +24,22 @@ Engineering tests run on a **synthetic** fixture pack (`tests/fixtures/mini_pack
 | Regressions | `test_regression_f1…` to `test_regression_f5…` (see [evaluation/FAILURES.md](evaluation/FAILURES.md)) |
 | Config safety | `test_unsafe_token_configuration_refused`, `test_identities_mapped_from_environment` |
 
+## Sprint additions (29 Oct)
+
+| Concern | Test(s) |
+|---|---|
+| classify-v2 rules: type agreement, Kasparro sentence, confused entity, `not_applicable` | `tests/test_classify_v2.py` (incl. regressions for H11 and D-017-gemini) |
+| classify-v1 unchanged | `test_v1_behaviour_is_unchanged_for_the_same_output`; all 150 v1 recordings still validate (`has_valid_recording`) |
+| Prompt versions cannot cross-replay | `test_versions_have_distinct_prompts_and_input_hashes` |
+| Resume ignores truncated or stale recordings | `test_resume_treats_truncated_or_stale_recordings_as_missing` |
+| Evaluation fails loudly (missing files, changed frozen labels, duplicate IDs, wrong label version, holdout contamination) | `tests/test_compare.py` |
+| Fresh label set frozen before the v2 run; disjoint and split by prompt | `tests/test_fresh_cases.py` |
+| Weak evidence flagged, not blocking | `test_weak_evidence_is_flagged_but_does_not_block` |
+| Review deadline: overdue flagged, never auto-approved; additive DB migration | `test_review_deadline_flags_overdue_and_never_auto_approves`, `test_migration_adds_review_deadline_to_an_old_database` |
+| Config and secrets | `test_invalid_review_deadline_refused`, `test_tokens_never_appear_in_error_responses` |
+
+Model-level robustness (semantic behaviour) is measured, not unit-tested: 10 SYNTHETIC fixtures in `evaluation/cases/synthetic_robust_v1.jsonl`, run by `python -m evaluation.compare` and reported apart from real-answer splits.
+
 ## Latest result
 
 See [claude-code/HANDOFF.md](claude-code/HANDOFF.md) for the most recent recorded run (command, count, date).
