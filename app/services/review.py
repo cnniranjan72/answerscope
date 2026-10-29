@@ -169,6 +169,9 @@ def decide(conn: sqlite3.Connection, report_id: str, req: DecisionRequest, actor
     return get_report(conn, report_id)
 
 
+EXPORT_EVIDENCE_FIELDS = ("engine", "prompt_id", "question", "location")  # added by enrich_evidence
+
+
 def export(conn: sqlite3.Connection, report_id: str, version: int | None) -> dict:
     latest = _latest(conn, report_id)
     target = latest if version is None else _version(conn, report_id, version)
@@ -192,6 +195,8 @@ def export(conn: sqlite3.Connection, report_id: str, version: int | None) -> dic
         "report_id": report_id,
         "version": target["version"],
         "content_sha256": actual,
+        "content_sha256_covers": ("the approved content: canonical JSON (sorted keys, no spaces) of `content` after "
+                                  f"removing the export-only evidence fields {list(EXPORT_EVIDENCE_FIELDS)}"),
         "is_latest_version": target["version"] == latest["version"],
         "superseded_by_version": None if target["version"] == latest["version"] else latest["version"],
         "approval": {"decision": decision["decision"], "reviewer": decision["actor"],

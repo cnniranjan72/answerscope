@@ -223,3 +223,19 @@ def test_analyst_can_remove_weak_evidence_and_still_submit(client, report):
     assert r.status_code == 200, r.text
     assert drop not in latest(client, rid)["latest"]["content"]["diagnostics"][0]["evidence"]
     assert submit(client, rid, 1).status_code == 200
+
+
+def test_export_hash_is_verifiable_from_the_file(client, report):
+    from app.services.reporting import canonical, sha256
+    from app.services.review import EXPORT_EVIDENCE_FIELDS
+    rid = report["report_id"]
+    submit(client, rid, 1)
+    decide(client, rid, 1)
+    ex = client.get(f"/reports/{rid}/export", headers=A).json()
+    content = ex["content"]
+    for section in ("diagnostics", "remedies"):
+        for item in content[section]:
+            for e in item["evidence"]:
+                for k in EXPORT_EVIDENCE_FIELDS:
+                    e.pop(k)
+    assert sha256(canonical(content)) == ex["content_sha256"]
