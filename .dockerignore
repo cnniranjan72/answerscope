@@ -1,0 +1,14 @@
+# Keep private data and local state out of the image (see Dockerfile).
+assignment/
+replay/
+outputs/
+evaluation/
+var/
+.env
+.venv/
+*.db
+*.zip
+INTERVIEW_PREP.md
+report-*.json
+.git/
+**/__pycache__/
