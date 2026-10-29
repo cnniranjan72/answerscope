@@ -2,7 +2,7 @@
 
 Step-by-step checklist with suggested comments: `claude-code/CANDIDATE_STEPS.md`.
 
-**Status (29 Oct, 19:25 IST):** approved by the candidate. As analyst, the candidate removed D1 #4, D2 #3 (and R2 #3 with it) and D2 #6, added notes and submitted. As reviewer, the candidate approved v1 (review record in DECISION_NOTE.md). The text below is the AI-prepared guidance that preceded the review.
+**Status (29 Oct, 19:25 IST):** approved by the candidate. As analyst, the candidate removed D1 #4, D2 #3 (and R2 #3 with it) and D2 #6, added notes and submitted. As reviewer, the candidate approved v1 (review record in DECISION_LOG.md). The text below is the AI-prepared guidance that preceded the review.
 
 ## What changed against the approved report (same 31 Jul 2026 capture)
 

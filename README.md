@@ -4,24 +4,42 @@ A small FastAPI + SQLite backend that analyses the Kasparro assignment pack: 50 
 
 * **Semantic step (LLM):** a local model (Ollama `gemma4:12b`) classifies each answer: mentioned / recommended / negative / entity confusion, competitors, list position, with exact quotes. Code validates every output and checks every quote against the source text.
 * **Deterministic code:** validation, citation counting, scoring, aggregation, diagnostics ranking, permissions and state transitions.
-* **Keyless replay:** the real local-model run is recorded under `replay/classify_v1/`. Replay re-validates those recorded outputs with current code, so the whole workflow runs without a model. Outputs and traces carry their execution mode (`local_model`, `replay`, `stub`).
+* **Keyless replay:** the real local-model runs are recorded under `replay/classify_v2/` (default prompt) and `replay/classify_v1/` (the original submission). Replay re-validates those recorded outputs with current code, so the whole workflow runs without a model. Outputs and traces carry their execution mode (`local_model`, `replay`, `stub`).
+
+**Result in one line:** in this 31 Jul 2026 snapshot, Kasparro is named in 71/74 branded answers but **0/75 unbranded** ones; branded answers often question its track record (23/74), and some confuse it with Kaspr (9/74). The approved report is `outputs/approved_report_v2.md`.
+
+## Submission checklist (as listed in the assignment PDF, "What to submit")
+
+| Required | Where |
+|---|---|
+| Code, database schema and initialisation | `app/`, `app/db/schema.sql`, `python -m app.cli init-db` |
+| Dependency versions | `requirements.txt` (pinned; Python 3.10+, tested on 3.12.10) |
+| `.env.example` | [.env.example](.env.example) (two local tokens; no other secrets) |
+| Tests | `tests/` (`python -m pytest -q`): invalid input, duplicate handling, model timeout and malformed output, wrong reviewer role, rejection blocking export, edit after approval ([TESTING.md](TESTING.md)) |
+| Evaluation cases, runner and results | `evaluation/cases/`; `python -m evaluation.run_eval` writes [eval_report.md](evaluation/results/eval_report.md); `python -m evaluation.compare` writes the classify-v1 vs v2 [compare_report.md](evaluation/results/compare_report.md) ([EVALUATION.md](EVALUATION.md)) |
+| A controlled fixture | `tests/fixtures/mini_pack/` (synthetic pack) and the 2 synthetic edge cases S01/S02 in `evaluation/cases/` |
+| README: setup, DB initialisation, start/test/evaluation commands, example requests, replay mode and real-model adapter | This file: [Setup](#setup-under-10-minutes-no-model-needed), [Run](#run), [Tests and evaluation](#tests-and-evaluation), [Example workflow](#example-workflow-analyse--edit--submit--approvereject--export), [Model modes](#model-modes) |
+| Analysis output: scores and coverage, three diagnostics, three remedies, actual active time | [outputs/analysis_output_v2.json](outputs/analysis_output_v2.json) (the approved classify-v2 report; active time ~320 min, self-reported) |
+| Decision note (about one page) | [DECISION_NOTE.md](DECISION_NOTE.md); history in [DECISION_LOG.md](DECISION_LOG.md) |
+| Failure, diagnosis, change and regression case | [evaluation/FAILURES.md](evaluation/FAILURES.md) (F1–F6, each with a regression test) |
+| Wrong-role denial, rejection blocking export and edit-after-approval, demonstrated | [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) (`python scripts/demo_review_workflow.py`) |
+| Time spent, omissions and unfinished work | [TIME_LOG.md](TIME_LOG.md); omissions in DECISION_NOTE.md; open items in [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) |
+| Supplied data and private outputs kept out of public Git history | `assignment/` is git-ignored; this repository and archive are private |
 
 ## Reviewer reading guide (15 minutes)
 
 | Read | For |
 |---|---|
-| [DECISION_NOTE.md](DECISION_NOTE.md) | One page: scoring, design and review choices, top remedy, failure/fix, risks, AI assistance |
-| [outputs/analysis_output.json](outputs/analysis_output.json) and [outputs/approved_report_export.json](outputs/approved_report_export.json) | Scores, coverage, three diagnostics and three remedies; the reviewer-approved export |
-| [outputs/approved_report_v2.md](outputs/approved_report_v2.md) and [outputs/approved_report_v2_export.json](outputs/approved_report_v2_export.json) | The approved classify-v2 report (6edb78b8 v1, 29 Oct), readable and as the verifiable export |
-| [outputs/approved_report.md](outputs/approved_report.md) | The approved export as a readable report (rendered only after the export verifies: `python -m app.render_export`) |
-| [EVALUATION.md](EVALUATION.md) and [evaluation/results/eval_report.md](evaluation/results/eval_report.md) | Baseline vs model on labelled cases; evidence checks |
-| [evaluation/FAILURES.md](evaluation/FAILURES.md) | Five real failures, their diagnoses, fixes and regression tests |
-| [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export, edit-after-approval, step by step |
-| [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) and [evaluation/results/compare_report.md](evaluation/results/compare_report.md) | Post-submission sprint: evidenced failure modes, candidate prompt classify-v2, fresh holdout, three-way comparison |
-| [outputs/candidate_v2/](outputs/candidate_v2/README.md) | Full-pack classify-v2 output (default prompt since 29 Oct; its report is drafted, **not approved**); the approved deliverable remains `outputs/approved_report_export.json` |
-| [CHANGELOG.md](CHANGELOG.md) | Every version identifier (prompt, score, report generator, evidence policy, claim check, labels) and the commit that changed it |
+| [DECISION_NOTE.md](DECISION_NOTE.md) | One page: scoring, design and review choices, alternatives, top remedy, failure/fix, risk, omissions, questions, AI assistance |
+| [outputs/approved_report_v2.md](outputs/approved_report_v2.md) and [outputs/approved_report_v2_export.json](outputs/approved_report_v2_export.json) | The approved report (6edb78b8 v1, classify-v2), readable and as the verifiable export |
+| [outputs/analysis_output_v2.json](outputs/analysis_output_v2.json) | Scores, coverage, the approved report's three diagnostics and remedies, per-response results and active time |
+| [EVALUATION.md](EVALUATION.md) | Labelled evaluation, baseline vs model, classify-v1 vs classify-v2 on a fresh holdout, and evidence checks |
+| [evaluation/FAILURES.md](evaluation/FAILURES.md) | Six real failures, their diagnoses, fixes and regression tests |
+| [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export and edit-after-approval, step by step |
+| [TIME_LOG.md](TIME_LOG.md) | Candidate active time (self-reported), the AI-assisted session and unattended model runs, kept separate |
+| [outputs/approved_report.md](outputs/approved_report.md), [approved_report_export.json](outputs/approved_report_export.json), [analysis_output.json](outputs/analysis_output.json) | The first approved report (7d80ca70, classify-v1), unchanged; its analysis output records the active time at that point (~170 min) |
 
-Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md), [TESTING.md](TESTING.md), [evaluation/LABEL_AUDIT.md](evaluation/LABEL_AUDIT.md), [evaluation/RUBRIC.md](evaluation/RUBRIC.md). Planning records live in `claude-code/` and PROJECT.md / PROBLEM_STATEMENT.md / RESEARCH.md.
+Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md), [TESTING.md](TESTING.md), [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md), [CHANGELOG.md](CHANGELOG.md), [evaluation/LABEL_AUDIT.md](evaluation/LABEL_AUDIT.md), [evaluation/RUBRIC.md](evaluation/RUBRIC.md). Planning and AI working records live in `claude-code/` and in PROJECT.md, PROBLEM_STATEMENT.md and RESEARCH.md.
 
 ## Prerequisites
 
@@ -30,6 +48,8 @@ Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md
 * Optional, only for live model runs: [Ollama](https://ollama.com) with `ollama pull gemma4:12b`. This is an approximately 8 GB download. On the development laptop (RTX 3050 6 GB) one answer takes about 1–2 minutes, and all 150 take about 4–5 hours. Replay mode needs none of this.
 
 ## Setup (under 10 minutes, no model needed)
+
+Measured on 29 Oct 2026: a fresh clone through venv, install, pack check, tests, two full replay analyses and the evaluation took about 95 seconds (Windows 11, Python 3.12). This path needs no model download.
 
 ```bash
 python -m venv .venv
@@ -67,7 +87,9 @@ python -m evaluation.compare --from-predictions evaluation/results/compare_predi
 python -m evaluation.stability --version classify-v1   # live re-run vs recorded labels (needs Ollama)
 ```
 
-classify-v2 is the default prompt for new analyses since 29 Oct 2026 (promotion record in DECISION_NOTE.md). The approved report and the evaluation of record are classify-v1 results; reproduce that run with `python -m app.cli analyse --provider replay --prompt-version classify-v1`.
+classify-v2 has been the default prompt for new analyses since 29 Oct 2026 (promotion record in DECISION_LOG.md). `python -m app.cli analyse --provider replay` reproduces the approved v2 analysis (149/150 succeeded, 1 failed). The original classify-v1 run and `evaluation.run_eval` stay reproducible: `python -m app.cli analyse --provider replay --prompt-version classify-v1` (148/150).
+
+To write the analysis output for an approved report: `python -m app.cli write-output <analysis_id> --report <report_id> --active-minutes <n> --out outputs/analysis_output_v2.json`.
 
 ## Example workflow (analyse → edit → submit → approve/reject → export)
 
@@ -104,23 +126,24 @@ Anyone who receives an export can verify it offline, without the database or tok
 
 | Mode | How | Use |
 |---|---|---|
-| `replay` (default) | `MODEL_PROVIDER=replay` or `{"provider":"replay"}` | Keyless; reproduces the recorded local-model run. A recording made for a different prompt or answer is refused (input SHA-256 check). |
-| `local_model` | `{"provider":"ollama"}` or `python -m app.cli analyse --provider ollama --record` | Real model calls; `--record` refreshes replay files. |
+| `replay` (default) | `MODEL_PROVIDER=replay` or `{"provider":"replay"}` | Keyless; reproduces the recorded local-model run for the selected prompt version (`replay/classify_v2/` by default). A recording made for a different prompt or answer is refused (input SHA-256 check). |
+| `local_model` (real-model adapter) | `ollama pull gemma4:12b` (about 8 GB, once), then `{"provider":"ollama"}` or `python -m app.cli analyse --provider ollama --record` | Real model calls (`OLLAMA_URL` and `OLLAMA_MODEL` in `.env`); `--record` refreshes replay files. About 1–2 min per answer on a 6 GB laptop GPU. |
 | `stub` | `{"provider":"stub"}` | Deterministic baseline output for engineering tests. Not model quality. |
 
 No hosted API is used or needed. No credentials beyond the two local tokens exist.
 
 ## Outputs
 
-* `outputs/analysis_output.json`: per-response results, scores, coverage, diagnostics and remedies (`python -m app.cli write-output <analysis_id>`).
-* `outputs/approved_report_export.json`: the exported, reviewer-approved report version.
+* `outputs/analysis_output_v2.json`: the submitted analysis output: per-response results, scores, coverage, the approved report's diagnostics and remedies, and active time.
+* `outputs/approved_report_v2_export.json` and `.md`: the approved classify-v2 report, as a verifiable export and a readable copy.
+* `outputs/analysis_output.json`, `outputs/approved_report_export.json` and `approved_report.md`: the first approved report (classify-v1), unchanged.
 * `evaluation/results/`: evaluation report and raw metrics.
 
 ## Layout
 
 ```
 app/            FastAPI app: api/ routes, services/ (ingestion, analyzer, llm, scoring, reporting, review), db/ schema
-prompts/        versioned model prompts (classify_v1.md production, classify_v2.md candidate)
+prompts/        versioned model prompts (classify_v2.md default, classify_v1.md original)
 replay/         recorded local-model outputs for keyless replay
 evaluation/     labelled cases, builder, runner, results, FAILURES.md
 tests/          pytest suite + synthetic fixture pack

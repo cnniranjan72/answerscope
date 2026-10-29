@@ -51,12 +51,12 @@ The approved submission is unchanged and protected: tag `submission-v1` (`0abc2c
 | AI audit of fresh-v1 and candidate decisions (4 items, all AI suggestions accepted; 1 dev label changed) | `evaluation/cases/fresh_v1_ai_audit.md`, `fresh_review_log.jsonl`, `fresh_v2.jsonl` | `python -m evaluation.fresh_review` |
 | Comparison on fresh-v2 labels (holdout2 unchanged; dev v2 FP 1 → 0) | `evaluation/results/compare_fresh_v2_*` | `python -m evaluation.compare --fresh fresh-v2` |
 | Synthetic robustness fixtures (SR01–SR10, one per failure mode) | `evaluation/cases/synthetic_robust_v1.jsonl` | `python -m evaluation.build_synthetic_robustness` |
-| Prompt `classify-v2` (frozen at tag `classify-v2-frozen`; **default since 29 Oct**, promotion record in DECISION_NOTE.md) | `prompts/classify_v2.md`, rules in `app/services/analyzer.py` | – |
+| Prompt `classify-v2` (frozen at tag `classify-v2-frozen`; **default since 29 Oct**, promotion record in DECISION_LOG.md) | `prompts/classify_v2.md`, rules in `app/services/analyzer.py` | – |
 | Three-way comparison (baseline / v1 / v2, per split, Wilson CIs, FP/FN tables) | `evaluation/results/compare_report.md`, `compare_results.json`, `compare_predictions.json` | `python -m evaluation.compare` (replay); `--from-predictions` recomputes the metrics |
 | Tuning history (dev only) | `evaluation/results/v2_tuning/` | `python -m evaluation.compare --splits tuning,dev ...` |
 | Full-pack candidate output (149/150 succeeded; **not approved**) | `outputs/candidate_v2/` | see its README |
 | Stability study (live re-run vs recorded, classify-v1) | `evaluation/results/stability_classify_v1.md` | `python -m evaluation.stability` |
-| Failure modes, changes and outcome | `IMPROVEMENT_PLAN.md`; results in `EVALUATION.md` (sprint section); `DECISION_NOTE.md` addendum | – |
+| Failure modes, changes and outcome | `IMPROVEMENT_PLAN.md`; results in `EVALUATION.md` (sprint section); `DECISION_LOG.md` (sprint records) | – |
 | Public-safe demo image, CI | `Dockerfile`, `.github/workflows/ci.yml` | `docker build -t answerscope-demo .` (built and smoke-tested locally; CI not yet run on GitHub) |
 | Five-minute demo | `claude-code/DEMO.md` | – |
 
@@ -75,6 +75,6 @@ Open for the candidate: the fresh labels are AI-drafted plus an AI audit whose 4
 ### Promotion and v2 report draft (29 Oct 2026)
 * The candidate decided to promote classify-v2: it is now the default. `run_eval` and the baseline stay on the classify-v1 contract, and the evaluation of record reproduces (checked: timestamp-only diff).
 * Report fix: competitor names with or without an "AI" suffix are counted once (Otterly 12 + 4 → 16); report generator `report-v2`.
-* v2 report draft `6edb78b8` (analysis `f144fd60`, 149/150, report-v3; supersedes the unsubmitted `1dcbae40`, which is left in place) was edited, submitted and **approved by the candidate** on 29 Oct (19:23–19:25 IST; review record in DECISION_NOTE.md); export `outputs/approved_report_v2_export.json`, readable copy `outputs/approved_report_v2.md`. Suggested edits and checklist were in `claude-code/V2_REPORT_REVIEW.md`. DB backup taken before any change: `var/backups/answerscope_pre_v2_promotion.db`.
+* v2 report draft `6edb78b8` (analysis `f144fd60`, 149/150, report-v3; supersedes the unsubmitted `1dcbae40`, which is left in place) was edited, submitted and **approved by the candidate** on 29 Oct (19:23–19:25 IST; review record in DECISION_LOG.md); export `outputs/approved_report_v2_export.json`, readable copy `outputs/approved_report_v2.md`. Suggested edits and checklist were in `claude-code/V2_REPORT_REVIEW.md`. DB backup taken before any change: `var/backups/answerscope_pre_v2_promotion.db`.
 * Hosted demo: each start now seeds an unsubmitted draft report (`python -m app.cli draft-report`, 294acdf), so the analyst/reviewer flow can be tried right after a restart. Checked after the 29 Oct redeploy: one report, status `draft`; `/health` shows classify-v2; no token gives 401.
 * Candidate's remaining steps (edit, submit, review, export, record), with suggested comments and first-person record templates to fill in after doing them: `claude-code/CANDIDATE_STEPS.md`.

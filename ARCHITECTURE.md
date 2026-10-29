@@ -20,7 +20,7 @@ SQLite (app/db/schema.sql) + immutability triggers
 
 ## Prompt versions, evidence policy and review deadline (29 Oct sprint)
 
-* **Prompt registry** (`analyzer.PROMPTS`). `classify-v2` is the default since 29 Oct 2026 (promotion record in DECISION_NOTE.md). `classify-v1` stays registered: the approved run, its recordings and the evaluation of record (`run_eval` and the keyword baseline are pinned to its contract). Select a version with `--prompt-version`. Each version has its own prompt file, output contract and replay directory (`replay/classify_v1/`, `replay/classify_v2/`). The input hash includes the version, so a recording can never be replayed under the other prompt. classify-v2 adds an explicit `recommendation_type` decision and three deterministic rules:
+* **Prompt registry** (`analyzer.PROMPTS`). `classify-v2` is the default since 29 Oct 2026 (promotion record in DECISION_LOG.md). `classify-v1` stays registered: the approved run, its recordings and the evaluation of record (`run_eval` and the keyword baseline are pinned to its contract). Select a version with `--prompt-version`. Each version has its own prompt file, output contract and replay directory (`replay/classify_v1/`, `replay/classify_v2/`). The input hash includes the version, so a recording can never be replayed under the other prompt. classify-v2 adds an explicit `recommendation_type` decision and three deterministic rules:
   1. recommended must agree with the type;
   2. recommendation evidence must sit in a sentence that names Kasparro;
   3. a confused entity cannot be recommended.

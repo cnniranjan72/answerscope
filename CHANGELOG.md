@@ -41,7 +41,7 @@ The approved report `7d80ca70`, `outputs/approved_report_export.json`, `outputs/
 - The fresh-v2 review sheet has a committed generator with a `--check` mode (`python -m evaluation.fresh_review_sheet`, 08f6773).
 
 ### Approved classify-v2 report
-- `6edb78b8` v1, approved by the candidate on 29 Oct (review record in DECISION_NOTE.md); `outputs/approved_report_v2_export.json` and `.md`.
+- `6edb78b8` v1, approved by the candidate on 29 Oct (review record in DECISION_LOG.md); `outputs/approved_report_v2_export.json` and `.md`.
 - F6 (console download re-serialised numbers and broke the hash) fixed; regression test added.
 
 ### Evaluation
@@ -53,4 +53,4 @@ The approved report `7d80ca70`, `outputs/approved_report_export.json`, `outputs/
 - A lexical "mentions Kaspr" entity-confusion flag (IMPROVEMENT_PLAN.md). The answers it would add are correct disambiguations.
 
 ## 28–29 Oct: original submission (tag `submission-v1`)
-`classify-v1`, `vis-v1`, `cat-v1`, report generator `report-v1`, `labels-v3`. Approved report `7d80ca70` v1. See DECISION_NOTE.md and EVALUATION.md.
+`classify-v1`, `vis-v1`, `cat-v1`, report generator `report-v1`, `labels-v3`. Approved report `7d80ca70` v1. See DECISION_LOG.md (section 1, the note as approved) and EVALUATION.md.
