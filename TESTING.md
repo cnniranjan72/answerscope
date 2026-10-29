@@ -21,7 +21,7 @@ Engineering tests run on a **synthetic** fixture pack (`tests/fixtures/mini_pack
 | Evidence traceability | `test_evidence_spans_point_at_source`, `test_fabricated_evidence_blocks_submission`, `test_remedy_must_follow_from_its_diagnostic`, `test_quote_not_in_answer_rejected` |
 | Scoring invariants | `test_score_table`, `test_score_bounds_exhaustive`, `test_summary_denominators_exclude_failures` (the brief's 12/2/4-of-10 example), `test_empty_denominator_gives_none_not_zero`, `test_wilson_reference_values`, `test_paired_comparison_only_complete_prompts`, `test_citation_policy` |
 | Fixture scenarios | transient/permanent timeout, empty, malformed, duplicate, wrong role, rejected review, review with no response (`test_no_silent_approval_without_reviewer`), change after approval |
-| Regressions | `test_regression_f1…`, `f2…`, `f3…`, `f4…` (see [evaluation/FAILURES.md](evaluation/FAILURES.md)) |
+| Regressions | `test_regression_f1…` to `test_regression_f5…` (see [evaluation/FAILURES.md](evaluation/FAILURES.md)) |
 | Config safety | `test_unsafe_token_configuration_refused`, `test_identities_mapped_from_environment` |
 
 ## Latest result
