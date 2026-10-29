@@ -31,3 +31,22 @@ def test_identities_mapped_from_environment(env):
     s = config.load_settings()
     assert {i.role for i in s.tokens.values()} == {"analyst", "reviewer"}
     assert "analyst-token" not in repr(s)  # tokens never appear in reprs/logs
+
+
+@pytest.mark.parametrize("value", ["0", "-5", "soon"])
+def test_invalid_review_deadline_refused(env, value):
+    env.setenv("ANALYST_TOKEN", "analyst-token-0123456789")
+    env.setenv("REVIEWER_TOKEN", "reviewer-token-0123456789")
+    env.setenv("REVIEW_DUE_HOURS", value)
+    with pytest.raises(config.ConfigError, match="REVIEW_DUE_HOURS"):
+        config.load_settings()
+
+
+def test_tokens_never_appear_in_error_responses(env):
+    """A wrong token is refused without echoing what was sent."""
+    from fastapi.testclient import TestClient
+    from app.main import create_app
+    env.setenv("ANALYST_TOKEN", "analyst-token-0123456789")
+    env.setenv("REVIEWER_TOKEN", "reviewer-token-0123456789")
+    r = TestClient(create_app(config.load_settings())).get("/whoami", headers={"Authorization": "Bearer guess-secret-value-123"})
+    assert r.status_code == 401 and "guess-secret-value-123" not in r.text and "analyst-token" not in r.text
