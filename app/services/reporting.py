@@ -23,8 +23,10 @@ from app.services.citations import CITATION_POLICY_VERSION
 from app.services.text import answer_body, locate
 
 REPORT_SCHEMA_VERSION = "report-v1"  # content schema (unchanged)
-REPORT_GENERATOR_VERSION = "report-v2"  # v2: competitor names counted once with or without an "AI" suffix
-EVIDENCE_POLICY_VERSION = "evidence-v2"  # draft evidence prefers quotes without warnings
+REPORT_GENERATOR_VERSION = "report-v3"  # v2: competitor names counted once with or without an "AI" suffix;
+# v3: evidence-v3 quote selection for the unbranded diagnostic
+EVIDENCE_POLICY_VERSION = "evidence-v3"  # v2: drafts prefer quotes without warnings; v3: also for the
+# unbranded (competitor) quotes, and assistant follow-up offers are flagged
 SEVERITY = {"unbranded_gap": 1.0, "entity_confusion": 1.0, "credibility_gap": 0.8, "branded_win": 0.6}
 MAX_EVIDENCE = 6
 BRAND_SNAPSHOT_ID = "BRAND-SNAPSHOT-20260731"
@@ -47,6 +49,8 @@ def comp_key(name: str) -> str:
 
 PATTERN_LABEL = {"entity_confusion": "entity_confusion", "credibility_gap": "negative", "branded_win": "recommended"}
 MIN_STRONG_QUOTE = 20
+_OFFER_RE = re.compile(r"^\W*(would you like|do you want|want me to|shall i|should i|let me know|"
+                       r"if you('d| would) like)\b", re.I)
 
 
 def _quote_warnings(quote: str, body: str | None, labels: dict | None, claimed: str | None) -> list[str]:
@@ -57,6 +61,8 @@ def _quote_warnings(quote: str, body: str | None, labels: dict | None, claimed: 
     w = []
     if len(quote.strip()) < MIN_STRONG_QUOTE:
         w.append("very short quote")
+    if _OFFER_RE.search(quote):
+        w.append("assistant follow-up offer, not a statement about the market")
     if labels is None:
         w.append("response has no successful result in this analysis")
         return w
@@ -128,8 +134,12 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
         ev: list[dict] = []
         used: set[str] = set()
         for name, _ in comp.most_common(10):  # one quote per top competitor, distinct responses
-            hit = next(((r, c) for r in unbranded if r["response_id"] not in used
-                        for c in r["labels"]["competitors"] if comp_key(c["name"]) == name and c["evidence"]), None)
+            hits = [(r, c) for r in unbranded if r["response_id"] not in used
+                    for c in r["labels"]["competitors"] if comp_key(c["name"]) == name and c["evidence"]]
+            # evidence-v3: the first quote without warnings, else the first quote
+            hit = next((h for h in hits if not _quote_warnings(h[1]["evidence"]["quote"], None,
+                                                                h[0]["labels"]["labels"], None)),
+                       hits[0] if hits else None)
             if hit and len(ev) < MAX_EVIDENCE:
                 r, c = hit
                 ev.append({"response_id": r["response_id"], "quote": c["evidence"]["quote"]})

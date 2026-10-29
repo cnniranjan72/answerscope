@@ -202,7 +202,7 @@ def test_competitor_counting_ignores_spelling_variants():
     assert comp_key("Otterly.ai") == comp_key("Otterly AI") == comp_key("otterly-ai")
     assert comp_key("OtterlyAI") == comp_key("Otterly") and comp_key("Peec AI") == comp_key("Peec")  # draft v2 review
     from app.services.reporting import REPORT_GENERATOR_VERSION
-    assert REPORT_GENERATOR_VERSION == "report-v2"  # counting changed: version bumped (CLAUDE.md)
+    assert REPORT_GENERATOR_VERSION == "report-v3"  # counting (v2) and evidence selection (v3) changed: bumped (CLAUDE.md)
     assert comp_key("HubSpot AEO") != comp_key("HubSpot")
 
 
@@ -289,3 +289,29 @@ def test_migration_adds_review_deadline_to_an_old_database(tmp_path):
     c.commit(); c.close()
     init_db(db); init_db(db)  # idempotent
     assert "review_due_at" in {r[1] for r in connect(db).execute("PRAGMA table_info(report_versions)")}
+
+
+def test_assistant_offer_is_flagged_as_weak_evidence():
+    """evidence-v3: an assistant follow-up offer says nothing about the market."""
+    from app.services.reporting import _quote_warnings
+    w = _quote_warnings("Would you like a comparison of specific tools like Semrush", None, {"mentioned": False}, None)
+    assert any("follow-up offer" in x for x in w)
+    assert _quote_warnings("Profound and Otterly are the most common choices for agencies", None,
+                           {"mentioned": False}, None) == []
+
+
+def test_unbranded_evidence_prefers_a_strong_competitor_quote(conn):
+    """evidence-v3: for each top competitor the draft takes a quote without warnings when one exists."""
+    from app.services.reporting import _candidates
+
+    def row(rid, quote):
+        return {"response_id": rid, "status": "succeeded", "branded": False, "engine": "chatgpt",
+                "labels": {"labels": {"mentioned": False}, "evidence": {},
+                           "competitors": [{"name": "Otterly.AI", "evidence": {"quote": quote}}]}}
+
+    rows = [row("U1", "Otterly.AI"), row("U2", "Otterly.AI tracks brand mentions across AI answer engines")]
+    d1 = next(c for c in _candidates(conn, rows) if c["key"] == "unbranded_gap")
+    assert d1["evidence"][0] == {"response_id": "U2",
+                                 "quote": "Otterly.AI tracks brand mentions across AI answer engines"}
+    weak_only = next(c for c in _candidates(conn, rows[:1]) if c["key"] == "unbranded_gap")
+    assert weak_only["evidence"] == [{"response_id": "U1", "quote": "Otterly.AI"}]  # still shown, flagged later

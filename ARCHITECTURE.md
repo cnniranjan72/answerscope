@@ -25,7 +25,7 @@ SQLite (app/db/schema.sql) + immutability triggers
   2. recommendation evidence must sit in a sentence that names Kasparro;
   3. a confused entity cannot be recommended.
 * **Recordings** are written atomically (temp file + rename). Resume (`--only-unrecorded`, `compare --fill-v1/--fill-v2`) treats a missing, truncated or input-hash-mismatched recording as unrecorded.
-* **evidence-v2** (`reporting.evidence_warnings`) adds advisory flags per evidence item: very short quote, response lacks the claimed label, quote not in a sentence that names Kasparro, answer also confuses the entity. They are returned beside the report (`evidence_warnings`), shown in the console, and included in the export outside the hashed content. Drafts prefer quotes without warnings. Warnings never block; a human decides.
+* **evidence-v2** (`reporting.evidence_warnings`) adds advisory flags per evidence item: very short quote, response lacks the claimed label, quote not in a sentence that names Kasparro, answer also confuses the entity. They are returned beside the report (`evidence_warnings`), shown in the console, and included in the export outside the hashed content. Drafts prefer quotes without warnings. **evidence-v3** (report generator `report-v3`) applies the same preference to the unbranded diagnostic's competitor quotes and flags assistant follow-up offers ("Would you like…"). Warnings never block; a human decides.
 * **Review deadline.** Submit sets `review_due_at` (`REVIEW_DUE_HOURS`, default 72). An overdue version stays `submitted`, is flagged `review_overdue`, is never approved or rejected by timeout, and export keeps refusing. Databases from before this change are migrated additively by `init_db`.
 
 ## Data model
