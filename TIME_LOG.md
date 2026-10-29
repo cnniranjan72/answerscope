@@ -11,7 +11,9 @@ Times are IST clock readings taken with `date` during the session on 28 Oct 2026
 | 22:43 | 22:49 | Documentation, workflow demo script, secret scan |
 | 23:00 | 23:12 | Label audit: full re-read of 17 cases, rubric-v2, audit script, proposed v2 labels, tests; candidate adjudication recorded |
 | 23:12 | 23:20 | Live-run health check (exposed H11, logged), resume flag, clean-clone check (96 s), EVALUATION/HANDOFF drafts |
-| 22:36 | (running) | Background: full 150-answer local-model run with recording (unattended GPU time, not active work) |
+| 23:20 | 23:50 | MC-01 manual site check write-up, H06 adjudication, labels-v2 freeze, F5 fix, console checks (headless Chrome), mobile layout fix, call statistics, README reading guide |
+| 29 Oct 06:29 | (open) | Resumed live run after it was stopped for low memory at 91/150; active-time field in analysis output; DECISION_NOTE draft |
+| 22:36 | (running) | Background: full 150-answer local-model run with recording (unattended GPU time, not active work). Stopped by low system memory at 91/150 (≈00:30, 29 Oct); resumed 06:30 with `--only-unrecorded` |
 
 Remaining before submission: final analysis from replay, evaluation on recorded model outputs, EVALUATION.md results, DECISION_NOTE.md, clean-clone audit, and **candidate review of labels, diagnostics and the report approval**.
 

@@ -3,7 +3,7 @@
   python -m app.cli init-db
   python -m app.cli import-pack
   python -m app.cli analyse [--provider replay|ollama|stub] [--record] [--ids id1,id2] [--only-unrecorded]
-  python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json]
+  python -m app.cli write-output <analysis_id> [--out outputs/analysis_output.json] [--active-minutes N]
 """
 from __future__ import annotations
 
@@ -39,6 +39,7 @@ def main(argv: list[str] | None = None) -> int:
     w = sub.add_parser("write-output")
     w.add_argument("analysis_id")
     w.add_argument("--out", default=str(ROOT / "outputs" / "analysis_output.json"))
+    w.add_argument("--active-minutes", type=int, help="actual active work time to record (brief requirement)")
     args = ap.parse_args(argv)
 
     s = load_settings()
@@ -77,6 +78,8 @@ def main(argv: list[str] | None = None) -> int:
         draft = build_draft(conn, args.analysis_id)
         doc = {"analysis": run, "summary": scoring.aggregate(rows),
                "diagnostics": draft["diagnostics"], "remedies": draft["remedies"],
+               "active_time": {"minutes": args.active_minutes, "source": "TIME_LOG.md",
+                               "note": "Active work only; unattended model-run time is excluded."},
                "note": "Auto-generated draft diagnostics/remedies; the reviewed version is the approved report export.",
                "results": rows}
         out.write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
