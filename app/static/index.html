@@ -55,6 +55,7 @@ th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line
 th { color: var(--muted); font-weight: 600; font-size: 12px; }
 td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .table-wrap { overflow-x: auto; }
+.warn-text { color: var(--warn, #9a6700); margin-top: 4px; }
 blockquote { margin: 6px 0; padding: 6px 10px; background: var(--quote); border-left: 3px solid var(--line); border-radius: 4px; }
 .kv { display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px; margin-top: 6px; }
 @media (max-width: 600px) { .kv { grid-template-columns: 1fr; } }
@@ -265,21 +266,24 @@ function scorecard(C) {
 // Display only: show the rendered text of a quote; the exact raw span stays in the
 // tooltip and in the export, which is what the server verifies.
 const rendered = (q) => q.replace(/\[(?:\[\d+\])?\]\([^)\s]*\)/g, "").replace(/\[([^\]]*)\]\([^)\s]*\)/g, "$1").replace(/\*\*|__/g, "");
-function evidenceList(ev) {
-  return el("div", {}, ...ev.map((e) => el("blockquote", { title: "Exact source text: " + e.quote }, rendered(e.quote),
+function evidenceList(ev, owner) {
+  // Advisory quality flags from the server (evidence-v2); computed for the latest version only.
+  const W = (S.report && S.content && S.content.version === S.report.latest_version && S.report.evidence_warnings) || {};
+  return el("div", {}, ...ev.map((e, i) => el("blockquote", { title: "Exact source text: " + e.quote }, rendered(e.quote),
+    ...(W[`${owner}#${i + 1}`] || []).map((w) => el("div", { class: "small warn-text" }, "⚠ weak evidence: " + w)),
     el("div", { class: "small muted mono" }, `response ${e.response_id}`))));
 }
 function diagCard(d) {
   return el("div", { style: "padding:10px 0;border-top:1px solid var(--line)" },
     el("div", { class: "row" }, el("span", { class: "chip" }, `${d.id} · P${d.priority}`), el("span", { class: "chip " + d.kind }, d.kind), el("b", {}, d.title)),
     el("dl", { class: "kv" }, el("dt", {}, "Observed pattern"), el("dd", {}, d.observation), el("dt", {}, "Hypothesis"), el("dd", {}, d.hypothesis),
-      el("dt", {}, "How to test"), el("dd", {}, d.how_to_test), el("dt", {}, "Evidence"), el("dd", {}, evidenceList(d.evidence))));
+      el("dt", {}, "How to test"), el("dd", {}, d.how_to_test), el("dt", {}, "Evidence"), el("dd", {}, evidenceList(d.evidence, d.id))));
 }
 function remCard(r) {
   return el("div", { style: "padding:10px 0;border-top:1px solid var(--line)" },
     el("div", { class: "row" }, el("span", { class: "chip" }, `${r.id} · P${r.priority} · from ${r.diagnostic_id}`), el("span", { class: "chip" }, `effort: ${r.effort}`)),
     el("dl", { class: "kv" }, ...[["Problem", r.problem], ["Action", r.action], ["Expected benefit", r.expected_benefit], ["Effort", r.effort_detail], ["Uncertainty", r.uncertainty], ["Validation", r.validation]]
-      .flatMap(([k, v]) => [el("dt", {}, k), el("dd", {}, v)]), el("dt", {}, "Evidence"), el("dd", {}, evidenceList(r.evidence))));
+      .flatMap(([k, v]) => [el("dt", {}, k), el("dd", {}, v)]), el("dt", {}, "Evidence"), el("dd", {}, evidenceList(r.evidence, r.id))));
 }
 
 function editor(C) {

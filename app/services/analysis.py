@@ -8,6 +8,7 @@ record never discards results already stored for others.
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 import uuid
 from dataclasses import asdict
@@ -30,30 +31,40 @@ def _stub_responder(req: CallRequest) -> str:
     return baseline.classify_json(body)
 
 
-def build_provider(name: str, settings: Settings, stub_scenarios: dict[str, str] | None = None) -> Provider:
+def replay_dir(settings: Settings, version: str = PROMPT_VERSION) -> Path:
+    return settings.replay_dir / version.replace("-", "_")
+
+
+def build_provider(name: str, settings: Settings, stub_scenarios: dict[str, str] | None = None,
+                   version: str = PROMPT_VERSION) -> Provider:
     if name == "ollama":
         return OllamaProvider(settings.ollama_url, settings.ollama_model, settings.model_timeout_s,
                               settings.model_max_output_tokens)
     if name == "replay":
-        return ReplayProvider(settings.replay_dir / PROMPT_VERSION.replace("-", "_"))
+        return ReplayProvider(replay_dir(settings, version))
     if name == "stub":
         return StubProvider(_stub_responder, stub_scenarios or {})
     raise Unprocessable(f"unknown provider {name!r}")
 
 
-def _write_recording(directory: Path, response_id: str, model: str, outcome: AnalysisOutcome) -> None:
+def _write_recording(directory: Path, response_id: str, model: str, outcome: AnalysisOutcome,
+                     version: str = PROMPT_VERSION) -> None:
+    """Atomic write (temp file + rename): an interrupted run never leaves a truncated
+    recording that would break a later replay or be skipped by --only-unrecorded."""
     directory.mkdir(parents=True, exist_ok=True)
-    rec = {"response_id": response_id, "prompt_version": PROMPT_VERSION, "model": model,
+    rec = {"response_id": response_id, "prompt_version": version, "model": model,
            "input_sha256": outcome.input_sha256, "recorded_at": utcnow(),
            "attempts": [{"outcome": a.outcome, "error": a.error, "latency_ms": a.latency_ms,
                          "raw_output": a.raw_output} for a in outcome.attempts]}
-    (directory / f"{response_id}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=1),
-                                                   encoding="utf-8")
+    target = directory / f"{response_id}.json"
+    tmp = target.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+    os.replace(tmp, target)
 
 
 def run_analysis(conn: sqlite3.Connection, settings: Settings, provider: Provider, *, actor: str,
                  response_ids: list[str] | None = None, record_dir: Path | None = None,
-                 progress=None) -> str:
+                 progress=None, version: str = PROMPT_VERSION) -> str:
     rows = conn.execute(
         "SELECT r.response_id, r.prompt_id, r.engine, r.answer_text, p.text AS question "
         "FROM responses r JOIN prompts p USING (prompt_id) ORDER BY r.prompt_id, r.engine").fetchall()
@@ -78,11 +89,11 @@ def run_analysis(conn: sqlite3.Connection, settings: Settings, provider: Provide
             "INSERT INTO analysis_runs (analysis_id, status, provider, execution_mode, model, prompt_version, "
             "score_version, category_version, config_json, created_by, started_at) "
             "VALUES (?, 'running', ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            (analysis_id, type(provider).__name__, provider.execution_mode, provider.model, PROMPT_VERSION,
+            (analysis_id, type(provider).__name__, provider.execution_mode, provider.model, version,
              scoring.SCORE_VERSION, CATEGORY_VERSION, json.dumps(config), actor, utcnow()))
 
     for i, r in enumerate(rows, start=1):
-        _analyse_one(conn, settings, provider, analysis_id, r, record_dir)
+        _analyse_one(conn, settings, provider, analysis_id, r, record_dir, version)
         if progress:
             progress(i, len(rows), r["response_id"])
 
@@ -99,7 +110,7 @@ def run_analysis(conn: sqlite3.Connection, settings: Settings, provider: Provide
     return analysis_id
 
 
-def _analyse_one(conn, settings, provider, analysis_id, r, record_dir) -> None:
+def _analyse_one(conn, settings, provider, analysis_id, r, record_dir, version=PROMPT_VERSION) -> None:
     body = answer_body(r["answer_text"])
     cites = [dict(c) for c in conn.execute(
         "SELECT url, citation_type FROM citations WHERE response_id = ? ORDER BY ord", (r["response_id"],))]
@@ -116,7 +127,7 @@ def _analyse_one(conn, settings, provider, analysis_id, r, record_dir) -> None:
     else:
         try:
             outcome = analyse_response(provider, response_id=r["response_id"], question=r["question"],
-                                       body=body, max_attempts=settings.model_max_attempts)
+                                       body=body, max_attempts=settings.model_max_attempts, version=version)
         except Exception as e:  # an unexpected bug on one record must not abort the run
             outcome = AnalysisOutcome("failed", f"internal_error: {type(e).__name__}", None)
         if outcome.status == "succeeded":
@@ -126,7 +137,7 @@ def _analyse_one(conn, settings, provider, analysis_id, r, record_dir) -> None:
         else:
             result = dict(status="failed", reason=outcome.reason)
         if record_dir is not None and isinstance(provider, OllamaProvider):
-            _write_recording(record_dir, r["response_id"], provider.model, outcome)
+            _write_recording(record_dir, r["response_id"], provider.model, outcome, version)
 
     row = {**base, "labels_json": None, "components_json": None, "score": None, **result,
            "attempts": len(outcome.attempts) if outcome else 0, "created_at": utcnow()}
@@ -142,7 +153,7 @@ def _analyse_one(conn, settings, provider, analysis_id, r, record_dir) -> None:
                 "INSERT INTO model_calls (analysis_id, response_id, attempt, execution_mode, model, prompt_version, "
                 "input_sha256, outcome, error, latency_ms, raw_output, created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                 (analysis_id, r["response_id"], t["attempt"], provider.execution_mode, provider.model,
-                 PROMPT_VERSION, outcome.input_sha256, t["outcome"], t["error"], t["latency_ms"],
+                 version, outcome.input_sha256, t["outcome"], t["error"], t["latency_ms"],
                  t["raw_output"], utcnow()))
 
 

@@ -7,6 +7,9 @@ The model proposes labels and quotes; code decides whether they are acceptable:
     (quotes are stored with their exact source offsets);
   * mention must agree with the lexical fact of whether the body names the brand;
   * recommended implies mentioned; a position requires a ranked list.
+classify-v2 adds two deterministic rules (see PROMPTS): the recommendation decision must
+agree with an explicit recommendation_type, and recommendation evidence must sit in a
+sentence that names Kasparro.
 Rejected output is retried (bounded), then recorded as an explicit failure.
 """
 from __future__ import annotations
@@ -14,6 +17,7 @@ from __future__ import annotations
 import functools
 import hashlib
 import json
+import re
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -24,8 +28,9 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from app.services.llm import CallRequest, Provider, ProviderError, ProviderTimeout, ReplayMissing
 from app.services.text import BRAND_RE, brand_mention_offsets, contains_name, locate
 
-PROMPT_VERSION = "classify-v1"
-PROMPT_PATH = Path(__file__).resolve().parents[2] / "prompts" / "classify_v1.md"
+PROMPT_VERSION = "classify-v1"  # production default; classify-v2 is a candidate (EVALUATION.md)
+PROMPT_DIR = Path(__file__).resolve().parents[2] / "prompts"
+PROMPT_PATH = PROMPT_DIR / "classify_v1.md"
 MAX_RAW_OUTPUT_CHARS = 20_000
 
 class Competitor(BaseModel):
@@ -51,7 +56,47 @@ class ClassificationOutput(BaseModel):
     rationale: str = Field(max_length=1000)
 
 
+RECOMMENDING_TYPES = ("explicit_endorsement", "suitability_claim")
+
+
+class ClassificationOutputV2(BaseModel):
+    """classify-v2: the recommendation decision is made as an explicit type first."""
+    model_config = ConfigDict(extra="forbid")
+    kasparro_mentioned: bool
+    mention_evidence: list[str] = Field(max_length=3)
+    recommendation_type: Literal["explicit_endorsement", "suitability_claim", "neutral_description",
+                                 "factual_answer", "negative_or_alternative", "not_applicable"]
+    kasparro_recommended: bool
+    recommendation_evidence: list[str] = Field(max_length=3)
+    negative_characterization: bool
+    negative_evidence: list[str] = Field(max_length=3)
+    entity_confusion: bool
+    confusion_evidence: list[str] = Field(max_length=3)
+    competitors: list[Competitor] = Field(max_length=15)
+    kasparro_list_position: int | None = Field(default=None, ge=1, le=50)
+    position_basis: Literal["ranked_list", "unordered_list", "prose_only", "not_mentioned"]
+    rationale: str = Field(max_length=1000)
+
+
+@dataclass(frozen=True)
+class PromptSpec:
+    version: str
+    path: Path
+    contract: type[BaseModel]
+    strict_recommendation: bool  # v2 rules: type agreement + Kasparro in the evidence sentence
+
+
+PROMPTS = {
+    "classify-v1": PromptSpec("classify-v1", PROMPT_DIR / "classify_v1.md", ClassificationOutput, False),
+    "classify-v2": PromptSpec("classify-v2", PROMPT_DIR / "classify_v2.md", ClassificationOutputV2, True),
+}
 OUTPUT_SCHEMA = ClassificationOutput.model_json_schema()
+
+
+def spec(version: str) -> PromptSpec:
+    if version not in PROMPTS:
+        raise ValueError(f"unknown prompt version {version!r}; known: {sorted(PROMPTS)}")
+    return PROMPTS[version]
 LABELS = {  # label -> evidence field
     "mentioned": "mention_evidence",
     "recommended": "recommendation_evidence",
@@ -93,20 +138,20 @@ class AnalysisOutcome:
     input_sha256: str = ""
 
 
-@functools.lru_cache(maxsize=1)
-def system_prompt() -> str:
+@functools.lru_cache(maxsize=4)
+def system_prompt(version: str = PROMPT_VERSION) -> str:
     """Read once per process so a prompt edit cannot change a run midway."""
-    return PROMPT_PATH.read_text(encoding="utf-8")
+    return spec(version).path.read_text(encoding="utf-8")
 
 
-def build_messages(question: str, body: str) -> list[dict]:
+def build_messages(question: str, body: str, version: str = PROMPT_VERSION) -> list[dict]:
     user = ("QUESTION (untrusted data):\n<<<QUESTION\n" + question + "\nQUESTION>>>\n\n"
             "ANSWER (untrusted data, citation list removed):\n<<<ANSWER\n" + body + "\nANSWER>>>")
-    return [{"role": "system", "content": system_prompt()}, {"role": "user", "content": user}]
+    return [{"role": "system", "content": system_prompt(version)}, {"role": "user", "content": user}]
 
 
-def input_hash(messages: list[dict]) -> str:
-    blob = json.dumps({"prompt_version": PROMPT_VERSION, "messages": messages}, sort_keys=True)
+def input_hash(messages: list[dict], version: str = PROMPT_VERSION) -> str:
+    blob = json.dumps({"prompt_version": version, "messages": messages}, sort_keys=True)
     return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
 
@@ -121,7 +166,17 @@ def _spans(quotes: list[str], body: str, label: str, problems: list[str]) -> lis
     return spans
 
 
-def validate_output(raw: str, body: str) -> dict:
+_SENTENCE_END = re.compile(r"[.!?](?=\s)|\n")
+
+
+def sentence_bounds(body: str, start: int, end: int) -> tuple[int, int]:
+    """Smallest [s, e) around body[start:end] delimited by sentence ends or line breaks."""
+    s = max((m.end() for m in _SENTENCE_END.finditer(body, 0, start)), default=0)
+    m = _SENTENCE_END.search(body, end)
+    return s, (m.end() if m else len(body))
+
+
+def validate_output(raw: str, body: str, version: str = PROMPT_VERSION) -> dict:
     """Parse and check one model output against the answer body. Returns normalised
     labels with verified evidence spans, or raises OutputRejected."""
     if raw is None or not raw.strip():
@@ -131,7 +186,7 @@ def validate_output(raw: str, body: str) -> dict:
     except json.JSONDecodeError as e:
         raise OutputRejected("malformed", [f"not valid JSON: {e.msg} at char {e.pos}"])
     try:
-        out = ClassificationOutput.model_validate(data)
+        out = spec(version).contract.model_validate(data)
     except ValidationError as e:
         raise OutputRejected("malformed", [f"{'.'.join(map(str, err['loc']))}: {err['msg']}"
                                            for err in e.errors()[:8]])
@@ -160,6 +215,18 @@ def validate_output(raw: str, body: str) -> dict:
         problems.append("recommended requires mentioned")
     if out.kasparro_list_position is not None and out.position_basis != "ranked_list":
         problems.append("a list position requires position_basis 'ranked_list'")
+    if spec(version).strict_recommendation:
+        rtype = out.recommendation_type
+        if out.kasparro_recommended != (rtype in RECOMMENDING_TYPES):
+            problems.append(f"kasparro_recommended={out.kasparro_recommended} contradicts recommendation_type "
+                            f"{rtype!r} (only {' / '.join(RECOMMENDING_TYPES)} are recommendations)")
+        if not out.kasparro_mentioned and rtype != "not_applicable":
+            problems.append("recommendation_type must be 'not_applicable' when Kasparro is not mentioned")
+        for sp in evidence["recommended"]:
+            s0, e0 = sentence_bounds(body, sp["start"], sp["end"])
+            if not any(s0 <= o < e0 for o in lexical_mentions):
+                problems.append(f"recommendation evidence is not in a sentence that names Kasparro: "
+                                f"{sp['quote'][:80]!r}")
 
     # Competitor names are hard-checked (an invented name is rejected). Their supporting
     # quote is secondary: an unlocatable quote is dropped with a warning instead of
@@ -183,7 +250,9 @@ def validate_output(raw: str, body: str) -> dict:
     if problems:
         raise OutputRejected("invalid", problems)
     labels["absent"] = not labels["mentioned"]
+    extra = {"recommendation_type": out.recommendation_type} if spec(version).strict_recommendation else {}
     return {
+        **extra,
         "labels": labels,
         "evidence": evidence,
         "competitors": competitors,
@@ -195,20 +264,20 @@ def validate_output(raw: str, body: str) -> dict:
 
 
 def analyse_response(provider: Provider, *, response_id: str, question: str, body: str,
-                     max_attempts: int) -> AnalysisOutcome:
-    messages = build_messages(question, body)
-    sha = input_hash(messages)
+                     max_attempts: int, version: str = PROMPT_VERSION) -> AnalysisOutcome:
+    messages = build_messages(question, body, version)
+    sha = input_hash(messages, version)
     attempts: list[AttemptTrace] = []
     convo = list(messages)
     last_reason = "no attempts made"
     for attempt in range(1, max_attempts + 1):
         req = CallRequest(response_id=response_id, attempt=attempt, input_sha256=sha,
-                          messages=convo, schema=OUTPUT_SCHEMA)
+                          messages=convo, schema=spec(version).contract.model_json_schema())
         t0 = time.perf_counter()
         raw = None
         try:
             raw = provider.generate(req)
-            labels = validate_output(raw, body)
+            labels = validate_output(raw, body, version)
         except ReplayMissing as e:
             attempts.append(AttemptTrace(attempt, "replay_missing", str(e), _ms(t0), None))
             return AnalysisOutcome("failed", f"replay_missing: {e}", None, attempts, sha)

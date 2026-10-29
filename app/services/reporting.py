@@ -23,6 +23,7 @@ from app.services.citations import CITATION_POLICY_VERSION
 from app.services.text import answer_body, locate
 
 REPORT_SCHEMA_VERSION = "report-v1"
+EVIDENCE_POLICY_VERSION = "evidence-v2"  # draft evidence prefers quotes without warnings
 SEVERITY = {"unbranded_gap": 1.0, "entity_confusion": 1.0, "credibility_gap": 0.8, "branded_win": 0.6}
 MAX_EVIDENCE = 6
 BRAND_SNAPSHOT_ID = "BRAND-SNAPSHOT-20260731"
@@ -41,13 +42,53 @@ def comp_key(name: str) -> str:
     return re.sub(r"[^a-z0-9]", "", name.lower())
 
 
-def _pick_evidence(rows: list[dict], label: str, limit: int = MAX_EVIDENCE) -> list[dict]:
-    """Round-robin across engines so evidence is not drawn from a single engine."""
+PATTERN_LABEL = {"entity_confusion": "entity_confusion", "credibility_gap": "negative", "branded_win": "recommended"}
+MIN_STRONG_QUOTE = 20
+
+
+def _quote_warnings(quote: str, body: str | None, labels: dict | None, claimed: str | None) -> list[str]:
+    """Why a verbatim quote may still be weak evidence for the label its diagnostic claims.
+    Shown to analyst and reviewer; never blocks submission (a human decides)."""
+    from app.services.analyzer import sentence_bounds
+    from app.services.text import brand_mention_offsets
+    w = []
+    if len(quote.strip()) < MIN_STRONG_QUOTE:
+        w.append("very short quote")
+    if labels is None:
+        w.append("response has no successful result in this analysis")
+        return w
+    if claimed and not labels.get(claimed):
+        w.append(f"response is not labelled {claimed} in this analysis")
+    if claimed in ("negative", "recommended"):
+        if labels.get("entity_confusion"):
+            w.append("answer also confuses Kasparro with another entity")
+        loc = locate(quote, body) if body else None
+        if loc:
+            s0, e0 = sentence_bounds(body, *loc)
+            if not any(s0 <= o < e0 for o in brand_mention_offsets(body)):
+                w.append("quote is not in a sentence that names Kasparro")
+    return w
+
+
+def _pick_evidence(rows: list[dict], label: str, limit: int = MAX_EVIDENCE,
+                   bodies: dict[str, str] | None = None) -> list[dict]:
+    """Round-robin across engines so evidence is not drawn from a single engine. With
+    bodies, quotes that raise no evidence warning are preferred (evidence-v2)."""
     by_engine: dict[str, list[dict]] = defaultdict(list)
     for r in rows:
         spans = r["labels"]["evidence"].get(label) or []
-        if spans:
-            by_engine[r["engine"]].append({"response_id": r["response_id"], "quote": spans[0]["quote"]})
+        if not spans:
+            continue
+        quote = spans[0]["quote"]
+        if bodies is not None:  # first span without warnings, else the first span
+            quote = next((s["quote"] for s in spans if not _quote_warnings(
+                s["quote"], bodies.get(r["response_id"]), r["labels"]["labels"], label)), quote)
+        by_engine[r["engine"]].append({"response_id": r["response_id"], "quote": quote})
+    if bodies is not None:
+        for eng, items in by_engine.items():  # stable: weak items move to the back
+            by_engine[eng] = sorted(items, key=lambda e: bool(_quote_warnings(
+                e["quote"], bodies.get(e["response_id"]), next(r["labels"]["labels"] for r in rows
+                                                                if r["response_id"] == e["response_id"]), label)))
     out: list[dict] = []
     while len(out) < limit and any(by_engine.values()):
         for eng in sorted(by_engine):
@@ -69,6 +110,9 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
     branded = [r for r in ok if r["branded"]]
     unbranded = [r for r in ok if not r["branded"]]
     cands = []
+    bodies = {r["response_id"]: answer_body(x["answer_text"]) for r in branded
+              for x in [conn.execute("SELECT answer_text FROM responses WHERE response_id = ?",
+                                     (r["response_id"],)).fetchone()] if x}
 
     if unbranded:
         absent = [r for r in unbranded if not r["labels"]["labels"]["mentioned"]]
@@ -135,7 +179,7 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
                 "disappears, the problem is name ambiguity. Separately audit which pages engines cite when they confuse "
                 "the name."),
             "metrics": {"confused": f"{len(conf)}/{len(branded)}", "by_engine": _by_engine(branded, "entity_confusion")},
-            "evidence": _pick_evidence(conf, "entity_confusion"),
+            "evidence": _pick_evidence(conf, "entity_confusion", bodies=bodies),
         })
 
         neg = [r for r in branded if r["labels"]["labels"]["negative"]]
@@ -154,7 +198,7 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
                 "job listing, independent review, or unrelated. A low share of independent sources supports the "
                 "hypothesis."),
             "metrics": {"negative": f"{len(neg)}/{len(branded)}", "by_engine": _by_engine(branded, "negative")},
-            "evidence": _pick_evidence(neg, "negative"),
+            "evidence": _pick_evidence(neg, "negative", bodies=bodies),
         })
 
         rec = [r for r in branded if r["labels"]["labels"]["recommended"]]
@@ -167,7 +211,7 @@ def _candidates(conn: sqlite3.Connection, rows: list[dict]) -> list[dict]:
             "hypothesis": "First-party pages are retrievable and describe the offer clearly enough to be repeated.",
             "how_to_test": "Compare the cited sources in recommending vs non-recommending branded answers.",
             "metrics": {"recommended": f"{len(rec)}/{len(branded)}", "by_engine": _by_engine(branded, "recommended")},
-            "evidence": _pick_evidence(rec, "recommended"),
+            "evidence": _pick_evidence(rec, "recommended", bodies=bodies),
         })
 
     for c in cands:
@@ -257,6 +301,7 @@ def build_draft(conn: sqlite3.Connection, analysis_id: str) -> dict:
                        "model_quality_note": run["model_quality_note"], "prompt_version": run["prompt_version"],
                        "score_version": run["score_version"], "category_version": run["category_version"],
                        "citation_policy": CITATION_POLICY_VERSION, "report_generator": REPORT_SCHEMA_VERSION,
+                       "evidence_policy": EVIDENCE_POLICY_VERSION,
                        "historical_capture_date": "2026-07-31", "generated_at": utcnow()},
         "scorecard": agg,
         "score_definition": {"version": scoring.SCORE_VERSION, "weights": scoring.WEIGHTS, "scale": "0-100, clamped",
@@ -271,6 +316,30 @@ def build_draft(conn: sqlite3.Connection, analysis_id: str) -> dict:
         ],
         "analyst_notes": "",
     }
+
+
+def evidence_warnings(conn: sqlite3.Connection, content: dict) -> dict[str, list[str]]:
+    """Non-blocking quality flags per evidence item, keyed "D2#3" / "R1#1" (1-based)."""
+    aid = (content.get("provenance") or {}).get("analysis_id")
+    results = {r["response_id"]: r for r in result_rows(conn, aid)} if aid else {}
+    bodies: dict[str, str | None] = {}
+    out: dict[str, list[str]] = {}
+    diags = {d["id"]: d for d in content.get("diagnostics", [])}
+    for section in ("diagnostics", "remedies"):
+        for item in content.get(section, []):
+            d = item if section == "diagnostics" else diags.get(item.get("diagnostic_id"), {})
+            claimed = PATTERN_LABEL.get((d.get("metrics") or {}).get("pattern"))
+            for i, e in enumerate(item.get("evidence", []), start=1):
+                rid = e["response_id"]
+                if rid not in bodies:
+                    row = conn.execute("SELECT answer_text FROM responses WHERE response_id = ?", (rid,)).fetchone()
+                    bodies[rid] = answer_body(row["answer_text"]) if row else None
+                res = results.get(rid)
+                labels = res["labels"]["labels"] if res and res["status"] == "succeeded" else None
+                w = _quote_warnings(e["quote"], bodies[rid], labels, claimed)
+                if w:
+                    out[f"{item['id']}#{i}"] = w
+    return out
 
 
 def verify_content(conn: sqlite3.Connection, content: dict, *, for_submit: bool) -> list[str]:

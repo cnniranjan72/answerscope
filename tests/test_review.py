@@ -4,6 +4,7 @@ import sqlite3
 
 import pytest
 
+from app.services.text import answer_body, locate
 from tests.conftest import A, R
 
 
@@ -239,3 +240,22 @@ def test_export_hash_is_verifiable_from_the_file(client, report):
                 for k in EXPORT_EVIDENCE_FIELDS:
                     e.pop(k)
     assert sha256(canonical(content)) == ex["content_sha256"]
+
+
+def test_weak_evidence_is_flagged_but_does_not_block(client, report, conn):
+    """evidence-v2: a verbatim but very short quote is shown as a warning; submission still works."""
+    rid, c = report["report_id"], report["latest"]["content"]
+    d0 = c["diagnostics"][0]
+    e = d0["evidence"][0]
+    body = answer_body(conn.execute("SELECT answer_text FROM responses WHERE response_id = ?",
+                                    (e["response_id"],)).fetchone()["answer_text"])
+    e["quote"] = body[locate(e["quote"], body)[0]:][:8]  # real, verbatim, but too short to be strong
+    for r in c["remedies"]:
+        if r["diagnostic_id"] == d0["id"]:
+            r["evidence"] = [e]
+    client.patch(f"/reports/{rid}", headers=A, json={"base_version": 1, "diagnostics": c["diagnostics"],
+                                                      "remedies": c["remedies"]})
+    view = latest(client, rid)
+    assert "very short quote" in view["evidence_warnings"][f"{d0['id']}#1"]
+    assert not view["evidence_problems"]
+    assert submit(client, rid, 1).status_code == 200

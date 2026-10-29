@@ -24,7 +24,7 @@ from app.db import transaction, utcnow
 from app.errors import Conflict, Forbidden, NotFound, Unprocessable
 from app.schemas import DecisionRequest, ReportPatch
 from app.services.analysis import get_run
-from app.services.reporting import build_draft, canonical, enrich_evidence, sha256, verify_content
+from app.services.reporting import build_draft, canonical, enrich_evidence, sha256, verify_content, evidence_warnings
 
 EDITABLE_FIELDS = ("title", "executive_summary", "diagnostics", "remedies", "analyst_notes")
 
@@ -87,6 +87,7 @@ def get_report(conn: sqlite3.Connection, report_id: str) -> dict:
         "decisions": [dict(d) for d in decisions],
         "latest": _version_view(latest),
         "evidence_problems": verify_content(conn, json.loads(latest["content_json"]), for_submit=True),
+        "evidence_warnings": evidence_warnings(conn, json.loads(latest["content_json"])),
     }
 
 
@@ -122,6 +123,7 @@ def patch_report(conn: sqlite3.Connection, report_id: str, patch: ReportPatch, a
     view = get_version(conn, report_id, version)
     view["new_version_created"] = created
     view["evidence_problems"] = verify_content(conn, content, for_submit=True)
+    view["evidence_warnings"] = evidence_warnings(conn, content)
     return view
 
 
@@ -203,4 +205,5 @@ def export(conn: sqlite3.Connection, report_id: str, version: int | None) -> dic
                      "comment": decision["comment"], "decided_at": decision["decided_at"]},
         "exported_at": utcnow(),
         "content": enrich_evidence(conn, content),
+        "evidence_warnings": evidence_warnings(conn, content),  # advisory; outside the hashed content
     }
