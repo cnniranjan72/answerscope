@@ -33,3 +33,18 @@ Other error types, checked and separated out:
 | **FM5 not addressed** | – | Teaching "price cited only to another domain = confusion" would also flag T02-like answers that cite third-party pages for real Kasparro features | documented limitation |
 
 What would count as success: on holdout2, classify-v2 has fewer recommendation false positives than classify-v1, without new failures or losses on negative and entity confusion. holdout2 has very few true recommendations, so it can show **precision and specificity**, not recall. Any claim of superiority stays conditional on that small n.
+
+## 3. Outcome (measured, `evaluation/results/compare_report.md`)
+
+| Failure mode | classify-v2 result | Evidence |
+|---|---|---|
+| FM1 neutral description → recommended | Fixed on the measured cases | holdout2: recommended FP 10 → 2; dev 4 → 1; SR02 (neutral) correct |
+| FM2 affirmative factual answer / price → recommended | Fixed on the measured cases | final_seen H06, H07, H10 no longer recommended; SR03 correct |
+| FM3 assistant offer as evidence | Fixed, enforced by a rule | H11 correct; `test_regression_h11_…`; SR10 correct |
+| FM4 misidentified-entity statements → negative | **Not fixed** | H01 still negative under v2 (final_seen) |
+| FM5 product misattribution | Not addressed (by decision) | H06 entity_confusion still missed |
+| FM6 weak report evidence | Mitigated | evidence-v2 warnings + preference for strong quotes; root cause (label precision) improved by v2 |
+| New: confused entity recommended (dev D-017-gemini) | Fixed, enforced by a rule (R-I3) | `test_regression_dev_017_gemini_…` |
+| New: injected instruction steers v2 (SR08) | Contained, not fixed | the validator rejected all 3 attempts, so the case is an explicit failure, not a wrong label |
+
+Regressions: negative recall on holdout2 4/4 → 3/4 (ambiguous labels). Entity confusion on holdout2 remains 1 of 4 for v2.
