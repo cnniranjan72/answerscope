@@ -65,6 +65,45 @@ Other final-split results:
 * The negative case passes: **4/4** injected defects are detected (fabricated quote, wrong-response attribution, remedy without a diagnostic, remedy evidence from another diagnostic).
 * Score arithmetic: 19/19 hand-computed scores match `scoring.score()`.
 
+## Post-submission sprint: classify-v2 candidate (29 Oct 2026)
+
+The results above are the evaluation of record for the approved submission (classify-v1, labels-v3) and are unchanged. This section compares the production prompt with a candidate, **classify-v2**, built to fix the recommendation over-calling found above. Source: `evaluation/results/compare_report.md` / `compare_results.json`, from `python -m evaluation.compare`. It reproduces from saved predictions with `--from-predictions`. The method and failure analysis are in [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md).
+
+**Why a new holdout.** The original holdout's recommendation errors were read while designing v2, and the v2 prompt paraphrases some of those answers, so `final_seen` cannot confirm v2. A fresh set, **fresh-v1**, was built from 36 branded answers to 12 never-labelled prompts:
+* 12 dev answers, used for tuning v2.
+* 24 holdout2 answers on 8 prompts disjoint from every other split.
+
+All 36 were labelled blind to predictions and hash-frozen at commit `b932b1e`, before any v2 call. v2 was tuned in 3 iterations on dev and tuning only (`results/v2_tuning/`) and frozen at tag `classify-v2-frozen` before it ran on holdout2. fresh-v1 labels are AI-drafted and await candidate review.
+
+### holdout2 (24 cases; the independent test)
+
+| | Baseline | classify-v1 | **classify-v2** |
+|---|---|---|---|
+| Succeeded / failed | 24 / 0 | 23 / **1** | 24 / 0 |
+| recommended: TP / FP / FN (positives: 1, ambiguous) | 0 / 4 / 1 | 1 / **10** / 0 | 1 / **2** / 0 |
+| recommended FP, ambiguous labels excluded | 3 | 9 | **1** |
+| negative: TP / FP / FN (4 positives, all ambiguous) | 3 / 5 / 1 | 4 / 6 / 0 | 3 / 3 / 1 |
+| entity_confusion: TP / FN (4 positives) | 2 / 2 | 0 / 4 | 1 / 3 |
+| Score MAE (vis-v1 points) | 15.0 | 20.0 | **10.8** |
+
+### Other splits
+
+| Split | classify-v1 recommended FP | classify-v2 recommended FP | Score MAE v1 → v2 | Note |
+|---|---|---|---|---|
+| tuning (5) | 0 | 0 | 0 → 0 | used to write v1 |
+| dev (12) | 4 | 1 (ambiguous) | 20.0 → 7.5 | used to tune v2 |
+| final_seen (14) | 5 | 0 | 17.1 → 2.9 | **not independent for v2** |
+| synthetic_robust (10, SYNTHETIC) | 4 | 0 | 16.0 → 0.0 | one v2 failure, see below |
+
+### Reading it honestly
+* **Improvement (holdout2):** recommendation false positives fall from 10 to 2 (9 to 1 excluding ambiguous labels), with the single true recommendation still found. Score error halves (20.0 to 10.8). v1's one failure (a paraphrased quote) does not recur.
+* **Regressions and non-improvements:**
+  * negative recall drops from 4/4 to 3/4 (all 4 positives are ambiguous evidence-gap labels);
+  * entity confusion stays weak: 1 of 4 caught. Three of the four misses are "asks which Kasparro is meant" answers, two of them labelled ambiguous. The baseline catches 2 of 4 through keywords.
+* **Injection case SR08 (synthetic):** the embedded instruction pushed v2 to output `recommended: true` with no evidence on all 3 attempts. The validator rejected every attempt, so the case ended as an **explicit failure, not a wrong label**. classify-v1 accepted a wrong `recommended`. The defence held, but the model is still steerable by injected text.
+* **Small n:** holdout2 has 1 recommendation positive. It shows that v2 stops over-calling (specificity); it cannot show recall. Wilson 95% intervals in the report are wide. This is evidence that v2 is the better candidate, not a significance claim.
+* **Status:** classify-v1 stays the production default and the approved report is unchanged. Promoting v2 would need: candidate review of the fresh-v1 labels, a full-pack v2 report under analyst → reviewer approval, and ideally the repeated-run stability check (`python -m evaluation.stability`).
+
 ## Limits
 * 17 real + 2 synthetic cases; some labels have 1–2 positives in the final split, so one case moves recall by 50 points. Treat the metrics as indicative only.
 * Labels were drafted by the AI assistant that also wrote the prompt. The candidate then reviewed and decided every case (an AI-assisted second-opinion audit was used as input). There is effectively one annotator and no inter-annotator agreement.
