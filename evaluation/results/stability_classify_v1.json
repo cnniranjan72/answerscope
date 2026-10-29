@@ -1,0 +1,65 @@
+{
+ "generated_at": "2026-10-29T07:37:16+00:00",
+ "version": "classify-v1",
+ "splits": [
+  "final_seen",
+  "holdout2"
+ ],
+ "cases": 38,
+ "runs": 1,
+ "settings": {
+  "temperature": 0,
+  "seed": 7,
+  "model": "gemma4:12b"
+ },
+ "agreement": {
+  "mentioned": {
+   "agree": 37,
+   "n": 37,
+   "rate": 1.0,
+   "ci95": [
+    0.91,
+    1.0
+   ]
+  },
+  "recommended": {
+   "agree": 36,
+   "n": 37,
+   "rate": 0.973,
+   "ci95": [
+    0.86,
+    1.0
+   ]
+  },
+  "negative": {
+   "agree": 37,
+   "n": 37,
+   "rate": 1.0,
+   "ci95": [
+    0.91,
+    1.0
+   ]
+  },
+  "entity_confusion": {
+   "agree": 37,
+   "n": 37,
+   "rate": 1.0,
+   "ci95": [
+    0.91,
+    1.0
+   ]
+  }
+ },
+ "flips": [
+  {
+   "run": 1,
+   "case": "H2-018-aimode",
+   "label": "recommended",
+   "recorded": false,
+   "live": true
+  }
+ ],
+ "status_changes": {
+  "run1:failed->failed": 1
+ }
+}
