@@ -25,6 +25,8 @@
 ## Data
 * The supplied pack (`assignment/`) is git-ignored and never modified. Replay files, outputs and evaluation results contain answer excerpts, so the repository must stay private.
 * No real website, customer system or engine is contacted; the only network call is to a local Ollama server.
+* **Incident (29 Oct 2026):** the GitHub remote was found to be **public** while it held replay recordings, labelled cases and outputs with answer excerpts. No credentials were ever committed (secret scan of all history). The candidate was told immediately and made the repository private. Lesson: check repository visibility before the first push, and keep private data out of any image or deploy (see below).
+* **Public-safe demo image:** `Dockerfile` + `.dockerignore` ship code, prompts and the synthetic mini fixture pack only. Supplied pack, recordings, outputs, evaluation data, databases and `.env` are excluded; the container runs as a non-root user; tokens come from the environment. Verified by building the image and listing its contents.
 
 ## Not implemented (future work)
-Token rotation/expiry, rate limiting, TLS (run behind a reverse proxy), audit-log export, review deadlines with escalation (never auto-approve), and multi-reviewer quorum.
+Token rotation/expiry, rate limiting, TLS (run behind a reverse proxy), audit-log export, escalation routing for overdue reviews (the deadline flag itself is implemented and never auto-approves), and multi-reviewer quorum.
