@@ -95,6 +95,8 @@ curl -s $H/reports/$RID/export -H "$A"                           # 409 not_appro
 curl -s "$H/reports/$RID/export?version=1" -H "$A"               # 200: old approved v1, marked superseded
 ```
 
+Anyone who receives an export can verify it offline, without the database or tokens: `python -m app.verify_export outputs/approved_report_export.json --answers assignment/data/responses.jsonl` recomputes the content hash, checks the approval and structure, and finds every quote at its stated location (checked 29 Oct 2026 on the approved export: all checks pass, 19/19 quotes). It proves integrity, not that the cited sources support the claims.
+
 ## Model modes
 
 | Mode | How | Use |

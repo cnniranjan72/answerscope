@@ -40,6 +40,7 @@ Then **submit** version 1 (as analyst). The review deadline is set to 72 hours.
 - Do the analyst notes disclose the method change and the uncertainty in the negative count?
 - Remedies: R3 is low effort and validated by a re-run; R1 and R2 are framed as investigations, not guaranteed outcomes.
 - Decide approve or reject with a comment. Export works only after approval, and the export carries the content hash.
+- After approving and exporting, verify the file: `python -m app.verify_export <export.json> --answers assignment/data/responses.jsonl` (all checks should PASS).
 
 Possible reviewer comment if approving (edit freely): "Approved. classify-v2 draft with weak and label-inconsistent quotes removed; the method change and its effect on rates are disclosed in the analyst notes; content hash checked before approval."
 
