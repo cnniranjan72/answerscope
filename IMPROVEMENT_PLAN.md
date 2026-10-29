@@ -48,3 +48,15 @@ What would count as success: on holdout2, classify-v2 has fewer recommendation f
 | New: injected instruction steers v2 (SR08) | Contained, not fixed | the validator rejected all 3 attempts, so the case is an explicit failure, not a wrong label |
 
 Regressions: negative recall on holdout2 4/4 → 3/4 (ambiguous labels). Entity confusion on holdout2 remains 1 of 4 for v2.
+
+## 4. Next steps (proposed, not implemented)
+
+Implementing these now would mean tuning against holdout2 after seeing its results, so they are left for a later round with a new holdout.
+
+| Open item | Proposal | How to validate honestly |
+|---|---|---|
+| FM4: negative statements about a misidentified entity (H01) | Code rule like R-I3: when `entity_confusion` is true, negative evidence must sit in a sentence that names Kasparro *as Kasparro* (not inside the confused description), or the label is rejected | Label a new prompt-disjoint holdout (holdout3) first, freeze it, then compare v2 vs v3 |
+| FM5: product misattribution (H06) | Retrieval check, not prompt text: flag when a claimed Kasparro product or price is cited only to a non-Kasparro domain; a reviewer warning, not a label | Count flags on the labelled C3 cases; measure false flags on T02-like answers |
+| Low recommendation recall evidence | holdout2 has very few true recommendations; collect or label more positive cases | Report recall with Wilson CIs only once n ≥ 10 positives |
+| Run-to-run variance | `evaluation/stability.py`: v1 flipped 1 of 37 recommended labels on a live re-run at temperature 0 (H2-018-aimode) | Repeat with `--runs 3`; report flip rate per label |
+| Promotion of classify-v2 | Requires candidate review of the fresh-v1 labels and a newly reviewed report; the approved v1 report stays as submitted | Reviewer workflow (submit → approve) on a v2 draft |
