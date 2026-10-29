@@ -108,7 +108,7 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
   - Product misattribution (H06) is not detected.
   - holdout2 has too few true recommendations to measure recall.
 
-**Review record: classify-v2 report `6edb78b8` v1 (29 Oct 2026).**
+**Review record: classify-v2 report `6edb78b8` v1 (29 Oct 2026).** Before acting, I spent about two hours reading the sprint decisions and materials (self-reported; TIME_LOG.md).
 - **As analyst** (draft saved 19:23:36 IST, submitted 19:23:40), I removed three evidence quotes:
   - D1 #4, a conditional clause ("If you already use modern SEO suites…");
   - D2 #3, a neutral description of Kasparro, which also removed it from R2;
