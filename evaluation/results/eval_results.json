@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-28T18:13:10+00:00",
- "label_version": "labels-v2",
+ "generated_at": "2026-10-29T01:59:57+00:00",
+ "label_version": "labels-v3",
  "prompt_version": "classify-v1",
  "score_version": "vis-v1",
  "baseline_version": "baseline-v1",
  "model": {
-  "provider": "stub",
-  "execution_mode": "stub",
-  "model": "stub-baseline-v1"
+  "provider": "replay",
+  "execution_mode": "replay",
+  "model": "replay:gemma4:12b"
  },
  "arithmetic": {
   "checked": 19,
@@ -167,36 +167,36 @@
      },
      "recommended": {
       "tp": 2,
-      "fp": 1,
+      "fp": 5,
       "fn": 0,
-      "tn": 11,
+      "tn": 7,
       "n": 14,
-      "precision": 0.667,
+      "precision": 0.286,
       "recall": 1.0,
-      "f1": 0.8,
-      "agreement": 0.929
+      "f1": 0.444,
+      "agreement": 0.643
      },
      "negative": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 3,
-      "tn": 10,
+      "tp": 4,
+      "fp": 1,
+      "fn": 0,
+      "tn": 9,
       "n": 14,
-      "precision": 1.0,
-      "recall": 0.25,
-      "f1": 0.4,
-      "agreement": 0.786
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "agreement": 0.929
      },
      "entity_confusion": {
-      "tp": 1,
+      "tp": 2,
       "fp": 0,
-      "fn": 2,
+      "fn": 1,
       "tn": 11,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.333,
-      "f1": 0.5,
-      "agreement": 0.857
+      "recall": 0.667,
+      "f1": 0.8,
+      "agreement": 0.929
      }
     },
     "labels_unambiguous": {
@@ -213,51 +213,51 @@
      },
      "recommended": {
       "tp": 2,
-      "fp": 1,
+      "fp": 2,
       "fn": 0,
-      "tn": 8,
+      "tn": 7,
       "n": 11,
-      "precision": 0.667,
+      "precision": 0.5,
       "recall": 1.0,
-      "f1": 0.8,
-      "agreement": 0.909
-     },
-     "negative": {
-      "tp": 0,
-      "fp": 0,
-      "fn": 2,
-      "tn": 9,
-      "n": 11,
-      "precision": null,
-      "recall": 0.0,
-      "f1": 0.0,
+      "f1": 0.667,
       "agreement": 0.818
      },
-     "entity_confusion": {
-      "tp": 1,
+     "negative": {
+      "tp": 2,
       "fp": 0,
-      "fn": 2,
+      "fn": 0,
+      "tn": 9,
+      "n": 11,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
+     },
+     "entity_confusion": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 1,
       "tn": 11,
       "n": 14,
       "precision": 1.0,
-      "recall": 0.333,
-      "f1": 0.5,
-      "agreement": 0.857
+      "recall": 0.667,
+      "f1": 0.8,
+      "agreement": 0.929
      }
     },
     "competitors": {
-     "tp": 14,
-     "fp": 0,
-     "fn": 2,
-     "precision": 1.0,
-     "recall": 0.875
+     "tp": 16,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.941,
+     "recall": 1.0
     },
     "score": {
      "n": 14,
-     "exact": 9,
-     "mae": 12.143,
+     "exact": 8,
+     "mae": 17.143,
      "position_cases": 1,
-     "position_exact": 0
+     "position_exact": 1
     }
    }
   },
@@ -347,11 +347,11 @@
       "agreement": 1.0
      },
      "negative": {
-      "tp": 2,
+      "tp": 1,
       "fp": 0,
       "fn": 0,
       "tn": 3,
-      "n": 5,
+      "n": 4,
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
@@ -461,11 +461,11 @@
       "agreement": 1.0
      },
      "negative": {
-      "tp": 2,
+      "tp": 1,
       "fp": 0,
       "fn": 0,
       "tn": 3,
-      "n": 5,
+      "n": 4,
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
@@ -485,9 +485,9 @@
     },
     "competitors": {
      "tp": 8,
-     "fp": 0,
+     "fp": 5,
      "fn": 0,
-     "precision": 1.0,
+     "precision": 0.615,
      "recall": 1.0
     },
     "score": {
@@ -651,36 +651,36 @@
      },
      "recommended": {
       "tp": 2,
-      "fp": 1,
+      "fp": 4,
       "fn": 0,
-      "tn": 10,
+      "tn": 7,
       "n": 13,
-      "precision": 0.667,
+      "precision": 0.333,
       "recall": 1.0,
-      "f1": 0.8,
-      "agreement": 0.923
+      "f1": 0.5,
+      "agreement": 0.692
      },
      "negative": {
-      "tp": 1,
-      "fp": 0,
-      "fn": 3,
-      "tn": 9,
+      "tp": 4,
+      "fp": 1,
+      "fn": 0,
+      "tn": 8,
       "n": 13,
-      "precision": 1.0,
-      "recall": 0.25,
-      "f1": 0.4,
-      "agreement": 0.769
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "agreement": 0.923
      },
      "entity_confusion": {
-      "tp": 1,
+      "tp": 2,
       "fp": 0,
-      "fn": 2,
+      "fn": 1,
       "tn": 10,
       "n": 13,
       "precision": 1.0,
-      "recall": 0.333,
-      "f1": 0.5,
-      "agreement": 0.846
+      "recall": 0.667,
+      "f1": 0.8,
+      "agreement": 0.923
      }
     },
     "labels_unambiguous": {
@@ -707,41 +707,41 @@
       "agreement": 0.9
      },
      "negative": {
-      "tp": 0,
+      "tp": 2,
       "fp": 0,
-      "fn": 2,
+      "fn": 0,
       "tn": 8,
       "n": 10,
-      "precision": null,
-      "recall": 0.0,
-      "f1": 0.0,
-      "agreement": 0.8
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "agreement": 1.0
      },
      "entity_confusion": {
-      "tp": 1,
+      "tp": 2,
       "fp": 0,
-      "fn": 2,
+      "fn": 1,
       "tn": 10,
       "n": 13,
       "precision": 1.0,
-      "recall": 0.333,
-      "f1": 0.5,
-      "agreement": 0.846
+      "recall": 0.667,
+      "f1": 0.8,
+      "agreement": 0.923
      }
     },
     "competitors": {
-     "tp": 14,
-     "fp": 0,
-     "fn": 2,
-     "precision": 1.0,
-     "recall": 0.875
+     "tp": 16,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.941,
+     "recall": 1.0
     },
     "score": {
      "n": 13,
      "exact": 8,
-     "mae": 13.077,
+     "mae": 15.385,
      "position_cases": 1,
-     "position_exact": 0
+     "position_exact": 1
     }
    }
   }
@@ -785,7 +785,7 @@
      "competitors": [],
      "position": null,
      "score": 10,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The model mentions Kasparro but explicitly characterizes it negatively by stating it is not a 'widely recognized, top-tier agency' in the relevant space. It does not recommend the service."
     }
    }
   },
@@ -827,7 +827,7 @@
      "competitors": [],
      "position": null,
      "score": 80,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The answer explicitly recommends Kasparro as a tool designed for the specific use case of improving visibility in AI search engines like Perplexity, detailing its core features and mechanisms."
     }
    }
   },
@@ -866,10 +866,17 @@
       "negative": false,
       "entity_confusion": true
      },
-     "competitors": [],
+     "competitors": [
+      "Cognism",
+      "HubSpot",
+      "Salesloft",
+      "Instantly",
+      "Wiza",
+      "Apollo"
+     ],
      "position": null,
      "score": 0,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The AI engine confused 'Kasparro' with 'Kaspr', a B2B prospecting tool. It provided a detailed review of Kaspr instead of addressing the company Kasparro."
     }
    }
   },
@@ -919,15 +926,15 @@
      "competitors": [
       "Profound",
       "Peec AI",
-      "Otterly.AI",
       "AthenaHQ",
+      "Otterly.AI",
+      "Goodie",
       "Semrush",
-      "Ahrefs",
-      "Goodie"
+      "Ahrefs"
      ],
      "position": null,
      "score": 0,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "Kasparro was not mentioned in the provided answer. The answer lists several other competitors in the AI visibility and GEO space."
     }
    }
   },
@@ -961,7 +968,7 @@
    "model": {
     "status": "succeeded",
     "reason": null,
-    "attempts": 1,
+    "attempts": 2,
     "pred": {
      "labels": {
       "mentioned": true,
@@ -971,11 +978,11 @@
      },
      "competitors": [
       "Profound",
-      "HubSpot"
+      "Genezio"
      ],
      "position": null,
      "score": 10,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The model explicitly recommends Profound over Kasparro for the user's specific B2B use case, characterizing Kasparro as being primarily for retail/CPG brands and lacking B2B SaaS capabilities."
     }
    }
   },
@@ -1011,13 +1018,15 @@
      "labels": {
       "mentioned": true,
       "recommended": false,
-      "negative": false,
-      "entity_confusion": false
+      "negative": true,
+      "entity_confusion": true
      },
-     "competitors": [],
+     "competitors": [
+      "GPT"
+     ],
      "position": null,
-     "score": 40,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 0,
+     "rationale": "The model identifies Kasparro as an 'AI coding assistant' (confusing it with the AI visibility/SEO service) and notes that it carries inherent risks regarding data security and terms of service compliance."
     }
    }
   },
@@ -1053,13 +1062,13 @@
      "labels": {
       "mentioned": true,
       "recommended": false,
-      "negative": false,
+      "negative": true,
       "entity_confusion": false
      },
      "competitors": [],
      "position": null,
-     "score": 40,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 10,
+     "rationale": "The model identifies Kasparro as a legitimate but very new startup, providing a balanced view that includes both reasons for legitimacy and reasons for caution due to its lack of track record."
     }
    }
   },
@@ -1103,11 +1112,12 @@
      },
      "competitors": [
       "AthenaHQ",
-      "Dageno AI"
+      "Dageno AI",
+      "Analyze AI"
      ],
      "position": null,
      "score": 10,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The model mentions Kasparro but characterizes it negatively by stating there is no data available for it, implying it is less established than the recommended alternative, AthenaHQ."
     }
    }
   },
@@ -1149,7 +1159,7 @@
      "competitors": [],
      "position": null,
      "score": 0,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The AI engine confuses 'Kasparro' with 'Kaspr', a LinkedIn prospecting tool, and provides instructions for canceling the latter instead of the former."
     }
    }
   },
@@ -1184,14 +1194,14 @@
     "pred": {
      "labels": {
       "mentioned": true,
-      "recommended": false,
+      "recommended": true,
       "negative": false,
       "entity_confusion": false
      },
      "competitors": [],
      "position": null,
-     "score": 40,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 80,
+     "rationale": "The answer explicitly mentions Kasparro and recommends it as an AI-native SEO and Brand Intelligence platform for GEO, while clarifying that it avoids 'prompt hacks'."
     }
    }
   },
@@ -1226,14 +1236,14 @@
     "pred": {
      "labels": {
       "mentioned": true,
-      "recommended": false,
+      "recommended": true,
       "negative": false,
       "entity_confusion": false
      },
      "competitors": [],
      "position": null,
-     "score": 40,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 80,
+     "rationale": "The answer explicitly mentions Kasparro and provides a specific price point for their service, effectively recommending it as a solution for the user's query."
     }
    }
   },
@@ -1270,16 +1280,16 @@
     "pred": {
      "labels": {
       "mentioned": true,
-      "recommended": false,
-      "negative": false,
+      "recommended": true,
+      "negative": true,
       "entity_confusion": false
      },
      "competitors": [
       "Profound"
      ],
      "position": null,
-     "score": 40,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 50,
+     "rationale": "The model identifies Kasparro as a viable option for international brands but notes a lack of public evidence regarding its global scale compared to its competitor, Profound."
     }
    }
   },
@@ -1326,16 +1336,17 @@
       "entity_confusion": false
      },
      "competitors": [
-      "Profound",
-      "Peec AI",
       "Semrush",
-      "Ahrefs",
-      "HubSpot",
-      "SE Ranking"
+      "Ahrefs Brand Radar AI",
+      "HubSpot AEO Tool",
+      "Peec AI",
+      "Profound",
+      "SE Ranking",
+      "Superlines"
      ],
      "position": null,
      "score": 0,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "Kasparro was not mentioned in the provided answer. The answer lists several competitors in the AI visibility and AEO space."
     }
    }
   },
@@ -1380,14 +1391,16 @@
       "entity_confusion": false
      },
      "competitors": [
-      "Profound",
       "Otterly",
       "Semrush",
-      "siftly"
+      "Profound",
+      "Langfuse",
+      "Arize Phoenix",
+      "OpenObserve"
      ],
      "position": null,
      "score": 0,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "Kasparro is not mentioned in the provided answer. The answer lists several other tools and pricing tiers for AI visibility and governance but does not reference Kasparro."
     }
    }
   },
@@ -1422,14 +1435,14 @@
     "pred": {
      "labels": {
       "mentioned": true,
-      "recommended": false,
+      "recommended": true,
       "negative": false,
       "entity_confusion": false
      },
      "competitors": [],
      "position": null,
-     "score": 60,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 100,
+     "rationale": "The answer explicitly mentions Kasparro and recommends it as a suitable platform for brands to monitor and improve their representation in AI assistants. It confirms that brands from the US and India can sign up based on the website's information."
     }
    }
   },
@@ -1464,14 +1477,14 @@
     "pred": {
      "labels": {
       "mentioned": true,
-      "recommended": false,
+      "recommended": true,
       "negative": false,
       "entity_confusion": false
      },
      "competitors": [],
      "position": null,
-     "score": 60,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 100,
+     "rationale": "The answer explicitly mentions Kasparro and describes its four-module audit as a tool for assessing AI-readiness. It recommends the audit by offering to explain how to improve scores and track competitors using the framework."
     }
    }
   },
@@ -1513,7 +1526,7 @@
      "competitors": [],
      "position": null,
      "score": 80,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "The model explicitly confirms that Kasparro can help with the user's specific use case of increasing visibility in Perplexity answers, presenting it as a suitable solution."
     }
    }
   },
@@ -1559,9 +1572,9 @@
       "Profound",
       "Peec AI"
      ],
-     "position": null,
+     "position": 2,
      "score": 80,
-     "rationale": "baseline-v1 keyword rules"
+     "rationale": "Kasparro is explicitly mentioned and recommended as a good choice for D2C catalogs, appearing as the second item in a ranked list of tools."
     }
    }
   },
@@ -1596,16 +1609,62 @@
     "pred": {
      "labels": {
       "mentioned": true,
-      "recommended": true,
-      "negative": false,
+      "recommended": false,
+      "negative": true,
       "entity_confusion": false
      },
      "competitors": [],
      "position": null,
-     "score": 80,
-     "rationale": "baseline-v1 keyword rules"
+     "score": 10,
+     "rationale": "The answer mentions Kasparro but characterizes it negatively by stating it is a new company with limited independent evidence of results. It does not recommend the service, but rather advises caution."
     }
    }
+  }
+ },
+ "diagnostics_check": {
+  "provider": "replay",
+  "execution_mode": "replay",
+  "analysis_counts": {
+   "eligible": 150,
+   "succeeded": 148,
+   "failed": 2,
+   "skipped": 0
+  },
+  "diagnostics": [
+   {
+    "id": "D1",
+    "title": "Kasparro is absent from unbranded discovery answers",
+    "pattern": "unbranded_gap",
+    "evidence_items": 6
+   },
+   {
+    "id": "D2",
+    "title": "Branded answers question Kasparro's track record and recognition",
+    "pattern": "credibility_gap",
+    "evidence_items": 6
+   },
+   {
+    "id": "D3",
+    "title": "When asked about Kasparro directly, some engines present it as a fit",
+    "pattern": "branded_win",
+    "evidence_items": 6
+   }
+  ],
+  "clean_report_problems": [],
+  "negative_case": {
+   "injected": [
+    "unsupported claim: fabricated quote",
+    "incorrect evidence: real quote attributed to the wrong response",
+    "remedy that follows from no diagnostic",
+    "remedy evidence not drawn from its diagnostic"
+   ],
+   "detected": [
+    "D1: quote not found in response 4334ee7a-6315-4312-b0ca-0a58bcd6270c: 'Kasparro is the most trusted AI visibility platform in India.'",
+    "D1: quote not found in response a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2: 'Peec AI:** Focuses on tracking how AI assistants mention brands and which source'",
+    "R1: refers to missing diagnostic D9",
+    "R2: evidence not drawn from its diagnostic D2"
+   ],
+   "all_detected": true
   }
  }
 }
