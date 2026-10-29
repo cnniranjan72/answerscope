@@ -35,7 +35,7 @@ The approved report `7d80ca70`, `outputs/approved_report_export.json`, `outputs/
 - Report comparison (ecedf1a, e945679): API, CLI and console. It separates method changes from data changes and marks rate changes by 95% interval overlap.
 - Offline export verifier (d19f484): `python -m app.verify_export`.
 - `backup-db` CLI (5212152).
-- Readable report: `python -m app.render_export` and `GET /reports/{id}/export.md` (console: "Download readable report"). It renders only an export that verifies (93fe477 and this change). `outputs/approved_report.md` is the approved v1 report rendered this way.
+- Readable report: `python -m app.render_export` and `GET /reports/{id}/export.md` (console: "Download readable report"). It renders only an export that verifies (93fe477, 2ff0531). `outputs/approved_report.md` is the approved v1 report rendered this way.
 - `/health` lists every version above (2199d63).
 
 ### Evaluation
