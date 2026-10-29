@@ -79,7 +79,8 @@ def main(argv: list[str] | None = None) -> int:
         doc = {"analysis": run, "summary": scoring.aggregate(rows),
                "diagnostics": draft["diagnostics"], "remedies": draft["remedies"],
                "active_time": {"minutes": args.active_minutes, "source": "TIME_LOG.md",
-                               "note": "Active work only; unattended model-run time is excluded."},
+                               "note": ("Candidate active time as self-reported in TIME_LOG.md (estimates marked there). "
+                                        "AI-assisted session time and unattended model-run time are listed separately.")},
                "note": "Auto-generated draft diagnostics/remedies; the reviewed version is the approved report export.",
                "results": rows}
         out.write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
