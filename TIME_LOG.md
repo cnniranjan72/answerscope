@@ -6,18 +6,20 @@ Self-reported by the candidate on 29 October 2026. All estimates are approximate
 
 | Date | Active time | Activity |
 |---|---:|---|
+| 28 Oct 2026 (before the build) | ~30 min | Pre-work and research: understanding the assignment's requirements and details (AI visibility / answer-engine context, evaluation and review expectations) before starting. Separate from the reading of the brief and pack below. |
 | 28 Oct 2026 | ~30 min | Read the assignment brief and pack, including the provided instructions and supporting materials. |
 | 28–29 Oct 2026 | ~60 min | Reviewed the label audit table and full archived answers; made the 28 October adjudication decisions (H01, H02, H03, scoring and H06) and completed the 19-case review on 29 October. Reading and decision-making are counted once, without double-counting overlap. |
 | 28 Oct 2026 | ~20 min | Manually checked revenuepulseai.com and the Wayback capture for MC-01 and documented the findings. |
 | 28 Oct 2026 | ~25 min | Walked through the review console on port 8000, including the stub report and approve/export workflow. |
 | 29 Oct 2026 | ~35 min | Final review of the diagnostics and report against the cited answers. As analyst: removed 5 weak evidence quotes, replaced the D3 hypothesis and the R3 action, edited the notes, submitted. As reviewer: approved v1 with a comment and exported it. |
 | 29 Oct 2026 (evening, ended 19:25 IST) | ~120 min | Read the sprint decisions and materials (promotion record, evaluation, review notes, comparison) and reviewed the classify-v2 report draft `6edb78b8`. As analyst: removed D1 #4, D2 #3 (with R2 #3) and D2 #6, added notes, saved (19:23:36) and submitted (19:23:40). As reviewer: compared it with the approved v1 report, checked the quotes and approved v1 (19:24:46); exported it (19:25). Duration self-reported by the candidate; the action times are database timestamps. |
-| **Total candidate active time** | **~290 min (~4 h 50 min)** | **Verified self-reported entries only.** |
+| **Total candidate active time** | **~320 min (~5 h 20 min)** | **Verified self-reported entries only.** |
 
 ### Candidate time accounting notes
 
 - These durations are candidate-reported estimates, not independently measured timings.
 - The label-review estimate combines reading and adjudication to avoid double-counting overlapping work.
+- Pre-work and research (~30 min, self-reported on 29 Oct) is included in the total.
 - The final diagnostics review and report approval (~35 min, self-reported) are included in the total.
 - The classify-v2 report review (~120 min including reading the sprint decisions and materials, self-reported on 29 Oct) is included in the total. The candidate's earlier sprint decision (~14:35, accepting the AI audit suggestions) has no minutes claimed.
 - No active time is claimed for work that has not yet been performed.
@@ -69,6 +71,6 @@ Remaining for the candidate: send the submission (private archive or repository)
 | Candidate review of final diagnostics and report | Done, 29 Oct 2026 | ~35 min including approval (self-reported) |
 | Final report approval in the console | Approved v1 of report `7d80ca70`, 2026-10-29T02:20:33Z, by the reviewer identity, with comment | included above |
 | Candidate review and approval of the classify-v2 report | Approved v1 of report `6edb78b8`, 2026-10-29T13:54:46Z (19:24:46 IST), by the reviewer identity, with comment | ~120 min including reading (self-reported) |
-| Final candidate active-time total | ~290 min (est.) | sum of section 1 |
+| Final candidate active-time total | ~320 min (est.) | sum of section 1 |
 
 **Accounting rule:** Candidate active time, AI-assisted development session time, and unattended model execution are separate categories. They must not be summed into a single claimed active-work total. All estimated durations must remain explicitly marked as estimates.
