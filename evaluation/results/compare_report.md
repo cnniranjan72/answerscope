@@ -1,6 +1,6 @@
 # Comparison report: baseline vs classify-v1 vs classify-v2
 
-Generated 2026-10-29T05:27:11+00:00 | labels {'labels_v3.jsonl': 'a893038eb00bd4c7', 'fresh_v1.jsonl': 'c144389e44447789'} | score `vis-v1` | v1 `replay` | v2 `replay`
+Generated 2026-10-29T11:57:37+00:00 | labels {'labels_v3.jsonl': 'a893038eb00bd4c7', 'fresh_v1.jsonl': 'c144389e44447789'} | score `vis-v1` | v1 `replay` | v2 `replay`
 
 > **Read holdout2 for independent evidence.** final_seen was inspected while designing classify-v2; dev was used to tune it. Labels: labels-v3 (candidate-reviewed) and fresh-v1 (AI-drafted, blind to predictions, candidate review pending). Intervals are Wilson 95% on tiny counts: treat them as a warning about uncertainty, not as significance tests.
 
@@ -284,7 +284,8 @@ classify-v2 recommendation_type distribution: {'explicit_endorsement': 1, 'neutr
 
 ```
 {
- "generated_at": "2026-10-29T05:27:11+00:00",
+ "generated_at": "2026-10-29T11:57:37+00:00",
+ "fresh": "fresh-v1",
  "label_files": {
   "labels_v3.jsonl": "a893038eb00bd4c7",
   "fresh_v1.jsonl": "c144389e44447789"
