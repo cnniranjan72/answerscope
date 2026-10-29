@@ -1,4 +1,6 @@
-# Candidate output: classify-v2 (NOT approved)
+# classify-v2 full-pack output (NOT approved)
+
+Produced while classify-v2 was the candidate. It was promoted to the default on 29 Oct 2026; this file is still unreviewed. The v2 report under review is `1dcbae40` (claude-code/V2_REPORT_REVIEW.md).
 
 `analysis_output.json` is a replay of the full 150-answer pack under the **candidate** prompt `classify-v2`
 (analysis `1124fd24`, model `gemma4:12b`, temperature 0, seed 7, recordings in `replay/classify_v2/`).

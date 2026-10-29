@@ -51,7 +51,7 @@ The approved submission is unchanged and protected: tag `submission-v1` (`0abc2c
 | AI audit of fresh-v1 and candidate decisions (4 items, all AI suggestions accepted; 1 dev label changed) | `evaluation/cases/fresh_v1_ai_audit.md`, `fresh_review_log.jsonl`, `fresh_v2.jsonl` | `python -m evaluation.fresh_review` |
 | Comparison on fresh-v2 labels (holdout2 unchanged; dev v2 FP 1 → 0) | `evaluation/results/compare_fresh_v2_*` | `python -m evaluation.compare --fresh fresh-v2` |
 | Synthetic robustness fixtures (SR01–SR10, one per failure mode) | `evaluation/cases/synthetic_robust_v1.jsonl` | `python -m evaluation.build_synthetic_robustness` |
-| Candidate prompt `classify-v2` (frozen at tag `classify-v2-frozen`) | `prompts/classify_v2.md`, rules in `app/services/analyzer.py` | – |
+| Prompt `classify-v2` (frozen at tag `classify-v2-frozen`; **default since 29 Oct**, promotion record in DECISION_NOTE.md) | `prompts/classify_v2.md`, rules in `app/services/analyzer.py` | – |
 | Three-way comparison (baseline / v1 / v2, per split, Wilson CIs, FP/FN tables) | `evaluation/results/compare_report.md`, `compare_results.json`, `compare_predictions.json` | `python -m evaluation.compare` (replay); `--from-predictions` recomputes the metrics |
 | Tuning history (dev only) | `evaluation/results/v2_tuning/` | `python -m evaluation.compare --splits tuning,dev ...` |
 | Full-pack candidate output (149/150 succeeded; **not approved**) | `outputs/candidate_v2/` | see its README |
@@ -71,3 +71,8 @@ Open for the candidate: the fresh labels are AI-drafted plus an AI audit whose 4
 * Verified against the live URL: `/health` ok (stub provider); the console and `/docs` are served; no token gives 401; the seeded stub analysis has 6/6 succeeded; reviewer creating a report 403; analyst deciding 403; stale content hash 409; export of a draft or an unapproved submitted version 409; submit sets `review_due_at` (+72 h). `/replay/` and `/.env` give 404.
 * No approval was made on the hosted demo; a submitted synthetic report is waiting for a reviewer decision.
 * CI (GitHub Actions) builds the same image, checks that no private paths are inside it, and smoke-tests it on every push.
+
+### Promotion and v2 report draft (29 Oct 2026)
+* The candidate decided to promote classify-v2: it is now the default. `run_eval` and the baseline stay on the classify-v1 contract, and the evaluation of record reproduces (checked: timestamp-only diff).
+* Report fix: competitor names with or without an "AI" suffix are counted once (Otterly 12 + 4 → 16); report generator `report-v2`.
+* v2 report draft `1dcbae40` (analysis `f144fd60`, 149/150) is in the main DB, **not edited, submitted or approved**. Suggested analyst edits and the reviewer checklist are in `claude-code/V2_REPORT_REVIEW.md`. DB backup taken before any change: `var/backups/answerscope_pre_v2_promotion.db`.

@@ -58,13 +58,13 @@ python -m evaluation.run_eval            # labelled evaluation, baseline vs mode
 python -m evaluation.run_eval --provider ollama   # same cases against the live local model
 python -m evaluation.candidate_review            # rebuild labels_v3 from labels_v2 + the candidate's decision log
 
-# Sprint (29 Oct): baseline vs classify-v1 (production) vs classify-v2 (candidate), keyless from recordings
+# Sprint (29 Oct): baseline vs classify-v1 vs classify-v2 (default since 29 Oct), keyless from recordings
 python -m evaluation.compare                     # tuning / dev / final_seen / holdout2 / synthetic_robust
 python -m evaluation.compare --from-predictions evaluation/results/compare_predictions.json   # verify reproducibility
 python -m evaluation.stability --version classify-v1   # live re-run vs recorded labels (needs Ollama)
 ```
 
-classify-v1 stays the production default. classify-v2 is a candidate: `python -m app.cli analyse --provider replay --prompt-version classify-v2`.
+classify-v2 is the default prompt for new analyses since 29 Oct 2026 (promotion record in DECISION_NOTE.md). The approved report and the evaluation of record are classify-v1 results; reproduce that run with `python -m app.cli analyse --provider replay --prompt-version classify-v1`.
 
 ## Example workflow (analyse → edit → submit → approve/reject → export)
 

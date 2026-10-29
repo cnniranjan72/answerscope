@@ -84,12 +84,26 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
 **Addendum: post-submission sprint (29 Oct 2026).** The approved submission above is unchanged (tag `submission-v1`).
 - **Failure modes.** The main weakness, over-calling "recommended", was traced to five evidenced failure modes ([IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md)).
 - **Candidate prompt.** classify-v2 makes an explicit recommendation-type decision, backed by three deterministic validator rules.
-- **Honest test.** Because the original holdout had been inspected, I labelled a fresh set and froze it before any v2 run.
+- **Honest test.** Because the original holdout had been inspected, a fresh set was labelled (drafted by the AI assistant, blind to predictions) and frozen before any v2 run. I later decided the 4 items an AI audit raised on it (fresh-v2).
 - **Results.** On its 24 independent holdout answers, recommendation false positives fell from 10 to 2 and score error from 20.0 to 10.8. Negative recall dropped from 4/4 to 3/4, entity confusion stayed weak (1 of 4), and an injected instruction still steered v2's output: the validator turned that case into a failure rather than a wrong label.
-- **Status.** v2 remains a candidate until its labels and a full-pack report are human-reviewed.
+- **Status.** Promoted to the default on 29 Oct 2026; see the promotion record below.
 - **Also added.**
   - Advisory evidence-quality warnings.
   - A review deadline that never auto-approves.
   - A resume that is safe against truncated or stale recordings.
   - A fail-loud comparison runner.
   - A public-safe Docker image and a CI workflow.
+
+**Promotion record: classify-v2 becomes the default (29 Oct 2026).**
+- **Decision.** I decided to promote classify-v2 after reading the comparison, the stability re-runs and the fresh-label audit.
+- **What changed.**
+  - New analyses (CLI, API, console) use classify-v2 (`analyzer.PROMPT_VERSION`); `/health` reports it.
+  - classify-v1 stays registered and replayable. The approved report `7d80ca70`, `outputs/analysis_output.json` and `evaluation/results/eval_report.md` are classify-v1 results and are unchanged.
+  - `evaluation.run_eval` and the keyword baseline are pinned to the classify-v1 contract, so the evaluation of record still reproduces.
+- **Rollback.** `--prompt-version classify-v1` per run, or set `analyzer.PROMPT_VERSION` back. Both recording sets are kept.
+- **Report.** A classify-v2 report has been drafted (`1dcbae40`, report generator `report-v2`). It is not approved until I submit it as analyst and approve it as reviewer. Until then, the approved deliverable is the classify-v1 report.
+- **Known limits carried over.**
+  - Negative precision on holdout2 is 3/6.
+  - Entity confusion is weak (1/4).
+  - Product misattribution (H06) is not detected.
+  - holdout2 has too few true recommendations to measure recall.
