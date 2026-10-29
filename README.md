@@ -16,6 +16,7 @@ A small FastAPI + SQLite backend that analyses the Kasparro assignment pack: 50 
 | [evaluation/FAILURES.md](evaluation/FAILURES.md) | Five real failures, their diagnoses, fixes and regression tests |
 | [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export, edit-after-approval, step by step |
 | [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) and [evaluation/results/compare_report.md](evaluation/results/compare_report.md) | Post-submission sprint: evidenced failure modes, candidate prompt classify-v2, fresh holdout, three-way comparison |
+| [outputs/candidate_v2/](outputs/candidate_v2/README.md) | Full-pack classify-v2 output (candidate, **not approved**); the approved deliverable remains `outputs/approved_report_export.json` |
 
 Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md), [TESTING.md](TESTING.md), [evaluation/LABEL_AUDIT.md](evaluation/LABEL_AUDIT.md), [evaluation/RUBRIC.md](evaluation/RUBRIC.md). Planning records live in `claude-code/` and PROJECT.md / PROBLEM_STATEMENT.md / RESEARCH.md.
 
@@ -128,6 +129,6 @@ docker build -t answerscope-demo .
 docker run -p 8000:8000 -e ANALYST_TOKEN=<random> -e REVIEWER_TOKEN=<random> answerscope-demo
 ```
 
-The image contains code, prompts and the **synthetic** mini fixture pack only (stub provider). The supplied pack, replay recordings, outputs and evaluation data are excluded by `.dockerignore`, so the image is safe to run anywhere. The full workflow (import → analyse → edit → submit → approve/reject → export) works on the fixture data.
+The image contains code, prompts and the **synthetic** mini fixture pack only (stub provider). The supplied pack, replay recordings, outputs and evaluation data are excluded by `.dockerignore`, so the image is safe to run anywhere. On start it imports the fixture pack and runs a stub analysis, so the console has data; the full workflow (analyse → edit → submit → approve/reject → export) works on it.
 
 **Privacy:** `assignment/` (supplied data) is git-ignored. `replay/`, `outputs/` and `evaluation/` contain excerpts of the supplied answers, so keep this repository private.
