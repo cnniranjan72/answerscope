@@ -11,6 +11,9 @@
 * Frozen report versions and decisions are protected by SQLite triggers as well as service logic.
 * A decision is bound to the SHA-256 of the exact content reviewed; export re-verifies it.
 * State transitions run inside `BEGIN IMMEDIATE` transactions.
+* A recipient can verify an export without database access or tokens (`python -m app.verify_export`): it recomputes the content hash and locates every quote. Advisory fields (`evidence_warnings`, `claim_advisories`) sit outside the hashed content, so they cannot alter what was approved.
+* `backup-db` uses SQLite's online backup API, runs `PRAGMA integrity_check` on the copy and refuses to overwrite an existing file.
+* The report comparison endpoint requires a token like every other report read; ids are bound as SQL parameters.
 
 ## Untrusted content
 * Prompts and answers are data. They are wrapped in delimiters and the system prompt tells the model to ignore instructions inside them (synthetic case S02 tests an injection attempt).
