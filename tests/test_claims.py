@@ -38,3 +38,10 @@ def test_report_view_carries_advisories_outside_the_hashed_content(client, repor
     r = client.get(f"/reports/{report['report_id']}", headers=A).json()
     assert r["claim_advisories"]["version"] == "claims-v1" and isinstance(r["claim_advisories"]["items"], list)
     assert "claim_advisories" not in r["latest"]["content"]
+
+
+def test_health_reports_every_version_a_deploy_check_needs(client):
+    v = client.get("/health").json()["versions"]
+    assert v == {"prompt": "classify-v2", "score": "vis-v1", "category": "cat-v1", "citation_policy": v["citation_policy"],
+                 "report_generator": "report-v3", "evidence_policy": "evidence-v3", "claim_check": "claims-v1"}
+    assert v["citation_policy"]

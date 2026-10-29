@@ -12,7 +12,8 @@ from app.db import connect
 from app.errors import NotFound
 from app.schemas import AnalysisCreate, DatasetImport, DecisionRequest, ReportCreate, ReportPatch, SubmitRequest
 from app.security import current_identity, require
-from app.services import analysis, ingestion, review, scoring
+from app.services import analysis, ingestion, reporting, review, scoring
+from app.services.claims import CLAIM_CHECK_VERSION
 
 router = APIRouter()
 ANALYST = require("analyst")
@@ -33,7 +34,9 @@ def health(request: Request, conn: sqlite3.Connection = Depends(db)):
     s = request.app.state.settings
     return {"status": "ok", "database": "ok", "default_provider": s.provider,
             "versions": {"prompt": analysis.PROMPT_VERSION, "score": scoring.SCORE_VERSION,
-                         "category": analysis.CATEGORY_VERSION}}
+                         "category": analysis.CATEGORY_VERSION, "citation_policy": analysis.CITATION_POLICY_VERSION,
+                         "report_generator": reporting.REPORT_GENERATOR_VERSION,
+                         "evidence_policy": reporting.EVIDENCE_POLICY_VERSION, "claim_check": CLAIM_CHECK_VERSION}}
 
 
 @router.get("/whoami", tags=["system"])
