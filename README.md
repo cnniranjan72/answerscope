@@ -15,6 +15,7 @@ A small FastAPI + SQLite backend that analyses the Kasparro assignment pack: 50 
 | [EVALUATION.md](EVALUATION.md) and [evaluation/results/eval_report.md](evaluation/results/eval_report.md) | Baseline vs model on labelled cases; evidence checks |
 | [evaluation/FAILURES.md](evaluation/FAILURES.md) | Five real failures, their diagnoses, fixes and regression tests |
 | [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export, edit-after-approval, step by step |
+| [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) and [evaluation/results/compare_report.md](evaluation/results/compare_report.md) | Post-submission sprint: evidenced failure modes, candidate prompt classify-v2, fresh holdout, three-way comparison |
 
 Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md), [TESTING.md](TESTING.md), [evaluation/LABEL_AUDIT.md](evaluation/LABEL_AUDIT.md), [evaluation/RUBRIC.md](evaluation/RUBRIC.md). Planning records live in `claude-code/` and PROJECT.md / PROBLEM_STATEMENT.md / RESEARCH.md.
 
@@ -55,7 +56,14 @@ python -m evaluation.run_eval            # labelled evaluation, baseline vs mode
                                          # evaluation/results/eval_report.md and eval_results.json
 python -m evaluation.run_eval --provider ollama   # same cases against the live local model
 python -m evaluation.candidate_review            # rebuild labels_v3 from labels_v2 + the candidate's decision log
+
+# Sprint (29 Oct): baseline vs classify-v1 (production) vs classify-v2 (candidate), keyless from recordings
+python -m evaluation.compare                     # tuning / dev / final_seen / holdout2 / synthetic_robust
+python -m evaluation.compare --from-predictions evaluation/results/compare_predictions.json   # verify reproducibility
+python -m evaluation.stability --version classify-v1   # live re-run vs recorded labels (needs Ollama)
 ```
+
+classify-v1 stays the production default. classify-v2 is a candidate: `python -m app.cli analyse --provider replay --prompt-version classify-v2`.
 
 ## Example workflow (analyse → edit → submit → approve/reject → export)
 
@@ -106,11 +114,20 @@ No hosted API is used or needed. No credentials beyond the two local tokens exis
 
 ```
 app/            FastAPI app: api/ routes, services/ (ingestion, analyzer, llm, scoring, reporting, review), db/ schema
-prompts/        versioned model prompt (classify_v1.md)
+prompts/        versioned model prompts (classify_v1.md production, classify_v2.md candidate)
 replay/         recorded local-model outputs for keyless replay
 evaluation/     labelled cases, builder, runner, results, FAILURES.md
 tests/          pytest suite + synthetic fixture pack
 claude-code/    implementation instructions, steps, decisions, handoff, quality gates
 ```
+
+## Docker (public-safe demo image)
+
+```bash
+docker build -t answerscope-demo .
+docker run -p 8000:8000 -e ANALYST_TOKEN=<random> -e REVIEWER_TOKEN=<random> answerscope-demo
+```
+
+The image contains code, prompts and the **synthetic** mini fixture pack only (stub provider). The supplied pack, replay recordings, outputs and evaluation data are excluded by `.dockerignore`, so the image is safe to run anywhere. The full workflow (import → analyse → edit → submit → approve/reject → export) works on the fixture data.
 
 **Privacy:** `assignment/` (supplied data) is git-ignored. `replay/`, `outputs/` and `evaluation/` contain excerpts of the supplied answers, so keep this repository private.
