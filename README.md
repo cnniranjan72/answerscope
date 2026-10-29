@@ -16,7 +16,8 @@ A small FastAPI + SQLite backend that analyses the Kasparro assignment pack: 50 
 | [evaluation/FAILURES.md](evaluation/FAILURES.md) | Five real failures, their diagnoses, fixes and regression tests |
 | [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export, edit-after-approval, step by step |
 | [IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md) and [evaluation/results/compare_report.md](evaluation/results/compare_report.md) | Post-submission sprint: evidenced failure modes, candidate prompt classify-v2, fresh holdout, three-way comparison |
-| [outputs/candidate_v2/](outputs/candidate_v2/README.md) | Full-pack classify-v2 output (candidate, **not approved**); the approved deliverable remains `outputs/approved_report_export.json` |
+| [outputs/candidate_v2/](outputs/candidate_v2/README.md) | Full-pack classify-v2 output (default prompt since 29 Oct; its report is drafted, **not approved**); the approved deliverable remains `outputs/approved_report_export.json` |
+| [CHANGELOG.md](CHANGELOG.md) | Every version identifier (prompt, score, report generator, evidence policy, claim check, labels) and the commit that changed it |
 
 Supporting detail: [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY.md](SECURITY.md), [TESTING.md](TESTING.md), [evaluation/LABEL_AUDIT.md](evaluation/LABEL_AUDIT.md), [evaluation/RUBRIC.md](evaluation/RUBRIC.md). Planning records live in `claude-code/` and PROJECT.md / PROBLEM_STATEMENT.md / RESEARCH.md.
 

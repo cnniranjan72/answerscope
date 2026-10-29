@@ -43,3 +43,11 @@ Model-level robustness (semantic behaviour) is measured, not unit-tested: 10 SYN
 ## Latest result
 
 See [claude-code/HANDOFF.md](claude-code/HANDOFF.md) for the most recent recorded run (command, count, date).
+| classify-v2 promotion: default prompt, evaluation of record stays on v1 | `test_promotion_v2_is_default_and_approved_evaluation_stays_on_v1` |
+| Frozen label sets are never overwritten; new decisions build a new version | `test_fresh_review_reproduces_v2_and_refuses_to_overwrite_a_frozen_set` (skipped without the supplied pack) |
+| evidence-v3: strong competitor quotes preferred, assistant offers flagged | `test_unbranded_evidence_prefers_a_strong_competitor_quote`, `test_assistant_offer_is_flagged_as_weak_evidence` |
+| Report comparison: method vs data change, interval overlap, missing rates, auth | `tests/test_report_diff.py` |
+| Offline export verification: hash, approval, structure, quote locations | `tests/test_verify_export.py` |
+| claims-v1 advisory: price pattern, H06-like flag, supported or unrelated prices not flagged, outside the hash | `tests/test_claims.py` |
+| CLI: draft-report never submits; backup-db is checked and never overwrites | `tests/test_cli.py` |
+| `/health` lists every version a deploy check needs | `test_health_reports_every_version_a_deploy_check_needs` |
