@@ -56,6 +56,7 @@ th { color: var(--muted); font-weight: 600; font-size: 12px; }
 td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .table-wrap { overflow-x: auto; }
 .warn-text { color: var(--warn, #9a6700); margin-top: 4px; }
+.findings { margin: 0; padding-left: 20px; } .findings li { margin: 6px 0; } .findings .chip { margin-left: 6px; }
 blockquote { margin: 6px 0; padding: 6px 10px; background: var(--quote); border-left: 3px solid var(--line); border-radius: 4px; }
 .kv { display: grid; grid-template-columns: 140px 1fr; gap: 4px 12px; margin-top: 6px; }
 @media (max-width: 600px) { .kv { grid-template-columns: 1fr; } }
@@ -214,6 +215,7 @@ function render() {
     el("div", { class: "timeline" }, ...R.versions.map((v) => el("button", { class: v.version === V.version ? "sel" : "", on: { click: () => openReport(R.report_id, v.version) } },
       el("span", { class: "chip " + v.status }, `v${v.version} ${v.status}`)))));
   root.append(head);
+  root.append(keyFindings(R, V, C, isLatest));
 
   const prov = C.provenance || {};
   if (prov.execution_mode === "stub") root.append(el("div", { class: "banner warn" }, "STUB analysis: labels come from the deterministic baseline. Not evidence of model quality."));
@@ -269,6 +271,26 @@ function scorecard(C) {
 // Display only: show the rendered text of a quote; the exact raw span stays in the
 // tooltip and in the export, which is what the server verifies.
 const rendered = (q) => q.replace(/\[(?:\[\d+\])?\]\([^)\s]*\)/g, "").replace(/\[([^\]]*)\]\([^)\s]*\)/g, "$1").replace(/\*\*|__/g, "");
+function keyFindings(R, V, C, isLatest) {
+  // One glance for the reviewer: what is claimed, with what count, and how strong its evidence is.
+  const W = (isLatest && R.evidence_warnings) || {};
+  const warned = (id) => Object.keys(W).filter((k) => k.startsWith(id + "#")).length;
+  // Stored content has sorted keys, so the headline metric is named per pattern, not taken by position.
+  const HEAD = { unbranded_gap: "unbranded_mentioned", credibility_gap: "negative", branded_win: "recommended", entity_confusion: "confused" };
+  const headline = (d) => { const k = HEAD[(d.metrics || {}).pattern]; return k && d.metrics[k] ? [k, d.metrics[k]] : null; };
+  const card = el("div", { class: "card" }, el("h2", {}, "Key findings"),
+    el("ol", { class: "findings" }, ...C.diagnostics.map((d) => {
+      const h = headline(d), w = warned(d.id);
+      return el("li", {}, el("span", { class: "chip " + d.kind }, d.kind), " ", el("b", {}, d.title),
+        h ? el("span", { class: "chip" }, `${h[0].replace(/_/g, " ")}: ${h[1]}`) : null,
+        el("span", { class: "small muted" }, ` · ${d.evidence.length} quotes` + (w ? ` · ⚠ ${w} with warnings` : "")));
+    })),
+    el("p", { class: "small muted" }, "Reviewer checklist: every quote is verbatim (server-checked) but citations were not opened, so source support is unverified; "
+      + "counts come from one historical capture and one model run; ⚠ marks evidence that may not support its claim. "
+      + (V.status === "approved" ? "This version is approved and exportable." : V.status === "rejected" ? "This version was rejected and can never be exported." : "This version is not approved; export is refused.")));
+  return card;
+}
+
 function evidenceList(ev, owner) {
   // Advisory quality flags from the server (evidence-v2); computed for the latest version only.
   const W = (S.report && S.content && S.content.version === S.report.latest_version && S.report.evidence_warnings) || {};
