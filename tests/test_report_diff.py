@@ -60,3 +60,14 @@ def test_compare_endpoint_uses_the_approved_version_and_needs_a_token(client, re
     assert body["base"]["status"] == "approved" and body["other"]["status"] == "draft"
     assert not body["method_changes"] and "# Report comparison" in body["markdown"]
     assert client.get(f"/reports/{other}/compare", params={"against": "nope"}, headers=R).status_code == 404
+
+
+def test_a_segment_without_successful_answers_is_not_comparable_rather_than_an_error():
+    empty = {"count": 0, "denominator": 0, "rate": None, "ci95": None}
+    base = content("classify-v2", empty, "a1")
+    other = content("classify-v2", cell(12, 74, 0.09, 0.26), "a2")
+    d = compare_contents(base, other)
+    rec = next(r for r in d["rates"] if r["label"] == "recommended")
+    assert rec["kind"] == "rate" and rec["ci_overlap"] is None and rec["change_pp"] is None
+    from app.services.report_diff import to_markdown
+    assert "not comparable" in to_markdown(d, "a", "b")

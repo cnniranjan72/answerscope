@@ -39,12 +39,16 @@ def compare_contents(base: dict, other: dict) -> dict:
             a, b = cb.get(label), co.get(label)
             if not a or not b:
                 continue
+            if a["rate"] is None or b["rate"] is None:  # no successful answers on one side: nothing to compare
+                rates.append({"kind": "rate", "scope": scope, "label": label, "base": _frac(a), "other": _frac(b),
+                              "change_pp": None, "ci_overlap": None})
+                continue
             overlap = a["ci95"][0] <= b["ci95"][1] and b["ci95"][0] <= a["ci95"][1]
-            rates.append({"scope": scope, "label": label, "base": _frac(a), "other": _frac(b),
+            rates.append({"kind": "rate", "scope": scope, "label": label, "base": _frac(a), "other": _frac(b),
                           "change_pp": round(100 * (b["rate"] - a["rate"]), 1), "ci_overlap": overlap})
-        rates.append({"scope": scope, "label": "mean_score", "base": cb.get("mean_score"), "other": co.get("mean_score"),
-                      "change_pp": None, "ci_overlap": None})
-        rates.append({"scope": scope, "label": "succeeded", "base": f"{cb.get('succeeded')}/{cb.get('eligible')}",
+        rates.append({"kind": "info", "scope": scope, "label": "mean_score", "base": cb.get("mean_score"),
+                      "other": co.get("mean_score"), "change_pp": None, "ci_overlap": None})
+        rates.append({"kind": "info", "scope": scope, "label": "succeeded", "base": f"{cb.get('succeeded')}/{cb.get('eligible')}",
                       "other": f"{co.get('succeeded')}/{co.get('eligible')}", "change_pp": None, "ci_overlap": None})
 
     def diags(c):
@@ -81,7 +85,8 @@ def to_markdown(diff: dict, base_label: str, other_label: str) -> str:
         L.append("")
     L += ["| Scope | Measure | Base | Other | Change (pp) | 95% intervals |", "|---|---|---|---|---|---|"]
     for r in diff["rates"]:
-        ci = "" if r["ci_overlap"] is None else ("overlap" if r["ci_overlap"] else "**do not overlap**")
+        ci = ("not comparable (no successful answers)" if r["kind"] == "rate" and r["ci_overlap"] is None else
+              "" if r["ci_overlap"] is None else "overlap" if r["ci_overlap"] else "**do not overlap**")
         ch = "" if r["change_pp"] is None else f"{r['change_pp']:+.1f}"
         L.append(f"| {r['scope']} | {r['label']} | {r['base']} | {r['other']} | {ch} | {ci} |")
     d = diff["diagnostics"]

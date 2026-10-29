@@ -301,16 +301,17 @@ function compareCard(R) {
     if (!sel.value) return;
     try {
       const d = await api("GET", `/reports/${R.report_id}/compare?against=${encodeURIComponent(sel.value)}`);
-      const changed = d.rates.filter((r) => r.ci_overlap !== null && r.base !== r.other);
+      const rateRows = d.rates.filter((r) => r.kind === "rate"), changed = rateRows.filter((r) => r.base !== r.other);
       out.replaceChildren(
         el("p", { class: d.method_changes.length ? "banner warn" : "small" }, d.reading),
         d.method_changes.length ? el("div", { class: "small mono" }, d.method_changes.map((m) => `${m.field}: ${m.base} → ${m.other}`).join(" · ")) : null,
         el("div", { class: "table-wrap" }, el("table", { class: "compact" },
-          el("tr", {}, ...["Scope", "Measure", `${d.base.report_id.slice(0, 8)} v${d.base.version}`, "This report", "Change (pp)", "95% intervals"].map((h) => el("th", {}, h))),
-          ...changed.map((r) => el("tr", {}, el("td", {}, r.scope), el("td", {}, r.label.replace(/_/g, " ")), el("td", { class: "num" }, r.base),
-            el("td", { class: "num" }, r.other), el("td", { class: "num" }, (r.change_pp > 0 ? "+" : "") + r.change_pp),
-            el("td", {}, r.ci_overlap ? "overlap" : el("b", {}, "do not overlap")))))),
-        el("p", { class: "small muted" }, `${d.rates.filter((r) => r.ci_overlap !== null).length - changed.length} rates unchanged. `
+          el("tr", {}, ...["Measure", `${d.base.report_id.slice(0, 8)} v${d.base.version}`, "This report", "95% intervals", "Change (pp)"].map((h) => el("th", {}, h))),
+          ...changed.map((r) => el("tr", { style: r.ci_overlap === false ? "font-weight:600" : null }, el("td", {}, `${r.scope} · ${r.label.replace(/_/g, " ")}`), el("td", { class: "num" }, r.base),
+            el("td", { class: "num" }, r.other),
+            el("td", {}, r.ci_overlap === null ? "not comparable" : r.ci_overlap ? "overlap" : el("b", {}, "do not overlap")),
+            el("td", { class: "num" }, r.change_pp === null ? "–" : (r.change_pp > 0 ? "+" : "") + r.change_pp))))),
+        el("p", { class: "small muted" }, "Bold rows: the two 95% intervals do not overlap. ", `${rateRows.length - changed.length} rates unchanged. `
           + `Diagnostics only in ${d.base.report_id.slice(0, 8)}: ${d.diagnostics.only_in_base.join("; ") || "none"}. Only in this report: ${d.diagnostics.only_in_other.join("; ") || "none"}.`));
     } catch (e) { toast(e.message); }
   }
