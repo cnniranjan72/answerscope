@@ -12,6 +12,7 @@ A small FastAPI + SQLite backend that analyses the Kasparro assignment pack: 50 
 |---|---|
 | [DECISION_NOTE.md](DECISION_NOTE.md) | One page: scoring, design and review choices, top remedy, failure/fix, risks, AI assistance |
 | [outputs/analysis_output.json](outputs/analysis_output.json) and [outputs/approved_report_export.json](outputs/approved_report_export.json) | Scores, coverage, three diagnostics and three remedies; the reviewer-approved export |
+| [outputs/approved_report.md](outputs/approved_report.md) | The approved export as a readable report (rendered only after the export verifies: `python -m app.render_export`) |
 | [EVALUATION.md](EVALUATION.md) and [evaluation/results/eval_report.md](evaluation/results/eval_report.md) | Baseline vs model on labelled cases; evidence checks |
 | [evaluation/FAILURES.md](evaluation/FAILURES.md) | Five real failures, their diagnoses, fixes and regression tests |
 | [outputs/review_workflow_demo.md](outputs/review_workflow_demo.md) | Wrong-role denial, rejection blocking export, edit-after-approval, step by step |

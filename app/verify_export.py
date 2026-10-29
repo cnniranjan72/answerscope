@@ -67,20 +67,23 @@ def verify(doc: dict, answers: dict[str, str] | None = None) -> list[tuple[str, 
     return checks
 
 
+def load_answers(path: Path) -> dict[str, str]:
+    """response_id -> answer_text from a responses.jsonl file."""
+    out = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.strip():
+            r = json.loads(line)
+            out[r["response_id"]] = r["answer_text"]
+    return out
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m app.verify_export", description=__doc__.split("\n")[0])
     ap.add_argument("export_file", type=Path)
     ap.add_argument("--answers", type=Path, help="responses.jsonl of the analysed dataset (verifies every quote)")
     args = ap.parse_args(argv)
     doc = json.loads(args.export_file.read_text(encoding="utf-8"))
-    answers = None
-    if args.answers:
-        answers = {}
-        for line in args.answers.read_text(encoding="utf-8").splitlines():
-            if line.strip():
-                r = json.loads(line)
-                answers[r["response_id"]] = r["answer_text"]
-    checks = verify(doc, answers)
+    checks = verify(doc, load_answers(args.answers) if args.answers else None)
     for name, ok, detail in checks:
         print(f"{'PASS' if ok else 'FAIL'}  {name}: {detail}")
     ok = all(c[1] for c in checks)

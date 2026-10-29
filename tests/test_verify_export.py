@@ -51,3 +51,22 @@ def test_moved_quote_location_fails_and_cli_exits_nonzero(client, report, tmp_pa
     out = capsys.readouterr().out
     assert "FAIL  quotes found" in out and "NOT verified" in out
     assert "PASS  content hash" in out  # location is export-only metadata, outside the hash
+
+
+def test_render_produces_a_readable_report_only_from_a_verified_export(client, report, tmp_path, capsys):
+    from app.render_export import main as render_main, render
+    doc = exported(client, report)
+    md = render(doc)
+    assert md.startswith("# ") and doc["content_sha256"] in md
+    for heading in ("## Summary", "## Scorecard", "## Diagnostics", "## Remedies", "## Limitations", "## Method"):
+        assert heading in md
+    assert all(d["title"] in md for d in doc["content"]["diagnostics"])
+    good, bad, out = tmp_path / "good.json", tmp_path / "bad.json", tmp_path / "report.md"
+    good.write_text(json.dumps(doc), encoding="utf-8")
+    assert render_main([str(good), "--out", str(out)]) == 0 and out.read_text(encoding="utf-8") == md
+    tampered = copy.deepcopy(doc)
+    tampered["content"]["diagnostics"][0]["title"] = "Something the reviewer never approved"
+    bad.write_text(json.dumps(tampered), encoding="utf-8")
+    out.unlink()
+    assert render_main([str(bad), "--out", str(out)]) == 1 and not out.exists()
+    assert "REFUSED" in capsys.readouterr().err
