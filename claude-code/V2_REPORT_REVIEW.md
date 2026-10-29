@@ -18,7 +18,7 @@ Before editing, take a backup: `python -m app.cli backup-db` (a consistent copy 
 
 ## Suggested analyst edits (console, signed in as analyst)
 
-**Remove these evidence quotes** (tick "remove" on each). The draft shows no ⚠ weak-evidence flags; these come from reading the quotes against the labels:
+**Remove these evidence quotes** (console: **Edit draft**, then tick **D2 #3** and **D2 #6** under the D2 evidence list. Remedies have no tick boxes: ticking a diagnostic quote also removes it from that diagnostic's remedy, so R2 #3 goes with D2 #3. Then **Save**). The draft shows no ⚠ weak-evidence flags; these come from reading the quotes against the labels:
 
 | Item | Quote | Why |
 |---|---|---|
