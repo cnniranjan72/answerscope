@@ -35,12 +35,14 @@ The following are wall-clock intervals recorded during the Claude Code-assisted 
 | 23:12 | 23:20 | Checked live-run health, logged the H11 issue, implemented the resume flag, ran a clean-clone check (96 seconds), and drafted EVALUATION and HANDOFF materials. |
 | 23:20 | 23:50 | Wrote the MC-01 site-check findings; adjudicated H06; froze labels-v2; fixed F5; checked the console in headless Chrome; fixed the mobile layout; reviewed call statistics; prepared the README reading guide. |
 | 29 Oct 2026, 06:29 | 07:55 | Resumed the live run after a low-memory interruption at 91/150; added active-time reporting to analysis output and drafted DECISION_NOTE; recorded the candidate's case-by-case label decisions and built labels-v3 from them; full replay analysis; recorded S01/S02; evaluation run and EVALUATION results; two report fixes (competitor spelling variants, double full stop); console evidence-removal control; report draft and caveats; export hash note; final docs, clean-clone check and archive. |
+| 29 Oct 2026, ~08:00 | SPRINT_END | Engineering sprint after approval (separate from the approved submission): fresh-v1 label set (AI-drafted, blind, frozen); classify-v2 candidate prompt and rules; evidence-v2 warnings; review deadline; synthetic robustness fixtures; three-way comparison runner and report; stability study; candidate full-pack v2 output; Docker image and CI workflow; documentation; acceptance gate. Timestamps from commit times (first sprint commit 08:05). |
 
 ## 3. Unattended Model Execution
 
 | Start | End / status | Activity | Accounting |
 |---|---|---|---|
 | 28 Oct 2026, 22:36 | Interrupted at approximately 00:30 on 29 Oct 2026; resumed at approximately 06:30; completed 07:23 (150/150 recorded; 59 in the resumed part, all succeeded) | Background local-model run targeting 150 recorded answers. The run reached 91/150 before low system memory interrupted execution. It was resumed using `--only-unrecorded`. | Unattended GPU/model execution. Excluded from candidate active time and not added to the AI-assisted session or candidate active-time total. |
+| 29 Oct 2026, ~08:20 | Completed ~12:25 with interruptions (killed twice for low memory, resumed with `--only-unrecorded` / `compare --fill-*`) | Sprint model runs: classify-v2 tuning iterations on dev, comparison recordings, full-pack classify-v2 recording (96 answers in the final resumed part: 95 ok, 1 failed) | Unattended model execution; same accounting as above. |
 
 ## 4. Outstanding Work Before Submission
 
@@ -50,6 +52,8 @@ All items are complete as of 29 Oct 2026:
 - DECISION_NOTE.md.
 - Clean-clone audit (see claude-code/HANDOFF.md).
 - Candidate review and approval of the final report (section 5).
+
+Sprint (after approval): the candidate has not yet reviewed the AI-drafted fresh-v1 labels (`evaluation/cases/fresh_v1.jsonl`); no candidate active time is claimed for the sprint.
 
 Remaining for the candidate: send the submission (private archive or repository) by the reply route described in START_HERE.
 

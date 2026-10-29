@@ -40,3 +40,26 @@ Total **79 s**. The published metrics regenerate from the committed recordings a
 
 ## Submission archive
 `git archive --format=zip -o ../answerscope_submission.zip HEAD` creates a local file only. It contains tracked files only: no `.env`, no `assignment/` pack, no DB, no `INTERVIEW_PREP.md`. Not sent anywhere; the candidate sends it.
+
+## Sprint addendum (29 Oct 2026, after approval)
+
+The approved submission is unchanged and protected: tag `submission-v1` (`0abc2c7`) and `../answerscope_submission.zip`. Everything below is additive and **candidate only**: none of it is reviewed or approved.
+
+| Artifact | Path | Produced by |
+|---|---|---|
+| Fresh labelled set (dev 12 / holdout2 24, split by prompt, frozen before any v2 run; AI-drafted, **candidate review pending**) | `evaluation/cases/fresh_v1.jsonl` | `python -m evaluation.build_fresh_cases` |
+| Synthetic robustness fixtures (SR01–SR10, one per failure mode) | `evaluation/cases/synthetic_robust_v1.jsonl` | `python -m evaluation.build_synthetic_robustness` |
+| Candidate prompt `classify-v2` (frozen at tag `classify-v2-frozen`) | `prompts/classify_v2.md`, rules in `app/services/analyzer.py` | – |
+| Three-way comparison (baseline / v1 / v2, per split, Wilson CIs, FP/FN tables) | `evaluation/results/compare_report.md`, `compare_results.json`, `compare_predictions.json` | `python -m evaluation.compare` (replay); `--from-predictions` recomputes the metrics |
+| Tuning history (dev only) | `evaluation/results/v2_tuning/` | `python -m evaluation.compare --splits tuning,dev ...` |
+| Full-pack candidate output (149/150 succeeded; **not approved**) | `outputs/candidate_v2/` | see its README |
+| Stability study (live re-run vs recorded, classify-v1) | `evaluation/results/stability_classify_v1.md` | `python -m evaluation.stability` |
+| Failure modes, changes and outcome | `IMPROVEMENT_PLAN.md`; results in `EVALUATION.md` (sprint section); `DECISION_NOTE.md` addendum | – |
+| Public-safe demo image, CI | `Dockerfile`, `.github/workflows/ci.yml` | `docker build -t answerscope-demo .` (built and smoke-tested locally; CI not yet run on GitHub) |
+| Five-minute demo | `claude-code/DEMO.md` | – |
+
+Headline (holdout2, 24 answers, independent of tuning): recommended false positives 10 (v1) → 2 (v2); score MAE 20.0 → 10.8; failures 1 → 0. Regressions: negative recall 4/4 → 3/4; entity confusion stays weak (1/4). FM4 (H01) and FM5 (H06 misattribution) are not fixed. holdout2 has too few true recommendations to measure recall. The production default remains `classify-v1`.
+
+Reviewer UX: evidence-v2 warnings (⚠ weak evidence) in the console and export, outside the hashed content; a Key findings card with a reviewer checklist; a review deadline (`REVIEW_DUE_HOURS`, default 72) that flags overdue versions and never auto-approves.
+
+Open for the candidate: review the fresh-v1 labels (until then, holdout2 numbers rest on AI-drafted labels); decide whether to promote classify-v2. Promoting it would need a new reviewed report.
