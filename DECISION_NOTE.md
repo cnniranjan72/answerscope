@@ -43,7 +43,7 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
 
 **Evaluation.**
 - 12 holdout and 2 synthetic cases against a keyword baseline: ⟦headline numbers from EVALUATION.md⟧.
-- Labels are frozen as labels-v2 after my adjudication of disputed cases. This includes manual site check MC-01, which found that "Revenue Pulse" is a different company.
+- Labels: AI-drafted, then every one of the 19 cases reviewed and decided by me before the final evaluation (labels-v3; 2 changes, log in `evaluation/cases/candidate_review_log.jsonl`). This includes manual site check MC-01: the site cited for H06's price belongs to a different firm and does not mention Kasparro, so H06 is a *suspected* misattribution; no business relationship is claimed either way.
 
 **Largest risk.** Label definitions and sample size.
 - "Negative" includes hedging about missing evidence.

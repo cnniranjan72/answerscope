@@ -36,7 +36,7 @@ from app.services.llm import OllamaProvider  # noqa: E402
 from app.services.reporting import build_draft, verify_content  # noqa: E402
 from app.services.text import answer_body  # noqa: E402
 
-CASES = ROOT / "evaluation" / "cases" / "labels_v2.jsonl"  # frozen 2026-10-28; v1 kept for history
+CASES = ROOT / "evaluation" / "cases" / "labels_v3.jsonl"  # candidate-reviewed 2026-10-29; v1, v2 kept for history
 OUT = ROOT / "evaluation" / "results"
 LABELS = ["mentioned", "recommended", "negative", "entity_confusion"]
 PATTERN_LABEL = {"entity_confusion": "entity_confusion", "credibility_gap": "negative", "branded_win": "recommended"}
@@ -233,7 +233,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m evaluation.run_eval")
     ap.add_argument("--provider", default="replay", choices=["replay", "ollama", "stub"])
     ap.add_argument("--record", action="store_true")
-    ap.add_argument("--labels", default=str(CASES), help="label file (default: frozen labels_v2.jsonl)")
+    ap.add_argument("--labels", default=str(CASES), help="label file (default: candidate-reviewed labels_v3.jsonl)")
     ap.add_argument("--report-provider", default="replay", choices=["replay", "stub", "skip"],
                     help="provider for the full-pack diagnostics check")
     args = ap.parse_args(argv)

@@ -1,5 +1,6 @@
 """Label-file integrity (regressions from the rubric-v2 audit): splits stay separate,
 expected scores follow vis-v1, and every evidence span is an exact raw span of the source."""
+import hashlib
 import json
 from pathlib import Path
 
@@ -81,3 +82,26 @@ def test_v2_spans_are_exact_raw_offsets():
             for s in spans:
                 assert body[s["start"]:s["end"]] == s["quote"], c["case_id"]
         assert c["review"]["labeller"].startswith("AI coding assistant")  # never presented as human-verified
+
+
+V2_SHA256 = "5475036195d463706fb5fee4e7f3d356bb6bb763e295dbc47b42249740712d5e"  # frozen 2026-10-28
+
+
+def test_frozen_v2_is_unchanged():
+    data = (CASES / "labels_v2.jsonl").read_bytes().replace(b"\r\n", b"\n")
+    assert hashlib.sha256(data).hexdigest() == V2_SHA256
+
+
+def test_v3_every_case_has_a_candidate_decision():
+    path = CASES / "labels_v3.jsonl"
+    if not path.exists():
+        pytest.skip("labels-v3 not built")
+    v2 = {c["case_id"]: c for c in load(CASES / "labels_v2.jsonl")}
+    log = {d["case_id"]: d for d in load(CASES / "candidate_review_log.jsonl")}
+    for c in load(path):
+        cr = c["review"]["candidate_review"]
+        assert cr == {k: log[c["case_id"]][k] for k in ("decision", "changes", "reason", "recorded_at")}
+        assert "not independently double-annotated" in c["review"]["labeller"]
+        if cr["decision"] == "keep":  # a kept case is identical to v2 apart from provenance
+            strip = lambda x: {k: v for k, v in x.items() if k not in ("label_version", "review")}  # noqa: E731
+            assert strip(c) == strip(v2[c["case_id"]]), c["case_id"]

@@ -124,3 +124,20 @@ To freeze after your decisions: edit `AUDIT` in `evaluation/audit_labels.py`, re
 ## 9. Exposure log (after the audit)
 
 * 28 Oct 2026 23:16: a live-run health check printed failure reasons and exposed one holdout prediction. **H11** (`90b3eb79…`) failed validation after 3 attempts. The model claimed `recommended` with a quote that crosses a markdown list bullet ("I can: Detail…" vs source "I can:\n\n- Detail…"). The H11 labels were already set in v1/v2 and are not changed because of this. The matcher defect it reveals (candidate F5) is pending candidate decision, because fixing it would change a holdout outcome after it was seen.
+
+## 10. Candidate case-by-case review: labels-v2 → labels-v3 (29 Oct 2026)
+
+The candidate reviewed **all 19 cases** (17 supplied, 2 synthetic) one at a time against the full archived answers, before any final evaluation was run. An AI-assisted second-opinion audit (a separate assistant) was used as input; every decision below is the candidate's own and is logged per case in `cases/candidate_review_log.jsonl` (append-only; the last record per case applies). `labels_v2.jsonl` is unchanged (pinned by hash in `tests/test_labels.py`). `labels_v3.jsonl` is built from v2 plus the log by `python -m evaluation.candidate_review` and is now the default for `run_eval`.
+
+| Case | Decision | Change | Reason (summary) |
+|---|---|---|---|
+| T01 | change (revised after an initial keep) | `negative` marked ambiguous; labels unchanged | "not widely recognized" is an evidence/credibility doubt, rubric category (c); consistent with H02/H03 |
+| H03 | change | `negative` evidence span extended to the full sentence "There is no data available for a competitor named "Kasparro," suggesting AthenaHQ is the more established or visible entity…" | The comparative conclusion is the evidence; it still rests on an evidence gap, so N stays ambiguous |
+| H01 | keep (option A) | none | `mentioned` stays lexical (R-I1); `entity_confusion` captures the misidentification. The label is not redefined after seeing the data |
+| H02 | keep | none | N under D-NEG, stays ambiguous |
+| H06 | keep | none | M lexical; E is a *suspected* product misattribution. MC-01 found no Kasparro mention on the cited site; no business relationship is claimed as verified either way |
+| other 14 | keep | none | See the log for per-case reasons |
+
+Effect: no expected label or score changed; T01 (tuning) gains one ambiguous flag; H03's evidence is stronger. Labels remain single-annotator (AI-drafted, candidate-decided) and are not independently double-annotated.
+
+Note on §4: "revenuepulseai.com was not opened" describes the state before MC-01; the site was then checked manually by the candidate (§8).

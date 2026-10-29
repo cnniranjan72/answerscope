@@ -27,7 +27,7 @@
 
 ## Remaining (after the run and the freeze)
 1. Final analysis: `python -m app.cli analyse --provider replay` (main DB), then `python -m app.cli write-output <id>`.
-2. `python -m evaluation.run_eval --labels evaluation/cases/labels_v2.jsonl`; fill EVALUATION.md results.
+2. `python -m evaluation.run_eval` (default: candidate-reviewed `labels_v3.jsonl`); fill EVALUATION.md results.
 3. Review diagnostic wording against real numbers; create the report; candidate approves; save the export to `outputs/approved_report_export.json`.
 4. DECISION_NOTE.md (one page), final TIME_LOG, final quality-gate pass, private archive.
 
