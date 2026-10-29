@@ -56,6 +56,8 @@ def main(argv: list[str] | None = None) -> int:
     w.add_argument("analysis_id")
     w.add_argument("--out", default=str(ROOT / "outputs" / "analysis_output.json"))
     w.add_argument("--active-minutes", type=int, help="actual active work time to record (brief requirement)")
+    w.add_argument("--report", help="take diagnostics and remedies from this report's latest approved version "
+                                    "(default: the auto-generated draft)")
     args = ap.parse_args(argv)
 
     s = load_settings()
@@ -121,13 +123,24 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         run = analysis.get_run(conn, args.analysis_id)
         rows = analysis.result_rows(conn, args.analysis_id)
-        draft = build_draft(conn, args.analysis_id)
+        if args.report:
+            row = conn.execute("SELECT r.analysis_id, v.version, v.content_json FROM reports r JOIN report_versions v "
+                               "USING (report_id) WHERE r.report_id = ? AND v.status = 'approved' ORDER BY v.version DESC "
+                               "LIMIT 1", (args.report,)).fetchone()
+            if row is None or row["analysis_id"] != args.analysis_id:
+                print("the report has no approved version for this analysis", file=sys.stderr)
+                return 1
+            draft = json.loads(row["content_json"])
+            source = f"approved report {args.report} v{row['version']} (the export is the record of truth)"
+        else:
+            draft = build_draft(conn, args.analysis_id)
+            source = "auto-generated draft; the reviewed version is the approved report export"
         doc = {"analysis": run, "summary": scoring.aggregate(rows),
                "diagnostics": draft["diagnostics"], "remedies": draft["remedies"],
                "active_time": {"minutes": args.active_minutes, "source": "TIME_LOG.md",
                                "note": ("Candidate active time as self-reported in TIME_LOG.md (estimates marked there). "
                                         "AI-assisted session time and unattended model-run time are listed separately.")},
-               "note": "Auto-generated draft diagnostics/remedies; the reviewed version is the approved report export.",
+               "note": f"Diagnostics and remedies: {source}.",
                "results": rows}
         out.write_text(json.dumps(doc, indent=1, ensure_ascii=False), encoding="utf-8")
         print(f"wrote {out}")
