@@ -54,6 +54,7 @@ python -m pytest -q                      # engineering tests (synthetic fixture 
 python -m evaluation.run_eval            # labelled evaluation, baseline vs model (replay), writes
                                          # evaluation/results/eval_report.md and eval_results.json
 python -m evaluation.run_eval --provider ollama   # same cases against the live local model
+python -m evaluation.candidate_review            # rebuild labels_v3 from labels_v2 + the candidate's decision log
 ```
 
 ## Example workflow (analyse → edit → submit → approve/reject → export)
