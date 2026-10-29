@@ -78,3 +78,18 @@ AnswerScope: Kasparro AI-visibility snapshot (150 archived answers, captured 31 
   - label adjudication (H01, H02, H03, H06) and MC-01;
   - the final report approval.
 - Active time: candidate ~170 min (self-reported estimate, including the final review and approval), shown separately from the AI-assisted session time and the unattended model run (see [TIME_LOG.md](TIME_LOG.md)).
+
+---
+
+**Addendum: post-submission sprint (29 Oct 2026).** The approved submission above is unchanged (tag `submission-v1`).
+- **Failure modes.** The main weakness, over-calling "recommended", was traced to five evidenced failure modes ([IMPROVEMENT_PLAN.md](IMPROVEMENT_PLAN.md)).
+- **Candidate prompt.** classify-v2 makes an explicit recommendation-type decision, backed by three deterministic validator rules.
+- **Honest test.** Because the original holdout had been inspected, I labelled a fresh set and froze it before any v2 run.
+- **Results.** On its 24 independent holdout answers, recommendation false positives fell from 10 to 2 and score error from 20.0 to 10.8. Negative recall dropped from 4/4 to 3/4, entity confusion stayed weak (1 of 4), and an injected instruction still steered v2's output: the validator turned that case into a failure rather than a wrong label.
+- **Status.** v2 remains a candidate until its labels and a full-pack report are human-reviewed.
+- **Also added.**
+  - Advisory evidence-quality warnings.
+  - A review deadline that never auto-approves.
+  - A resume that is safe against truncated or stale recordings.
+  - A fail-loud comparison runner.
+  - A public-safe Docker image and a CI workflow.
