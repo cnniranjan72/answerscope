@@ -290,6 +290,12 @@ function keyFindings(R, V, C, isLatest) {
     el("p", { class: "small muted" }, "Reviewer checklist: every quote is verbatim (server-checked) but citations were not opened, so source support is unverified; "
       + "counts come from one historical capture and one model run; ⚠ marks evidence that may not support its claim. "
       + (V.status === "approved" ? "This version is approved and exportable." : V.status === "rejected" ? "This version was rejected and can never be exported." : "This version is not approved; export is refused.")));
+  // claims-v1: advisory only (never counted in a diagnostic); a human decides whether it is a misattribution.
+  const CA = R.claim_advisories;
+  if (CA && CA.items.length) card.append(el("div", { class: "banner warn" },
+    el("b", {}, `⚠ ${CA.items.length} possible product misattribution${CA.items.length > 1 ? "s" : ""} (${CA.version}, advisory). `), CA.note,
+    el("ul", {}, ...CA.items.map((i) => el("li", { title: i.excerpt }, `${i.engine} · ${i.prompt_id}: ${i.price} cited only to ${i.cited_only_to.join(", ")}`,
+      el("div", { class: "small muted" }, rendered(i.excerpt)))))));
   return card;
 }
 

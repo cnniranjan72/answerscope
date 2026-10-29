@@ -419,3 +419,19 @@ def enrich_evidence(conn: sqlite3.Connection, content: dict) -> dict:
                           "location": {"field": "answer_text", "start": loc[0], "end": loc[1]} if loc else None})
     return out
 
+
+
+def claim_advisories(conn: sqlite3.Connection, content: dict) -> dict:
+    """claims-v1 reviewer advisories for the report's analysis (outside the hashed content)."""
+    from app.services.claims import CLAIM_CHECK_VERSION, price_claims
+    aid = (content.get("provenance") or {}).get("analysis_id")
+    items = []
+    if aid:
+        for r in conn.execute("SELECT rr.response_id, rr.engine, rr.prompt_id, r.answer_text FROM response_results rr "
+                              "JOIN responses r USING (response_id) WHERE rr.analysis_id = ? AND rr.branded = 1 "
+                              "ORDER BY rr.prompt_id, rr.engine", (aid,)):
+            for c in price_claims(answer_body(r["answer_text"])):
+                items.append({"response_id": r["response_id"], "engine": r["engine"], "prompt_id": r["prompt_id"], **c})
+    return {"version": CLAIM_CHECK_VERSION, "kind": "possible product misattribution",
+            "note": "A Kasparro price cited only to non-Kasparro sites. Advisory: not counted in any diagnostic.",
+            "items": items}

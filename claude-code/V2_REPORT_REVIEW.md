@@ -37,6 +37,7 @@ Then **submit** version 1 (as analyst). The review deadline is set to 72 hours.
 
 ## Reviewer checklist (signed in as reviewer)
 - Open **Compare with another report** (defaults to the approved `7d80ca70`; CLI: `python -m app.cli report-diff 7d80ca70-6538-4f7f-b097-70b989f6b761 6edb78b8-2db6-4633-b9c7-f1a6aa8b8e4f`). Expected: the method changed (prompt, report generator) on the same capture; only *recommended* moves beyond the 95% intervals (40/148 → 12/149); *negative* (30/148 → 23/149) and *entity confusion* (8 → 9) are within them.
+- Key findings shows ⚠ 2 possible product misattributions (claims-v1, advisory): H06's ₹49,999 diagnostic cited only to revenuepulseai.com, and a $10,000 ACV claim cited only to iimjobs.com. They are not counted in D3; decide whether to mention them in the notes (the approved v1 report already treats H06 as a misattribution case in evaluation).
 - Do the key findings match the scorecard? D1 0/75 unbranded, D2 23/74, D3 9/74 (identical in both drafts).
 - Is there no ⚠ weak-evidence flag left?
 - Do the analyst notes disclose the method change and the uncertainty in the negative count?

@@ -42,7 +42,7 @@ What would count as success: on holdout2, classify-v2 has fewer recommendation f
 | FM2 affirmative factual answer / price → recommended | Fixed on the measured cases | final_seen H06, H07, H10 no longer recommended; SR03 correct |
 | FM3 assistant offer as evidence | Fixed, enforced by a rule | H11 correct; `test_regression_h11_…`; SR10 correct |
 | FM4 misidentified-entity statements → negative | **Not fixed** | H01 still negative under v2 (final_seen) |
-| FM5 product misattribution | Not addressed (by decision) | H06 entity_confusion still missed |
+| FM5 product misattribution | Partly addressed (reviewer advisory, 29 Oct 2026) | H06 entity_confusion still missed by both prompts. `claims-v1` (`app/services/claims.py`) flags a Kasparro price cited only to non-Kasparro domains, beside the report (never counted, never a label). On the pack: 3 of 75 branded answers state a Kasparro price; 2 flagged (H06, and an unlabelled deal-size claim cited to a job site); the third has no inline link. Too few cases for precision or recall. |
 | FM6 weak report evidence | Mitigated | evidence-v2 warnings + preference for strong quotes; root cause (label precision) improved by v2 |
 | New: confused entity recommended (dev D-017-gemini) | Fixed, enforced by a rule (R-I3) | `test_regression_dev_017_gemini_…` |
 | New: injected instruction steers v2 (SR08) | Contained, not fixed | the validator rejected all 3 attempts, so the case is an explicit failure, not a wrong label |
@@ -56,7 +56,8 @@ Implementing these now would mean tuning against holdout2 after seeing its resul
 | Open item | Proposal | How to validate honestly |
 |---|---|---|
 | FM4: negative statements about a misidentified entity (H01) | Code rule like R-I3: when `entity_confusion` is true, negative evidence must sit in a sentence that names Kasparro *as Kasparro* (not inside the confused description), or the label is rejected | Label a new prompt-disjoint holdout (holdout3) first, freeze it, then compare v2 vs v3 |
-| FM5: product misattribution (H06) | Retrieval check, not prompt text: flag when a claimed Kasparro product or price is cited only to a non-Kasparro domain; a reviewer warning, not a label | Count flags on the labelled C3 cases; measure false flags on T02-like answers |
+| FM5: product misattribution (H06) | Implemented for prices as `claims-v1` (advisory). Extending it to product names and features needs a product inventory from kasparro.com | Label more C3 cases on a new holdout; report flags per label with Wilson CIs |
+| Entity confusion recall (holdout2 1/4) | Tried 29 Oct 2026 and **not adopted**: a lexical "mentions Kaspr" flag. On labelled sets it agrees with 7 of 8 human confusion labels, but the 3 full-pack v2 answers it would add are correct disambiguations ("Kasparro … not Kaspr"), so it would only add false alarms | Needs a semantic rule (does the answer *describe* Kasparro as Kaspr?), validated on a new holdout |
 | Low recommendation recall evidence | holdout2 has very few true recommendations; collect or label more positive cases | Report recall with Wilson CIs only once n ≥ 10 positives |
 | Run-to-run variance | `evaluation/stability.py`, one live re-run each: v1 flipped 1 of 37 `recommended` (H2-018-aimode), v2 flipped 1 of 38 `negative` (H2-018-chatgpt) | Repeat with `--runs 3`; report flip rate per label |
 | Promotion of classify-v2 | Requires candidate review of the fresh-v1 labels and a newly reviewed report; the approved v1 report stays as submitted | Reviewer workflow (submit → approve) on a v2 draft |
