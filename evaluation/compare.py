@@ -11,6 +11,8 @@ Splits and what they can show:
              designing classify-v2, so for v2 they are NOT an independent test.
   holdout2   24 fresh-v1 cases, labelled and hash-frozen before classify-v2 ran on them, from
              prompts disjoint from all other splits: the independent test of v2 (and of v1).
+  synthetic_robust  10 SYNTHETIC one-per-failure-mode fixtures. Robustness checks only, written
+             after the failure analysis; never pooled with real-answer results.
 
 Fails loudly on: missing pack or labels, duplicate case IDs, unexpected label versions,
 changed frozen label files, and split contamination. Writes compare_report.md,
@@ -39,7 +41,7 @@ CASES = ROOT / "evaluation" / "cases"
 OUT = ROOT / "evaluation" / "results"
 FROZEN = {"labels_v3.jsonl": "a893038eb00bd4c7"}  # sha256 prefix (LF-normalised); fresh-v1 is pinned in its test
 SYSTEMS = ("baseline", "classify-v1", "classify-v2")
-SPLIT_ORDER = ("tuning", "dev", "final_seen", "holdout2")
+SPLIT_ORDER = ("tuning", "dev", "final_seen", "holdout2", "synthetic_robust")
 
 
 class IntegrityError(RuntimeError):
@@ -56,8 +58,8 @@ def _fresh_pin() -> str:
 
 
 def load_cases() -> dict[str, list[dict]]:
-    v3p, frp = CASES / "labels_v3.jsonl", CASES / "fresh_v1.jsonl"
-    for p in (v3p, frp):
+    v3p, frp, srp = CASES / "labels_v3.jsonl", CASES / "fresh_v1.jsonl", CASES / "synthetic_robust_v1.jsonl"
+    for p in (v3p, frp, srp):
         if not p.exists():
             raise IntegrityError(f"missing label file {p}")
     if not _sha(v3p).startswith(FROZEN["labels_v3.jsonl"]):
@@ -65,13 +67,15 @@ def load_cases() -> dict[str, list[dict]]:
     if _sha(frp) != _fresh_pin():
         raise IntegrityError("fresh_v1.jsonl changed after it was frozen")
     load = lambda p: [json.loads(l) for l in p.read_text(encoding="utf-8").splitlines() if l.strip()]  # noqa: E731
-    v3, fresh = load(v3p), load(frp)
-    if {c["label_version"] for c in v3} != {"labels-v3"} or {c["label_version"] for c in fresh} != {"fresh-v1"}:
+    v3, fresh, robust = load(v3p), load(frp), load(srp)
+    if ({c["label_version"] for c in v3} != {"labels-v3"} or {c["label_version"] for c in fresh} != {"fresh-v1"}
+            or {c["label_version"] for c in robust} != {"synthetic-robust-v1"}):
         raise IntegrityError("unexpected label_version in a label file")
     splits = {"tuning": [c for c in v3 if c["split"] == "tuning"],
               "dev": [c for c in fresh if c["split"] == "dev"],
               "final_seen": [c for c in v3 if c["split"] in ("holdout", "synthetic")],
-              "holdout2": [c for c in fresh if c["split"] == "holdout2"]}
+              "holdout2": [c for c in fresh if c["split"] == "holdout2"],
+              "synthetic_robust": robust}
     ids = [c["case_id"] for cs in splits.values() for c in cs]
     if len(ids) != len(set(ids)):
         raise IntegrityError(f"duplicate case IDs: {[k for k, n in Counter(ids).items() if n > 1]}")
