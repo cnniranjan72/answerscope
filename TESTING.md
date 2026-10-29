@@ -51,4 +51,5 @@ See [claude-code/HANDOFF.md](claude-code/HANDOFF.md) for the most recent recorde
 | claims-v1 advisory: price pattern, H06-like flag, supported or unrelated prices not flagged, outside the hash | `tests/test_claims.py` |
 | CLI: draft-report never submits; backup-db is checked and never overwrites | `tests/test_cli.py` |
 | Readable report renders only verified, approved exports (CLI and `export.md`) | `test_render_produces_a_readable_report_only_from_a_verified_export`, `test_markdown_export_endpoint_renders_only_approved_versions` |
+| The fresh-v2 review sheet is reproducible and lists only undecided cases | `test_review_sheet_is_reproducible_and_lists_only_undecided_cases` (skipped without the supplied pack) |
 | `/health` lists every version a deploy check needs | `test_health_reports_every_version_a_deploy_check_needs` |
