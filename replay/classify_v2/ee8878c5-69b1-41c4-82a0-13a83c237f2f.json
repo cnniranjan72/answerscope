@@ -1,0 +1,15 @@
+{
+ "response_id": "ee8878c5-69b1-41c4-82a0-13a83c237f2f",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "5ba60772a25773cadafcdf0dd216b4f0ee0e7190c098e76bf61f2650082c6471",
+ "recorded_at": "2026-10-29T04:23:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60813,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI\"\n    },\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"AthenaHQ\"\n    },\n    {\n      \"name\": \"Otterly.AI\",\n      \"evidence\": \"Otterly.AI\"\n    },\n    {\n      \"name\": \"Goodie\",\n      \"evidence\": \"Goodie\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

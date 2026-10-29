@@ -1,0 +1,15 @@
+{
+ "response_id": "5beb2a32-6c6c-42d8-861c-9fc9680b9930",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "79ccd9f1319c19dd43d61bc0e83477f75497239cfb7f55a5a1dffb5b399dace5",
+ "recorded_at": "2026-10-29T04:22:52+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 100252,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Whether Kaspr delivers actual results or is just marketing hype depends heavily on where you are prospecting and what you expect the tool to do.\",\n    \"It is a legitimate, widely used B2B prospecting tool (backed by its parent company Cognism)\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Cognism\",\n      \"evidence\": \"It is a legitimate, widely used B2B prospecting tool (backed by its parent company Cognism)\"\n    },\n    {\n      \"name\": \"HubSpot\",\n      \"evidence\": \"You have to export that data into a separate sales engagement platform (like HubSpot, Salesloft, or Instantly)\"\n    },\n    {\n      \"name\": \"Salesloft\",\n      \"evidence\": \"You have to export that data into a separate sales engagement platform (like HubSpot, Salesloft, or Instantly)\"\n    },\n    {\n      \"name\": \"Instantly\",\n      \"evidence\": \"You have to export that data into a separate sales engagement platform (like HubSpot, Salesloft, or Instantly)\"\n    },\n    {\n      \"name\": \"Wiza\",\n      \"evidence\": \"Many high-volume teams eventually complement Kaspr with \\\"waterfall\\\" enrichment tools (like Wiza or Apollo)\"\n    },\n    {\n      \"name\": \"Apollo\",\n      \"evidence\": \"Many high-volume teams eventually complement Kaspr with \\\"waterfall\\\" enrichment tools (like Wiza or Apollo)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer completely confuses 'Kasparro' with 'Kaspr', a B2B prospecting tool. It provides a detailed review of Kaspr instead of addressing the AI visibility service Kasparro.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "136b8240-008c-46ff-b744-592c4d859e98",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "8daa71b19e4600bfe33f07c1cf39bf61dae75978ae8574727175d5d62b10f36d",
+ "recorded_at": "2026-10-29T04:38:12+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37892,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Kaspr is primarily available as a **self-serve platform**.\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Cognism\",\n      \"evidence\": \"often managed alongside Cognism, its parent company\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The answer confuses Kasparro with 'Kaspr', a LinkedIn prospecting tool, and provides information about Kaspr's self-serve options instead of Kasparro's services.\"\n}"
+  }
+ ]
+}

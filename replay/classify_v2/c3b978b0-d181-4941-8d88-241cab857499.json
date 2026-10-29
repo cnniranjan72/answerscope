@@ -1,0 +1,15 @@
+{
+ "response_id": "c3b978b0-d181-4941-8d88-241cab857499",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "d34e8666350fca37f5b40f742e54d5534191ca477d25a2006b9ff1770a3474e6",
+ "recorded_at": "2026-10-29T04:34:08+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 68339,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Assuming you mean Kasparro (the AI visibility/GEO platform, not Kaspr for sales prospecting)\",\n    \"Kasparro makes more sense if you want:\",\n    \"3. Kasparro ⭐⭐⭐⭐☆ (good, but harder to justify unless you need its specific workflow features)\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I'd choose Peec AI over Kasparro.\",\n    \"If you're expecting it to dramatically outperform Peec on tracking accuracy alone, I don't think the premium is justified based on what's publicly available.\",\n    \"Kasparro ⭐⭐⭐⭐☆ (good, but harder to justify unless you need its specific workflow features)\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"I'd choose Peec AI over Kasparro.\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Best enterprise option: Profound (if budget isn't a concern)\"\n    }\n  ],\n  \"position_basis\": \"ranked_list\",\n  \"rationale\": \"The model explicitly recommends Peec AI over Kasparro for most small teams and ranks Kasparro lower in a numbered list, characterizing it as harder to justify unless specific workflow features are needed.\"\n}"
+  }
+ ]
+}

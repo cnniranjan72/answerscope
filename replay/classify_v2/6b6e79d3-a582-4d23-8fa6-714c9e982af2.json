@@ -1,0 +1,15 @@
+{
+ "response_id": "6b6e79d3-a582-4d23-8fa6-714c9e982af2",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "846a0edb37fe5419c18ce5ade77bb38d9c0b212ff07cd7e694e0ff947a376fa7",
+ "recorded_at": "2026-10-29T04:21:12+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 45290,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro is designed specifically for this use case.\",\n    \"Kasparro assists enterprise software brands through several core mechanisms:\"\n  ],\n  \"recommendation_type\": \"explicit_endorsement\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro is designed specifically for this use case.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly states that Kasparro is 'designed specifically' for the user's use case of showing up in Perplexity answers, which constitutes an explicit endorsement.\"\n}"
+  }
+ ]
+}

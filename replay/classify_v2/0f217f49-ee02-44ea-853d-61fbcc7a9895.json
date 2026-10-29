@@ -1,0 +1,21 @@
+{
+ "response_id": "0f217f49-ee02-44ea-853d-61fbcc7a9895",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "51cd1f3c0e1d01dd4406cc96f66ce6b21008ec7bc842321e685a948599522934",
+ "recorded_at": "2026-10-29T04:26:07+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "negative: quote not found in answer: 'Claude visibility tracking: ⚠️ Not its primary focus'; negative: quote not found in answer: 'B2B SaaS prompt tracking: ❌ Primarily retail/CPG'; negative: quote not found in answer: 'Competitor comparisons: Limited for SaaS'",
+   "latency_ms": 74590,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I would lean toward Profound over Kasparro.\",\n    \"Kasparro (assuming you mean the AI visibility platform rather than another product with a similar name) is aimed much more at retail and CPG brands.\",\n    \"For retail/e-commerce brands: Kasparro makes more sense.\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Claude visibility tracking: ⚠️ Not its primary focus\",\n    \"B2B SaaS prompt tracking: ❌ Primarily retail/CPG\",\n    \"Competitor comparisons: Limited for SaaS\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"I would lean toward Profound over Kasparro.\"\n    },\n    {\n      \"name\": \"Genezio\",\n      \"evidence\": \"For example, some platforms repeatedly run buyer-style prompts against Claude to estimate recommendation frequency across many prompt variations. [genezio.com](https://genezio.com/blog/genezio-vs-profound/?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly recommends Profound over Kasparro for the user's specific B2B SaaS use case, characterizing Kasparro as being primarily for retail/CPG brands and lacking specific B2B SaaS capabilities.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 58755,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"I would lean toward Profound over Kasparro.\",\n    \"Kasparro (assuming you mean the AI visibility platform rather than another product with a similar name) is aimed much more at retail and CPG brands.\",\n    \"For retail/e-commerce brands: Kasparro makes more sense.\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro (assuming you mean the AI visibility platform rather than another product with a similar name) is aimed much more at retail and CPG brands.\",\n    \"Its metrics revolve around AI shopping recommendations, \\\"Brand Inclusion Rate,\\\" \\\"Share of Invisible Shelf,\\\" and agentic commerce rather than B2B software evaluation.\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"I would lean toward Profound over Kasparro.\"\n    },\n    {\n      \"name\": \"Genezio\",\n      \"evidence\": \"For example, some platforms repeatedly run buyer-style prompts against Claude to estimate recommendation frequency across many prompt variations. [genezio.com](https://genezio.com/blog/genezio-vs-profound/?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly recommends Profound over Kasparro for the user's specific B2B SaaS use case, stating that Kasparro is aimed at retail/CPG brands rather than B2B software evaluation.\"\n}"
+  }
+ ]
+}

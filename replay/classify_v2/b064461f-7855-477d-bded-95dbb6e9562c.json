@@ -1,0 +1,21 @@
+{
+ "response_id": "b064461f-7855-477d-bded-95dbb6e9562c",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "8e60b974652dd42ea5aa6ce06ec4b9db1f9b16e7a5f7a39739ce2609ae2804ca",
+ "recorded_at": "2026-10-29T04:36:05+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "entity_confusion is true, so the recommended product is the misidentified entity, not Kasparro (rubric R-I3): set kasparro_recommended false and recommendation_type 'neutral_description'",
+   "latency_ms": 68804,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\",\n    \"Kasparro / Kaspr: A sales intelligence and B2B prospecting tool used to find phone numbers, emails, and LinkedIn contact data.\",\n    \"Buy Kasparro if: Your main goal is outbound sales, cold emailing, or cold calling.\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Buy Kasparro if: Your main goal is outbound sales, cold emailing, or cold calling.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Comparing Kasparro (often searched or spelled as Kaspr)\",\n    \"Kasparro / Kaspr: A sales intelligence and B2B prospecting tool\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model identifies Kasparro as a suitability claim for sales prospecting but incorrectly identifies it as 'Kaspr' (a prospecting tool) rather than the AI visibility service. Because it misidentifies the entity as a prospecting tool, it is marked as entity_confusion.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 48749,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\",\n    \"Kasparro / Kaspr: A sales intelligence and B2B prospecting tool used to find phone numbers, emails, and LinkedIn contact data.\",\n    \"Buy Kasparro if: Your main goal is outbound sales, cold emailing, or cold calling.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"Comparing Kasparro (often searched or spelled as Kaspr)\",\n    \"Kasparro / Kaspr: A sales intelligence and B2B prospecting tool\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Comparing Kasparro (often searched or spelled as Kaspr) and Peec AI is a classic \\\"apples to oranges\\\" dilemma\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model confuses Kasparro with 'Kaspr' (a prospecting tool) and describes it as a sales intelligence tool. Per the rubric, when entity_confusion is true, kasparro_recommended must be false and the recommendation_type must be neutral_description.\"\n}"
+  }
+ ]
+}

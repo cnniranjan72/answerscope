@@ -1,0 +1,15 @@
+{
+ "response_id": "67b714d5-bf90-42c2-a360-1d1d3149c1f8",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "b855a6b9adf3bc6f37181afa7b7f4f545eee4c4ad1ca5001e67f92d1260b492d",
+ "recorded_at": "2026-10-29T04:27:04+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56993,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If Kasparro or any similar AI visibility service does not show improvements within 14 days\",\n    \"The problem might not be Kasparro\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"AEO graders like the one from Semrush can provide a neutral, third-party assessment\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer mentions Kasparro in a neutral context, discussing potential reasons why it might not show results in 14 days, without explicitly endorsing or recommending it.\"\n}"
+  }
+ ]
+}

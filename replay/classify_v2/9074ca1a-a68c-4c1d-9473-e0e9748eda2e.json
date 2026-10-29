@@ -1,0 +1,15 @@
+{
+ "response_id": "9074ca1a-a68c-4c1d-9473-e0e9748eda2e",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "0ba7a10f8d9e079f3789ecedb9ba30ac1acb02775416064ee7d0590823b132ae",
+ "recorded_at": "2026-10-29T04:31:07+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 61221,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're positioning Kasparro as an AI search/discovery platform\",\n    \"If Kasparro currently tracks only ChatGPT, Perplexity, Copilot, or a subset of these, then Gemini and Claude are significant gaps\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Gemini and Claude are significant gaps\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"OpenAI\",\n      \"evidence\": \"OpenAI\"\n    },\n    {\n      \"name\": \"Perplexity AI\",\n      \"evidence\": \"Perplexity AI\"\n    },\n    {\n      \"name\": \"Microsoft\",\n      \"evidence\": \"Microsoft\"\n    },\n    {\n      \"name\": \"xAI\",\n      \"evidence\": \"xAI\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro's positioning and identifies potential gaps in its coverage (Gemini and Claude) as a negative characterization of its current capabilities. It does not explicitly recommend using the service.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "ffdd37a9-6c48-4dff-8abd-c455bc9580b2",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "a2678471daf655ac92a58ba8a9894407deeb1e0d30b00c6091c3e070d38ecee9",
+ "recorded_at": "2026-10-29T04:36:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 42809,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on recent job postings for Kasparro AI\",\n    \"Therefore, you will most likely have to talk to sales or a representative to get started with Kasparro.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual response regarding the sales model of Kasparro based on job postings, concluding that a sales-led approach is likely required rather than a self-serve model.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "95f393e4-e371-4acf-8c6e-1a74bf65c045",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "4b625fcf8bbd1e6b0f4d3859fa7ffb1e797170a013f756684de98e052d9d5dc7",
+ "recorded_at": "2026-10-29T04:30:06+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 72171,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro appears to be missing major AI models like Anthropic's Claude and Google's Gemini\",\n    \"Find if there are any updates regarding new integrations for Kasparro?\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro appears to be missing major AI models like Anthropic's Claude and Google's Gemini\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Perplexity AI\",\n      \"evidence\": \"The literature focuses heavily on Perplexity AI as a primary AI search engine for citations\"\n    },\n    {\n      \"name\": \"Kimi 2.6\",\n      \"evidence\": \"mentions Kimi 2.6 and Grok as other major AI models in 2026\"\n    },\n    {\n      \"name\": \"Grok\",\n      \"evidence\": \"mentions Kimi 2.6 and Grok as other major AI models in 2026\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's current state (missing certain models) and includes a negative characterization by stating it is missing major competitors like Claude and Gemini.\"\n}"
+  }
+ ]
+}

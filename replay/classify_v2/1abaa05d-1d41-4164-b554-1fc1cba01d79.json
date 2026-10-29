@@ -1,0 +1,15 @@
+{
+ "response_id": "1abaa05d-1d41-4164-b554-1fc1cba01d79",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "7ac435d66533ba1543294174acc6468fbc3ed7fa9bc32b77f65494b04a38c264",
+ "recorded_at": "2026-10-29T04:27:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 44599,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're referring to an AI visibility service like Kasparro, the answer depends entirely on what they promised in your agreement.\",\n    \"If you can share: - the exact Kasparro plan you purchased\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer describes Kasparro as an AI visibility service and provides a neutral framework for handling a hypothetical lack of results, without explicitly endorsing or recommending the service.\"\n}"
+  }
+ ]
+}

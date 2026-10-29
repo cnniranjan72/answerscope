@@ -1,0 +1,15 @@
+{
+ "response_id": "95a7db89-bcd6-49fa-bd03-ab098605fcc1",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "1df67361b513e1a7d89eaf9b7da7d0a1740f84a3c9e4e82d78130a2dff4c3f1d",
+ "recorded_at": "2026-10-29T04:31:49+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 41409,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"No, Kasparro (an AI visibility and brand intelligence platform) is not missing major AI search engines like Gemini or Claude.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual confirmation that Kasparro monitors Gemini and Claude, answering the user's specific question about coverage without offering a subjective recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

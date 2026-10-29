@@ -1,0 +1,15 @@
+{
+ "response_id": "a3fdd8bb-bcd9-4608-9786-ad4b3a2c7dc2",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "d982e5236cfd6a437fc435bd4d27cc7898a3467326680f8659fe69104764fc04",
+ "recorded_at": "2026-10-29T04:20:27+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 125983,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is not a widely recognized, top-tier agency or tool in the AI visibility space (AISO - AI Search Optimization) for B2B SaaS according to public search results as of July 2026.\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Kasparro is not a widely recognized, top-tier agency or tool in the AI visibility space (AISO - AI Search Optimization) for B2B SaaS\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"Over 88% of ChatGPT recommendations cite third-party sources (like Reddit, [G2](https://www.g2.com/), [Capterra](https://www.capterra.com/) , or media articles)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Over 88% of ChatGPT recommendations cite third-party sources (like Reddit, [G2](https://www.g2.com/), [Capterra](https://www.capterra.com/) , or media articles)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro while explicitly stating it is not a 'widely recognized, top-tier' tool, which constitutes a negative characterization regarding its market standing.\"\n}"
+  }
+ ]
+}
