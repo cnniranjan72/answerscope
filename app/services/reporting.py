@@ -22,7 +22,8 @@ from app.services.analysis import get_run, result_rows
 from app.services.citations import CITATION_POLICY_VERSION
 from app.services.text import answer_body, locate
 
-REPORT_SCHEMA_VERSION = "report-v1"
+REPORT_SCHEMA_VERSION = "report-v1"  # content schema (unchanged)
+REPORT_GENERATOR_VERSION = "report-v2"  # v2: competitor names counted once with or without an "AI" suffix
 EVIDENCE_POLICY_VERSION = "evidence-v2"  # draft evidence prefers quotes without warnings
 SEVERITY = {"unbranded_gap": 1.0, "entity_confusion": 1.0, "credibility_gap": 0.8, "branded_win": 0.6}
 MAX_EVIDENCE = 6
@@ -302,7 +303,7 @@ def build_draft(conn: sqlite3.Connection, analysis_id: str) -> dict:
         "provenance": {"analysis_id": analysis_id, "execution_mode": run["execution_mode"], "model": run["model"],
                        "model_quality_note": run["model_quality_note"], "prompt_version": run["prompt_version"],
                        "score_version": run["score_version"], "category_version": run["category_version"],
-                       "citation_policy": CITATION_POLICY_VERSION, "report_generator": REPORT_SCHEMA_VERSION,
+                       "citation_policy": CITATION_POLICY_VERSION, "report_generator": REPORT_GENERATOR_VERSION,
                        "evidence_policy": EVIDENCE_POLICY_VERSION,
                        "historical_capture_date": "2026-07-31", "generated_at": utcnow()},
         "scorecard": agg,

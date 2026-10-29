@@ -201,6 +201,8 @@ def test_competitor_counting_ignores_spelling_variants():
     from app.services.reporting import comp_key
     assert comp_key("Otterly.ai") == comp_key("Otterly AI") == comp_key("otterly-ai")
     assert comp_key("OtterlyAI") == comp_key("Otterly") and comp_key("Peec AI") == comp_key("Peec")  # draft v2 review
+    from app.services.reporting import REPORT_GENERATOR_VERSION
+    assert REPORT_GENERATOR_VERSION == "report-v2"  # counting changed: version bumped (CLAUDE.md)
     assert comp_key("HubSpot AEO") != comp_key("HubSpot")
 
 
