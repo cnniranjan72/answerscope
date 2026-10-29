@@ -48,6 +48,7 @@ class Settings:
     model_max_output_tokens: int
     max_input_chars: int
     max_responses_per_analysis: int
+    review_due_hours: float = 72.0  # review deadline after submit; never auto-approves
 
 
 def load_settings() -> Settings:
@@ -91,4 +92,15 @@ def load_settings() -> Settings:
         model_max_output_tokens=int(env.get("MODEL_MAX_OUTPUT_TOKENS", "1200")),
         max_input_chars=int(env.get("MAX_INPUT_CHARS", "20000")),
         max_responses_per_analysis=int(env.get("MAX_RESPONSES_PER_ANALYSIS", "200")),
+        review_due_hours=_positive(env.get("REVIEW_DUE_HOURS", "72"), "REVIEW_DUE_HOURS"),
     )
+
+
+def _positive(value: str, name: str) -> float:
+    try:
+        v = float(value)
+    except ValueError:
+        raise ConfigError(f"{name} must be a number, got {value!r}") from None
+    if v <= 0:
+        raise ConfigError(f"{name} must be greater than 0")
+    return v

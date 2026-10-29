@@ -28,8 +28,17 @@ def init_db(db_path: Path) -> None:
     conn = connect(db_path)
     try:
         conn.executescript(SCHEMA_PATH.read_text(encoding="utf-8"))
+        _migrate(conn)
     finally:
         conn.close()
+
+
+def _migrate(conn: sqlite3.Connection) -> None:
+    """Additive, idempotent migrations for databases created by an earlier schema."""
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(report_versions)")}
+    if "review_due_at" not in cols:
+        conn.execute("ALTER TABLE report_versions ADD COLUMN review_due_at TEXT")
+        conn.commit()
 
 
 @contextmanager

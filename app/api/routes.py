@@ -147,8 +147,9 @@ def patch_report(report_id: str, body: ReportPatch, actor: Identity = Depends(AN
 
 
 @router.post("/reports/{report_id}/submit", tags=["review"], summary="Freeze a draft version for review")
-def submit(report_id: str, body: SubmitRequest, actor: Identity = Depends(ANALYST), conn=Depends(db)):
-    return review.submit(conn, report_id, body.version, actor)
+def submit(report_id: str, body: SubmitRequest, request: Request, actor: Identity = Depends(ANALYST),
+           conn=Depends(db)):
+    return review.submit(conn, report_id, body.version, actor, request.app.state.settings.review_due_hours)
 
 
 @router.post("/reports/{report_id}/decision", tags=["review"],

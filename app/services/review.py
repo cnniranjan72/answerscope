@@ -16,6 +16,7 @@ Every state transition runs inside BEGIN IMMEDIATE, so check and write are atomi
 from __future__ import annotations
 
 import json
+from datetime import datetime, timedelta, timezone
 import sqlite3
 import uuid
 
@@ -47,7 +48,9 @@ def _version(conn: sqlite3.Connection, report_id: str, version: int) -> sqlite3.
 
 def _version_view(row: sqlite3.Row, include_content: bool = True) -> dict:
     d = {k: row[k] for k in ("report_id", "version", "status", "content_sha256", "parent_version",
-                             "created_by", "created_at", "updated_at", "submitted_by", "submitted_at")}
+                             "created_by", "created_at", "updated_at", "submitted_by", "submitted_at",
+                             "review_due_at")}
+    d["review_overdue"] = is_overdue(row["status"], row["review_due_at"])
     if include_content:
         d["content"] = json.loads(row["content_json"])
     return d
@@ -127,7 +130,16 @@ def patch_report(conn: sqlite3.Connection, report_id: str, patch: ReportPatch, a
     return view
 
 
-def submit(conn: sqlite3.Connection, report_id: str, version: int, actor: Identity) -> dict:
+def is_overdue(status: str, due_at: str | None, now: datetime | None = None) -> bool:
+    """A submitted version past its review deadline. Policy: it stays submitted (never
+    approved or rejected by timeout), is flagged for escalation, and export keeps refusing."""
+    if status != "submitted" or not due_at:
+        return False
+    return (now or datetime.now(timezone.utc)) > datetime.fromisoformat(due_at)
+
+
+def submit(conn: sqlite3.Connection, report_id: str, version: int, actor: Identity,
+           review_due_hours: float = 72.0) -> dict:
     with transaction(conn):
         latest = _latest(conn, report_id)
         if version != latest["version"]:
@@ -141,8 +153,11 @@ def submit(conn: sqlite3.Connection, report_id: str, version: int, actor: Identi
         if problems:
             raise Unprocessable("report failed evidence checks; fix before submitting",
                                 {"problems": problems}, code="evidence_check_failed")
-        conn.execute("UPDATE report_versions SET status = 'submitted', submitted_by = ?, submitted_at = ? "
-                     "WHERE report_id = ? AND version = ?", (actor.name, utcnow(), report_id, version))
+        now = datetime.now(timezone.utc)
+        due = (now + timedelta(hours=review_due_hours)).isoformat(timespec="seconds")
+        conn.execute("UPDATE report_versions SET status = 'submitted', submitted_by = ?, submitted_at = ?, "
+                     "review_due_at = ? WHERE report_id = ? AND version = ?",
+                     (actor.name, now.isoformat(timespec="seconds"), due, report_id, version))
     return get_version(conn, report_id, version)
 
 

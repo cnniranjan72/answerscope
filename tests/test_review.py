@@ -259,3 +259,30 @@ def test_weak_evidence_is_flagged_but_does_not_block(client, report, conn):
     assert "very short quote" in view["evidence_warnings"][f"{d0['id']}#1"]
     assert not view["evidence_problems"]
     assert submit(client, rid, 1).status_code == 200
+
+
+def test_review_deadline_flags_overdue_and_never_auto_approves(client, report, conn):
+    """Fixture scenario review_no_response: a short simulated deadline must not approve."""
+    rid = report["report_id"]
+    assert submit(client, rid, 1).status_code == 200
+    v = latest(client, rid)["latest"]
+    assert v["review_due_at"] and v["review_overdue"] is False
+    conn.execute("UPDATE report_versions SET review_due_at = '2000-01-01T00:00:00+00:00' WHERE report_id = ?", (rid,))
+    conn.commit()
+    view = latest(client, rid)
+    assert view["latest"]["review_overdue"] is True and view["latest_status"] == "submitted"
+    assert client.get(f"/reports/{rid}/export", headers=A).status_code == 409  # still not exportable
+    assert decide(client, rid, 1).status_code == 200  # a late human decision is still valid (hash-checked)
+    assert latest(client, rid)["latest"]["review_overdue"] is False
+
+
+def test_migration_adds_review_deadline_to_an_old_database(tmp_path):
+    from app.db import connect, init_db
+    db = tmp_path / "old.db"
+    c = sqlite3.connect(db)
+    c.execute("CREATE TABLE report_versions (report_id TEXT, version INTEGER, status TEXT, content_json TEXT, "
+              "content_sha256 TEXT, parent_version INTEGER, created_by TEXT, created_at TEXT, updated_at TEXT, "
+              "submitted_by TEXT, submitted_at TEXT, PRIMARY KEY (report_id, version))")
+    c.commit(); c.close()
+    init_db(db); init_db(db)  # idempotent
+    assert "review_due_at" in {r[1] for r in connect(db).execute("PRAGMA table_info(report_versions)")}

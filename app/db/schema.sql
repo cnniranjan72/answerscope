@@ -140,6 +140,7 @@ CREATE TABLE IF NOT EXISTS report_versions (
     updated_at      TEXT NOT NULL,
     submitted_by    TEXT,
     submitted_at    TEXT,
+    review_due_at   TEXT,  -- set on submit; overdue versions are flagged, never auto-approved
     PRIMARY KEY (report_id, version)
 );
 

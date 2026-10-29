@@ -208,6 +208,9 @@ function render() {
   const head = el("div", { class: "card" },
     el("div", { class: "row" }, el("h3", { style: "flex:1;margin:0" }, C.title), el("span", { class: "chip " + V.status }, `v${V.version} · ${V.status}`)),
     el("div", { class: "small muted mono" }, `report ${R.report_id} · sha256 ${V.content_sha256.slice(0, 16)}…`),
+    V.status === "submitted" && V.review_due_at ? el("div", { class: V.review_overdue ? "banner warn" : "small muted" },
+      V.review_overdue ? `Review overdue since ${V.review_due_at}: escalate to a reviewer. It is never approved automatically; export stays blocked.`
+                       : `Review due by ${V.review_due_at}.`) : null,
     el("div", { class: "timeline" }, ...R.versions.map((v) => el("button", { class: v.version === V.version ? "sel" : "", on: { click: () => openReport(R.report_id, v.version) } },
       el("span", { class: "chip " + v.status }, `v${v.version} ${v.status}`)))));
   root.append(head);
