@@ -1,0 +1,15 @@
+{
+ "response_id": "8f2b7e98-e566-47c8-bf5b-35659ddec99e",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "4af9db25ca7a8b52f6368965e9022bbf80a55a16eb51b43db122c3f4cd8af775",
+ "recorded_at": "2026-10-29T06:42:11+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 33292,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"costlayer.ai\",\n      \"evidence\": \"costlayer.ai\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "5c9aca1f-7a50-476c-98f7-394a9c40bbc3",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "1b756c64c32377e4bccd6aed4e1dc4b4aa629f211aa34fc231cd008843b0da1d",
+ "recorded_at": "2026-10-29T06:28:06+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55041,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI, AthenaHQ, Otterly\"\n    },\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"Peec AI, AthenaHQ, Otterly\"\n    },\n    {\n      \"name\": \"Otterly\",\n      \"evidence\": \"Peec AI, AthenaHQ, Otterly\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush AI features\"\n    },\n    {\n      \"name\": \"Similarweb\",\n      \"evidence\": \"Similarweb AI capabilities\"\n    },\n    {\n      \"name\": \"Scrunch\",\n      \"evidence\": \"Profound against competitors like AthenaHQ, Peec AI, Otterly, Scrunch, and Semrush\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "1fda2a12-a2df-4ab1-abd5-17b7746bc833",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "213a44db3eebd17c2a37e44a6f888b39f6705b8c42ab0fb1e56dd016b3df8d86",
+ "recorded_at": "2026-10-29T05:41:06+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56219,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro (often searched or spelled similarly to Kaspr, a well-known LinkedIn contact-data finder) is a legitimate, early-stage B2B SaaS startup operating in the emerging AI Visibility and Brand Intelligence space\",\n    \"Kasparro focuses on how brands are represented, recommended, or omitted by conversational AI engines\",\n    \"Kasparro is an active startup with real paying enterprise and D2C clients\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's business model, target market, and status as an early-stage startup without explicitly advising the user to use it or making a subjective endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

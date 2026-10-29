@@ -1,0 +1,15 @@
+{
+ "response_id": "89babd5f-9a94-4d2c-b2ab-4b7c97345587",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "534f07a900986885c1e0eeab7fd3da290987c7febf07fe32eb4860a882aebc73",
+ "recorded_at": "2026-10-29T06:27:11+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 73397,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"People generally prefer Profound for in-depth, enterprise-grade AI analytics and multi-model tracking.\"\n    },\n    {\n      \"name\": \"Emberos\",\n      \"evidence\": \"there is a strong preference for alternative tools like Emberos\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"there is a strong preference for alternative tools like Emberos, Ahrefs , and Peec AI\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"there is a strong preference for alternative tools like Emberos, Ahrefs , and Peec AI\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"users often prefer tools that connect AI visibility directly to ROI or SEO actions... leading users toward more affordable tools like Otterly\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"leading users toward more affordable tools like Otterly or comprehensive ones like Semrush.\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

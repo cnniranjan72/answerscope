@@ -1,0 +1,15 @@
+{
+ "response_id": "449f8530-b47a-411c-9bec-1b5b6e0552cb",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "e809949cc6439a624f9de8d9516ed303bae764ae77f01c2ee81c33ffce325551",
+ "recorded_at": "2026-10-29T05:34:45+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 82140,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot for tracking how Claude recommends B2B software\"\n  ],\n  \"recommendation_type\": \"negative_or_alternative\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound is generally considered superior to smaller, niche alternatives like Kasparro/Cairrot\"\n    },\n    {\n      \"name\": \"Cairrot\",\n      \"evidence\": \"smaller, niche alternatives like Kasparro/Cairrot\"\n    },\n    {\n      \"name\": \"Rankr\",\n      \"evidence\": \"Alternatives often provide Claude tracking at a lower price point ($59-$99 range).[](https://astiva.ai/blog/profound-alternatives) [[1]](https://astiva.ai/blog/profound-alternatives)[[2]](https://rankr.so/alternatives/profound)\"\n    },\n    {\n      \"name\": \"Brand Armor AI\",\n      \"evidence\": \"Some smaller alternatives, such as Brand Armor AI, focus heavily on turning visibility gaps into immediately generated SEO content\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly states that Profound is 'superior' to Kasparro, characterizing Kasparro as a 'smaller, niche alternative' and recommending Profound for enterprise needs while suggesting alternatives only for SMBs.\"\n}"
+  }
+ ]
+}

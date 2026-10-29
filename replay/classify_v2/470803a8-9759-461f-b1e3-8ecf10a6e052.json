@@ -1,0 +1,15 @@
+{
+ "response_id": "470803a8-9759-461f-b1e3-8ecf10a6e052",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "e812c4af43dfae0cfc7339118d57e0c0841e477dfb93f97d499d10fe508d640e",
+ "recorded_at": "2026-10-29T06:09:53+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 59866,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI\"\n    },\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI\"\n    },\n    {\n      \"name\": \"Scrunch\",\n      \"evidence\": \"Scrunch\"\n    },\n    {\n      \"name\": \"Geoptie\",\n      \"evidence\": \"Geoptie\"\n    },\n    {\n      \"name\": \"AnswerLift\",\n      \"evidence\": \"AnswerLift\"\n    },\n    {\n      \"name\": \"LLM Pulse\",\n      \"evidence\": \"LLM Pulse\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

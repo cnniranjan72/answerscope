@@ -1,0 +1,15 @@
+{
+ "response_id": "0f7ae466-5a77-42ce-9018-37f243f7d886",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "57ed65b8aa9381dc058b998ae910fb93905be72935677374dd33b71dc601539c",
+ "recorded_at": "2026-10-29T05:47:37+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 36270,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro offers a 14-day AI Revenue Diagnostic\",\n    \"Kasparro specifically states there is no retainer and no setup fee.\",\n    \"Kasparro is a Bengaluru-based firm specializing in AI revenue diagnostics and remediation.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides factual information regarding Kasparro's service offerings and pricing structure (no retainer/setup fee) without making a specific recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "f5109b67-a854-4fa0-a05f-e9a88b5b3edb",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "2698e68c8be66014b805e7dd4b1f194211a8603566293dfdbfa28d7066cfc4f9",
+ "recorded_at": "2026-10-29T05:33:23+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 46985,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes—based on what Kasparro says it does, helping enterprise software brands become more visible in Perplexity answers is one of its core use cases.\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes—based on what Kasparro says it does, helping enterprise software brands become more visible in Perplexity answers is one of its core use cases.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly states that helping brands become visible in Perplexity is one of Kasparro's core use cases, which constitutes a suitability claim.\"\n}"
+  }
+ ]
+}

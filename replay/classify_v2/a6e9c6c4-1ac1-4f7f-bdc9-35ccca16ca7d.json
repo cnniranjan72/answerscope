@@ -1,0 +1,15 @@
+{
+ "response_id": "a6e9c6c4-1ac1-4f7f-bdc9-35ccca16ca7d",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "065f41c029081bc72f159301f15f904205ff2f9e6a32830742053da201dc83a9",
+ "recorded_at": "2026-10-29T05:57:01+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 58276,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"HubSpot’s AEO features\",\n      \"evidence\": \"HubSpot’s AEO features\"\n    },\n    {\n      \"name\": \"Metricus\",\n      \"evidence\": \"Metricus\"\n    },\n    {\n      \"name\": \"Brand24\",\n      \"evidence\": \"Brand24\"\n    },\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"G2\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Capterra\"\n    },\n    {\n      \"name\": \"TrustRadius\",\n      \"evidence\": \"TrustRadius\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "4b5b2098-bdb6-4ff7-a1a2-2587f210f444",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "ce7df4b0ac906031feb6bebea6107a62e0ac0981a86cc888e8a82cc033b4237d",
+ "recorded_at": "2026-10-29T05:39:14+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55296,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Based on Kasparro's public positioning, the answer appears to be no.\",\n    \"On their website, Kasparro repeatedly frames its approach as structural optimization rather than prompt engineering.\",\n    \"They also advertise \\\"No retainer, no setup fee, no prompt hacks.\\\"\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"SurfacedBy\",\n      \"evidence\": \"SurfacedBy\"\n    },\n    {\n      \"name\": \"Scale Theory\",\n      \"evidence\": \"Scale Theory\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's methodology and positioning, specifically addressing the user's question about prompt hacks by citing the company's own public statements. It does not offer a recommendation to use the service.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "02c5ee8d-0ffe-4940-bf93-5793e7b01528",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "b1edc3b1e4e35e7a536fa827c51657adaa6ba86bafd24c21921376adb3ceafef",
+ "recorded_at": "2026-10-29T06:13:30+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57594,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"Actively optimize profiles on high-authority peer-review sites (e.g., G2, Capterra)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"Actively optimize profiles on high-authority peer-review sites (e.g., G2, Capterra)\"\n    },\n    {\n      \"name\": \"Reddit\",\n      \"evidence\": \"AI models frequently reference professional communities like Reddit\"\n    },\n    {\n      \"name\": \"Stack Overflow\",\n      \"evidence\": \"AI models frequently reference professional communities like Reddit, Stack Overflow\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

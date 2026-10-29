@@ -1,0 +1,15 @@
+{
+ "response_id": "11010066-8ed2-4741-856e-9259ae1a377b",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "3489117fb6f22d76c87a8d68407f06cdb987490df7795cd37a92c05ff732a510",
+ "recorded_at": "2026-10-29T06:25:57+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 77694,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Geoptie\",\n      \"evidence\": \"Geoptie: Highly recommended for broad engine coverage and affordable tier-scaling\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: A favorite for enterprise-level programs\"\n    },\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Otterly AI: Popular for mid-market teams looking for straightforward, fixed-prompt tracking\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI: Frequently used by agencies to manage multi-brand tracking\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush (AI Toolkit): Allows marketers already using Semrush to flag which tracked keywords trigger AI Overviews\"\n    },\n    {\n      \"name\": \"SE Ranking\",\n      \"evidence\": \"SE Ranking (AI Results Tracker): Welds generative search tracking directly onto traditional workflows\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs (Brand Radar / AEO features): Integrates brand visibility and citation source analysis natively\"\n    },\n    {\n      \"name\": \"HubSpot AEO Grader\",\n      \"evidence\": \"HubSpot AEO Grader: A widely used, free one-shot diagnostic tool\"\n    },\n    {\n      \"name\": \"Writesonic GEO Suite\",\n      \"evidence\": \"Writesonic GEO Suite: Combines visibility reporting with content brief generation\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

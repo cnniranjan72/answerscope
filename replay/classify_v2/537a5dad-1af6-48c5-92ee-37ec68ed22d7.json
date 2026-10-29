@@ -1,0 +1,15 @@
+{
+ "response_id": "537a5dad-1af6-48c5-92ee-37ec68ed22d7",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "7e2f21ba87d78c254dbee05c7fb2c45e2322d0d55f6de0bb3bceb984eb1d4c9b",
+ "recorded_at": "2026-10-29T05:44:35+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 50478,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro appears to be a specialized AI-driven platform\",\n    \"According to a Kasparro Q1 2026 report\",\n    \"Would you like me to find specific case studies or user testimonials from brands that have implemented Kasparro?\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of Kasparro's services, claims, and focus areas without explicitly recommending the user to use it or stating it is a good choice for their specific needs.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

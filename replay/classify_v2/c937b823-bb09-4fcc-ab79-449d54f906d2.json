@@ -1,0 +1,15 @@
+{
+ "response_id": "c937b823-bb09-4fcc-ab79-449d54f906d2",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "02379aee398024a08b261f0e32dd8e76366e3adba3c24a35d24e32b993a1756e",
+ "recorded_at": "2026-10-29T05:37:33+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 43759,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is an AI-native brand intelligence platform\",\n    \"Through these metrics, the Kasparro audit provides quantitative scores\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of what Kasparro is and details the four dimensions of its audit without explicitly recommending the user to sign up or use the service.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

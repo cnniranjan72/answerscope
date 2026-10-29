@@ -1,0 +1,15 @@
+{
+ "response_id": "e3969fc6-5f7f-4994-a152-d9072be6f173",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "948a7e450df1c5dc85ca4676fe03e2171292dc20dc26df280fad4bb14e060a05",
+ "recorded_at": "2026-10-29T05:50:44+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 38471,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, both US and India-based brands can engage with Kasparro AI .\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual confirmation that brands in the US and India can engage with Kasparro, citing operational presence and service availability without offering a subjective recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

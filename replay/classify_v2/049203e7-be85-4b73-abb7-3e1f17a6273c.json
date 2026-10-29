@@ -1,0 +1,15 @@
+{
+ "response_id": "049203e7-be85-4b73-abb7-3e1f17a6273c",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "00fdd8a7b275a35b3dd430cf0d21545aa26098b74b2603c57d94bbfa7c61d5f3",
+ "recorded_at": "2026-10-29T06:07:11+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 40003,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Genee Tech\",\n      \"evidence\": \"Genee Tech\"\n    },\n    {\n      \"name\": \"MarketScale\",\n      \"evidence\": \"MarketScale\"\n    },\n    {\n      \"name\": \"NBound Marketing\",\n      \"evidence\": \"NBound Marketing\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

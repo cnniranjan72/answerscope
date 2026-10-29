@@ -1,0 +1,15 @@
+{
+ "response_id": "f3b89676-4b0a-4343-a080-2fea2a3508cf",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "7fd3f5312c72f04debf3b11f107e48da21a27ada204b3dae0cb1bce77a950b20",
+ "recorded_at": "2026-10-29T05:47:00+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 38218,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro is an AI-native brand intelligence and SEO platform\",\n    \"If you are evaluating Kasparro for enterprise use\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a neutral description of what Kasparro is and discusses the general risks of AI-visibility tools without explicitly endorsing or advising the user to use Kasparro specifically.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

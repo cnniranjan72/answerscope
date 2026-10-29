@@ -1,0 +1,15 @@
+{
+ "response_id": "62da805a-1460-43b4-80b9-3bafab5f7941",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "e447614775feec8415f7a550169647626cf216dd464b66732e53063d10ae5b37",
+ "recorded_at": "2026-10-29T06:45:43+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57576,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"AthenaHQ\",\n      \"evidence\": \"AthenaHQ offers enterprise plans from $2,000/month.\"\n    },\n    {\n      \"name\": \"Siftly\",\n      \"evidence\": \"Pro/Scale plans from tools like Siftly or Trysight.\"\n    },\n    {\n      \"name\": \"Trysight\",\n      \"evidence\": \"Pro/Scale plans from tools like Siftly or Trysight.\"\n    },\n    {\n      \"name\": \"Otterly.AI\",\n      \"evidence\": \"Example Tool: Otterly.AI, SEOptimer.\"\n    },\n    {\n      \"name\": \"SEOptimer\",\n      \"evidence\": \"Example Tool: Otterly.AI, SEOptimer.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

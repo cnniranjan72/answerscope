@@ -1,0 +1,27 @@
+{
+ "response_id": "4b70d3c9-26a1-46ab-94b7-fc4c02857518",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "d6c4d3d8fec27369c23aa98ae4549894b43d4c0d78a212045e788b8b8aa109f0",
+ "recorded_at": "2026-10-29T05:53:24+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "mentioned: quote not found in answer: 'Kasparro is positioned for \"agentic commerce\"'; competitor name not found in answer: 'profound'",
+   "latency_ms": 50671,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro AI supports enterprise brands outside the US\",\n    \"Kasparro focuses on AI-driven discovery and e-commerce infrastructure\",\n    \"Kasparro is positioned for \\\"agentic commerce\\\"\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro AI supports enterprise brands outside the US, with a specific focus on supporting clients in both the US and India.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"profound\",\n      \"evidence\": \"does kasparro support enterprise brands outside the US like profound does?\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model explicitly confirms that Kasparro supports the user's specific need (enterprise brands outside the US) and describes its capabilities as a suitable solution for those requirements.\"\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "mentioned: quote not found in answer: 'Kasparro is positioned for \"agentic commerce\"'",
+   "latency_ms": 37649,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro AI supports enterprise brands outside the US\",\n    \"Kasparro focuses on AI-driven discovery and e-commerce infrastructure\",\n    \"Kasparro is positioned for \\\"agentic commerce\\\"\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro AI supports enterprise brands outside the US, with a specific focus on supporting clients in both the US and India.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model confirms Kasparro's suitability for the user's specific request regarding international enterprise support. No competitors were explicitly named in the answer text as tools/vendors.\"\n}"
+  },
+  {
+   "outcome": "invalid",
+   "error": "mentioned: quote not found in answer: 'Kasparro is positioned for \"agentic commerce\"'",
+   "latency_ms": 33360,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro AI supports enterprise brands outside the US\",\n    \"Kasparro focuses on AI-driven discovery and e-commerce infrastructure\",\n    \"Kasparro is positioned for \\\"agentic commerce\\\"\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro AI supports enterprise brands outside the US, with a specific focus on supporting clients in both the US and India.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model confirms Kasparro's suitability for the user's specific request regarding international enterprise support. No competitors were explicitly named in the answer text as tools/vendors.\"\n}"
+  }
+ ]
+}

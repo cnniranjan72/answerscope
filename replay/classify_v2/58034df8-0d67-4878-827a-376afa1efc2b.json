@@ -1,0 +1,15 @@
+{
+ "response_id": "58034df8-0d67-4878-827a-376afa1efc2b",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "5d35f93faa8a8cdd45f792bca4ff6724326da061eb0a6662cb2decef19b8278f",
+ "recorded_at": "2026-10-29T05:38:19+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 45781,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there is no direct evidence indicating that \\\"Kasparro \\\" (a specific entity) relies on prompt hacks or tricks to boost visibility.\",\n    \"Would you like me to try and search for \\\"Kasparro\\\" specifically\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual statement regarding the lack of evidence for the user's specific claim about Kasparro's methods, without offering a recommendation or endorsement.\"\n}"
+  }
+ ]
+}

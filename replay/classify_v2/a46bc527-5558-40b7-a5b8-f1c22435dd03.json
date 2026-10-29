@@ -1,0 +1,15 @@
+{
+ "response_id": "a46bc527-5558-40b7-a5b8-f1c22435dd03",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "e92ad1bb6c905bfe31720edcc6e049d9e67656605fa569f2d9a8661c58564bfc",
+ "recorded_at": "2026-10-29T05:46:22+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37633,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you're referring to the AI tool called Kasparro, I couldn't find a well-established service by that exact name\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": true,\n  \"negative_evidence\": [\n    \"I couldn't find a well-established service by that exact name\"\n  ],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The model mentions Kasparro but states it cannot find a well-established service by that name, which serves as a negative characterization regarding its recognition. It provides a neutral description of how to evaluate such tools rather than a specific recommendation.\"\n}"
+  }
+ ]
+}

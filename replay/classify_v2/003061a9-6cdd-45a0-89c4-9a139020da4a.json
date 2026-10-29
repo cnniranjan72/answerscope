@@ -1,0 +1,15 @@
+{
+ "response_id": "003061a9-6cdd-45a0-89c4-9a139020da4a",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "9217185882a056554d3f5cdee9d1cd1e93b959fdf88ed87b3f40eab2a878b1c3",
+ "recorded_at": "2026-10-29T06:43:41+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37253,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "50ea9a06-36e5-4c74-a6b6-25d981eec70a",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "521042753cb96d49137b44a41bf9f593fd872f6b08d763d392cfe0e96a3459ba",
+ "recorded_at": "2026-10-29T05:55:21+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 64428,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"CoreMention\",\n      \"evidence\": \"CoreMention: Monitors AI visibility across ChatGPT, Perplexity, Claude, and Gemini to track brand mentions, competitor comparisons, and source tracking.\"\n    },\n    {\n      \"name\": \"Gracker.ai\",\n      \"evidence\": \"Gracker.ai: Purpose-built for B2B SaaS to track AI citation rates and share of voice across multiple models.\"\n    },\n    {\n      \"name\": \"Dageno AI\",\n      \"evidence\": \"Dageno AI: Focuses on tracking AI mentions, answer position, and sentiment to identify gaps.\"\n    },\n    {\n      \"name\": \"Scrunch AI\",\n      \"evidence\": \"Scrunch AI & Semrush's AI Toolkit: Used for automating share-of-voice tracking in AI tools.\"\n    },\n    {\n      \"name\": \"Semrush's AI Toolkit\",\n      \"evidence\": \"Scrunch AI & Semrush's AI Toolkit: Used for automating share-of-voice tracking in AI tools.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

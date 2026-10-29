@@ -1,0 +1,15 @@
+{
+ "response_id": "0697376e-335d-45ef-a593-bc12c5e1ecf3",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "acf407230428e9cca84b927fdbb283032acb8ec5407dedebbd9ed12b832c18aa",
+ "recorded_at": "2026-10-29T06:23:16+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 75982,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: Tracks which domains are cited in AI-generated answers\"\n    },\n    {\n      \"name\": \"Gauge\",\n      \"evidence\": \"Gauge: An enterprise-level analytics tool that provides actionable recommendations to optimize for AI-first search\"\n    },\n    {\n      \"name\": \"GetCito\",\n      \"evidence\": \"GetCito: Used by agencies and marketers to monitor real-time alerts whenever an AI engine references your brand\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush: Offers a \\\"Prompt Research\\\" report to discover AI prompts and questions users ask\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Ahrefs: Excels at analyzing content depth and the source credibility metrics required to build topical authority\"\n    },\n    {\n      \"name\": \"Conductor\",\n      \"evidence\": \"Conductor: Features a robust AI optimization toolkit (AIO) that helps map out structured content\"\n    },\n    {\n      \"name\": \"HubSpot\",\n      \"evidence\": \"Do you currently use Semrush, Ahrefs, or HubSpot?\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

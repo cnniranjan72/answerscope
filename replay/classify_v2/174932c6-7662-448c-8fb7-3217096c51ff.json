@@ -1,0 +1,15 @@
+{
+ "response_id": "174932c6-7662-448c-8fb7-3217096c51ff",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "92597df0d448e8658afa50736282459d70fae02b7658728e9c898246c181e69c",
+ "recorded_at": "2026-10-29T06:02:57+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 50121,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Keyword.com\",\n      \"evidence\": \"Keyword.com (AI Search Tracking): Automatically discovers and tracks prompt suggestions used by real customers across answer engines.\"\n    },\n    {\n      \"name\": \"Braintrust\",\n      \"evidence\": \"Braintrust / Maxim AI / PromptLayer\"\n    },\n    {\n      \"name\": \"Maxim AI\",\n      \"evidence\": \"Braintrust / Maxim AI / PromptLayer\"\n    },\n    {\n      \"name\": \"PromptLayer\",\n      \"evidence\": \"Braintrust / Maxim AI / PromptLayer\"\n    },\n    {\n      \"name\": \"Promptfoo\",\n      \"evidence\": \"Promptfoo: A developer-focused, command-line tool (CLI) for red-teaming and automated prompt testing.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

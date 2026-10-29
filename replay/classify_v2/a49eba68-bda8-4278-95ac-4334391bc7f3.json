@@ -1,0 +1,15 @@
+{
+ "response_id": "a49eba68-bda8-4278-95ac-4334391bc7f3",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "7afcc07ffd99db77871d37e236d93377d4b1b84a960adc7045a82547f0da8de9",
+ "recorded_at": "2026-10-29T06:17:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 44303,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"G2\",\n      \"evidence\": \"peer-review platforms (like G2, Capterra, and TrustRadius)\"\n    },\n    {\n      \"name\": \"Capterra\",\n      \"evidence\": \"peer-review platforms (like G2, Capterra, and TrustRadius)\"\n    },\n    {\n      \"name\": \"TrustRadius\",\n      \"evidence\": \"peer-review platforms (like G2, Capterra, and TrustRadius)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

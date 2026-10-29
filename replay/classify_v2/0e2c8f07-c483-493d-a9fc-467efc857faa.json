@@ -1,0 +1,15 @@
+{
+ "response_id": "0e2c8f07-c483-493d-a9fc-467efc857faa",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "82a931dd3748b30a8d25af7781455f78bb602172a7a131b34b5458967e283785",
+ "recorded_at": "2026-10-29T05:56:03+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 42129,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"turboaudit.ai\",\n      \"evidence\": \"AI visibility platforms automate this process across hundreds or thousands of prompts. [turboaudit.ai](https://turboaudit.ai/ai-monitoring?utm_source=chatgpt.com)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

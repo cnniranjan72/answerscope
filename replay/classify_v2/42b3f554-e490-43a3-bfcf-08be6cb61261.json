@@ -1,0 +1,15 @@
+{
+ "response_id": "42b3f554-e490-43a3-bfcf-08be6cb61261",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "09fa4c2763c0f0c3d48140e0cde078f95ee14963813ea4ab1d7dc517d9c06df5",
+ "recorded_at": "2026-10-29T06:47:36+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 60884,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ZipTie\",\n      \"evidence\": \"These tools, such as [ZipTie](https://radarkit.ai/blog/best-ai-search-rank-tracking-and-visibility-tools/), Otterly , and Peec AI\"\n    },\n    {\n      \"name\": \"Otterly\",\n      \"evidence\": \"These tools, such as [ZipTie](https://radarkit.ai/blog/best-ai-search-rank-tracking-and-visibility-tools/), Otterly , and Peec AI\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"These tools, such as [ZipTie](https://radarkit.ai/blog/best-ai-search-rank-tracking-and-visibility-tools/), Otterly , and Peec AI\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

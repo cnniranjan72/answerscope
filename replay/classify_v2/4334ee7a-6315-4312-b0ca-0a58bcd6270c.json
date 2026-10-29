@@ -1,0 +1,15 @@
+{
+ "response_id": "4334ee7a-6315-4312-b0ca-0a58bcd6270c",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "bde95e9f19be0cefbeea242019170dbf5e03133312d788bcd11139513df05a4d",
+ "recorded_at": "2026-10-29T05:58:19+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 78241,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush (AI Visibility Toolkit): Offers specialized tools to track brand mentions, share of voice, and sentiment across AI engines like ChatGPT and Google SGE.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI: Focuses on tracking how AI assistants mention brands and which sources they cite across ChatGPT, Google AI Mode, and Perplexity.\"\n    },\n    {\n      \"name\": \"Rank Math AI Visibility\",\n      \"evidence\": \"Rank Math AI Visibility: Allows users to track brand mentions, citations, and average rank in AI-generated answers, providing a sentiment score.\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar AI\",\n      \"evidence\": \"Ahrefs Brand Radar AI: Tracks brand mentions and measures share of voice in AI-generated answers, identifying unlinked mentions.\"\n    },\n    {\n      \"name\": \"ZipTie\",\n      \"evidence\": \"ZipTie: Monitors brand presence across Google AI Overviews, ChatGPT, and Perplexity.\"\n    },\n    {\n      \"name\": \"Conductor\",\n      \"evidence\": \"Conductor: Tracks AI visibility and provides content optimization recommendations to increase brand presence.\"\n    },\n    {\n      \"name\": \"OtterlyAI\",\n      \"evidence\": \"OtterlyAI: Specializes in monitoring brand performance across ChatGPT, Google AI Overviews, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: Provides an executive-level snapshot of topic coverage and AI presence.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

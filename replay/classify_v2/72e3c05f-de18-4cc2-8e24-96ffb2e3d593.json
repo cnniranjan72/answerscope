@@ -1,0 +1,15 @@
+{
+ "response_id": "72e3c05f-de18-4cc2-8e24-96ffb2e3d593",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "64765513f91190ac8050aa0a4ba9cdb45f6750d3841999bf1f9761b5f7ec3db7",
+ "recorded_at": "2026-10-29T06:11:01+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 67742,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound: One of the most polished platforms for tracking enterprise AI search visibility, share of voice, and citations across LLMs.\"\n    },\n    {\n      \"name\": \"GrackerAI\",\n      \"evidence\": \"GrackerAI: Purpose-built specifically for B2B SaaS and cybersecurity companies, combining AEO (Answer Engine Optimization) analytics with built-in content recommendations.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI & Otterly.ai: Highly effective mid-tier options for tracking brand mentions, citation frequency, and competitor placement across platforms like Perplexity and Claude.\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"Peec AI & Otterly.ai: Highly effective mid-tier options for tracking brand mentions, citation frequency, and competitor placement across platforms like Perplexity and Claude.\"\n    },\n    {\n      \"name\": \"AI Sightline\",\n      \"evidence\": \"AI Sightline: A newer tool that stands out by offering API and MCP (Model Context Protocol) server integrations\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

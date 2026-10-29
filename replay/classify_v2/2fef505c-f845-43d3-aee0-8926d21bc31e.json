@@ -1,0 +1,15 @@
+{
+ "response_id": "2fef505c-f845-43d3-aee0-8926d21bc31e",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "961268957a208d4706a82efd718dfe46edd964838bc8eca3514c177792863011",
+ "recorded_at": "2026-10-29T05:36:49+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 54349,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro's Four Module Audit Score appears to be a proprietary assessment framework\",\n    \"According to Kasparro's published methodology, the audit produces scores across four areas\",\n    \"Kasparro's score is intended to estimate your brand's readiness for AI-mediated commerce\"\n  ],\n  \"recommendation_type\": \"neutral_description\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a detailed neutral description of Kasparro's proprietary audit framework and its four modules without explicitly recommending the service to the user.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

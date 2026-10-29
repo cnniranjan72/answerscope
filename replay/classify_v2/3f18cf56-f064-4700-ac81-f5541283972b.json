@@ -1,0 +1,15 @@
+{
+ "response_id": "3f18cf56-f064-4700-ac81-f5541283972b",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "5aba38fc8638e2863853127fb0896132faf193e4f2a49024474e2e5f9873641c",
+ "recorded_at": "2026-10-29T06:43:03+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 52480,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"LiteLLM\",\n      \"evidence\": \"Tools like LiteLLM, Bifrost, or various cloud gateways allow you to swap out your base API URL.\"\n    },\n    {\n      \"name\": \"Bifrost\",\n      \"evidence\": \"Tools like LiteLLM, Bifrost, or various cloud gateways allow you to swap out your base API URL.\"\n    },\n    {\n      \"name\": \"Cohere\",\n      \"evidence\": \"Instead of pointing your code directly to OpenAI, Anthropic, or Cohere, you point it to the tracking proxy URL\"\n    },\n    {\n      \"name\": \"Langfuse\",\n      \"evidence\": \"Many of the most popular AI tracking and gateway stacks (like LiteLLM, Langfuse, or open-source proxy options) are 100% free to self-host.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

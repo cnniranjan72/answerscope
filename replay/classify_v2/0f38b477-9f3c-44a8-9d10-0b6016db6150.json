@@ -1,0 +1,15 @@
+{
+ "response_id": "0f38b477-9f3c-44a8-9d10-0b6016db6150",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "42b5865ac13a9cb1975f2a25459c82f3aa625e0ef5eec3be59fd13f344298fb6",
+ "recorded_at": "2026-10-29T06:22:00+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 74524,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound is a powerhouse in the AI visibility space.\"\n    },\n    {\n      \"name\": \"Alhena AI\",\n      \"evidence\": \"Alhena AI handles SKU-level tracking and features closed-loop revenue attribution.\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Semrush leverages its massive data infrastructure to bridge the gap between organic Google rankings and AI visibility tracking\"\n    },\n    {\n      \"name\": \"Omnia\",\n      \"evidence\": \"Omnia excels at bridging insights and execution.\"\n    },\n    {\n      \"name\": \"Otterly\",\n      \"evidence\": \"Otterly is one of the most cost-effective entry points for daily prompt tracking and citation monitoring.\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI is built with agencies in mind, offering collaborative workspaces with unlimited user seats\"\n    }\n  ],\n  \"position_basis\": \"ranked_list\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

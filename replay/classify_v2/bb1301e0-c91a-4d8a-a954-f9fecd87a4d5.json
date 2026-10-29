@@ -1,0 +1,15 @@
+{
+ "response_id": "bb1301e0-c91a-4d8a-a954-f9fecd87a4d5",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "d2e8d4d0a88abfd106e862c2162aee2aed0706cef916bb84613712ed8bad6b05",
+ "recorded_at": "2026-10-29T06:14:37+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 66386,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"CogNerd\",\n      \"evidence\": \"CogNerd is noted for AI search visibility\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"dedicated AI tools (such as CogNerd, Peec AI, and Geoptie)\"\n    },\n    {\n      \"name\": \"Geoptie\",\n      \"evidence\": \"Geoptie for all-in-one GEO at a lower cost\"\n    },\n    {\n      \"name\": \"Jasper AI\",\n      \"evidence\": \"Jasper AI for optimization across AEO and traditional SEO\"\n    },\n    {\n      \"name\": \"Ahrefs\",\n      \"evidence\": \"Traditional tools (like Ahrefs/Semrush) focus on ranking positions\"\n    },\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"Traditional tools (like Ahrefs/Semrush) focus on ranking positions\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

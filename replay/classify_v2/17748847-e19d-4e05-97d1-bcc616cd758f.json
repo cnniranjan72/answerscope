@@ -1,0 +1,15 @@
+{
+ "response_id": "17748847-e19d-4e05-97d1-bcc616cd758f",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "db4c0bad4e411b3d5e866ca559081a87d5e9ea3ed5734cc2b4c5915db80eeba6",
+ "recorded_at": "2026-10-29T06:54:38+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 44692,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Brainlabs\",\n      \"evidence\": \"as Brainlabs notes\"\n    },\n    {\n      \"name\": \"Beamtrace\",\n      \"evidence\": \"says Beamtrace\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

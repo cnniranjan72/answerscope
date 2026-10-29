@@ -1,0 +1,15 @@
+{
+ "response_id": "511317a1-af77-43f1-90a2-cfa92f812676",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "6b79596b8ee86de7bbf946539ea647eac687a63ed6d55269d0c6f837f81dce32",
+ "recorded_at": "2026-10-29T05:50:06+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 53779,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"If you meant a different service by \\\"Kasparro,\\\" let me know which one, and I can check its specific cancellation policy.\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"If you mean Kaspr (the B2B lead generation platform), canceling is generally straightforward\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Kaspr\",\n      \"evidence\": \"If you mean Kaspr (the B2B lead generation platform), canceling is generally straightforward\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"The model confuses Kasparro with 'Kaspr' and provides cancellation details for the latter. It acknowledges it might be a different service when referring to Kasparro.\"\n}"
+  }
+ ]
+}

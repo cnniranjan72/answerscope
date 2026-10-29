@@ -1,0 +1,15 @@
+{
+ "response_id": "7a570f6f-eea5-4aba-b499-711f7cd1a1ba",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "3922a3b175c909b6d6d5d097eed5af45cf2cfe80031294667b2009a80e2f2221",
+ "recorded_at": "2026-10-29T05:49:12+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 56803,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"there is no direct information regarding the cancellation difficulty of \\\"Kasparro,\\\"\",\n    \"Given that Kasparro AI mentions working with \\\"paying customers\\\" and involves customized AI strategies\",\n    \"Do you have contact info for your account manager (e.g., from neha@kasparro.com)?\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": true,\n  \"confusion_evidence\": [\n    \"the provided search results show a detailed cancellation guide for Kaspr (a similarly named sales tool) which may be helpful for context.\"\n  ],\n  \"competitors\": [\n    {\n      \"name\": \"Kaspr\",\n      \"evidence\": \"the provided search results show a detailed cancellation guide for Kaspr (a similarly named sales tool)\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual response regarding the lack of specific cancellation data for Kasparro while explicitly noting confusion with a similarly named tool, Kaspr, to provide context.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

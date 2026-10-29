@@ -1,0 +1,15 @@
+{
+ "response_id": "c73aba11-2772-42d0-a20f-17f015969a31",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "09dd5cb4867b889e18d5c1f8781aac2455b4e2820c300ae403df4cbac3f41638",
+ "recorded_at": "2026-10-29T06:29:16+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 70636,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound is widely regarded as one of the most comprehensive, robust data platforms for tracking how brands appear in AI-generated answers\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Tools like Peec AI or Qvery are often preferred by mid-market companies and startups\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"Otterly.ai is frequently chosen as a low-cost entry point for basic, budget-friendly monitoring.\"\n    },\n    {\n      \"name\": \"Qvery\",\n      \"evidence\": \"Tools like Peec AI or Qvery are often preferred by mid-market companies and startups\"\n    },\n    {\n      \"name\": \"Frase\",\n      \"evidence\": \"Tools like SE Ranking (with SE Visible) or Frase are preferred by content and SEO teams\"\n    },\n    {\n      \"name\": \"SE Ranking\",\n      \"evidence\": \"Tools like SE Ranking (with SE Visible) or Frase are preferred by content and SEO teams\"\n    },\n    {\n      \"name\": \"Writesonic\",\n      \"evidence\": \"Integrated \\\"Monitor-to-Fix\\\" Workflows (e.g., Frase, SE Ranking, Writesonic)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro was not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

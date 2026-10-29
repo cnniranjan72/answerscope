@@ -1,0 +1,15 @@
+{
+ "response_id": "8c3f3f3f-1bc5-4cf3-a099-7cccfda9993a",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "ba00420b99adf14e17bb88439882cadb17742a5738234cde56ccdfdecdd1cf46",
+ "recorded_at": "2026-10-29T05:51:22+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 38227,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, US and India-based brands can use and engage with Kasparro.\",\n    \"Kasparro is an AI-native SEO and brand intelligence platform\"\n  ],\n  \"recommendation_type\": \"factual_answer\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer provides a factual confirmation that brands in the US and India can use the service and describes what the platform does without offering a subjective recommendation or endorsement.\",\n  \"kasparro_list_position\": null\n}"
+  }
+ ]
+}

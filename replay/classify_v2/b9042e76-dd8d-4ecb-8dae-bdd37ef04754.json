@@ -1,0 +1,15 @@
+{
+ "response_id": "b9042e76-dd8d-4ecb-8dae-bdd37ef04754",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "690514f20f0bc0852921e1afbee4d097b60f4e719420d7eaaa79eed271cfb55a",
+ "recorded_at": "2026-10-29T06:16:22+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 40950,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Meridian\",\n      \"evidence\": \"Tools (like Meridian ) can monitor what AI platforms like ChatGPT and Claude say about a brand\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

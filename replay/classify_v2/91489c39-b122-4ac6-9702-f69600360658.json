@@ -1,0 +1,15 @@
+{
+ "response_id": "91489c39-b122-4ac6-9702-f69600360658",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "af9c9f9661bd86678d28561c2662943f2a736b1154898d3a620cf7f9e1148d59",
+ "recorded_at": "2026-10-29T06:02:07+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 43866,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"MLflow Evaluation\",\n      \"evidence\": \"MLflow Evaluation\"\n    },\n    {\n      \"name\": \"DeepEval\",\n      \"evidence\": \"DeepEval\"\n    },\n    {\n      \"name\": \"Ragas\",\n      \"evidence\": \"Ragas (especially for RAG systems)\"\n    },\n    {\n      \"name\": \"Arize Phoenix\",\n      \"evidence\": \"Arize Phoenix\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

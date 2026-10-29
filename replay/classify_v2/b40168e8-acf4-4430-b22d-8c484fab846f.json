@@ -1,0 +1,21 @@
+{
+ "response_id": "b40168e8-acf4-4430-b22d-8c484fab846f",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "495fbfd5bcfda816e4b356d2562ca9654949507134095f50dbd23417ecdd641b",
+ "recorded_at": "2026-10-29T05:32:36+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Brand24'; competitor name not found in answer: 'Mention'",
+   "latency_ms": 116413,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro (Kasparro AI) positions itself as an AI visibility and optimization platform\",\n    \"guided by insights from tracking tools like Kasparro\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"It is designed to help brands—including B2B SaaS companies—understand, track, and improve how they are represented, recommended, or omitted by AI engines like ChatGPT\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Brand24\",\n      \"evidence\": \"mentions using tools like Brand24 or Mention\"\n    },\n    {\n      \"name\": \"Mention\",\n      \"evidence\": \"mentions using tools like Brand24 or Mention\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer states that Kasparro is 'designed to help brands—including B2B SaaS companies' with their specific goal of being recommended by AI engines, which constitutes a suitability claim.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 34437,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro (Kasparro AI) positions itself as an AI visibility and optimization platform\",\n    \"guided by insights from tracking tools like Kasparro\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"It is designed to help brands—including B2B SaaS companies—understand, track, and improve how they are represented, recommended, or omitted by AI engines like ChatGPT\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer states that Kasparro is 'designed to help brands—including B2B SaaS companies' with their specific goal of being recommended by AI engines, which constitutes a suitability claim.\"\n}"
+  }
+ ]
+}

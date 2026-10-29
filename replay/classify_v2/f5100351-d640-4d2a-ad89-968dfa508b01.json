@@ -1,0 +1,15 @@
+{
+ "response_id": "f5100351-d640-4d2a-ad89-968dfa508b01",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "e5f1978dd87c60a024163f506f33115003bcdde4a1bc220f62cc76713474bca1",
+ "recorded_at": "2026-10-29T06:46:35+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 51760,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Areebi\",\n      \"evidence\": \"Areebi\\n  - Starts around $30,000/year\"\n    },\n    {\n      \"name\": \"GovernMy.ai\",\n      \"evidence\": \"GovernMy.ai\\n  - Starter $5,000/year\"\n    },\n    {\n      \"name\": \"Gradaris\",\n      \"evidence\": \"Gradaris\\n  - Governance plan roughly $30,000/year\"\n    },\n    {\n      \"name\": \"Danzo.ai\",\n      \"evidence\": \"Danzo.ai\\n  - Enterprise tier approximately $5,000/month (~$60k/year).\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

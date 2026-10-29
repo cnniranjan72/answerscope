@@ -1,0 +1,15 @@
+{
+ "response_id": "00f943a2-5355-4205-a6e0-a3ce5de97c51",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "2598f3f7114403811475dff36de3e389a1b3794f7d04675c106a505b950bf234",
+ "recorded_at": "2026-10-29T06:07:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 37822,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush\",\n      \"evidence\": \"If you already use modern SEO suites (like Semrush or Google Search Console)\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

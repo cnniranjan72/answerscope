@@ -1,0 +1,15 @@
+{
+ "response_id": "721ceff5-a4e3-439b-9b56-a8df34f6551b",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "3c589d46687ae3394957c0e39647cb75c65defe2111330bd8380084f6806da54",
+ "recorded_at": "2026-10-29T05:40:10+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 55897,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Kasparro AI appears to be a legitimate, specialized startup\",\n    \"Kasparro helps brands manage their presence in AI-driven search/recommendation\",\n    \"Kasparro is a real, operational B2B startup in the AI-commerce space\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Kasparro AI appears to be a legitimate, specialized startup focused on \\\"AI Visibility\\\" and \\\"AI-mediated commerce\\\".\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer confirms that Kasparro is a legitimate startup and describes its specific capabilities as a tool for brands to measure and improve AI visibility, effectively claiming it is suitable for the user's query about tracking AI recommendations.\"\n}"
+  }
+ ]
+}

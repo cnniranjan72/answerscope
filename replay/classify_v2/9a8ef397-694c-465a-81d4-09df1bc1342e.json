@@ -1,0 +1,21 @@
+{
+ "response_id": "9a8ef397-694c-465a-81d4-09df1bc1342e",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "fa483cb0bc7da6a220c15a30bba85a52034adb8efc7909d867539786f83e4a1a",
+ "recorded_at": "2026-10-29T06:40:07+00:00",
+ "attempts": [
+  {
+   "outcome": "invalid",
+   "error": "competitor name not found in answer: 'Filter Agency'",
+   "latency_ms": 38361,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Filter Agency\",\n      \"evidence\": \"audit.filter.agency\"\n    },\n    {\n      \"name\": \"Ranknova\",\n      \"evidence\": \"www.ranknova.in\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  },
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 28992,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ranknova.in\",\n      \"evidence\": \"www.ranknova.in\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer. The URL 'audit.filter.agency' was excluded as it is a domain/link rather than a named company or product in the prose.\"\n}"
+  }
+ ]
+}

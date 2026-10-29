@@ -1,0 +1,15 @@
+{
+ "response_id": "d37e9604-d0ae-4021-a73f-02fd822e8d01",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "2875912786eb2296c55a34d24807f57a26a746e9d8876d6f0cce0474931fe9d4",
+ "recorded_at": "2026-10-29T06:11:55+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 54158,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Semrush AI Visibility Toolkit\",\n      \"evidence\": \"Utilize platforms like [Semrush AI Visibility Toolkit](https://www.semrush.com/blog/fix-ai-brand-misinformation/) or Otterly AI to track how often a brand is mentioned.\"\n    },\n    {\n      \"name\": \"Otterly AI\",\n      \"evidence\": \"Utilize platforms like [Semrush AI Visibility Toolkit](https://www.semrush.com/blog/fix-ai-brand-misinformation/) or Otterly AI to track how often a brand is mentioned.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

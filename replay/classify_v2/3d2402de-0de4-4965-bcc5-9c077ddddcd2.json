@@ -1,0 +1,15 @@
+{
+ "response_id": "3d2402de-0de4-4965-bcc5-9c077ddddcd2",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "fd8db0d8bc6e9ded1cc19a19eb24c977346c9cd766b7ea07fc867b6e51489e77",
+ "recorded_at": "2026-10-29T06:24:40+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 83530,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Profound - Enterprise-focused\"\n    },\n    {\n      \"name\": \"Scrunch AI\",\n      \"evidence\": \"Scrunch AI - Enterprise AI search monitoring\"\n    },\n    {\n      \"name\": \"Otterly.ai\",\n      \"evidence\": \"Otterly.ai - Affordable\"\n    },\n    {\n      \"name\": \"Peec AI\",\n      \"evidence\": \"Peec AI - Multi-market tracking\"\n    },\n    {\n      \"name\": \"Semrush AI Visibility Toolkit\",\n      \"evidence\": \"Semrush AI Visibility Toolkit - AI citation tracking\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar\",\n      \"evidence\": \"Ahrefs Brand Radar - Measures brand mentions\"\n    },\n    {\n      \"name\": \"AirOps\",\n      \"evidence\": \"AirOps - Content generation\"\n    },\n    {\n      \"name\": \"HubSpot AEO\",\n      \"evidence\": \"HubSpot AEO - AI visibility tracking\"\n    },\n    {\n      \"name\": \"BrightEdge\",\n      \"evidence\": \"BrightEdge\"\n    },\n    {\n      \"name\": \"Conductor\",\n      \"evidence\": \"Conductor\"\n    },\n    {\n      \"name\": \"Meltwater\",\n      \"evidence\": \"Meltwater\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "1cf6f5bc-7a29-4128-b51d-aa56891b08f4",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "8ac45ef8b5e18a38a1108f5dac7c0f237f707ea9c47e03176757224076e99fbc",
+ "recorded_at": "2026-10-29T05:54:16+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 52280,
+   "raw_output": "{\n  \"kasparro_mentioned\": true,\n  \"mention_evidence\": [\n    \"Yes, Kasparro (an AI visibility and commerce infrastructure platform that tracks and optimizes how brands are discovered and recommended by AI engines like ChatGPT, Gemini, and Perplexity) explicitly supports enterprise and mid-market brands outside the US.\"\n  ],\n  \"recommendation_type\": \"suitability_claim\",\n  \"kasparro_recommended\": true,\n  \"recommendation_evidence\": [\n    \"Yes, Kasparro (an AI visibility and commerce infrastructure platform that tracks and optimizes how brands are discovered and recommended by AI engines like ChatGPT, Gemini, and Perplexity) explicitly supports enterprise and mid-market brands outside the US.\"\n  ],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"Profound\",\n      \"evidence\": \"Similar to how enterprise-grade AEO/GEO platforms like Profound operate globally across multiple regions and languages\"\n    }\n  ],\n  \"position_basis\": \"prose_only\",\n  \"rationale\": \"The answer explicitly states that Kasparro supports enterprise brands outside the US, which directly addresses the user's query and confirms its suitability for that specific need.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "bd13800f-700c-405a-ab1e-7f37f24669e7",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "bfd876bfcc335318098d267bcf53a3ddf5a2c966d231b4c6ce47afde79e604ea",
+ "recorded_at": "2026-10-29T06:37:59+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 67461,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"ChatGPT\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Microsoft Copilot\",\n      \"evidence\": \"LLM Chatbots: ChatGPT, Claude, Gemini, and Microsoft Copilot.\"\n    },\n    {\n      \"name\": \"Perplexity\",\n      \"evidence\": \"Discovery Engines: Perplexity and other search-heavy LLMs.\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

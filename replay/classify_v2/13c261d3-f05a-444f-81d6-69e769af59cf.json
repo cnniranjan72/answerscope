@@ -1,0 +1,15 @@
+{
+ "response_id": "13c261d3-f05a-444f-81d6-69e769af59cf",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "c1dd7c4ff6e08e199167b90951b7cff019efbf586d09cc3a5e23a373a0921946",
+ "recorded_at": "2026-10-29T06:20:45+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 57590,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"HubSpot AEO\",\n      \"evidence\": \"HubSpot AEO\"\n    },\n    {\n      \"name\": \"Quattr\",\n      \"evidence\": \"Quattr\"\n    },\n    {\n      \"name\": \"AI-Netra\",\n      \"evidence\": \"AI-Netra\"\n    },\n    {\n      \"name\": \"Forzeo\",\n      \"evidence\": \"Forzeo\"\n    },\n    {\n      \"name\": \"Topify GEO Platform\",\n      \"evidence\": \"Topify GEO Platform\"\n    },\n    {\n      \"name\": \"Ahrefs Brand Radar\",\n      \"evidence\": \"Ahrefs Brand Radar\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

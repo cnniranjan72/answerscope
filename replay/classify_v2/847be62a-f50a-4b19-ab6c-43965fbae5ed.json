@@ -1,0 +1,15 @@
+{
+ "response_id": "847be62a-f50a-4b19-ab6c-43965fbae5ed",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "88133a6d596d3a4defa000647f0c1eeb83b3c5aa0e39aa96edd2384d6000ece7",
+ "recorded_at": "2026-10-29T06:01:23+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 73151,
+   "raw_output": "{\n  \"kasparro_mentioned\": false,\n  \"mention_evidence\": [],\n  \"recommendation_type\": \"not_applicable\",\n  \"kasparro_recommended\": false,\n  \"recommendation_evidence\": [],\n  \"negative_characterization\": false,\n  \"negative_evidence\": [],\n  \"entity_confusion\": false,\n  \"confusion_evidence\": [],\n  \"competitors\": [\n    {\n      \"name\": \"MindStudio\",\n      \"evidence\": \"Using specialized agents like MindStudio allows for structured, multi-step queries\"\n    },\n    {\n      \"name\": \"PromptPerfect\",\n      \"evidence\": \"Tools like PromptPerfect or GeneratePrompt.ai instantly optimize, refine, and test prompts\"\n    },\n    {\n      \"name\": \"GeneratePrompt.ai\",\n      \"evidence\": \"Tools like PromptPerfect or GeneratePrompt.ai instantly optimize, refine, and test prompts\"\n    },\n    {\n      \"name\": \"Perplexity AI\",\n      \"evidence\": \"Platforms like Perplexity AI and You.com inherently focus on citing sources\"\n    },\n    {\n      \"name\": \"You.com\",\n      \"evidence\": \"Platforms like Perplexity AI and You.com inherently focus on citing sources\"\n    },\n    {\n      \"name\": \"Claude\",\n      \"evidence\": \"Use multiple AI agents (e.g., Perplexity, Claude, Gemini) to compare results\"\n    },\n    {\n      \"name\": \"Gemini\",\n      \"evidence\": \"Use multiple AI agents (e.g., Perplexity, Claude, Gemini) to compare results\"\n    }\n  ],\n  \"position_basis\": \"not_mentioned\",\n  \"rationale\": \"Kasparro is not mentioned in the provided answer.\"\n}"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "response_id": "1c2f6b84-50ad-4192-a20e-8b000e3aa7e1",
+ "prompt_version": "classify-v2",
+ "model": "gemma4:12b",
+ "input_sha256": "030a7a87b5f77598306f5c0bb7642eb4889af0146f1d9c5dea95c345e0c36899",
+ "recorded_at": "2026-10-29T06:19:48+00:00",
+ "attempts": [
+  {
+   "outcome": "ok",
+   "error": null,
+   "latency_ms": 51988,
+   "raw_output": "{\"kasparro_mentioned\": false, \"mention_evidence\": [], \"recommendation_type\": \"not_applicable\", \"kasparro_recommended\": false, \"recommendation_evidence\": [], \"negative_characterization\": false, \"negative_evidence\": [], \"entity_confusion\": false, \"confusion_evidence\": [], \"competitors\": [{\"name\": \"G2\", \"evidence\": \"If your product isn't mentioned across trusted software directories (G2, Capterra, SourceForge)\"}, {\"name\": \"Capterra\", \"evidence\": \"If your product isn't mentioned across trusted software directories (G2, Capterra, SourceForge)\"}, {\"name\": \"SourceForge\", \"evidence\": \"If your product isn't mentioned across trusted software directories (G2, Capterra, SourceForge)\"}], \"position_basis\": \"not_mentioned\", \"rationale\": \"Kasparro is not mentioned in the provided answer.\"}"
+  }
+ ]
+}
